@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net" default-autowire="constructor">
+  
+  <object id="ssfactory"
+        type="NHibernate.ISessionFactory, NHibernate"
+        factory-object="nhHelpersFactory"
+        factory-method="CreateSessionFactory" singleton="false"/>
+  
+<!-- StandardCodeRepository -->
+  <object id="standardCodeRepository"
+              type="Com.Ktbl.FontHP.Map.Repository.StandardCodeRepository, Com.Ktbl.FontHP.Map">
+    <property name="SessionFactory"  ref="ssfactory"/>
+  </object>
+  
+</objects>
