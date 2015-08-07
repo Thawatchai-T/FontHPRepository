@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Ktbl.FontHP.Web", "..\Com.Ktbl.FontHP.Web\Com.Ktbl.FontHP.Web.csproj", "{041288CC-68AC-444E-9160-F0E869351C2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Ktbl.FontHP.Map", "..\Infrastructure\Com.Ktbl.FontHP.Map\Com.Ktbl.FontHP.Map.csproj", "{D91101CC-60E4-4BC9-BE18-8CBE4D2D29FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Ktbl.FontHP.Domain", "..\Infrastructure\Com.Ktbl.FontHP.Domain\Com.Ktbl.FontHP.Domain.csproj", "{86BC99BB-C39E-40A7-95CE-C6036707B502}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhibernateTestProject1", "..\NhibernateTestProject1\NhibernateTestProject1.csproj", "{8ABF0066-9DDF-4809-9541-2D6FC88BB174}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{4B1B742E-FCEF-45EE-B611-E25080E1D098}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{2E30717F-ED56-4122-AFED-99A788BFA0EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{91208CDC-35D6-4982-B03D-8A8586003B6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Log", "Log", "{372B34FC-FF30-415B-B72C-83B1CFD83C92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{041288CC-68AC-444E-9160-F0E869351C2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{041288CC-68AC-444E-9160-F0E869351C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{041288CC-68AC-444E-9160-F0E869351C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{041288CC-68AC-444E-9160-F0E869351C2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D91101CC-60E4-4BC9-BE18-8CBE4D2D29FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D91101CC-60E4-4BC9-BE18-8CBE4D2D29FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D91101CC-60E4-4BC9-BE18-8CBE4D2D29FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D91101CC-60E4-4BC9-BE18-8CBE4D2D29FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86BC99BB-C39E-40A7-95CE-C6036707B502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86BC99BB-C39E-40A7-95CE-C6036707B502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86BC99BB-C39E-40A7-95CE-C6036707B502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86BC99BB-C39E-40A7-95CE-C6036707B502}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ABF0066-9DDF-4809-9541-2D6FC88BB174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ABF0066-9DDF-4809-9541-2D6FC88BB174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ABF0066-9DDF-4809-9541-2D6FC88BB174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ABF0066-9DDF-4809-9541-2D6FC88BB174}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D91101CC-60E4-4BC9-BE18-8CBE4D2D29FE} = {4B1B742E-FCEF-45EE-B611-E25080E1D098}
+		{86BC99BB-C39E-40A7-95CE-C6036707B502} = {4B1B742E-FCEF-45EE-B611-E25080E1D098}
+		{041288CC-68AC-444E-9160-F0E869351C2D} = {2E30717F-ED56-4122-AFED-99A788BFA0EE}
+		{8ABF0066-9DDF-4809-9541-2D6FC88BB174} = {91208CDC-35D6-4982-B03D-8A8586003B6B}
+	EndGlobalSection
+EndGlobal
