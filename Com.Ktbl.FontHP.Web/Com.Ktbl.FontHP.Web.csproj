@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\FontHP\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,10 +42,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common.Logging">
-      <HintPath>..\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
+      <HintPath>..\FontHP\packages\Common.Logging.3.0.0\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging.Core">
-      <HintPath>..\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
+      <HintPath>..\FontHP\packages\Common.Logging.Core.3.0.0\lib\net40\Common.Logging.Core.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate">
       <HintPath>..\packages\FluentNHibernate.2.0.1.0\lib\net40\FluentNHibernate.dll</HintPath>
@@ -60,16 +62,16 @@
       <HintPath>..\packages\NHibernate.4.0.3.4000\lib\net40\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Aop">
-      <HintPath>..\packages\Spring.Aop.2.0.1\lib\net45\Spring.Aop.dll</HintPath>
+      <HintPath>..\FontHP\packages\Spring.Aop.2.0.1\lib\net45\Spring.Aop.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Core">
-      <HintPath>..\packages\Spring.Core.2.0.1\lib\net45\Spring.Core.dll</HintPath>
+      <HintPath>..\FontHP\packages\Spring.Core.2.0.1\lib\net45\Spring.Core.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Web">
-      <HintPath>..\packages\Spring.Web.2.0.1\lib\net45\Spring.Web.dll</HintPath>
+      <HintPath>..\FontHP\packages\Spring.Web.2.0.1\lib\net45\Spring.Web.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Web.Mvc4">
-      <HintPath>..\packages\Spring.Web.Mvc4.2.0.1\lib\net45\Spring.Web.Mvc4.dll</HintPath>
+      <HintPath>..\FontHP\packages\Spring.Web.Mvc4.2.0.1\lib\net45\Spring.Web.Mvc4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -136,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -146,11 +149,464 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="app.js" />
+    <Content Include="app\model\AddressCusModel.js" />
+    <Content Include="app\model\BranchModel.js" />
+    <Content Include="app\model\BrowsePaperMyModel.js" />
+    <Content Include="app\model\CancelRequestLimit60Model.js" />
+    <Content Include="app\model\CheckPaperModel.js" />
+    <Content Include="app\model\ComHirModel.js" />
+    <Content Include="app\model\ComInsModel.js" />
+    <Content Include="app\model\CommitinSpecialModel.js" />
+    <Content Include="app\model\CommonModel.js" />
+    <Content Include="app\model\DealerSelectModel.js" />
+    <Content Include="app\model\DistrictModel.js" />
+    <Content Include="app\model\GaranterOccupationCatelogyModel.js" />
+    <Content Include="app\model\GaranterOccupationGroupModel.js" />
+    <Content Include="app\model\GarantureModel.js" />
+    <Content Include="app\model\GridLeadModel.js" />
+    <Content Include="app\model\GurantorGridModel.js" />
+    <Content Include="app\model\HistoryCheckDocumentModel.js" />
+    <Content Include="app\model\IncomeMainModel.js" />
+    <Content Include="app\model\IncomeOtherModel.js" />
+    <Content Include="app\model\IncomeSubModel.js" />
+    <Content Include="app\model\JobIndex.js" />
+    <Content Include="app\model\LoginModel.js" />
+    <Content Include="app\model\MarketModel.js" />
+    <Content Include="app\model\OccupationCatelogyModel.js" />
+    <Content Include="app\model\OccupationGroupModel.js" />
+    <Content Include="app\model\OccupationTypeModel.js" />
+    <Content Include="app\model\PositionModel.js" />
+    <Content Include="app\model\ProvinceModel.js" />
+    <Content Include="app\model\RequestModel.js" />
+    <Content Include="app\model\RequestStatusModel.js" />
+    <Content Include="app\model\StatusModel.js" />
+    <Content Include="app\model\SubDistrictModel.js" />
+    <Content Include="app\model\SubsidyViewModel.js" />
+    <Content Include="app\model\SunsidyModel.js" />
+    <Content Include="app\model\TestModel.js" />
+    <Content Include="app\model\TypeCardModel.js" />
+    <Content Include="app\model\TypeCustomerModel.js" />
+    <Content Include="app\model\TypePaperModel.js" />
+    <Content Include="app\model\TypePopupCardModel.js" />
+    <Content Include="app\store\addressCusModels.js" />
+    <Content Include="app\store\BranchStore.js" />
+    <Content Include="app\store\browsePaperMyModels.js" />
+    <Content Include="app\store\cancelRequestLimit60Models.js" />
+    <Content Include="app\store\checkPaperModels.js" />
+    <Content Include="app\store\combo\LoginStore.js" />
+    <Content Include="app\store\combo\TestStore.js" />
+    <Content Include="app\store\comHirModels.js" />
+    <Content Include="app\store\comInsModels.js" />
+    <Content Include="app\store\commitinSpecialModels.js" />
+    <Content Include="app\store\commonModels.js" />
+    <Content Include="app\store\dealerSelectModels.js" />
+    <Content Include="app\store\districtModels.js" />
+    <Content Include="app\store\gridLeadModels.js" />
+    <Content Include="app\store\gurantorGridModels.js" />
+    <Content Include="app\store\historyCheckDocumentModels.js" />
+    <Content Include="app\store\incomeMainModels.js" />
+    <Content Include="app\store\incomeOtherModels.js" />
+    <Content Include="app\store\incomeSubModels.js" />
+    <Content Include="app\store\marketModels.js" />
+    <Content Include="app\store\occupationCatelogyModels.js" />
+    <Content Include="app\store\occupationGroupModels.js" />
+    <Content Include="app\store\occupationTypeModels.js" />
+    <Content Include="app\store\positionModels.js" />
+    <Content Include="app\store\provinceModels.js" />
+    <Content Include="app\store\requestModels.js" />
+    <Content Include="app\store\RequestStatusStores.js" />
+    <Content Include="app\store\statusModels.js" />
+    <Content Include="app\store\subDistrictModels.js" />
+    <Content Include="app\store\sunsidyModels.js" />
+    <Content Include="app\store\typeCardModels.js" />
+    <Content Include="app\store\typeCustomerModels.js" />
+    <Content Include="app\store\typePaperModels.js" />
+    <Content Include="app\store\typePopupCardModels.js" />
+    <Content Include="app\view\FrmCommHiringViewController2.js" />
+    <Content Include="app\view\FrmCommHiringViewController4.js" />
+    <Content Include="app\view\FrmCommHiringViewModel2.js" />
+    <Content Include="app\view\FrmCommHiringViewModel4.js" />
+    <Content Include="app\view\FrmComSpecialViewController.js" />
+    <Content Include="app\view\FrmComSpecialViewController1.js" />
+    <Content Include="app\view\FrmComSpecialViewController2.js" />
+    <Content Include="app\view\FrmComSpecialViewController3.js" />
+    <Content Include="app\view\FrmComSpecialViewController4.js" />
+    <Content Include="app\view\FrmComSpecialViewController5.js" />
+    <Content Include="app\view\FrmComSpecialViewController6.js" />
+    <Content Include="app\view\FrmComSpecialViewController7.js" />
+    <Content Include="app\view\FrmComSpecialViewModel.js" />
+    <Content Include="app\view\FrmComSpecialViewModel1.js" />
+    <Content Include="app\view\FrmComSpecialViewModel2.js" />
+    <Content Include="app\view\FrmComSpecialViewModel3.js" />
+    <Content Include="app\view\FrmComSpecialViewModel4.js" />
+    <Content Include="app\view\FrmComSpecialViewModel5.js" />
+    <Content Include="app\view\FrmComSpecialViewModel6.js" />
+    <Content Include="app\view\FrmComSpecialViewModel7.js" />
+    <Content Include="app\view\FrmGarantorViewController2.js" />
+    <Content Include="app\view\FrmGarantorViewController3.js" />
+    <Content Include="app\view\FrmGarantorViewController4.js" />
+    <Content Include="app\view\FrmGarantorViewController5.js" />
+    <Content Include="app\view\FrmGarantorViewController7.js" />
+    <Content Include="app\view\FrmGarantorViewController8.js" />
+    <Content Include="app\view\FrmGarantorViewController9.js" />
+    <Content Include="app\view\FrmGarantorViewModel2.js" />
+    <Content Include="app\view\FrmGarantorViewModel3.js" />
+    <Content Include="app\view\FrmGarantorViewModel4.js" />
+    <Content Include="app\view\FrmGarantorViewModel5.js" />
+    <Content Include="app\view\FrmGarantorViewModel7.js" />
+    <Content Include="app\view\FrmGarantorViewModel8.js" />
+    <Content Include="app\view\FrmGarantorViewModel9.js" />
+    <Content Include="app\view\FrmLimit60ViewController.js" />
+    <Content Include="app\view\FrmLimit60ViewModel.js" />
+    <Content Include="app\view\FrmPopupEmpSell.js" />
+    <Content Include="app\view\main\home\Indox.js" />
+    <Content Include="app\view\main\home\IndoxViewController.js" />
+    <Content Include="app\view\main\home\IndoxViewModel.js" />
+    <Content Include="app\view\main\maincheckdoc\CheckDocumentTab.js" />
+    <Content Include="app\view\main\maincheckdoc\DocumentHistoryTab.js" />
+    <Content Include="app\view\main\mainmarketing\MarketingTab.js" />
+    <Content Include="app\view\main\mainmarketing\MarketingTabViewController.js" />
+    <Content Include="app\view\main\mainmarketing\MarketingTabViewModel.js" />
+    <Content Include="app\view\main\mainmarketing\MktLimit60Tab.js" />
+    <Content Include="app\view\main\mainmarketing\window\CommHiringWindow.js" />
+    <Content Include="app\view\main\mainmarketing\window\CommHiringWindowViewController.js" />
+    <Content Include="app\view\main\mainmarketing\window\CommHiringWindowViewModel.js" />
+    <Content Include="app\view\main\mainmarketing\window\CommInsWindow.js" />
+    <Content Include="app\view\main\mainmarketing\window\CommInsWindowViewController.js" />
+    <Content Include="app\view\main\mainmarketing\window\CommInsWindowViewModel.js" />
+    <Content Include="app\view\main\mainmarketing\window\commonpopup\PopupCusAddress.js" />
+    <Content Include="app\view\main\mainmarketing\window\commonpopup\PopupDealer.js" />
+    <Content Include="app\view\main\mainmarketing\window\commonpopup\PopupTypeCard.js" />
+    <Content Include="app\view\main\mainmarketing\window\ComSpecialWindow.js" />
+    <Content Include="app\view\main\mainmarketing\window\ComSpecialWindowViewController.js" />
+    <Content Include="app\view\main\mainmarketing\window\ComSpecialWindowViewModel.js" />
+    <Content Include="app\view\main\mainmarketing\window\CustomeraddressWindow.js" />
+    <Content Include="app\view\main\mainmarketing\window\GarantorWindow.js" />
+    <Content Include="app\view\main\mainmarketing\window\GarantorWindowViewController.js" />
+    <Content Include="app\view\main\mainmarketing\window\GarantorWindowViewModel.js" />
+    <Content Include="app\view\main\mainmarketing\window\InsuranceWindow.js" />
+    <Content Include="app\view\main\mainmarketing\window\LeadWindow.js" />
+    <Content Include="app\view\main\mainmarketing\window\main\mainmarketing\window\main\mainmarketing\window\requestcustomer\RequestCustomerWindow.js" />
+    <Content Include="app\view\main\mainmarketing\window\main\mainmarketing\window\popup\ViewModel.js" />
+    <Content Include="app\view\main\mainmarketing\window\requestcustomer\popup\PopupBranch.js" />
+    <Content Include="app\view\main\mainmarketing\window\requestcustomer\popup\PopupLead.js" />
+    <Content Include="app\view\main\mainmarketing\window\requestcustomer\popup\PopupMarketing.js" />
+    <Content Include="app\view\main\mainmarketing\window\requestcustomer\RequestCustomerWindow.js" />
+    <Content Include="app\view\main\mainmarketing\window\StatusInfoWindow.js" />
+    <Content Include="app\view\main\mainmarketing\window\SubsidyWindow.js" />
+    <Content Include="app\view\main\mainmarketing\window\TypeCardWindow.js" />
+    <Content Include="app\view\main\MainViewport.js" />
+    <Content Include="app\view\main\MainViewportViewController.js" />
+    <Content Include="app\view\main\MainViewportViewModel.js" />
+    <Content Include="app\view\MyForm1.js" />
+    <Content Include="app\view\MyForm1ViewController.js" />
+    <Content Include="app\view\MyForm1ViewModel.js" />
+    <Content Include="app\view\MyGridPanel1.js" />
+    <Content Include="app\view\MyGridPanel1ViewController.js" />
+    <Content Include="app\view\MyGridPanel1ViewModel.js" />
+    <Content Include="app\view\Tab1\window\FrmCreditNode.js" />
+    <Content Include="app\view\Tab2\window\FrmBrowseFileCheck.js" />
+    <Content Include="app\view\Tab2\window\FrmBrowseFileCheckViewController.js" />
+    <Content Include="app\view\Tab2\window\FrmBrowseFileCheckViewModel.js" />
+    <Content Include="app\view\Tab2\window\FrmPopupBrowsePaper.js" />
+    <Content Include="app\view\WindowMainApp.js" />
+    <Content Include="app\view\WindowMainAppViewController.js" />
+    <Content Include="app\view\WindowMainAppViewModel.js" />
+    <Content Include="bootstrap.css" />
+    <Content Include="bootstrap.js" />
     <Content Include="Config\Aspects.xml" />
     <Content Include="Config\controllers.xml" />
     <Content Include="Config\objects.xml" />
     <Content Include="Config\repository.xml" />
     <Content Include="Global.asax" />
+    <Content Include="resources\.arch-internal-preview.css" />
+    <Content Include="resources\custome.css" />
+    <Content Include="resources\customs.css" />
+    <Content Include="resources\FrontHPApp-all.css" />
+    <Content Include="resources\FrontHPApp-all_01.css" />
+    <Content Include="resources\FrontHPApp-all_02.css" />
+    <Content Include="resources\icons.css" />
+    <Content Include="resources\icons\accept.gif" />
+    <Content Include="resources\icons\add.png" />
+    <Content Include="resources\icons\address.png" />
+    <Content Include="resources\icons\approve.png" />
+    <Content Include="resources\icons\calculate.png" />
+    <Content Include="resources\icons\cancel.gif" />
+    <Content Include="resources\icons\card.png" />
+    <Content Include="resources\icons\change.png" />
+    <Content Include="resources\icons\chart.png" />
+    <Content Include="resources\icons\cog_edit.png" />
+    <Content Include="resources\icons\comHir.png" />
+    <Content Include="resources\icons\comIns.png" />
+    <Content Include="resources\icons\comSpe.png" />
+    <Content Include="resources\icons\creditnode.png" />
+    <Content Include="resources\icons\cross.gif" />
+    <Content Include="resources\icons\delete.png" />
+    <Content Include="resources\icons\details.gif" />
+    <Content Include="resources\icons\edit.png" />
+    <Content Include="resources\icons\equals.png" />
+    <Content Include="resources\icons\excel.jpg" />
+    <Content Include="resources\icons\exclamation.gif" />
+    <Content Include="resources\icons\find.png" />
+    <Content Include="resources\icons\find2.png" />
+    <Content Include="resources\icons\folder.gif" />
+    <Content Include="resources\icons\folder_open.gif" />
+    <Content Include="resources\icons\garanter.png" />
+    <Content Include="resources\icons\greater_than.png" />
+    <Content Include="resources\icons\grid.png" />
+    <Content Include="resources\icons\history.png" />
+    <Content Include="resources\icons\insurance.gif" />
+    <Content Include="resources\icons\lead.png" />
+    <Content Include="resources\icons\less_than.png" />
+    <Content Include="resources\icons\loading.gif" />
+    <Content Include="resources\icons\mail.png" />
+    <Content Include="resources\icons\mail_open.png" />
+    <Content Include="resources\icons\nowait.gif" />
+    <Content Include="resources\icons\paper.png" />
+    <Content Include="resources\icons\paperChk.png" />
+    <Content Include="resources\icons\person.png" />
+    <Content Include="resources\icons\refresh-blue.gif" />
+    <Content Include="resources\icons\refresh-disabled.gif" />
+    <Content Include="resources\icons\refresh.gif" />
+    <Content Include="resources\icons\refresh_16.png" />
+    <Content Include="resources\icons\reload.png" />
+    <Content Include="resources\icons\reset.png" />
+    <Content Include="resources\icons\save.gif" />
+    <Content Include="resources\icons\saving.gif" />
+    <Content Include="resources\icons\status.png" />
+    <Content Include="resources\icons\stop.png" />
+    <Content Include="resources\icons\subsidy.png" />
+    <Content Include="resources\icons\tabs.gif" />
+    <Content Include="resources\icons\upload.png" />
+    <Content Include="resources\icons\view_list.png" />
+    <Content Include="resources\icons\write.png" />
+    <Content Include="resources\icons\x.png" />
+    <Content Include="resources\images\breadcrumb\default-arrow-open-rtl.png" />
+    <Content Include="resources\images\breadcrumb\default-arrow-open.png" />
+    <Content Include="resources\images\breadcrumb\default-arrow-rtl.png" />
+    <Content Include="resources\images\breadcrumb\default-arrow.png" />
+    <Content Include="resources\images\breadcrumb\default-scroll-left.png" />
+    <Content Include="resources\images\breadcrumb\default-scroll-right.png" />
+    <Content Include="resources\images\breadcrumb\default-split-arrow-open-rtl.png" />
+    <Content Include="resources\images\breadcrumb\default-split-arrow-open.png" />
+    <Content Include="resources\images\breadcrumb\default-split-arrow-over-rtl.png" />
+    <Content Include="resources\images\breadcrumb\default-split-arrow-over.png" />
+    <Content Include="resources\images\breadcrumb\default-split-arrow-rtl.png" />
+    <Content Include="resources\images\breadcrumb\default-split-arrow.png" />
+    <Content Include="resources\images\button\default-large-arrow-rtl.png" />
+    <Content Include="resources\images\button\default-large-arrow.png" />
+    <Content Include="resources\images\button\default-large-s-arrow-b-rtl.png" />
+    <Content Include="resources\images\button\default-large-s-arrow-b.png" />
+    <Content Include="resources\images\button\default-large-s-arrow-rtl.png" />
+    <Content Include="resources\images\button\default-large-s-arrow.png" />
+    <Content Include="resources\images\button\default-medium-arrow-rtl.png" />
+    <Content Include="resources\images\button\default-medium-arrow.png" />
+    <Content Include="resources\images\button\default-medium-s-arrow-b-rtl.png" />
+    <Content Include="resources\images\button\default-medium-s-arrow-b.png" />
+    <Content Include="resources\images\button\default-medium-s-arrow-rtl.png" />
+    <Content Include="resources\images\button\default-medium-s-arrow.png" />
+    <Content Include="resources\images\button\default-small-arrow-rtl.png" />
+    <Content Include="resources\images\button\default-small-arrow.png" />
+    <Content Include="resources\images\button\default-small-s-arrow-b-rtl.png" />
+    <Content Include="resources\images\button\default-small-s-arrow-b.png" />
+    <Content Include="resources\images\button\default-small-s-arrow-rtl.png" />
+    <Content Include="resources\images\button\default-small-s-arrow.png" />
+    <Content Include="resources\images\button\default-toolbar-large-arrow-rtl.png" />
+    <Content Include="resources\images\button\default-toolbar-large-arrow.png" />
+    <Content Include="resources\images\button\default-toolbar-large-s-arrow-b-rtl.png" />
+    <Content Include="resources\images\button\default-toolbar-large-s-arrow-b.png" />
+    <Content Include="resources\images\button\default-toolbar-large-s-arrow-rtl.png" />
+    <Content Include="resources\images\button\default-toolbar-large-s-arrow.png" />
+    <Content Include="resources\images\button\default-toolbar-medium-arrow-rtl.png" />
+    <Content Include="resources\images\button\default-toolbar-medium-arrow.png" />
+    <Content Include="resources\images\button\default-toolbar-medium-s-arrow-b-rtl.png" />
+    <Content Include="resources\images\button\default-toolbar-medium-s-arrow-b.png" />
+    <Content Include="resources\images\button\default-toolbar-medium-s-arrow-rtl.png" />
+    <Content Include="resources\images\button\default-toolbar-medium-s-arrow.png" />
+    <Content Include="resources\images\button\default-toolbar-small-arrow-rtl.png" />
+    <Content Include="resources\images\button\default-toolbar-small-arrow.png" />
+    <Content Include="resources\images\button\default-toolbar-small-s-arrow-b-rtl.png" />
+    <Content Include="resources\images\button\default-toolbar-small-s-arrow-b.png" />
+    <Content Include="resources\images\button\default-toolbar-small-s-arrow-rtl.png" />
+    <Content Include="resources\images\button\default-toolbar-small-s-arrow.png" />
+    <Content Include="resources\images\button\grid-cell-small-arrow-rtl.png" />
+    <Content Include="resources\images\button\grid-cell-small-arrow.png" />
+    <Content Include="resources\images\button\grid-cell-small-s-arrow-b.png" />
+    <Content Include="resources\images\button\grid-cell-small-s-arrow-rtl.png" />
+    <Content Include="resources\images\button\grid-cell-small-s-arrow.png" />
+    <Content Include="resources\images\button\plain-toolbar-large-arrow-rtl.png" />
+    <Content Include="resources\images\button\plain-toolbar-large-arrow.png" />
+    <Content Include="resources\images\button\plain-toolbar-large-s-arrow-b-rtl.png" />
+    <Content Include="resources\images\button\plain-toolbar-large-s-arrow-b.png" />
+    <Content Include="resources\images\button\plain-toolbar-large-s-arrow-rtl.png" />
+    <Content Include="resources\images\button\plain-toolbar-large-s-arrow.png" />
+    <Content Include="resources\images\button\plain-toolbar-medium-arrow-rtl.png" />
+    <Content Include="resources\images\button\plain-toolbar-medium-arrow.png" />
+    <Content Include="resources\images\button\plain-toolbar-medium-s-arrow-b-rtl.png" />
+    <Content Include="resources\images\button\plain-toolbar-medium-s-arrow-b.png" />
+    <Content Include="resources\images\button\plain-toolbar-medium-s-arrow-rtl.png" />
+    <Content Include="resources\images\button\plain-toolbar-medium-s-arrow.png" />
+    <Content Include="resources\images\button\plain-toolbar-small-arrow-rtl.png" />
+    <Content Include="resources\images\button\plain-toolbar-small-arrow.png" />
+    <Content Include="resources\images\button\plain-toolbar-small-s-arrow-b-rtl.png" />
+    <Content Include="resources\images\button\plain-toolbar-small-s-arrow-b.png" />
+    <Content Include="resources\images\button\plain-toolbar-small-s-arrow-rtl.png" />
+    <Content Include="resources\images\button\plain-toolbar-small-s-arrow.png" />
+    <Content Include="resources\images\datepicker\arrow-left.png" />
+    <Content Include="resources\images\datepicker\arrow-right.png" />
+    <Content Include="resources\images\datepicker\month-arrow.png" />
+    <Content Include="resources\images\dd\drop-add.png" />
+    <Content Include="resources\images\dd\drop-no.png" />
+    <Content Include="resources\images\dd\drop-yes.png" />
+    <Content Include="resources\images\editor\tb-sprite.png" />
+    <Content Include="resources\images\fieldset\collapse-tool.png" />
+    <Content Include="resources\images\form\checkbox.png" />
+    <Content Include="resources\images\form\clear-trigger-rtl.png" />
+    <Content Include="resources\images\form\clear-trigger.png" />
+    <Content Include="resources\images\form\date-trigger-rtl.png" />
+    <Content Include="resources\images\form\date-trigger.png" />
+    <Content Include="resources\images\form\exclamation.png" />
+    <Content Include="resources\images\form\radio.png" />
+    <Content Include="resources\images\form\search-trigger-rtl.png" />
+    <Content Include="resources\images\form\search-trigger.png" />
+    <Content Include="resources\images\form\spinner-down-rtl.png" />
+    <Content Include="resources\images\form\spinner-down.png" />
+    <Content Include="resources\images\form\spinner-rtl.png" />
+    <Content Include="resources\images\form\spinner-up-rtl.png" />
+    <Content Include="resources\images\form\spinner-up.png" />
+    <Content Include="resources\images\form\spinner.png" />
+    <Content Include="resources\images\form\tag-field-item-close.png" />
+    <Content Include="resources\images\form\trigger-rtl.png" />
+    <Content Include="resources\images\form\trigger.png" />
+    <Content Include="resources\images\grid\col-move-bottom.png" />
+    <Content Include="resources\images\grid\col-move-top.png" />
+    <Content Include="resources\images\grid\columns.png" />
+    <Content Include="resources\images\grid\dd-insert-arrow-left.png" />
+    <Content Include="resources\images\grid\dd-insert-arrow-right.png" />
+    <Content Include="resources\images\grid\dirty-rtl.png" />
+    <Content Include="resources\images\grid\dirty.png" />
+    <Content Include="resources\images\grid\drop-no.png" />
+    <Content Include="resources\images\grid\drop-yes.png" />
+    <Content Include="resources\images\grid\filters\equals.png" />
+    <Content Include="resources\images\grid\filters\find.png" />
+    <Content Include="resources\images\grid\filters\greater_than.png" />
+    <Content Include="resources\images\grid\filters\less_than.png" />
+    <Content Include="resources\images\grid\group-by.png" />
+    <Content Include="resources\images\grid\group-collapse.png" />
+    <Content Include="resources\images\grid\group-expand.png" />
+    <Content Include="resources\images\grid\hd-pop.png" />
+    <Content Include="resources\images\grid\hmenu-asc.png" />
+    <Content Include="resources\images\grid\hmenu-desc.png" />
+    <Content Include="resources\images\grid\hmenu-lock.png" />
+    <Content Include="resources\images\grid\hmenu-unlock.png" />
+    <Content Include="resources\images\grid\loading.gif" />
+    <Content Include="resources\images\grid\page-first.png" />
+    <Content Include="resources\images\grid\page-last.png" />
+    <Content Include="resources\images\grid\page-next.png" />
+    <Content Include="resources\images\grid\page-prev.png" />
+    <Content Include="resources\images\grid\pick-button.png" />
+    <Content Include="resources\images\grid\refresh.png" />
+    <Content Include="resources\images\grid\sort_asc.png" />
+    <Content Include="resources\images\grid\sort_desc.png" />
+    <Content Include="resources\images\loadmask\loading.gif" />
+    <Content Include="resources\images\magnify.png" />
+    <Content Include="resources\images\menu\default-checked.png" />
+    <Content Include="resources\images\menu\default-group-checked.png" />
+    <Content Include="resources\images\menu\default-menu-parent-left.png" />
+    <Content Include="resources\images\menu\default-menu-parent.png" />
+    <Content Include="resources\images\menu\default-scroll-bottom.png" />
+    <Content Include="resources\images\menu\default-scroll-top.png" />
+    <Content Include="resources\images\menu\default-unchecked.png" />
+    <Content Include="resources\images\shared\icon-error.png" />
+    <Content Include="resources\images\shared\icon-info.png" />
+    <Content Include="resources\images\shared\icon-question.png" />
+    <Content Include="resources\images\shared\icon-warning.png" />
+    <Content Include="resources\images\sizer\e-handle.png" />
+    <Content Include="resources\images\sizer\ne-handle.png" />
+    <Content Include="resources\images\sizer\nw-handle.png" />
+    <Content Include="resources\images\sizer\s-handle.png" />
+    <Content Include="resources\images\sizer\se-handle.png" />
+    <Content Include="resources\images\sizer\sw-handle.png" />
+    <Content Include="resources\images\slider\slider-bg.png" />
+    <Content Include="resources\images\slider\slider-thumb.png" />
+    <Content Include="resources\images\slider\slider-v-bg.png" />
+    <Content Include="resources\images\slider\slider-v-thumb.png" />
+    <Content Include="resources\images\tab-bar\default-plain-scroll-bottom.png" />
+    <Content Include="resources\images\tab-bar\default-plain-scroll-left.png" />
+    <Content Include="resources\images\tab-bar\default-plain-scroll-right.png" />
+    <Content Include="resources\images\tab-bar\default-plain-scroll-top.png" />
+    <Content Include="resources\images\tab-bar\default-scroll-bottom.png" />
+    <Content Include="resources\images\tab-bar\default-scroll-left.png" />
+    <Content Include="resources\images\tab-bar\default-scroll-right.png" />
+    <Content Include="resources\images\tab-bar\default-scroll-top.png" />
+    <Content Include="resources\images\tab\tab-default-close.png" />
+    <Content Include="resources\images\toolbar\default-more-left.png" />
+    <Content Include="resources\images\toolbar\default-more.png" />
+    <Content Include="resources\images\toolbar\default-scroll-bottom.png" />
+    <Content Include="resources\images\toolbar\default-scroll-left.png" />
+    <Content Include="resources\images\toolbar\default-scroll-right.png" />
+    <Content Include="resources\images\toolbar\default-scroll-top.png" />
+    <Content Include="resources\images\toolbar\footer-more-left.png" />
+    <Content Include="resources\images\toolbar\footer-more.png" />
+    <Content Include="resources\images\toolbar\footer-scroll-left.png" />
+    <Content Include="resources\images\toolbar\footer-scroll-right.png" />
+    <Content Include="resources\images\tools\tool-sprites-dark.png" />
+    <Content Include="resources\images\tools\tool-sprites.png" />
+    <Content Include="resources\images\tree\arrows-rtl.png" />
+    <Content Include="resources\images\tree\arrows.png" />
+    <Content Include="resources\images\tree\drop-above.png" />
+    <Content Include="resources\images\tree\drop-add.gif" />
+    <Content Include="resources\images\tree\drop-add.png" />
+    <Content Include="resources\images\tree\drop-append.png" />
+    <Content Include="resources\images\tree\drop-below.png" />
+    <Content Include="resources\images\tree\drop-between.gif" />
+    <Content Include="resources\images\tree\drop-between.png" />
+    <Content Include="resources\images\tree\drop-no.gif" />
+    <Content Include="resources\images\tree\drop-no.png" />
+    <Content Include="resources\images\tree\drop-over.gif" />
+    <Content Include="resources\images\tree\drop-over.png" />
+    <Content Include="resources\images\tree\drop-under.gif" />
+    <Content Include="resources\images\tree\drop-under.png" />
+    <Content Include="resources\images\tree\drop-yes.gif" />
+    <Content Include="resources\images\tree\drop-yes.png" />
+    <Content Include="resources\images\tree\elbow-end-minus-rtl.png" />
+    <Content Include="resources\images\tree\elbow-end-minus.png" />
+    <Content Include="resources\images\tree\elbow-end-plus-rtl.png" />
+    <Content Include="resources\images\tree\elbow-end-plus.png" />
+    <Content Include="resources\images\tree\elbow-end-rtl.png" />
+    <Content Include="resources\images\tree\elbow-end.png" />
+    <Content Include="resources\images\tree\elbow-line-rtl.png" />
+    <Content Include="resources\images\tree\elbow-line.png" />
+    <Content Include="resources\images\tree\elbow-minus-nl-rtl.png" />
+    <Content Include="resources\images\tree\elbow-minus-nl.png" />
+    <Content Include="resources\images\tree\elbow-minus-rtl.png" />
+    <Content Include="resources\images\tree\elbow-minus.png" />
+    <Content Include="resources\images\tree\elbow-plus-nl-rtl.png" />
+    <Content Include="resources\images\tree\elbow-plus-nl.png" />
+    <Content Include="resources\images\tree\elbow-plus-rtl.png" />
+    <Content Include="resources\images\tree\elbow-plus.png" />
+    <Content Include="resources\images\tree\elbow-rtl.png" />
+    <Content Include="resources\images\tree\elbow.png" />
+    <Content Include="resources\images\tree\folder-open-rtl.png" />
+    <Content Include="resources\images\tree\folder-open.png" />
+    <Content Include="resources\images\tree\folder-rtl.png" />
+    <Content Include="resources\images\tree\folder.png" />
+    <Content Include="resources\images\tree\leaf-rtl.png" />
+    <Content Include="resources\images\tree\leaf.png" />
+    <Content Include="resources\images\tree\loading.gif" />
+    <Content Include="resources\images\util\splitter\mini-bottom.png" />
+    <Content Include="resources\images\util\splitter\mini-left.png" />
+    <Content Include="resources\images\util\splitter\mini-right.png" />
+    <Content Include="resources\images\util\splitter\mini-top.png" />
+    <Content Include="resources\images\ux\dashboard\magnify.png" />
+    <Content Include="resources\images\window\toast\fade-blue.png" />
+    <Content Include="resources\images\window\toast\fader.png" />
+    <Content Include="resources\images\window\toast\icon16_error.png" />
+    <Content Include="resources\images\window\toast\icon16_info.png" />
+    <Content Include="resources\preview-ext-theme-crisp-a6fb97e1-86da-4512-8f15-ccaa98f3dfbc.css" />
+    <Content Include="resources\preview-ext-theme-crisp-e94f1a90-3845-413e-b928-1286ac1723d2.css" />
+    <Content Include="resources\preview-ext-theme-neptune-eced4e28-8031-4275-b7e5-57e6566dfcca.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -176,6 +632,18 @@
       <Project>{d91101cc-60e4-4bc9-be18-8cbe4d2d29fe}</Project>
       <Name>Com.Ktbl.FontHP.Map</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\icons\Thumbs.db" />
+    <Content Include="resources\Readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.json" />
+    <Content Include="app.json.meta" />
+    <Content Include="bootstrap.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -205,6 +673,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

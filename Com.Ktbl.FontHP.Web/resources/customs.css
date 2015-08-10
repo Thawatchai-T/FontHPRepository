@@ -1,0 +1,65 @@
+.text-require{
+    color:red;
+    display:block;
+    float:left;
+    /* width:100px; */
+    padding:3px;
+    padding-left:0;
+    clear:left;
+    z-index:3;
+    position:relative;
+}
+
+.text-require_black{
+    color:black;
+    display:block;
+    float:left;
+    /* width:100px; */
+    padding:3px;
+    padding-left:0;
+    clear:left;
+    z-index:3;
+    position:relative;
+}
+
+.text-require_right{
+    color:red;
+   /* display:block;
+    float:right;
+    
+    padding:3px;
+    padding-left:0;
+    clear:left;
+    z-index:3;
+    position:relative;*/
+}
+
+/*Lead*/
+.text-Header{
+    color:red;
+    font-weight:bold;
+    
+    float:left;
+    /* width:100px; */
+    padding:3px;
+    padding-left:0;
+    clear:left;
+    z-index:10;
+    
+}
+.text-title
+{
+    color:black;
+    font-weight:bold;
+    display:block;
+    float:left;
+    /* width:100px; */
+    padding:3px;
+    padding-left:0;
+    clear:left;
+    z-index:3;
+    position:relative;
+   
+   
+}
+
