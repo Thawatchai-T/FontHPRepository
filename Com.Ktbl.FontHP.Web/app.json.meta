@@ -1,0 +1,1 @@
+{"_comment":"Please don't edit. This is Architect data.","name":"FrontHPApp","resources":["resources/icons.css","resources/customs.css"],"requires":["sencha-charts"],"theme":"ext-theme-neptune-eced4e28-8031-4275-b7e5-57e6566dfcca","classpath":null,"css":[{"path":"resources/icons.css"},{"path":"resources/customs.css"}],"js":[]}
