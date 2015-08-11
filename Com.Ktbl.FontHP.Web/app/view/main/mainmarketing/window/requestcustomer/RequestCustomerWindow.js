@@ -18,8 +18,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
     alias: 'widget.mainmainmarketingwindowrequestcustomerrequestcustomerwindow',
 
     requires: [
-        'FrontHPApp.view.main.mainmarketing.window.main.mainmarketing.window.popup.ViewModel',
-        'FrontHPApp.view.main.mainmarketing.window.main.mainmarketing.window.main.mainmarketing.window.requestcustomer.RequestCustomerWindow',
+        'FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerWindowViewModel',
+        'FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerWindowViewController',
         'Ext.form.Panel',
         'Ext.form.FieldSet',
         'Ext.XTemplate',
@@ -33,17 +33,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
         'Ext.form.field.File'
     ],
 
-    controller: 'mainmainmarketingwindowmainmainmarketingwindowpopup',
+    controller: 'mainmainmarketingwindowrequestcustomerrequestcustomerwindow',
     viewModel: {
-        type: 'mainmainmarketingwindowmainmainmarketingwindowpopup'
+        type: 'mainmainmarketingwindowrequestcustomerrequestcustomerwindow'
     },
     scrollable: true,
-    defaults: {
-        labelAlign: 'right',
-        labelWidth: 175
-    },
     bodyPadding: 10,
-    iconCls: 'icon-person',
     title: 'ข้อมูลผู้เช่าซื้อ',
 
     layout: {
@@ -60,6 +55,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
             items: [
                 {
                     xtype: 'fieldset',
+                    scrollable: false,
                     defaults: {
                         labelAlign: 'right',
                         labelWidth: 175,

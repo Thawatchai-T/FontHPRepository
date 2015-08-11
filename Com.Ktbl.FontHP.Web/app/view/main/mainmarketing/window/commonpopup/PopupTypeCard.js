@@ -18,8 +18,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard'
     alias: 'widget.mainmainmarketingwindowcommonpopuppopuptypecard',
 
     requires: [
-        'FrontHPApp.view.FrmComSpecialViewModel5',
-        'FrontHPApp.view.FrmComSpecialViewController5',
+        'FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCardViewModel',
+        'FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCardViewController',
         'Ext.form.Panel',
         'Ext.form.field.ComboBox',
         'Ext.form.field.Date',
@@ -33,24 +33,15 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard'
         'Ext.selection.CheckboxModel'
     ],
 
-    config: {
-        requirestext: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>'
-    },
-
     controller: 'mainmainmarketingwindowcommonpopuppopuptypecard',
     viewModel: {
         type: 'mainmainmarketingwindowcommonpopuppopuptypecard'
     },
     autoShow: true,
-    scrollable: true,
     width: 800,
-    title: 'ข้อมูลประเภทบัตร',
+    title: 'ค้นหาข้อมูลประเภทบัตร',
     titleAlign: 'center',
 
-    layout: {
-        type: 'vbox',
-        align: 'stretch'
-    },
     items: [
         {
             xtype: 'form',

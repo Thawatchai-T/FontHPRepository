@@ -18,7 +18,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
     alias: 'widget.mainmainmarketingwindowleadwindow',
 
     requires: [
-        'FrontHPApp.view.FrmCommHiringViewModel2',
+        'FrontHPApp.view.main.mainmarketing.window.LeadWindowViewModel',
         'Ext.form.Panel',
         'Ext.form.field.Display',
         'Ext.form.field.Text'
@@ -26,11 +26,6 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
 
     viewModel: {
         type: 'mainmainmarketingwindowleadwindow'
-    },
-    scrollable: false,
-    defaults: {
-        labelAlign: 'right',
-        labelCls: 'text-title'
     },
     bodyPadding: 10,
     title: 'ผู้แนะนำ',

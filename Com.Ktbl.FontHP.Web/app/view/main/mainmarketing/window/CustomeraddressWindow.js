@@ -15,12 +15,13 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.mainmainmarketingwindowcustomeraddressWindow',
+    alias: 'widget.mainmainmarketingwindowcustomeraddresswindow',
 
     requires: [
-        'FrontHPApp.view.FrmComSpecialViewModel7',
-        'FrontHPApp.view.FrmComSpecialViewController7',
+        'FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindowViewModel',
+        'FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindowViewController',
         'Ext.form.Panel',
+        'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
         'Ext.XTemplate',
         'Ext.form.field.Date',
@@ -33,29 +34,23 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
         'Ext.selection.CheckboxModel'
     ],
 
-    config: {
-        requirestext: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>'
-    },
-
     controller: 'mainmainmarketingwindowcustomeraddresswindow',
     viewModel: {
         type: 'mainmainmarketingwindowcustomeraddresswindow'
     },
     autoShow: true,
-    scrollable: true,
+    scrollable: false,
+    layout: 'border',
     title: 'ข้อมูลที่อยู่',
     titleAlign: 'center',
 
-    layout: {
-        type: 'vbox',
-        align: 'stretch'
-    },
     items: [
         {
             xtype: 'form',
+            region: 'north',
             reference: 'form',
             itemId: 'myform1',
-            scrollable: true,
+            scrollable: false,
             bodyPadding: 10,
             title: '',
             layout: {
@@ -64,14 +59,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
             },
             items: [
                 {
-                    xtype: 'form',
+                    xtype: 'fieldset',
                     defaults: {
                         labelAlign: 'right',
                         labelWidth: 190,
                         afterLabelTextTpl: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>'
                     },
-                    bodyPadding: 5,
-                    iconCls: 'icon-details',
                     title: 'ที่อยู่',
                     layout: {
                         type: 'table',
@@ -219,7 +212,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                             afterLabelTextTpl: [
                                 ' '
                             ],
-                            fieldLabel: 'โทรศัพท์มือถือ',
+                            fieldLabel: 'โทรศัพท์มือถือ1',
                             labelAlign: 'right',
                             labelWidth: 190,
                             name: '',
@@ -276,6 +269,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
         },
         {
             xtype: 'gridpanel',
+            region: 'center',
             itemId: 'GridComSpacial',
             scrollable: true,
             collapsible: false,

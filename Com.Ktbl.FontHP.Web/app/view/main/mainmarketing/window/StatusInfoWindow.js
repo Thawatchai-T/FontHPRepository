@@ -18,7 +18,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.StatusInfoWindow', {
     alias: 'widget.mainmainmarketingwindowstatusinfowindow',
 
     requires: [
-        'FrontHPApp.view.FrmGarantorViewModel4',
+        'FrontHPApp.view.main.mainmarketing.window.StatusInfoWindowViewModel',
         'Ext.form.Panel',
         'Ext.grid.Panel',
         'Ext.view.Table',

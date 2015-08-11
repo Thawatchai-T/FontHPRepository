@@ -18,8 +18,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupDealer', 
     alias: 'widget.mainmainmarketingwindowcommonpopuppopupdealer',
 
     requires: [
-        'FrontHPApp.view.FrmComSpecialViewModel3',
-        'FrontHPApp.view.FrmComSpecialViewController3',
+        'FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupDealerViewModel',
+        'FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupDealerViewController',
         'Ext.form.Panel',
         'Ext.form.field.Text',
         'Ext.form.FieldContainer',
@@ -35,15 +35,10 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupDealer', 
         type: 'mainmainmarketingwindowcommonpopuppopupdealer'
     },
     autoShow: true,
-    scrollable: true,
     width: 800,
-    title: 'ค้นหาข้อมูล',
+    title: 'ค้นหาข้อมูลผู้แทนจำหน่ายรถยนตร์',
     titleAlign: 'center',
 
-    layout: {
-        type: 'vbox',
-        align: 'stretch'
-    },
     items: [
         {
             xtype: 'form',

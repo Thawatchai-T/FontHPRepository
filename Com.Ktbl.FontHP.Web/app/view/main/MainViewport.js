@@ -62,7 +62,7 @@ Ext.define('FrontHPApp.view.main.MainViewport', {
                                 },
                                 {
                                     xtype: 'mainmainmarketingmktlimit60tab',
-                                    width: 150
+                                    title: 'ยืนยันยกเลิกคำขอเกิน 60 วัน'
                                 }
                             ]
                         }

@@ -18,8 +18,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.TypeCardWindow', {
     alias: 'widget.mainmainmarketingwindowtypecardwindow',
 
     requires: [
-        'FrontHPApp.view.FrmGarantorViewModel2',
-        'FrontHPApp.view.FrmGarantorViewController2',
+        'FrontHPApp.view.main.mainmarketing.window.TypeCardWindowViewModel',
+        'FrontHPApp.view.main.mainmarketing.window.TypeCardWindowViewController',
         'Ext.form.Panel',
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',

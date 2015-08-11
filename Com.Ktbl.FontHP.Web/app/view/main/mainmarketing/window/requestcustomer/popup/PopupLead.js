@@ -18,8 +18,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
     alias: 'widget.mainmainmarketingwindowrequestcustomerpopuppopuplead',
 
     requires: [
-        'FrontHPApp.view.FrmComSpecialViewModel1',
-        'FrontHPApp.view.FrmComSpecialViewController1',
+        'FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupLeadViewModel',
+        'FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupLeadViewController',
         'Ext.form.Panel',
         'Ext.form.field.Text',
         'Ext.form.FieldContainer',
@@ -35,10 +35,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
         type: 'mainmainmarketingwindowrequestcustomerpopuppopuplead'
     },
     autoShow: true,
-    scrollable: true,
     width: 850,
-    title: 'ค้นหาข้อมูล',
-    titleAlign: 'center',
+    title: 'ค้นหาข้อมูลผู้แนะนำ',
 
     layout: {
         type: 'vbox',

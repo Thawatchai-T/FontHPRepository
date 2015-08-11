@@ -18,8 +18,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
     alias: 'widget.mainmainmarketingwindowcommonpopuppopupcusaddress',
 
     requires: [
-        'FrontHPApp.view.FrmComSpecialViewModel4',
-        'FrontHPApp.view.FrmComSpecialViewController4',
+        'FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddressViewModel',
+        'FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddressViewController',
         'Ext.form.Panel',
         'Ext.form.field.ComboBox',
         'Ext.XTemplate',
@@ -33,24 +33,15 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
         'Ext.selection.CheckboxModel'
     ],
 
-    config: {
-        requirestext: '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>'
-    },
-
     controller: 'mainmainmarketingwindowcommonpopuppopupcusaddress',
     viewModel: {
         type: 'mainmainmarketingwindowcommonpopuppopupcusaddress'
     },
     autoShow: true,
-    scrollable: true,
     width: 800,
     title: 'ข้อมูลที่อยู่',
     titleAlign: 'center',
 
-    layout: {
-        type: 'vbox',
-        align: 'stretch'
-    },
     items: [
         {
             xtype: 'form',

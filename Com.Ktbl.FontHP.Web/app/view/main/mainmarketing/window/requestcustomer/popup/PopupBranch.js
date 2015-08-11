@@ -18,8 +18,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
     alias: 'widget.mainmainmarketingwindowrequestcustomerpopuppopupbranch',
 
     requires: [
-        'FrontHPApp.view.FrmComSpecialViewModel',
-        'FrontHPApp.view.FrmComSpecialViewController',
+        'FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupBranchViewModel',
+        'FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupBranchViewController',
         'Ext.form.Panel',
         'Ext.form.field.Text',
         'Ext.form.FieldContainer',
@@ -35,15 +35,10 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
         type: 'mainmainmarketingwindowrequestcustomerpopuppopupbranch'
     },
     autoShow: true,
-    scrollable: true,
     width: 800,
-    title: 'ค้นหาข้อมูล',
+    title: 'ค้นหาข้อมูลสาขา',
     titleAlign: 'center',
 
-    layout: {
-        type: 'vbox',
-        align: 'stretch'
-    },
     items: [
         {
             xtype: 'form',

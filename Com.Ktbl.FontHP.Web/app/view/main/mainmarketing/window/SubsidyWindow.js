@@ -18,8 +18,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.SubsidyWindow', {
     alias: 'widget.mainmainmarketingwindowsubsidywindow',
 
     requires: [
-        'FrontHPApp.view.FrmGarantorViewModel3',
-        'FrontHPApp.view.FrmGarantorViewController3',
+        'FrontHPApp.view.main.mainmarketing.window.SubsidyWindowViewModel',
+        'FrontHPApp.view.main.mainmarketing.window.SubsidyWindowViewController',
         'Ext.form.Panel',
         'Ext.form.FieldSet',
         'Ext.form.field.Display',

@@ -22,11 +22,11 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewControll
     },
 
     onSaveAddressClick1: function(button, e, eOpts) {
-        Ext.widget("frmcusaddress").show();
+        Ext.widget("mainmainmarketingwindowcommonpopuppopupcusaddress").show();
     },
 
     onSaveCardClick: function(button, e, eOpts) {
-        Ext.widget("frmtypecard").show();
+        Ext.widget("mainmainmarketingwindowcommonpopuppopuptypecard").show();
     },
 
     onEditGridClick: function(button, e, eOpts) {

@@ -18,8 +18,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
     alias: 'widget.mainmainmarketingwindowinsurancewindow',
 
     requires: [
-        'FrontHPApp.view.FrmCommHiringViewModel4',
-        'FrontHPApp.view.FrmCommHiringViewController4',
+        'FrontHPApp.view.main.mainmarketing.window.InsuranceWindowViewModel',
+        'FrontHPApp.view.main.mainmarketing.window.InsuranceWindowViewController',
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
         'Ext.XTemplate',
@@ -36,12 +36,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
         type: 'mainmainmarketingwindowinsurancewindow'
     },
     scrollable: true,
-    defaults: {
-        labelAlign: 'right',
-        labelWidth: 175
-    },
     bodyPadding: 10,
-    iconCls: 'icon-details',
     title: 'ประกันภัย',
 
     layout: {
@@ -526,7 +521,6 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
         },
         {
             xtype: 'fieldcontainer',
-            height: 30,
             margin: '5 0 0 0',
             layout: {
                 type: 'hbox',

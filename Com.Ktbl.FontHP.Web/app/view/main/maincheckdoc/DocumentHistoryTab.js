@@ -18,8 +18,8 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTab', {
     alias: 'widget.mainmaincheckdocdocumenthistorytab',
 
     requires: [
-        'FrontHPApp.view.FrmGarantorViewModel9',
-        'FrontHPApp.view.FrmGarantorViewController9',
+        'FrontHPApp.view.main.maincheckdoc.DocumentHistoryTabViewModel',
+        'FrontHPApp.view.main.maincheckdoc.DocumentHistoryTabViewController',
         'Ext.form.Panel',
         'Ext.form.field.Date',
         'Ext.XTemplate',

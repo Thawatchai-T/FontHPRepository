@@ -18,8 +18,8 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTab', {
     alias: 'widget.mainmaincheckdoccheckdocumenttab',
 
     requires: [
-        'FrontHPApp.view.FrmGarantorViewModel7',
-        'FrontHPApp.view.FrmGarantorViewController7',
+        'FrontHPApp.view.main.maincheckdoc.CheckDocumentTabViewModel',
+        'FrontHPApp.view.main.maincheckdoc.CheckDocumentTabViewController',
         'Ext.form.Panel',
         'Ext.form.field.Date',
         'Ext.XTemplate',

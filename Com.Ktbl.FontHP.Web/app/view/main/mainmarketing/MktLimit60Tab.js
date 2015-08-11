@@ -18,8 +18,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MktLimit60Tab', {
     alias: 'widget.mainmainmarketingmktlimit60tab',
 
     requires: [
-        'FrontHPApp.view.FrmLimit60ViewModel',
-        'FrontHPApp.view.FrmLimit60ViewController',
+        'FrontHPApp.view.main.mainmarketing.MktLimit60TabViewModel',
+        'FrontHPApp.view.main.mainmarketing.MktLimit60TabViewController',
         'Ext.form.Panel',
         'Ext.form.field.ComboBox',
         'Ext.toolbar.Paging',
@@ -34,9 +34,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MktLimit60Tab', {
     viewModel: {
         type: 'mainmainmarketingmktlimit60tab'
     },
-    scrollable: false,
+    minHeight: 600,
     layout: 'border',
-    title: 'ยืนยันคำขอเกิน 60 วัน',
+    manageHeight: false,
 
     dockedItems: [
         {

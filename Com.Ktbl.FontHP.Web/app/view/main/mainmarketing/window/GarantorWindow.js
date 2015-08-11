@@ -577,7 +577,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                         },
                         {
                             xtype: 'button',
-                            iconCls: 'icon-details',
+                            iconCls: 'icon-card',
                             text: 'บันทึกข้อมูลบัตร',
                             listeners: {
                                 click: 'onSaveCardClick'
@@ -628,6 +628,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                 },
                 {
                     xtype: 'gridcolumn',
+                    width: 140,
                     dataIndex: 'Tel',
                     text: 'เบอร์โทรศัพท์พื้นฐาน'
                 }

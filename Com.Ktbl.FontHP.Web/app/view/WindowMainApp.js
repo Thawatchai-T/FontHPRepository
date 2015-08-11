@@ -23,7 +23,7 @@ Ext.define('FrontHPApp.view.WindowMainApp', {
         'FrontHPApp.view.main.mainmarketing.window.GarantorWindow',
         'FrontHPApp.view.main.mainmarketing.window.CommHiringWindow',
         'FrontHPApp.view.main.mainmarketing.window.CommInsWindow',
-        'FrontHPApp.view.main.mainmarketing.window.ComSpecialWindow',
+        'FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindow',
         'FrontHPApp.view.main.mainmarketing.window.LeadWindow',
         'FrontHPApp.view.main.mainmarketing.window.InsuranceWindow',
         'FrontHPApp.view.main.mainmarketing.window.TypeCardWindow',
@@ -55,6 +55,7 @@ Ext.define('FrontHPApp.view.WindowMainApp', {
                     xtype: 'mainmainmarketingwindowrequestcustomerrequestcustomerwindow',
                     tabConfig: {
                         xtype: 'tab',
+                        scrollable: true,
                         iconCls: 'icon-person'
                     }
                 },
@@ -82,7 +83,7 @@ Ext.define('FrontHPApp.view.WindowMainApp', {
                     }
                 },
                 {
-                    xtype: 'mainmainmarketingwindowcomspecialwindow',
+                    xtype: 'mainmainmarketingwindowcomspecialcomspecialwindow',
                     title: 'ค่าส่งเสริมการขายพิเศษ',
                     tabConfig: {
                         xtype: 'tab',
@@ -91,7 +92,6 @@ Ext.define('FrontHPApp.view.WindowMainApp', {
                 },
                 {
                     xtype: 'mainmainmarketingwindowleadwindow',
-                    scrollable: true,
                     tabConfig: {
                         xtype: 'tab',
                         iconCls: 'icon-lead'
@@ -129,8 +129,7 @@ Ext.define('FrontHPApp.view.WindowMainApp', {
                     }
                 },
                 {
-                    xtype: 'mainmainmarketingwindowcustomeraddressWindow',
-                    iconCls: '',
+                    xtype: 'mainmainmarketingwindowcustomeraddresswindow',
                     tabConfig: {
                         xtype: 'tab',
                         iconCls: 'icon-address'

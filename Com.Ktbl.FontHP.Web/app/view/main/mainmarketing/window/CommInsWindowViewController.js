@@ -18,7 +18,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindowViewControlle
     alias: 'controller.mainmainmarketingwindowcomminswindow',
 
     onSelectEntCodeClick: function(button, e, eOpts) {
-        Ext.widget("frmpopupdealer").show();
+        Ext.widget("mainmainmarketingwindowcommonpopuppopupdealer").show();
 
     },
 
