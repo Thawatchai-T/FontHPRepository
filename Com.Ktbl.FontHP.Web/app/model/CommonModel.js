@@ -23,14 +23,11 @@ Ext.define('FrontHPApp.model.CommonModel', {
 
     fields: [
         {
-            type: 'int',
+            //type: 'int',
             name: 'id'
         },
         {
             name: 'name'
-        },
-        {
-            name: 'flg'
         }
     ]
 });

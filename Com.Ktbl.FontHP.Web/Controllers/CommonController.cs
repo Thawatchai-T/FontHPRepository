@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Com.Ktbl.FontHP.Domain.Common;
 using Com.Ktbl.FontHP.Map.Repository;
+using Com.Ktbl.FontHP.Web.Models;
 
 namespace Com.Ktbl.FontHP.Web.Controllers
 {
@@ -18,12 +19,15 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         #endregion
 
         // GET api/common
-        public IEnumerable<StandardCodes> Get(string stdcode)
+        public IEnumerable<ComboBox> Get(string stdcode)
         {
             try
             {
                 var value = Title;
-                var result = StandardCodeRepository.GetStandardCodeWithCode(stdcode);
+                var result = StandardCodeRepository.GetStandardCodeWithCode(stdcode).Select(
+                    x => new ComboBox { id = x.StandardCode, Name = x.StandardName }).ToList<ComboBox>();
+                    
+                    
                 return result;
             }
             catch (Exception ex)

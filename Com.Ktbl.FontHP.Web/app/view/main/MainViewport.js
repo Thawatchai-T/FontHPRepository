@@ -40,10 +40,10 @@ Ext.define('FrontHPApp.view.main.MainViewport', {
             ui: 'navigation',
             activeTab: 0,
             items: [
-                {
-                    xtype: 'mainhomeindox',
-                    hidden: true
-                },
+                //{
+                //    xtype: 'mainhomeindox',
+                //    hidden: true
+                //},
                 {
                     xtype: 'panel',
                     layout: 'border',

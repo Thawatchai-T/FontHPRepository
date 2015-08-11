@@ -262,8 +262,10 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
+                            //[20150811] add by Woody 
+                            queryMode: 'local',
+                            displayField: 'Name',
+                            store: 'combo.RegionStore',
                             valueField: 'id'
                         },
                         {
@@ -272,8 +274,10 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
+                            //[20150811] add by Woody 
+                            queryMode: 'local',
+                            displayField: 'Name',
+                            store: 'combo.RegionStore',
                             valueField: 'id'
                         },
                         {

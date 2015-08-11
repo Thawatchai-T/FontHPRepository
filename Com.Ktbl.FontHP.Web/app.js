@@ -95,7 +95,13 @@ Ext.application({
         'typePopupCardModels',
         'comHirModels',
         'comInsModels',
-        'typeCustomerModels'
+        'typeCustomerModels',
+        /*
+        * [20150811] Add by Woody 
+        * combo box 
+        */
+        'combo.RegionStore'
+
     ],
     views: [
         'main.MainViewport',
