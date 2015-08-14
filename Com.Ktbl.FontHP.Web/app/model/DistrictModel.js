@@ -23,11 +23,13 @@ Ext.define('FrontHPApp.model.DistrictModel', {
 
     fields: [
         {
-            type: 'int',
             name: 'id'
         },
         {
             name: 'Name'
+        },
+        {
+            name: 'ProvinceId'
         }
     ]
 });

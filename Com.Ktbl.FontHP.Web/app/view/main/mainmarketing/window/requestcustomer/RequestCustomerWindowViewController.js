@@ -16,7 +16,9 @@
 Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerWindowViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.mainmainmarketingwindowrequestcustomerrequestcustomerwindow',
-
+    provinceid: '',
+    districtid: '',
+    subdistrictid:'',
     onFindLeadClick: function(button, e, eOpts) {
         Ext.widget("mainmainmarketingwindowrequestcustomerpopuppopuplead").show();
     },
@@ -64,6 +66,48 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
         var me = this.getView();
         me.reset();
         //console.log(me);
-    }
+    },
 
+    //[20150814] Add by Woody even province 
+    onProvinceChange: function (field, newValue, oldValue, eOpts) {
+        var me = this,
+            refs = me.getReferences(),
+            cbprovince = refs.province,
+            cbdistrict = refs.district,
+            cbsubdistrict = refs.subdistrict;
+
+        // Clear selected series value
+        if (oldValue != null) {
+            cbdistrict.setValue(""),
+            cbsubdistrict.setValue("");
+        }
+        
+        var store = cbdistrict.getStore();
+        store.getProxy().setExtraParam('provinceid', newValue);
+        store.load();
+
+    },
+
+    onDistrictChange: function (field, newValue, oldValue, eOpts) {
+        var me = this,
+            refs = me.getReferences(),
+            cbprovince = refs.province,
+            cbdistrict = refs.district,
+            cbsubdistrict = refs.subdistrict;
+
+        // Clear selected series value
+        if (oldValue != null) {
+            cbsubdistrict.setValue('');
+        }
+        var store = cbsubdistrict.getStore();
+        console.log(newValue);
+        store.getProxy().setExtraParam('districtid', newValue);
+        store.getProxy().setExtraParam('provinceid', cbprovince.getValue());
+        store.load();
+
+    },
+
+    onSubDistrictChange: function (field, newValue, oldValue, eOpts) {
+
+    },
 });

@@ -28,130 +28,13 @@ Ext.define('FrontHPApp.store.subDistrictModels', {
         me.callParent([Ext.apply({
             storeId: 'subDistrictModels',
             model: 'FrontHPApp.model.SubDistrictModel',
-            data: [
-                {
-                    id: 630,
-                    Name: 'placeat'
-                },
-                {
-                    id: 793,
-                    Name: 'et'
-                },
-                {
-                    id: 102,
-                    Name: 'dolorum'
-                },
-                {
-                    id: 187,
-                    Name: 'qui'
-                },
-                {
-                    id: 582,
-                    Name: 'nam'
-                },
-                {
-                    id: 578,
-                    Name: 'aspernatur'
-                },
-                {
-                    id: 924,
-                    Name: 'temporibus'
-                },
-                {
-                    id: 42,
-                    Name: 'mollitia'
-                },
-                {
-                    id: 305,
-                    Name: 'voluptatum'
-                },
-                {
-                    id: 640,
-                    Name: 'tempora'
-                },
-                {
-                    id: 775,
-                    Name: 'aliquam'
-                },
-                {
-                    id: 119,
-                    Name: 'harum'
-                },
-                {
-                    id: 517,
-                    Name: 'accusantium'
-                },
-                {
-                    id: 552,
-                    Name: 'illo'
-                },
-                {
-                    id: 545,
-                    Name: 'quisquam'
-                },
-                {
-                    id: 224,
-                    Name: 'vitae'
-                },
-                {
-                    id: 463,
-                    Name: 'maxime'
-                },
-                {
-                    id: 72,
-                    Name: 'alias'
-                },
-                {
-                    id: 788,
-                    Name: 'itaque'
-                },
-                {
-                    id: 726,
-                    Name: 'libero'
-                },
-                {
-                    id: 547,
-                    Name: 'voluptatem'
-                },
-                {
-                    id: 180,
-                    Name: 'eaque'
-                },
-                {
-                    id: 352,
-                    Name: 'aut'
-                },
-                {
-                    id: 894,
-                    Name: 'unde'
-                },
-                {
-                    id: 647,
-                    Name: 'quia'
-                },
-                {
-                    id: 131,
-                    Name: 'molestias'
-                },
-                {
-                    id: 256,
-                    Name: 'voluptas'
-                },
-                {
-                    id: 763,
-                    Name: 'et'
-                },
-                {
-                    id: 217,
-                    Name: 'reiciendis'
-                },
-                {
-                    id: 118,
-                    Name: 'alias'
-                }
-            ],
+            //autoLoad: true,
             proxy: {
-                type: 'memory'
+                type: 'rest',
+                url: 'api/common/GetSubDistrict',
+                reader: {
+                    type: 'json'
+                }
             }
         }, cfg)]);
     }

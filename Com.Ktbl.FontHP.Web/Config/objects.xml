@@ -1,6 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <objects xmlns="http://www.springframework.net" default-autowire="constructor">
 
+  <!--<object id="lprovince"
+        type="System.Collections.Generic.List&lt;Com.Ktbl.FontHP.Domain.ViewDomain.Province.Province>, System.Collections.Generic.List&lt;Com.Ktbl.FontHP.Domain.ViewDomain.Province.Province>"
+        factory-object="commonUtility"
+        factory-method="GetProvince" singleton="false"/>-->
+  
   <object id="nhHelpersFactory" type="Com.Ktbl.FontHP.Web.Utility.NHHelpers, Com.Ktbl.FontHP.Web">
     <!--[20150331] Add by Woody Inject property-->
     <!--KTBLeasing-->
@@ -10,4 +15,13 @@
     <property name="Password" value="ktblitadmin"/>
   </object>
   
+  <object id="commonUtility" type="Com.Ktbl.FontHP.Web.Utility.CommonUtility, Com.Ktbl.FontHP.Web" singleton="true">
+    <!--[20150813] Add by Woody Inject Static property KTBLeasing-->
+    
+    <constructor-arg index="0" ref="provinceRepository"/>
+    
+  </object>
+
+
+
 </objects>

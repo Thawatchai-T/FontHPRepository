@@ -5,6 +5,7 @@
   <object type="Com.Ktbl.FontHP.Web.Controllers.CommonController, Com.Ktbl.FontHP.Web" singleton="false" >
     <property name="StandardCodeRepository"  ref="standardCodeRepository" />
     <property name="Title"  value="standardCodeRepository" />
+    <!--<property name="ComboProvince"  value="lprovince" />-->
   </object>
   
 </objects>

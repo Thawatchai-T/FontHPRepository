@@ -405,27 +405,46 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             xtype: 'combobox',
                             fieldLabel: 'จังหวัด',
                             emptyText: '[เลือก]',
+                            itemid: 'province',
+                            reference:'province',
                             autoLoadOnValue: true,
-                            displayField: 'name',
+                            displayField: 'Name',
                             store: 'provinceModels',
-                            valueField: 'id'
+                            valueField: 'id',
+                            listeners: {
+                                change: 'onProvinceChange'
+                            }
                         },
+                        //[20150814] Add by Woody edit  layout 
+                        //{
+                        //    xtype: 'fieldcontainer',
+                        //    height: '',
+                        //    width: '',
+                        //    layout: 'table',
+                        //    fieldLabel: 'อำเภอ',
+                        //    items: [
+                        //        {
+                        //            xtype: 'combobox',
+                        //            emptyText: '[เลือก]',
+                        //            autoLoadOnValue: true,
+                        //            displayField: 'Name',
+                        //            store: 'districtModels',
+                        //            valueField: 'id'
+                        //        }
+                        //    ]
+                        //},
                         {
-                            xtype: 'fieldcontainer',
-                            height: '',
-                            width: '',
-                            layout: 'table',
+                            xtype: 'combobox',
                             fieldLabel: 'อำเภอ',
-                            items: [
-                                {
-                                    xtype: 'combobox',
-                                    emptyText: '[เลือก]',
-                                    autoLoadOnValue: true,
-                                    displayField: 'Name',
-                                    store: 'districtModels',
-                                    valueField: 'id'
-                                }
-                            ]
+                            emptyText: '[เลือก]',
+                            reference: 'district',
+                            autoLoadOnValue: true,
+                            displayField: 'Name',
+                            store: 'districtModels',
+                            valueField: 'id',
+                            listeners: {
+                                change: 'onDistrictChange'
+                            }
                         },
                         {
                             xtype: 'combobox',
@@ -433,8 +452,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
                             displayField: 'Name',
+                            reference:'subdistrict',
                             store: 'subDistrictModels',
-                            valueField: 'id'
+                            valueField: 'id',
+                            listeners: {
+                                change: 'onSubDistrictChange'
+                            }
                         },
                         {
                             xtype: 'combobox',

@@ -28,130 +28,13 @@ Ext.define('FrontHPApp.store.districtModels', {
         me.callParent([Ext.apply({
             storeId: 'districtModels',
             model: 'FrontHPApp.model.DistrictModel',
-            data: [
-                {
-                    id: 888,
-                    Name: 'facilis'
-                },
-                {
-                    id: 811,
-                    Name: 'eveniet'
-                },
-                {
-                    id: 73,
-                    Name: 'ipsa'
-                },
-                {
-                    id: 931,
-                    Name: 'perspiciatis'
-                },
-                {
-                    id: 914,
-                    Name: 'laborum'
-                },
-                {
-                    id: 852,
-                    Name: 'quasi'
-                },
-                {
-                    id: 447,
-                    Name: 'dolorum'
-                },
-                {
-                    id: 107,
-                    Name: 'consequatur'
-                },
-                {
-                    id: 980,
-                    Name: 'voluptas'
-                },
-                {
-                    id: 594,
-                    Name: 'nisi'
-                },
-                {
-                    id: 659,
-                    Name: 'deserunt'
-                },
-                {
-                    id: 251,
-                    Name: 'quis'
-                },
-                {
-                    id: 691,
-                    Name: 'provident'
-                },
-                {
-                    id: 798,
-                    Name: 'iusto'
-                },
-                {
-                    id: 804,
-                    Name: 'qui'
-                },
-                {
-                    id: 751,
-                    Name: 'enim'
-                },
-                {
-                    id: 398,
-                    Name: 'doloribus'
-                },
-                {
-                    id: 150,
-                    Name: 'illum'
-                },
-                {
-                    id: 28,
-                    Name: 'asperiores'
-                },
-                {
-                    id: 908,
-                    Name: 'porro'
-                },
-                {
-                    id: 442,
-                    Name: 'voluptas'
-                },
-                {
-                    id: 452,
-                    Name: 'molestiae'
-                },
-                {
-                    id: 113,
-                    Name: 'voluptas'
-                },
-                {
-                    id: 624,
-                    Name: 'asperiores'
-                },
-                {
-                    id: 111,
-                    Name: 'vel'
-                },
-                {
-                    id: 443,
-                    Name: 'dolorem'
-                },
-                {
-                    id: 717,
-                    Name: 'delectus'
-                },
-                {
-                    id: 22,
-                    Name: 'quia'
-                },
-                {
-                    id: 723,
-                    Name: 'fuga'
-                },
-                {
-                    id: 477,
-                    Name: 'saepe'
-                }
-            ],
+            //autoLoad: true,
             proxy: {
-                type: 'memory'
+                type: 'rest',
+                url: 'api/common/GetDistrict',
+                reader: {
+                    type: 'json'
+                }
             }
         }, cfg)]);
     }
