@@ -98,8 +98,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTab', {
                             fieldLabel: 'สถานะใบคำขอ',
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.RequestStatusStore',
                             valueField: 'id'
                         },
                         {
@@ -118,8 +118,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTab', {
                             fieldLabel: 'สาขา',
                             emptyText: '[สาขา]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.BranchStore',
                             valueField: 'id'
                         },
                         {

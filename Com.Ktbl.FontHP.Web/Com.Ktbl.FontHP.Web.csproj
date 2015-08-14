@@ -196,6 +196,8 @@
     <Content Include="app\store\browsePaperMyModels.js" />
     <Content Include="app\store\cancelRequestLimit60Models.js" />
     <Content Include="app\store\checkPaperModels.js" />
+    <Content Include="app\store\combo\BranchStore.js" />
+    <Content Include="app\store\combo\RequestStatusStore.js" />
     <Content Include="app\store\combo\RegionStore.js" />
     <Content Include="app\store\combo\LoginStore.js" />
     <Content Include="app\store\combo\TestStore.js" />

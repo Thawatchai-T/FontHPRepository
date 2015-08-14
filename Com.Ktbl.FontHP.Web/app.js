@@ -100,7 +100,12 @@ Ext.application({
         * [20150811] Add by Woody 
         * combo box 
         */
-        'combo.RegionStore'
+        'combo.RegionStore',
+       // [20150811] Add by P2P
+        'combo.RequestStatusStore',
+        'combo.BranchStore'
+
+
 
     ],
     views: [
@@ -111,13 +116,13 @@ Ext.application({
         'main.mainmarketing.window.TypeCardWindow',
         'main.mainmarketing.window.SubsidyWindow',
         'main.mainmarketing.window.StatusInfoWindow',
-        'Tab1.window.FrmCreditNode',
+        //'Tab1.window.FrmCreditNode',
         'main.maincheckdoc.CheckDocumentTab',
-        'Tab2.window.FrmPopupBrowsePaper',
+        //'Tab2.window.FrmPopupBrowsePaper',
         'main.maincheckdoc.DocumentHistoryTab',
-        'Tab2.window.FrmBrowseFileCheck',
-        'MyForm1',
-        'MyGridPanel1',
+        //'Tab2.window.FrmBrowseFileCheck',
+        //'MyForm1',
+       // 'MyGridPanel1',
         'main.mainmarketing.window.CommInsWindow',
         'main.mainmarketing.window.comspecial.ComSpecialWindow',
         'WindowMainApp',
