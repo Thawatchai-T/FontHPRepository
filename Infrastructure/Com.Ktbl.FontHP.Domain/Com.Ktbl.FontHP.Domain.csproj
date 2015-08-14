@@ -39,8 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\DistrictDomain.cs" />
+    <Compile Include="Common\ProvinceDomain.cs" />
     <Compile Include="Common\StandardCode.cs" />
+    <Compile Include="Common\SubDistrictDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewDomain\District.cs" />
+    <Compile Include="ViewDomain\Province.cs" />
+    <Compile Include="ViewDomain\SubDistrict.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
