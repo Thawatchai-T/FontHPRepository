@@ -16,5 +16,12 @@
   <object id="provinceRepository"
              type="Com.Ktbl.FontHP.Map.Repository.ProvinceRepository, Com.Ktbl.FontHP.Map">
     <property name="SessionFactory"  ref="ssfactory"/>
+  </object
+
+  <!-- MainRequestRepository -->
+  <object id="mainRequestRepository"
+             type="Com.Ktbl.FontHP.Map.Repository.MainRequestRepository, Com.Ktbl.FontHP.Map">
+    <property name="SessionFactory"  ref="ssfactory"/>
   </object>
+  
 </objects>
