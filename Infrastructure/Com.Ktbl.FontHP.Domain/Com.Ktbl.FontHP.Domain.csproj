@@ -40,14 +40,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\DistrictDomain.cs" />
+    <Compile Include="Common\OccupationCatelogyDomain.cs" />
+    <Compile Include="Common\OccupationGroupDomain.cs" />
+    <Compile Include="Common\OccupationTypeDomain.cs" />
+    <Compile Include="Common\PositionDomain.cs" />
     <Compile Include="Common\ProvinceDomain.cs" />
     <Compile Include="Common\StandardCode.cs" />
     <Compile Include="Common\SubDistrictDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewDomain\District.cs" />
+    <Compile Include="ViewDomain\MainRequest.cs" />
     <Compile Include="ViewDomain\Province.cs" />
     <Compile Include="ViewDomain\SubDistrict.cs" />
+    <Compile Include="ViewsModel\MainRequestModel.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
