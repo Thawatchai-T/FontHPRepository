@@ -74,8 +74,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard'
                             fieldLabel: 'ประเภทบัตร',
                             name: '',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.TypeCardStore',
                             valueField: 'id'
                         },
                         {

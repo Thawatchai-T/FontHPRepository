@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Com.Ktbl.FontHP.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Com_Ktbl_FontHP_Web_WebReferenceRedbook_IWS_KTBLBookservice" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://221.23.4.63/KTBLBook/WS_KTBLBook.exe/soap/IWS_KTBLBook</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

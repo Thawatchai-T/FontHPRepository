@@ -74,8 +74,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.TypeCardWindow', {
                             labelAlign: 'right',
                             labelWidth: 190,
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'typeCustomerModels',
+                            displayField: 'Name',
+                            store: 'combo.TypeCustomerStore',
                             valueField: 'id'
                         },
                         {
@@ -85,8 +85,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.TypeCardWindow', {
                             labelAlign: 'right',
                             labelWidth: 190,
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.TypeCardStore',
                             valueField: 'id'
                         },
                         {

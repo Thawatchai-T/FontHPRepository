@@ -110,4 +110,119 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
     onSubDistrictChange: function (field, newValue, oldValue, eOpts) {
 
     },
+
+    // [20150817] p2p  Add by even OccupationCatelogy 
+    onOccupationCatelogyChange: function (field, newValue, oldValue, eOpts) {
+        var me = this,
+            refs = me.getReferences(),
+            cboccupationcatelogy = refs.occupationcatelogy,
+            cboccupationGroup = refs.occupationGroup,
+            cboccupationcareer = refs.occupationcareer;
+            cbposition = refs.position;
+
+        // Clear selected series value
+        if (oldValue != null) {
+            cboccupationGroup.setValue(""),
+            cboccupationcareer.setValue("");
+            cbposition.setValue("");
+        }
+        
+        var store = cboccupationGroup.getStore();
+        store.getProxy().setExtraParam('occupationcatelogyid', newValue);
+        store.load();
+
+    },
+
+    onOccupationGroupChange: function (field, newValue, oldValue, eOpts) {
+        var me = this,
+              refs = me.getReferences(),
+              cboccupationcatelogy = refs.occupationcatelogy,
+              cboccupationGroup = refs.occupationGroup,
+              cboccupationcareer = refs.occupationcareer;
+              cbposition = refs.position;
+
+        // Clear selected series value
+        if (oldValue != null) {
+            cboccupationcareer.setValue("");
+            cbposition.setValue("");
+        }
+
+        var store = cboccupationcareer.getStore();
+        store.getProxy().setExtraParam('occupationgroupid', newValue);
+        store.load();
+    },
+
+    onOccupationCareerChange: function (field, newValue, oldValue, eOpts) {
+    var me = this,
+          refs = me.getReferences(),
+          cboccupationcatelogy = refs.occupationcatelogy,
+          cboccupationGroup = refs.occupationGroup,
+          cboccupationcareer = refs.occupationcareer;
+    cbposition = refs.position;
+
+        // Clear selected series value
+    if (oldValue != null) {
+        cbposition.setValue("");
+    }
+
+    var store = cbposition.getStore();
+    store.getProxy().setExtraParam('occupationcareerid', newValue);
+    store.load();
+},
+    
+    onMainCareerChange: function (field, newValue, oldValue, eOpts) {
+        var me = this,
+              refs = me.getReferences(),
+              cbmaincareer = refs.maincareer,
+              cbsubcareer = refs.subcareer;
+         
+
+        // Clear selected series value
+    if (oldValue != null) {
+        cbsubcareer.setValue("");
+    }
+
+    var store = cbsubcareer.getStore();
+    store.getProxy().setExtraParam('maincareerid', newValue);
+    store.load();
+    },
+    //Car p2p 20150819
+    onBrandCarChange: function (field, newValue, oldValue, eOpts) { //select Brand Car
+        var me = this,
+              refs = me.getReferences(),
+              cbobrandcar = refs.brandcar,
+              cbomodelcar = refs.modelcar,
+              cbomodeldetailcar = refs.modeldetailcar;
+              
+
+        // Clear selected series value
+        if (oldValue != null) {
+           
+            cbomodelcar.setValue("");
+            cbomodeldetailcar.setValue("");
+        }
+
+        var store = cbomodelcar.getStore(); //get model car
+        store.getProxy().setExtraParam('brandcode', newValue);
+        store.load();
+    },
+    onModelCarChange: function (field, newValue, oldValue, eOpts) {
+        var me = this,
+              refs = me.getReferences(),
+              cbobrandcar = refs.brandcar,
+              cbomodelcar = refs.modelcar,
+              cbomodeldetailcar = refs.modeldetailcar;
+
+
+        // Clear selected series value
+        if (oldValue != null) {
+             cbomodeldetailcar.setValue("");
+        }
+
+        var store = cbomodeldetailcar.getStore();
+        store.getProxy().setExtraParam('brandcode', cbobrandcar.getValue());
+        store.getProxy().setExtraParam('familycode', cbomodelcar.getValue());
+        store.load();
+    },
+    
 });

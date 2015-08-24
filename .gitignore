@@ -33,7 +33,7 @@ dlldata.c
 *_p.c
 *_i.h
 *.ilk
-*.meta
+#*.meta
 *.obj
 *.pch
 *.pdb
@@ -172,3 +172,4 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+/Com.Ktbl.FontHP.Web/app100858.json.meta

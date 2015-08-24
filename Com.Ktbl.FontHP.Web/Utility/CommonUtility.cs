@@ -12,6 +12,9 @@ namespace Com.Ktbl.FontHP.Web.Utility
         public static List<Province> Province { get; set; }
         public static List<District> District { get; set; }
         public static List<SubDistrict> SubDistrict { get; set; }
+
+        
+
         
 
         public CommonUtility(IProvinceRepository province){

@@ -78,6 +78,65 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewControll
             }
 
         },this);
+    },
+
+    // [20150817] p2p  Add by even OccupationCatelogy 
+    onOccupationCatelogyChange: function (field, newValue, oldValue, eOpts) {
+    var me = this,
+        refs = me.getReferences(),
+        cboccupationcatelogy = refs.occupationcatelogy,
+        cboccupationGroup = refs.occupationGroup,
+        cboccupationcareer = refs.occupationcareer;
+    cbposition = refs.position;
+
+        // Clear selected series value
+    if (oldValue != null) {
+        cboccupationGroup.setValue(""),
+        cboccupationcareer.setValue("");
+        cbposition.setValue("");
     }
+        
+    var store = cboccupationGroup.getStore();
+    store.getProxy().setExtraParam('occupationcatelogyid', newValue);
+    store.load();
+
+},
+
+onOccupationGroupChange: function (field, newValue, oldValue, eOpts) {
+    var me = this,
+          refs = me.getReferences(),
+          cboccupationcatelogy = refs.occupationcatelogy,
+          cboccupationGroup = refs.occupationGroup,
+          cboccupationcareer = refs.occupationcareer;
+    cbposition = refs.position;
+
+    // Clear selected series value
+    if (oldValue != null) {
+        cboccupationcareer.setValue("");
+        cbposition.setValue("");
+    }
+
+    var store = cboccupationcareer.getStore();
+    store.getProxy().setExtraParam('occupationgroupid', newValue);
+    store.load();
+},
+
+onOccupationCareerChange: function (field, newValue, oldValue, eOpts) {
+    var me = this,
+          refs = me.getReferences(),
+          cboccupationcatelogy = refs.occupationcatelogy,
+          cboccupationGroup = refs.occupationGroup,
+          cboccupationcareer = refs.occupationcareer;
+    cbposition = refs.position;
+
+    // Clear selected series value
+    if (oldValue != null) {
+        cbposition.setValue("");
+    }
+
+    var store = cbposition.getStore();
+    store.getProxy().setExtraParam('occupationcareerid', newValue);
+    store.load();
+}
 
 });

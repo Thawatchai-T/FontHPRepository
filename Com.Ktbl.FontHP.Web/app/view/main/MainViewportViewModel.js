@@ -15,6 +15,39 @@
 
 Ext.define('FrontHPApp.view.main.MainViewportViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.mainmainviewport'
+    alias: 'viewmodel.mainmainviewport',
+    //fields: [
+    //   {
+    //       //type: 'int',
+    //       name: 'StartDate'
+    //   },
+    //   {
+    //       name: 'Enddate'
+    //   }
+    //   ,
+    //   {
+    //       name: 'RequestNo'
+    //   },
+    //   {
+    //       name: 'StatusRequest'
+    //   },
+    //   {
+    //       name: 'CitizenID'
+    //   },
+    //   {
+    //       name: 'Cusname'
+    //   },
+    //   {
+    //       name: 'Branch'
+    //   }
 
+       
+    //],
+    //proxy: {
+    //type: 'rest',
+    //url: 'api/marketing/Test',
+    //reader: {
+    //    type: 'json'
+    //}
+//}
 });

@@ -78,18 +78,20 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                             labelCls: 'text-require',
                             name: '',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'typeCustomerModels',
+                            displayField: 'Name',
+                            store: 'combo.TypeCustomerStore',
                             valueField: 'id'
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'ประเภทที่อยู่',
+                            colspan: 2,
+                            width: 490,
                             labelCls: 'text-require',
                             name: '',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.TypeAddressStore',
                             valueField: 'id'
                         },
                         {
@@ -146,32 +148,48 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                         {
                             xtype: 'combobox',
                             fieldLabel: 'จังหวัด',
+                            reference: 'province',
                             labelCls: 'text-require',
+                            autoLoadOnValue: true,
                             name: '',
                             emptyText: '[จังหวัด]',
-                            displayField: 'name',
-                            store: 'commonModels',
-                            valueField: 'id'
+                            displayField: 'Name',
+                            store: 'provinceModels',
+                            valueField: 'id',
+                            listeners: {
+                                change: 'onProvinceChange'
+                            }
+
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'อำเภอ',
+                            reference: 'district',
                             labelCls: 'text-require',
+                            autoLoadOnValue: true,
                             name: '',
                             emptyText: '[อำเภอ]',
-                            displayField: 'name',
-                            store: 'commonModels',
-                            valueField: 'id'
+                            displayField: 'Name',
+                            store: 'districtModels',
+                            valueField: 'id',
+                            listeners: {
+                                change: 'onDistrictChange'
+                            }
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'ตำบล',
                             labelCls: 'text-require',
+                            reference: 'subdistrict',
+                            autoLoadOnValue: true,
                             name: '',
                             emptyText: '[ตำบล]',
-                            displayField: 'name',
-                            store: 'commonModels',
-                            valueField: 'id'
+                            displayField: 'Name',
+                            store: 'subDistrictModels',
+                            valueField: 'id',
+                            listeners: {
+                                change: 'onSubDistrictChange'
+                            }
                         },
                         {
                             xtype: 'textfield',
@@ -212,7 +230,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                             afterLabelTextTpl: [
                                 ' '
                             ],
-                            fieldLabel: 'โทรศัพท์มือถือ1',
+                            fieldLabel: 'โทรศัพท์มือถือ',
                             labelAlign: 'right',
                             labelWidth: 190,
                             name: '',

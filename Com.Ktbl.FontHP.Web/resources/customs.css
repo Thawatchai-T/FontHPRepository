@@ -1,13 +1,12 @@
 .text-require{
-    color:red;
-    display:block;
-    float:left;
-    /* width:100px; */
-    padding:3px;
-    padding-left:0;
-    clear:left;
-    z-index:3;
-    position:relative;
+   color: red;
+   font: normal 13px/17px helvetica, arial, verdana, sans-serif;
+   min-height: 24px;
+   padding-top: 4px;
+   padding-right: 5px;
+   width: 26px;
+   display: table-cell;
+    
 }
 
 .text-require_black{

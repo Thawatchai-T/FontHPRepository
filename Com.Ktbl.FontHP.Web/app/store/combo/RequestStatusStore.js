@@ -2,7 +2,7 @@
  * File: app/store/combo/LoginStore.js
  * [200150811] Add by Woody 
  * store region 
- * standard_type = '00006'
+ * standard_type = '00143'
  */
 
 Ext.define('FrontHPApp.store.combo.RequestStatusStore', {
@@ -24,7 +24,7 @@ Ext.define('FrontHPApp.store.combo.RequestStatusStore', {
             autoLoad:true,
             proxy: {
                 type: 'rest',
-                url: 'api/common?stdcode=00006',//ส่งค่าไปที่ Get  public IEnumerable<ComboBox> Get(string stdcode) ในไฟล์ CommonController 
+                url: 'api/common?stdcode=00143',
                 reader: {
                     type: 'json'
                 }

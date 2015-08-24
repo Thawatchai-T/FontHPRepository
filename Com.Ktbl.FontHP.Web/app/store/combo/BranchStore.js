@@ -1,8 +1,8 @@
 /*
- * File: app/store/combo/LoginStore.js
- * [200150811] Add by Woody 
+ * File: app/store/combo/BranchStore.js
+ * [200150811] Add by P2P
  * store region 
- * standard_type = '00006'
+ * standard_type = '00061'
  */
 
 Ext.define('FrontHPApp.store.combo.BranchStore', {

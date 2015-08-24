@@ -183,8 +183,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.TypeRequestNoStore',
                             valueField: 'id'
                         },
                         {
@@ -263,7 +263,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
                             //[20150811] add by Woody 
-                            queryMode: 'local',
+                            //queryMode: 'local',
                             displayField: 'Name',
                             store: 'combo.RegionStore',
                             valueField: 'id'
@@ -289,7 +289,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         {
                             xtype: 'fieldcontainer',
                             height: '',
-                            width: '',
+                           
                             layout: 'table',
                             fieldLabel: 'ชื่อ-นามสกุลลูกค้า',
                             items: [
@@ -297,8 +297,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'combobox',
                                     allowBlank: false,
                                     emptyText: '[เลือก]',
-                                    displayField: 'name',
-                                    store: 'commonModels',
+                                    displayField: 'Name',
+                                    store: 'combo.TitleStore',
                                     valueField: 'id'
                                 },
                                 {
@@ -372,8 +372,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.MarryStore',
                             valueField: 'id'
                         },
                         {
@@ -401,7 +401,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         columns: 2
                     },
                     items: [
-                        {
+                       { 
                             xtype: 'combobox',
                             fieldLabel: 'จังหวัด',
                             emptyText: '[เลือก]',
@@ -455,6 +455,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             reference:'subdistrict',
                             store: 'subDistrictModels',
                             valueField: 'id',
+                           
+                           
                             listeners: {
                                 change: 'onSubDistrictChange'
                             }
@@ -469,9 +471,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
-                            valueField: 'id'
+                            displayField: 'Name',
+                            store: 'combo.TypeResidenceStore',
+                            valueField: 'id',
+                            width: 490,
+                            
+                            
                         },
                         {
                             xtype: 'textfield',
@@ -483,9 +488,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'ที่อยู่ปัจจุบันตามทะเบียนบ้าน',
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
-                            valueField: 'id'
+                            displayField: 'Name',
+                            store: 'combo.AdressByHomeStore',
+                            valueField: 'id',
+                            width: 490,
+                            
+                           
                         },
                         {
                             xtype: 'fieldcontainer',
@@ -497,10 +505,11 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             ],
                             fieldLabel: 'ระยะเวลาที่พักอาศัย',
                             labelCls: 'text-require',
+                            labelWidth: 171,
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    margin: '',
+                                    margin: '0 4 4 4',
                                     width: 44,
                                     fieldLabel: '',
                                     allowBlank: false,
@@ -515,7 +524,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 },
                                 {
                                     xtype: 'textfield',
-                                    margin: '',
+                                    margin: '0 4 4 4',
                                     width: 50,
                                     fieldLabel: '',
                                     allowBlank: false,
@@ -539,9 +548,11 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
-                            valueField: 'id'
+                            displayField: 'Name',
+                            store: 'combo.StatusByHomeStore',
+                            valueField: 'id',
+                            
+                            
                         },
                         {
                             xtype: 'textfield',
@@ -556,7 +567,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'เบอร์โทรศัพท์มือถือ',
                             labelCls: 'text-require',
                             allowBlank: false,
-                            emptyText: '[เบอร์โทรศัพท์มือถือ]'
+                            emptyText: '[เบอร์โทรศัพท์มือถือ]',
+                            
+                            
                         },
                         {
                             xtype: 'textfield',
@@ -581,7 +594,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         {
                             xtype: 'fieldcontainer',
                             height: '',
-                            width: '',
+                            
                             layout: 'table',
                             afterLabelTextTpl: [
                                 '<span style="color:red;font-weight:bold" data-qtip="Required">*</span'
@@ -591,7 +604,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    margin: '',
+                                    margin: '0 4 4 4',
                                     width: 44,
                                     fieldLabel: '',
                                     allowBlank: false,
@@ -606,7 +619,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 },
                                 {
                                     xtype: 'textfield',
-                                    margin: '',
+                                    margin: '0 4 4 4',
                                     width: 50,
                                     fieldLabel: '',
                                     allowBlank: false,
@@ -627,10 +640,11 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             layout: 'table',
                             fieldLabel: 'อายุงานปัจจุบัน',
                             labelCls: 'text-require',
+                            labelWidth: 211,
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    margin: '',
+                                    margin: '0 4 4 4',
                                     width: 44,
                                     fieldLabel: '',
                                     emptyText: '[ปี]'
@@ -644,7 +658,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 },
                                 {
                                     xtype: 'textfield',
-                                    margin: '',
+                                    margin: '0 4 4 4',
                                     width: 50,
                                     fieldLabel: '',
                                     emptyText: '[เดือน]'
@@ -659,6 +673,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         },
                         {
                             xtype: 'textfield',
+                            colspan: 2,
                             fieldLabel: 'เบอร์โทรศัพท์ที่ทำงาน',
                             emptyText: '[เบอร์โทรศัพท์ที่ทำงาน]'
                         },
@@ -668,27 +683,38 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 '<span style="color:red;font-weight:bold" data-qtip="Required">*</span'
                             ],
                             fieldLabel: 'หมวดอาชีพ',
+                            colspan: 2,
                             labelCls: 'text-require',
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'occupationCatelogyModels',
-                            valueField: 'OccupationCatelogy_id'
+                            displayField: 'Name',
+                            store: 'combo.OccupationCatelogyStore',
+                            valueField: 'id',
+                            reference: 'occupationcatelogy',
+                            listeners: {
+                                change: 'onOccupationCatelogyChange'
+                            }
                         },
                         {
                             xtype: 'combobox',
+                            colspan: 2,
                             afterLabelTextTpl: [
                                 '<span style="color:red;font-weight:bold" data-qtip="Required">*</span'
                             ],
                             fieldLabel: 'กลุ่มอาชีพ',
+                           
                             labelCls: 'text-require',
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'occupationGroupModels',
-                            valueField: 'OccupationGroup_id'
+                            displayField: 'Name',
+                            store: 'combo.OccupationGroupStore',
+                            valueField: 'id',
+                            reference: 'occupationGroup',
+                            listeners: {
+                                change: 'onOccupationGroupChange'
+                            }
                         },
                         {
                             xtype: 'combobox',
@@ -696,13 +722,20 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 '<span style="color:red;font-weight:bold" data-qtip="Required">*</span'
                             ],
                             fieldLabel: 'ประเภทอาชีพ',
+                            colspan: 2,
+                            width: 800,
                             labelCls: 'text-require',
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'occupationTypeModels',
-                            valueField: 'OccupationCareer_id'
+                            displayField: 'Name',
+                           
+                            store: 'combo.OccupationCareerStore',
+                            valueField: 'id',
+                            reference: 'occupationcareer',
+                            listeners: {
+                                change: 'onOccupationCareerChange'
+                            }
                         },
                         {
                             xtype: 'combobox',
@@ -710,27 +743,38 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 '<span style="color:red;font-weight:bold" data-qtip="Required">*</span'
                             ],
                             fieldLabel: 'ตำแหน่ง',
+                            colspan: 2,
                             labelCls: 'text-require',
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'Position_id',
-                            store: 'positionModels',
-                            valueField: 'name'
+                            displayField: 'Name',
+                            width: 800,
+                            store: 'combo.PositionStore',
+                            valueField: 'id',
+                            reference: 'position',
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'สถานที่ทำงาน',
+                            width: 800,
+                            colspan: 2,
                             emptyText: '[สถานที่ทำงาน]'
                         },
                         {
-                            xtype: 'combobox',
+                            //20150818 
+                            //xtype: 'combobox',
+                            //fieldLabel: 'รายละเอียดอาชีพ',
+                            //emptyText: '[เลือก]',
+                            //autoLoadOnValue: true,
+                            //displayField: 'Username',
+                            //store: 'combo.TestStore',
+                            //valueField: 'Password'
+                            xtype: 'textfield',
                             fieldLabel: 'รายละเอียดอาชีพ',
-                            emptyText: '[เลือก]',
-                            autoLoadOnValue: true,
-                            displayField: 'Username',
-                            store: 'combo.TestStore',
-                            valueField: 'Password'
+                            width: 800,
+                            colspan: 2,
+                            emptyText: '[รายละเอียดอาชีพ]'
                         },
                         {
                             xtype: 'fieldcontainer',
@@ -827,8 +871,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'เงินเดือนเข้าธนาคาร',
                             emptyText: '[เงินเดือนเข้าธนาคาร]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.DepositSalaryStore',
                             valueField: 'id'
                         },
                         {
@@ -861,33 +905,45 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'แหล่งที่มาของรายได้อื่นๆ (หลัก)',
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'incomeMainModels',
-                            valueField: 'IncomeMain_id'
+                            displayField: 'Name',
+                            store: 'combo.MainCareerStore',
+                            valueField: 'id',
+                            reference: 'maincareer',
+                            listeners: {
+                                change: 'onMainCareerChange'
+                            }
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'แหล่งที่มาของรายได้อื่นๆ (ย่อย)',
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'incomeSubModels',
-                            valueField: 'IncomeSub_id'
+                            width: 490,
+                            displayField: 'Name',
+                            store: 'combo.SubCareerStore',
+                            valueField: 'id',
+                            reference: 'subcareer',
+                            autoLoadOnValue: true,
+                          
+
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'แหล่งที่มาของรายได้อื่นๆ (ระบุ)',
+                            colspan: 2,
+                            width: 800,
                             emptyText: '[เลือก]'
                         },
                         {
                             xtype: 'combobox',
                             colspan: 2,
                             fieldLabel: 'กลุ่มอาชีพของแหล่งที่มารายได้อื่นๆ',
+                            width: 800,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'incomeOtherModels',
-                            valueField: 'IncomeOther_id'
+                            displayField: 'Name',
+                            store: 'combo.OccupationCareerOtherStore',
+                            valueField: 'id'
                         },
                         {
                             xtype: 'numberfield',
@@ -905,7 +961,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                     xtype: 'fieldset',
                     defaults: {
                         labelAlign: 'right',
-                        labelWidth: 215
+                        labelWidth: 175
                     },
                     collapsible: true,
                     title: 'ข้อมูลคู่สมรส',
@@ -925,8 +981,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             width: '',
                             fieldLabel: 'กลุ่มอาชีพ',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.OccupationMarryGroupStore',
                             valueField: 'id'
                         },
                         {
@@ -983,22 +1039,25 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             xtype: 'combobox',
                             fieldLabel: 'ประเภท',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.TypeCoCustomerStore',
                             valueField: 'id'
                         },
                         {
                             xtype: 'fieldcontainer',
                             height: '',
-                            width: '',
+                            
                             layout: 'table',
+                           
                             fieldLabel: 'ชื่อ-นามสกุล',
                             items: [
                                 {
                                     xtype: 'combobox',
                                     emptyText: '[เลือก]',
-                                    displayField: 'name',
-                                    store: 'commonModels',
+                                    width: 200,
+                                   
+                                    displayField: 'Name',
+                                    store: 'combo.TitleStore',
                                     valueField: 'id'
                                 },
                                 {
@@ -1022,9 +1081,10 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         {
                             xtype: 'combobox',
                             fieldLabel: 'ความสัมพันธ์กับผู้เช่าซื้อ',
+                            width: 380,
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.RelationCustomerStore',
                             valueField: 'id'
                         },
                         {
@@ -1120,7 +1180,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    margin: '',
+                                    margin: '0 4 4 4',
                                     width: 44,
                                     fieldLabel: '',
                                     emptyText: '[ปี]'
@@ -1134,7 +1194,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 },
                                 {
                                     xtype: 'textfield',
-                                    margin: '',
+                                    margin: '0 4 4 4',
                                     width: 50,
                                     fieldLabel: '',
                                     emptyText: '[เดือน]'
@@ -1184,11 +1244,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                     items: [
                         {
                             xtype: 'combobox',
-                            fieldLabel: 'จังหวะที่จดทะเบียน',
+                            fieldLabel: 'จังหวัดที่จดทะเบียน',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
-                            valueField: 'id'
+                            displayField: 'Name',
+                            store: 'provinceModels',
+                            valueField: 'id',
+                            autoLoadOnValue: true
+                            
                         },
                         {
                             xtype: 'datefield',
@@ -1199,8 +1261,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             xtype: 'combobox',
                             fieldLabel: 'สี',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.ColorStore',
                             valueField: 'id'
                         },
                         {
@@ -1222,16 +1284,16 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             xtype: 'combobox',
                             fieldLabel: 'ประเภทเครื่อง',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.MachineStore',
                             valueField: 'id'
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'เกียร์',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.GearStore',
                             valueField: 'id'
                         },
                         {
@@ -1269,8 +1331,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.CreditStore',
                             valueField: 'id'
                         },
                         {
@@ -1288,10 +1350,11 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 {
                                     xtype: 'combobox',
                                     allowBlank: false,
+                                    width: 200,
                                     emptyText: '[เลือก]',
                                     autoLoadOnValue: true,
-                                    displayField: 'name',
-                                    store: 'commonModels',
+                                    displayField: 'Name',
+                                    store: 'combo.TypeCarStore',
                                     valueField: 'id'
                                 }
                             ]
@@ -1299,10 +1362,11 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         {
                             xtype: 'combobox',
                             fieldLabel: 'บริษัทประกัน',
+                            width: 490,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.CompanyInsuranceStore',
                             valueField: 'id'
                         },
                         {
@@ -1310,8 +1374,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'VAT (ค่าตัวรถ)',
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.CarVatStore',
                             valueField: 'id'
                         },
                         {
@@ -1330,9 +1394,15 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'combobox',
                                     allowBlank: false,
                                     emptyText: '[ยี่ห้อ]',
-                                    displayField: 'name',
-                                    store: 'commonModels',
-                                    valueField: 'id'
+                                    displayField: 'Name',
+                                    store: 'combo.BrandCarStore',
+                                    valueField: 'id',
+                                    reference: 'brandcar',
+                                    autoLoadOnValue: true,
+                                    listeners: {
+                                        change: 'onBrandCarChange'
+                                    }
+
                                 }
                             ]
                         },
@@ -1346,15 +1416,23 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 '<span style="color:red;font-weight:bold" data-qtip="Required">*</span'
                             ],
                             fieldLabel: 'รุ่น',
+                            width: 310,
                             labelCls: 'text-require',
                             items: [
                                 {
                                     xtype: 'combobox',
                                     allowBlank: false,
+                                    width: 310,
                                     emptyText: '[รุ่น]',
-                                    displayField: 'name',
-                                    store: 'commonModels',
-                                    valueField: 'id'
+                                    displayField: 'Name',
+                                    store: 'combo.ModelCarStore',
+                                    valueField: 'id',
+                                    reference: 'modelcar',
+                                    autoLoadOnValue: true,
+                                    listeners: {
+                                        change: 'onModelCarChange'
+                                    }
+                                   
                                 }
                             ]
                         },
@@ -1372,10 +1450,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 {
                                     xtype: 'combobox',
                                     allowBlank: false,
+                                    width: 310,
                                     emptyText: '[รายละเอียดรุ่น]',
-                                    displayField: 'name',
-                                    store: 'commonModels',
-                                    valueField: 'id'
+                                    displayField: 'Name',
+                                    store: 'combo.ModelDetailCarStore',
+                                    valueField: 'id',
+                                    reference: 'modeldetailcar',
+                                    autoLoadOnValue: true,
                                 }
                             ]
                         },
@@ -1389,7 +1470,11 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 {
                                     xtype: 'combobox',
                                     emptyText: '[เลือก]',
-                                    autoLoadOnValue: true
+                                    autoLoadOnValue: true,
+                                    displayField: 'Name',
+                                    store: 'combo.PerfomanceCarStore',
+                                    valueField: 'id'
+                                    
                                 }
                             ]
                         },
@@ -1507,8 +1592,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.MethodPaymentStore',
                             valueField: 'id'
                         },
                         {
@@ -1522,8 +1607,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.MethodTermtStore',
                             valueField: 'id'
                         },
                         {
@@ -1638,8 +1723,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'เอกสารอื่นๆ',
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.OtherPaperStore',
                             valueField: 'id'
                         },
                         {

@@ -76,6 +76,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -139,13 +141,25 @@
   <ItemGroup>
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MarketingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ComboBox.cs" />
+    <Compile Include="Models\SearchRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Utility\CommonUtility.cs" />
     <Compile Include="Utility\NHHelpers.cs" />
+    <Compile Include="Web References\WebReferenceRedbook\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -196,6 +210,49 @@
     <Content Include="app\store\browsePaperMyModels.js" />
     <Content Include="app\store\cancelRequestLimit60Models.js" />
     <Content Include="app\store\checkPaperModels.js" />
+    <Content Include="app\store\combo\OtherPaperStore.js" />
+    <Content Include="app\store\combo\TypeCustomerStore.js" />
+    <Content Include="app\store\combo\RepairStore.js" />
+    <Content Include="app\store\combo\LostInsuranceStore.js" />
+    <Content Include="app\store\combo\AbsorbTaxStore.js" />
+    <Content Include="app\store\combo\PerfomanceCarStore.js" />
+    <Content Include="app\store\combo\TypeCoCustomerStore.js" />
+    <Content Include="app\store\combo\OccupationMarryGroupStore.js" />
+    <Content Include="app\store\combo\TypeCarStore.js" />
+    <Content Include="app\store\combo\OccupationCareerOtherStore.js" />
+    <Content Include="app\store\combo\StatusByHomeStore.js" />
+    <Content Include="app\store\combo\AdressByHomeStore.js" />
+    <Content Include="app\store\combo\TypeResidenceStore.js" />
+    <Content Include="app\store\combo\MarryStore.js" />
+    <Content Include="app\store\combo\ModelDetailCarStore.js" />
+    <Content Include="app\store\combo\ModelCarStore.js" />
+    <Content Include="app\store\combo\BrandCarStore.js" />
+    <Content Include="app\store\combo\SubCareerStore.js" />
+    <Content Include="app\store\combo\MainCareerStore.js" />
+    <Content Include="app\store\combo\PositionStore.js" />
+    <Content Include="app\store\combo\OccupationCareerStore.js" />
+    <Content Include="app\store\combo\OccupationGroupStore.js" />
+    <Content Include="app\store\combo\OccupationCatelogyStore.js" />
+    <Content Include="app\store\combo\TypeAddressStore.js" />
+    <Content Include="app\store\combo\ListSubsidyStore.js" />
+    <Content Include="app\store\combo\PayDeductStore.js" />
+    <Content Include="app\store\combo\TypeCardStore.js" />
+    <Content Include="app\store\combo\DepositSalaryStore.js" />
+    <Content Include="app\store\combo\TypeInsurancewantStore.js" />
+    <Content Include="app\store\combo\ConditionInsuranceStore.js" />
+    <Content Include="app\store\combo\TellInsuranceStore.js" />
+    <Content Include="app\store\combo\GearStore.js" />
+    <Content Include="app\store\combo\MachineStore.js" />
+    <Content Include="app\store\combo\ColorStore.js" />
+    <Content Include="app\store\combo\RelationCustomerStore.js" />
+    <Content Include="app\store\combo\MethodTermtStore.js" />
+    <Content Include="app\store\combo\MethodPaymentStore.js" />
+    <Content Include="app\store\combo\CarVatStore.js" />
+    <Content Include="app\store\combo\CompanyInsuranceStore.js" />
+    <Content Include="app\store\combo\CreditStore.js" />
+    <Content Include="app\store\combo\TypeInsuranceProtectStore.js" />
+    <Content Include="app\store\combo\TypeRequestNoStore.js" />
+    <Content Include="app\store\combo\TitleStore.js" />
     <Content Include="app\store\combo\BranchStore.js" />
     <Content Include="app\store\combo\RequestStatusStore.js" />
     <Content Include="app\store\combo\RegionStore.js" />
@@ -9310,6 +9367,36 @@
     <Content Include="ext\packages\sencha-soap\Readme.md" />
     <Content Include="ext\packages\sencha-soap\test\specs\test.json" />
     <Content Include="ext\version.properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://221.23.4.63/KTBLBook/WS_KTBLBook.exe/wsdl/IWS_KTBLBook">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebReferenceRedbook\</RelPath>
+      <UpdateFromURL>http://221.23.4.63/KTBLBook/WS_KTBLBook.exe/wsdl/IWS_KTBLBook</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Com_Ktbl_FontHP_Web_WebReferenceRedbook_IWS_KTBLBookservice</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebReferenceRedbook\IWS_KTBLBookservice.wsdl" />
+    <Content Include="Web References\WebReferenceRedbook\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

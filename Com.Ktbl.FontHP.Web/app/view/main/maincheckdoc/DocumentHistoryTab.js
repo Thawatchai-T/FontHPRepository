@@ -53,7 +53,6 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTab', {
             items: [
                 {
                     xtype: 'container',
-                    width: 650,
                     defaults: {
                         labelAlign: 'right',
                         labelWidth: 130
@@ -95,8 +94,9 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTab', {
                             labelAlign: 'right',
                             emptyText: '[สถานะใบคำขอ]',
                             displayField: 'Name',
-                            store: 'RequestStatusStores',
-                            valueField: 'Id'
+                            width: 390,
+                            store: 'combo.RequestStatusStore',
+                            valueField: 'id'
                         },
                         {
                             xtype: 'textfield',
@@ -119,14 +119,14 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTab', {
                             labelAlign: 'right',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
-                            store: 'BranchStore',
-                            valueField: 'Id'
+                            store: 'combo.BranchStore',
+                            valueField: 'id'
                         },
                         {
                             xtype: 'container',
                             colspan: 2,
                             height: 35,
-                            width: 620,
+                            width: 800,
                             layout: {
                                 type: 'hbox',
                                 pack: 'center'

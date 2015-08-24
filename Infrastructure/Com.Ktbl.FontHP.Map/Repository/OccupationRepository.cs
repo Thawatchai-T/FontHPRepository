@@ -53,8 +53,8 @@ namespace Com.Ktbl.FontHP.Map.Repository
                 return null;
             }
         }
-
-
+        
+        
         public List<OccupationTypeDomain> GetOccupationType()
         {
             try

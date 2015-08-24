@@ -72,11 +72,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                         '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>'
                     ],
                     fieldLabel: 'แจ้งประกันโดย',
+                    colspan: 3,
+                   
                     labelCls: 'text-require',
                     allowBlank: false,
                     emptyText: '[เลือก]',
-                    displayField: 'name',
-                    store: 'commonModels',
+                    displayField: 'Name',
+                    store: 'combo.TellInsuranceStore',
                     valueField: 'id'
                 },
                 {
@@ -86,11 +88,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                         '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>'
                     ],
                     fieldLabel: 'เงื่อนไขการชำระค่าประกันภัย',
+                    colspan: 3,
+                    width: 490,
                     labelCls: 'text-require',
                     allowBlank: false,
                     emptyText: '[เลือก]',
-                    displayField: 'name',
-                    store: 'commonModels',
+                    displayField: 'Name',
+                    store: 'combo.ConditionInsuranceStore',
                     valueField: 'id'
                 },
                 {
@@ -100,15 +104,17 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                         '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>'
                     ],
                     fieldLabel: 'บริษัทประกันภัย',
+                    width: 490,
                     labelCls: 'text-require',
                     allowBlank: false,
                     emptyText: '[เลือก]',
-                    displayField: 'name',
-                    store: 'commonModels',
+                    displayField: 'Name',
+                    store: 'combo.CompanyInsuranceStore',
                     valueField: 'id'
                 },
                 {
                     xtype: 'textfield',
+                    colspan: 3,
                     margin: '5 0 0 0',
                     fieldLabel: 'เลขที่รับแจ้ง',
                     emptyText: '[เลขที่รับแจ้ง]'
@@ -189,24 +195,24 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     xtype: 'combobox',
                     fieldLabel: 'ความเสียหายส่วนแรก',
                     emptyText: '[เลือก]',
-                    displayField: 'name',
-                    store: 'commonModels',
+                    displayField: 'Name',
+                    store: 'combo.LostInsuranceStore',
                     valueField: 'id'
                 },
                 {
                     xtype: 'combobox',
                     fieldLabel: 'ประเภทประกันที่ต้องการ',
                     emptyText: '[เลือก]',
-                    displayField: 'name',
-                    store: 'commonModels',
+                    displayField: 'Name',
+                    store: 'combo.TypeInsurancewantStore',
                     valueField: 'id'
                 },
                 {
                     xtype: 'combobox',
                     fieldLabel: 'ซ่อม',
                     emptyText: '[เลือก]',
-                    displayField: 'name',
-                    store: 'commonModels',
+                    displayField: 'Name',
+                    store: 'combo.RepairStore',
                     valueField: 'id'
                 },
                 {
@@ -289,11 +295,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                         '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>'
                     ],
                     fieldLabel: 'บริษัทประกันภัย',
+                    colspan: 2,
+                    width: 490,
                     labelCls: 'text-require',
                     allowBlank: false,
                     emptyText: '[เลือก]',
-                    displayField: 'name',
-                    store: 'commonModels',
+                    displayField: 'Name',
+                    store: 'combo.CompanyInsuranceStore',
                     valueField: 'id'
                 },
                 {
@@ -301,17 +309,21 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     colspan: 2,
                     fieldLabel: 'ประเภ่ทความคุ้มครอง',
                     emptyText: '[เลือก]',
-                    displayField: 'name',
-                    store: 'commonModels',
+                    displayField: 'Name',
+                    store: 'combo.TypeInsuranceProtectStore',
                     valueField: 'id'
                 },
                 {
-                    xtype: 'combobox',
+                    //20150818 p2p
+                    //xtype: 'combobox',
+                    //fieldLabel: 'เลขที่พรบ',
+                    //emptyText: '[เลือก]',
+                    //displayField: 'name',
+                    //store: 'commonModels',
+                    //valueField: 'id'
+                    xtype: 'textfield',
                     fieldLabel: 'เลขที่พรบ',
-                    emptyText: '[เลือก]',
-                    displayField: 'name',
-                    store: 'commonModels',
-                    valueField: 'id'
+                    emptyText: '[เลขที่พรบ]'
                 },
                 {
                     xtype: 'datefield',

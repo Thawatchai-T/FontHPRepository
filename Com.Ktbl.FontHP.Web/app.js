@@ -103,7 +103,60 @@ Ext.application({
         'combo.RegionStore',
        // [20150811] Add by P2P
         'combo.RequestStatusStore',
-        'combo.BranchStore'
+        'combo.BranchStore',
+        'combo.TitleStore',
+        'combo.TypeRequestNoStore',
+        'combo.DepositSalaryStore',
+        'combo.CreditStore',
+        'combo.CompanyInsuranceStore',
+        'combo.CarVatStore',
+        'combo.MethodPaymentStore',
+        'combo.MethodTermtStore',
+        'combo.RelationCustomerStore',
+        'combo.ColorStore',
+        'combo.MachineStore',
+        'combo.GearStore',
+        //ประกันภัย
+        'combo.TellInsuranceStore',
+        'combo.ConditionInsuranceStore',
+        'combo.TypeInsurancewantStore',
+        'combo.TypeInsuranceProtectStore',
+        //บัตร
+        'combo.TypeCardStore',
+        'combo.PayDeductStore',
+        'combo.ListSubsidyStore',
+        //ที่อยู่
+        'combo.TypeAddressStore',
+        //Group Position
+        'combo.OccupationCatelogyStore',
+        'combo.OccupationGroupStore',
+        'combo.OccupationCareerStore',
+        'combo.PositionStore',
+        //Group Carre
+        'combo.MainCareerStore',
+        'combo.SubCareerStore',
+        //Dummy Car
+        'combo.BrandCarStore',
+        'combo.ModelCarStore',
+        'combo.ModelDetailCarStore',
+        //20150818 insert standradcode to table
+        'combo.MarryStore',
+        'combo.TypeResidenceStore',
+        'combo.AdressByHomeStore',
+        'combo.StatusByHomeStore',
+        'combo.OccupationCareerOtherStore',
+        'combo.TypeCarStore',
+        'combo.TypeCoCustomerStore',
+        'combo.PerfomanceCarStore',
+        'combo.OccupationMarryGroupStore',
+        'combo.AbsorbTaxStore',
+        'combo.LostInsuranceStore',
+        'combo.RepairStore',
+        //20150819
+        'combo.TypeCustomerStore',
+        'combo.OtherPaperStore'
+
+       
 
 
 

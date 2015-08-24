@@ -73,6 +73,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTab', {
                             fieldLabel: 'วันที่ใบคำข้อจาก',
                             labelClsExtra: '',
                             labelStyle: '',
+                            name: 'StartDate',
                             allowBlank: false,
                             emptyText: '[วว/ดด/ปปปป]',
                             format: 'd/m/Y'
@@ -83,6 +84,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTab', {
                                 '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>'
                             ],
                             fieldLabel: 'ถึงวันที่ใบคำขอ',
+                            name: 'Enddate',
                             allowBlank: false,
                             emptyText: '[วว/ดด/ปปปป]',
                             format: 'd/m/Y'
@@ -91,26 +93,32 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTab', {
                             xtype: 'numberfield',
                             fieldLabel: 'เลขที่ใบคำขอ',
                             emptyText: '[เลขที่ใบคำขอ]',
+                            name: 'RequestNo',
                             hideTrigger: true
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'สถานะใบคำขอ',
+                            name: 'StatusRequest',
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
                             displayField: 'Name',
                             store: 'combo.RequestStatusStore',
-                            valueField: 'id'
+                            valueField: 'id',
+                            width: 390,
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เลขที่ประชาชน',
-                            emptyText: '[เลขที่บัตรประชาชน]'
+                            emptyText: '[เลขที่บัตรประชาชน]',
+                            name: 'CitizenID',
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ชื่อ-นามสกุลผู้เช่าซื้อ',
-                            emptyText: '[ชื่อ-นามสกุลผู้เช่าซื้อ]'
+                            emptyText: '[ชื่อ-นามสกุลผู้เช่าซื้อ]',
+                            width: 390,
+                            name: 'Cusname',
                         },
                         {
                             xtype: 'combobox',
@@ -120,12 +128,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTab', {
                             autoLoadOnValue: true,
                             displayField: 'Name',
                             store: 'combo.BranchStore',
+                            name: 'Branch',
                             valueField: 'id'
                         },
                         {
                             xtype: 'container',
                             colspan: 2,
-                            width: 640,
+                            width: 800,
                             layout: {
                                 type: 'hbox',
                                 pack: 'center'
@@ -363,7 +372,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTab', {
                     },
                     width: 50,
                     dataIndex: 'GurantorName',
-                    text: 'ผู้ค้ำ'
+                    text: 'ผู้ค้ำ',
+                    hidden: true,
                 },
                 {
                     xtype: 'gridcolumn',

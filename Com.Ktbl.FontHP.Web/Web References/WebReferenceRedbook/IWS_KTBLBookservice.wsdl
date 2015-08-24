@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="urn:WS_KTBLBookIntf" name="IWS_KTBLBookservice" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns="urn:WS_KTBLBookIntf" targetNamespace="urn:WS_KTBLBookIntf">
+      <xs:complexType name="TInputBrand">
+        <xs:sequence>
+          <xs:element name="UserLogin" type="xs:string" />
+          <xs:element name="LoanType" type="xs:string" />
+          <xs:element name="RequestDate" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TInputFamily">
+        <xs:sequence>
+          <xs:element name="UserLogin" type="xs:string" />
+          <xs:element name="LoanType" type="xs:string" />
+          <xs:element name="RequestDate" type="xs:string" />
+          <xs:element name="BrandCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TInputDesc">
+        <xs:sequence>
+          <xs:element name="UserLogin" type="xs:string" />
+          <xs:element name="LoanType" type="xs:string" />
+          <xs:element name="RequestDate" type="xs:string" />
+          <xs:element name="BrandCode" type="xs:string" />
+          <xs:element name="FamilyCode" type="xs:string" />
+          <xs:element name="CarYear" type="xs:string" />
+          <xs:element name="CarStatus" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TInputMarketType">
+        <xs:sequence>
+          <xs:element name="UserLogin" type="xs:string" />
+          <xs:element name="LoanType" type="xs:string" />
+          <xs:element name="RequestDate" type="xs:string" />
+          <xs:element name="VehicleKey" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="GetBrands0Request">
+    <part name="Value" type="ns1:TInputBrand" />
+  </message>
+  <message name="GetBrands0Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetFamilys1Request">
+    <part name="Value" type="ns1:TInputFamily" />
+  </message>
+  <message name="GetFamilys1Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetDescriptions2Request">
+    <part name="Value" type="ns1:TInputDesc" />
+  </message>
+  <message name="GetDescriptions2Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetMarketType3Request">
+    <part name="Value" type="ns1:TInputMarketType" />
+  </message>
+  <message name="GetMarketType3Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetBrands_ForDelphi4Request">
+    <part name="LoanType" type="xs:string" />
+    <part name="RequestDate" type="xs:string" />
+  </message>
+  <message name="GetBrands_ForDelphi4Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetFamilys_ForDelphi5Request">
+    <part name="LoanType" type="xs:string" />
+    <part name="RequestDate" type="xs:string" />
+    <part name="BrandCode" type="xs:string" />
+  </message>
+  <message name="GetFamilys_ForDelphi5Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetDescriptions_ForDelphi6Request">
+    <part name="LoanType" type="xs:string" />
+    <part name="RequestDate" type="xs:string" />
+    <part name="BrandCode" type="xs:string" />
+    <part name="FamilyCode" type="xs:string" />
+    <part name="CarYear" type="xs:string" />
+    <part name="CarStatus" type="xs:string" />
+  </message>
+  <message name="GetDescriptions_ForDelphi6Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetMarketType_ForDelphi7Request">
+    <part name="LoanType" type="xs:string" />
+    <part name="RequestDate" type="xs:string" />
+    <part name="VehicleKey" type="xs:string" />
+  </message>
+  <message name="GetMarketType_ForDelphi7Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <message name="GetRBVehicle_ForDelphi8Request">
+    <part name="LoanType" type="xs:string" />
+    <part name="RequestDate" type="xs:string" />
+    <part name="VehicleKey" type="xs:string" />
+  </message>
+  <message name="GetRBVehicle_ForDelphi8Response">
+    <part name="return" type="xs:string" />
+  </message>
+  <portType name="IWS_KTBLBook">
+    <operation name="GetBrands">
+      <input message="tns:GetBrands0Request" />
+      <output message="tns:GetBrands0Response" />
+    </operation>
+    <operation name="GetFamilys">
+      <input message="tns:GetFamilys1Request" />
+      <output message="tns:GetFamilys1Response" />
+    </operation>
+    <operation name="GetDescriptions">
+      <input message="tns:GetDescriptions2Request" />
+      <output message="tns:GetDescriptions2Response" />
+    </operation>
+    <operation name="GetMarketType">
+      <input message="tns:GetMarketType3Request" />
+      <output message="tns:GetMarketType3Response" />
+    </operation>
+    <operation name="GetBrands_ForDelphi">
+      <input message="tns:GetBrands_ForDelphi4Request" />
+      <output message="tns:GetBrands_ForDelphi4Response" />
+    </operation>
+    <operation name="GetFamilys_ForDelphi">
+      <input message="tns:GetFamilys_ForDelphi5Request" />
+      <output message="tns:GetFamilys_ForDelphi5Response" />
+    </operation>
+    <operation name="GetDescriptions_ForDelphi">
+      <input message="tns:GetDescriptions_ForDelphi6Request" />
+      <output message="tns:GetDescriptions_ForDelphi6Response" />
+    </operation>
+    <operation name="GetMarketType_ForDelphi">
+      <input message="tns:GetMarketType_ForDelphi7Request" />
+      <output message="tns:GetMarketType_ForDelphi7Response" />
+    </operation>
+    <operation name="GetRBVehicle_ForDelphi">
+      <input message="tns:GetRBVehicle_ForDelphi8Request" />
+      <output message="tns:GetRBVehicle_ForDelphi8Response" />
+    </operation>
+  </portType>
+  <binding name="IWS_KTBLBookbinding" type="tns:IWS_KTBLBook">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="GetBrands">
+      <soap:operation soapAction="urn:WS_KTBLBookIntf-IWS_KTBLBook#GetBrands" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetFamilys">
+      <soap:operation soapAction="urn:WS_KTBLBookIntf-IWS_KTBLBook#GetFamilys" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetDescriptions">
+      <soap:operation soapAction="urn:WS_KTBLBookIntf-IWS_KTBLBook#GetDescriptions" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetMarketType">
+      <soap:operation soapAction="urn:WS_KTBLBookIntf-IWS_KTBLBook#GetMarketType" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetBrands_ForDelphi">
+      <soap:operation soapAction="urn:WS_KTBLBookIntf-IWS_KTBLBook#GetBrands_ForDelphi" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetFamilys_ForDelphi">
+      <soap:operation soapAction="urn:WS_KTBLBookIntf-IWS_KTBLBook#GetFamilys_ForDelphi" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetDescriptions_ForDelphi">
+      <soap:operation soapAction="urn:WS_KTBLBookIntf-IWS_KTBLBook#GetDescriptions_ForDelphi" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetMarketType_ForDelphi">
+      <soap:operation soapAction="urn:WS_KTBLBookIntf-IWS_KTBLBook#GetMarketType_ForDelphi" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="GetRBVehicle_ForDelphi">
+      <soap:operation soapAction="urn:WS_KTBLBookIntf-IWS_KTBLBook#GetRBVehicle_ForDelphi" style="rpc" />
+      <input>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:WS_KTBLBookIntf-IWS_KTBLBook" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IWS_KTBLBookservice">
+    <port name="IWS_KTBLBookPort" binding="tns:IWS_KTBLBookbinding">
+      <soap:address location="http://221.23.4.63/KTBLBook/WS_KTBLBook.exe/soap/IWS_KTBLBook" />
+    </port>
+  </service>
+</definitions>

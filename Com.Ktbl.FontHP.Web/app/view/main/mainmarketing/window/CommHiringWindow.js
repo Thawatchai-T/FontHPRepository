@@ -162,8 +162,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                             width: 351,
                             fieldLabel: 'Absorb Tax',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.AbsorbTaxStore',
                             valueField: 'id'
                         },
                         {

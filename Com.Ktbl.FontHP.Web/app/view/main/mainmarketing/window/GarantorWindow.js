@@ -100,8 +100,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                     name: 'GurantorTitleName',
                                     allowBlank: false,
                                     emptyText: '[เลือก]',
-                                    displayField: 'name',
-                                    store: 'commonModels',
+                                    displayField: 'Name',
+                                    store: 'combo.TitleStore',
                                     valueField: 'id'
                                 },
                                 {
@@ -200,8 +200,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             name: 'CID',
                             allowBlank: false,
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.RegionStore',
                             valueField: 'id'
                         },
                         {
@@ -209,8 +209,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             fieldLabel: 'เชื้อชาติ',
                             allowBlank: false,
                             emptyText: '[เชื้อชาติ]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.RegionStore',
                             valueField: 'id'
                         },
                         {
@@ -250,12 +250,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                 '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>'
                             ],
                             fieldLabel: 'ความสัมพันธ์กับผู้เช่าซื้อ',
+                            width: 400,
                             labelCls: 'text-require',
                             name: 'CID',
                             allowBlank: false,
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.RelationCustomerStore',
                             valueField: 'id'
                         },
                         {
@@ -273,25 +274,30 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                         {
                             xtype: 'combobox',
                             fieldLabel: 'ลักษณะที่พักอาศัย',
+                            width: 490,
+                            colspan: 3,
                             name: 'CardExpireDate',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.TypeResidenceStore',
                             valueField: 'id'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ระบุ',
+                            colspan: 3,
+                            width: 490,
                             name: 'CardExpireDate',
                             emptyText: '[ระบุ]'
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'ที่อยู่ปัจจุบันตรงตามทะเบียนบ้าน',
+                            width: 400,
                             name: 'CardExpireDate',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.AdressByHomeStore',
                             valueField: 'id'
                         },
                         {
@@ -336,8 +342,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             name: 'CID',
                             allowBlank: false,
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.StatusByHomeStore',
                             valueField: 'id'
                         }
                     ]
@@ -428,52 +434,77 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                         {
                             xtype: 'combobox',
                             fieldLabel: 'หมวดอาชีพ',
+                            colspan: 3,
                             name: 'CID',
                             allowBlank: false,
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'occupationCatelogyModels',
-                            valueField: 'OccupationCatelogy_id'
+                            displayField: 'Name',
+                            store: 'combo.OccupationCatelogyStore',
+                            valueField: 'id',
+                            reference: 'occupationcatelogy',
+                            autoLoadOnValue: true,
+                            listeners: {
+                                change: 'onOccupationCatelogyChange'
+                            }
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'กลุ่มอาชีพ',
+                            colspan: 3,
                             name: 'BirthDate',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'occupationGroupModels',
-                            valueField: 'OccupationGroup_id'
+                            displayField: 'Name',
+                            store: 'combo.OccupationGroupStore',
+                            valueField: 'id',
+                            reference: 'occupationGroup',
+                            autoLoadOnValue: true,
+                            listeners: {
+                                change: 'onOccupationGroupChange'
+                            }
                         },
                         {
                             xtype: 'combobox',
                             width: '',
                             fieldLabel: 'ประเภทอาชีพ',
+                            colspan: 3,
+                            width: 800,
                             name: 'CardExpireDate',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'occupationTypeModels',
-                            valueField: 'OccupationCareer_id'
+                            displayField: 'Name',
+                            store: 'combo.OccupationCareerStore',
+                            valueField: 'id',
+                            autoLoadOnValue: true,
+                            reference: 'occupationcareer',
+                            listeners: {
+                                change: 'onOccupationCareerChange'
+                            }
                         },
                         {
                             xtype: 'combobox',
                             width: '',
                             fieldLabel: 'ตำแหน่ง',
+                            colspan: 3,
                             name: 'CardExpireDate',
+                            width: 800,
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'positionModels',
-                            valueField: 'Position_id'
+                            displayField: 'Name',
+                            store: 'combo.PositionStore',
+                            valueField: 'id',
+                            reference: 'position'
+
                         },
                         {
                             xtype: 'textfield',
                             width: '',
                             fieldLabel: 'สถานที่ทำงาน',
+                            colspan: 3,
+                            width: 800,
                             name: 'CardExpireDate',
                             emptyText: '[สถานที่ทำงาน]'
                         },
                         {
                             xtype: 'textfield',
-                            width: '',
+                            width: 800,
                             fieldLabel: 'รายละเอียดอาชีพ',
                             name: 'CardExpireDate',
                             emptyText: '[รายละเอียดอาชีพ]'
@@ -504,13 +535,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             name: 'CID',
                             allowBlank: false,
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'occupationGroupModels',
-                            valueField: 'OccupationGroup_id'
+                            displayField: 'Name',
+                            store: 'combo.OccupationMarryGroupStore',
+                            valueField: 'id'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'สถานที่ทำงาน',
+                            width: 400,
                             name: 'CID',
                             emptyText: '[สถานที่ทำงาน]'
                         },
@@ -529,6 +561,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                         {
                             xtype: 'textfield',
                             fieldLabel: 'อายุงาน',
+                            width: 400,
                             name: 'CID',
                             emptyText: '[อายุงาน]'
                         },

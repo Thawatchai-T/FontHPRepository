@@ -4,7 +4,10 @@
   <!-- StandardCodeRepository-->
   <object type="Com.Ktbl.FontHP.Web.Controllers.CommonController, Com.Ktbl.FontHP.Web" singleton="false" >
     <property name="StandardCodeRepository"  ref="standardCodeRepository" />
-    <property name="Title"  value="standardCodeRepository" />
+    <property name="OccupationRepository"  ref="occupationRepository" />
+    <property name="PositionRepository"  ref="positionRepository" />
+    <property name="CareerRepository"  ref="careerRepository" />
+    
     <!--<property name="ComboProvince"  value="lprovince" />-->
   </object>
   

@@ -12,16 +12,35 @@
     <property name="SessionFactory"  ref="ssfactory"/>
   </object>
   
-  <!-- StandardCodeRepository -->
+  <!-- ProvinceRepository -->
   <object id="provinceRepository"
              type="Com.Ktbl.FontHP.Map.Repository.ProvinceRepository, Com.Ktbl.FontHP.Map">
     <property name="SessionFactory"  ref="ssfactory"/>
-  </object
+  </object>
 
   <!-- MainRequestRepository -->
   <object id="mainRequestRepository"
              type="Com.Ktbl.FontHP.Map.Repository.MainRequestRepository, Com.Ktbl.FontHP.Map">
     <property name="SessionFactory"  ref="ssfactory"/>
   </object>
+
+
+  <!-- OccupationRepository -->
+  <object id="occupationRepository"
+             type="Com.Ktbl.FontHP.Map.Repository.OccupationRepository, Com.Ktbl.FontHP.Map">
+    <property name="SessionFactory"  ref="ssfactory"/>
+  </object>
+
+  <!-- PositionRepository -->
+  <object id="positionRepository"
+             type="Com.Ktbl.FontHP.Map.Repository.PositionRepository, Com.Ktbl.FontHP.Map">
+    <property name="SessionFactory"  ref="ssfactory"/>
+  </object>
+  <!-- CareerRepository -->
+  <object id="careerRepository"
+            type="Com.Ktbl.FontHP.Map.Repository.CareerRepository, Com.Ktbl.FontHP.Map">
+    <property name="SessionFactory"  ref="ssfactory"/>
+  </object>
+
   
 </objects>

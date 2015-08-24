@@ -80,8 +80,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.SubsidyWindow', {
                             xtype: 'combobox',
                             fieldLabel: '',
                             emptyText: 'เลือก',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.PayDeductStore',
                             valueField: 'id'
                         },
                         {
@@ -191,9 +191,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.SubsidyWindow', {
                             editor: {
                                 xtype: 'combobox',
                                 emptyText: 'เลือก',
-                                displayField: 'name',
-                                store: 'commonModels',
-                                valueField: 'name'
+                                displayField: 'Name',
+                                store: 'combo.ListSubsidyStore',
+                                valueField: 'id'
                             }
                         },
                         {

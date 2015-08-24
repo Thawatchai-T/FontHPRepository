@@ -61,7 +61,8 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTab', {
                     xtype: 'panel',
                     defaults: {
                         labelAlign: 'right',
-                        labelWidth: 180
+                        labelWidth: 130,
+                       
                     },
                     title: '',
                     layout: {
@@ -101,7 +102,8 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTab', {
                             labelAlign: 'right',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
-                            store: 'RequestStatusStores',
+                            width: 390,
+                            store: 'combo.RequestStatusStore',
                             valueField: 'Id'
                         },
                         {
@@ -114,7 +116,7 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTab', {
                         {
                             xtype: 'textfield',
                             colspan: 2,
-                            width: '',
+                           
                             fieldLabel: 'เลขที่บัตรประชาชน',
                             labelAlign: 'right',
                             emptyText: '[เลขที่บัตรประชาชน]'
@@ -126,14 +128,15 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTab', {
                             labelAlign: 'right',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
-                            store: 'BranchStore',
-                            valueField: 'Id'
+                            store: 'combo.BranchStore',
+                            valueField: 'id'
                         }
                     ],
                     dockedItems: [
                         {
                             xtype: 'container',
                             colspan: 2,
+                           
                             dock: 'bottom',
                             layout: {
                                 type: 'hbox',
@@ -146,6 +149,7 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTab', {
                                     margin: '0 5 0 5',
                                     iconCls: 'icon-find',
                                     text: 'ค้นหาข้อมูล',
+                                  
                                     listeners: {
                                         click: 'onFindClick'
                                     }

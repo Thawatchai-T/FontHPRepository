@@ -18,7 +18,40 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTabViewController', {
     alias: 'controller.mainmainmarketingmarketingtab',
 
     onFindRequestNOClick: function(button, e, eOpts) {
-        console.log("ค้นหาข้อมูลเลขที่ใบคำขอ");
+        var me = this.getView();
+        txtdateFrom = me.down('[name=StartDate]').getValue();
+        txtdateTo = me.down('[name=Enddate]').getValue();
+        //txtrequestNo = me.down('[name=txtrequestno]').getValue();
+        //console.log(Ext.Date.format(txtdateFrom, 'd/m/Y'));
+        //console.log(txtrequestNo);
+      
+        var form = me.down('form').getForm();
+        if (form.isValid()) {
+            form.submit({
+                url: 'api/marketing/Test',
+                params: {
+                    StartDate: Ext.Date.format(txtdateFrom, 'd/m/Y'),
+                    Enddate:   Ext.Date.format(txtdateTo, 'd/m/Y'),
+                    RequestNo: me.down('[name=RequestNo]').getValue(),
+                    StatusRequest: me.down('[name=StatusRequest]').getValue(),
+                    CitizenID: me.down('[name=CitizenID]').getValue(),
+                    Cusname: me.down('[name=Cusname]').getValue(),
+                    Branch: me.down('[name=Branch]').getValue(),
+
+
+
+
+
+
+                },
+                success: function (form, action) {
+                    //Ext.Msg.alert('Success', action.result.msg);
+                },
+                failure: function (form, action) {
+                   // Ext.Msg.alert('Failed', action.result.msg);
+                }
+            });
+        }
     },
 
     onClearGridClick: function(button, e, eOpts) {

@@ -77,7 +77,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                             labelWidth: 200,
                             items: [
                                 {
-                                    xtype: 'combobox',
+                                    xtype: 'textfield',
                                     width: 367,
                                     fieldLabel: 'พนักงานขาย/ผจก.ฝ่ายขาย',
                                     labelAlign: 'right',

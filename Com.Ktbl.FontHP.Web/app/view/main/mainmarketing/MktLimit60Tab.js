@@ -67,13 +67,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MktLimit60Tab', {
                         {
                             xtype: 'combobox',
                             margin: '5 0 0 0',
-                            width: '40%',
                             fieldLabel: 'สาขา',
                             labelWidth: 50,
                             emptyText: 'เลือก',
                             displayField: 'Name',
-                            store: 'BranchStore',
-                            valueField: 'Id',
+                            store: 'combo.BranchStore',
+                            valueField: 'id',
                             listeners: {
                                 select: 'onComboboxBranchSelect'
                             }

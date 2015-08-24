@@ -73,11 +73,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                         {
                             xtype: 'combobox',
                             fieldLabel: 'ประเภทที่อยู่',
+                            colspan: 2,
+                            width: 490,
                             labelCls: 'text-require',
                             name: '',
                             emptyText: '[เลือก]',
-                            displayField: 'name',
-                            store: 'commonModels',
+                            displayField: 'Name',
+                            store: 'combo.TypeAddressStore',
                             valueField: 'id'
                         },
                         {
@@ -90,7 +92,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                         },
                         {
                             xtype: 'textfield',
-                            width: 390,
+                            width: 490,
+                            colspan: 2,
                             fieldLabel: 'บริษัทที่ทำงาน และ เลขที่',
                             labelCls: 'text-require',
                             name: '',
@@ -137,10 +140,15 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                             fieldLabel: 'จังหวัด',
                             labelCls: 'text-require',
                             name: '',
+                            reference: 'province',
+                            autoLoadOnValue: true,
                             emptyText: '[จังหวัด]',
-                            displayField: 'name',
-                            store: 'commonModels',
-                            valueField: 'id'
+                            displayField: 'Name',
+                            store: 'provinceModels',
+                            valueField: 'id',
+                            listeners: {
+                                change: 'onProvinceChange'
+                            }
                         },
                         {
                             xtype: 'combobox',
@@ -148,9 +156,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                             labelCls: 'text-require',
                             name: '',
                             emptyText: '[อำเภอ]',
-                            displayField: 'name',
-                            store: 'commonModels',
-                            valueField: 'id'
+                            reference: 'district',
+                            autoLoadOnValue: true,
+                            displayField: 'Name',
+                            store: 'districtModels',
+                            valueField: 'id',
+                            listeners: {
+                                change: 'onDistrictChange'
+                            }
                         },
                         {
                             xtype: 'combobox',
@@ -158,9 +171,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                             labelCls: 'text-require',
                             name: '',
                             emptyText: '[ตำบล]',
-                            displayField: 'name',
-                            store: 'commonModels',
-                            valueField: 'id'
+                            autoLoadOnValue: true,
+                            displayField: 'Name',
+                            reference: 'subdistrict',
+                            store: 'subDistrictModels',
+                            valueField: 'id',
+                            listeners: {
+                                change: 'onSubDistrictChange'
+                            }
                         },
                         {
                             xtype: 'textfield',
