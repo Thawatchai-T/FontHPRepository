@@ -28,22 +28,22 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTabViewController', {
         var form = me.down('form').getForm();
         if (form.isValid()) {
             form.submit({
-                url: 'api/marketing/Test',
-                params: {
-                    StartDate: Ext.Date.format(txtdateFrom, 'd/m/Y'),
-                    Enddate:   Ext.Date.format(txtdateTo, 'd/m/Y'),
-                    RequestNo: me.down('[name=RequestNo]').getValue(),
-                    StatusRequest: me.down('[name=StatusRequest]').getValue(),
-                    CitizenID: me.down('[name=CitizenID]').getValue(),
-                    Cusname: me.down('[name=Cusname]').getValue(),
-                    Branch: me.down('[name=Branch]').getValue(),
+                url: 'api/marketing/SearchMainRequest',
+                //params: {
+                //    StartDate: Ext.Date.format(txtdateFrom, 'd/m/Y'),
+                //    Enddate:   Ext.Date.format(txtdateTo, 'd/m/Y'),
+                //    RequestNo: me.down('[name=RequestNo]').getValue(),
+                //    StatusRequest: me.down('[name=StatusRequest]').getValue(),
+                //    CitizenID: me.down('[name=CitizenID]').getValue(),
+                //    Cusname: me.down('[name=Cusname]').getValue(),
+                //    Branch: me.down('[name=Branch]').getValue(),
 
 
 
 
 
 
-                },
+                //},
                 success: function (form, action) {
                     //Ext.Msg.alert('Success', action.result.msg);
                 },

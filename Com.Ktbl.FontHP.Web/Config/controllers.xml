@@ -7,8 +7,14 @@
     <property name="OccupationRepository"  ref="occupationRepository" />
     <property name="PositionRepository"  ref="positionRepository" />
     <property name="CareerRepository"  ref="careerRepository" />
-    
+    <!--<property name="MainRequestRepository"  ref="mainRequestRepository" />-->
+
+
     <!--<property name="ComboProvince"  value="lprovince" />-->
+  </object>
+  <object type="Com.Ktbl.FontHP.Web.Controllers.MarketingController, Com.Ktbl.FontHP.Web" singleton="false" >
+    <property name="MainRequestRepository"  ref="mainRequestRepository" />
+    <property name="OccupationRepository"  ref="occupationRepository" />
   </object>
   
 </objects>

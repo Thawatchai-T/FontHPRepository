@@ -13,8 +13,10 @@ namespace Com.Ktbl.FontHP.Map.Repository
 {
     public interface IMainRequestRepository
     {
-        List<MainRequestModel> GetMainRequest();
+        List<MainRequestModel> GetMainRequest(DateTime startdate, DateTime enddate, int start, int limit);
         long GetCountMainRequest();
+
+        List<MainRequestModel> SearchMainRequest(string Branch, string CitizenID, string Cusname, string Enddate, string RequestNo, string StartDate, string StatusRequest);
     }
 
     /// <summary>
@@ -26,7 +28,7 @@ namespace Com.Ktbl.FontHP.Map.Repository
         /// Grid view main marketing 
         /// </summary>
         /// <returns>list of view model grid </returns>
-        public List<MainRequestModel> GetMainRequest()
+        public List<MainRequestModel> GetMainRequest(DateTime startdate, DateTime enddate,int start, int limit)
         {
             using(var session = SessionFactory.OpenStatelessSession())
             using(var tx = session.BeginTransaction())
@@ -41,20 +43,26 @@ namespace Com.Ktbl.FontHP.Map.Repository
                 //    .Add(Projections.Property(""))
                 //    .Add(Projections.Property(""))
                 //    );
-                var reslut = session.QueryOver<MainRequest>().List<MainRequest>().Select(x=>new MainRequestModel{
+                
+                //TODO: main requestgrid 
+
+                var reslut = session.QueryOver<MainRequest>()
+                    .And(Expression.Between("RequestDate",startdate,enddate)).Skip(start).Take(limit)
+                    .List<MainRequest>().Select(x=>new MainRequestModel{
                     Active = x.Active,
                     BranchNo = x.BranchNo,
-                    CId = x.CId,
+                    CitizenId = x.CId,
                     DealerName = string.Format("{0} {1} {2}",x.DealerTitle,x.DealerFName,x.DealerLName),
                     DealerPriority = x.DealerPriority,
                     IsGarantor = x.DealerPriority,
-                    IsLoan = x.IsLoan,
-                    Name = string.Format("{0}{1} {2}",x.TitleName,x.FNameThai,x.LNameThai),
+                    Loan = x.IsLoan,
+                    CusName = string.Format("{0}{1} {2}",x.TitleName,x.FNameThai,x.LNameThai),
                     Ncb = x.Ncb,
                     RequestDate = x.RequestDate,
                     RequestNo = x.RequestNo,
-                    RequestStatusName = x.RequestStatusName,
-                    StatusCode = x.StatusCode
+                    RequestStatus = x.RequestStatusName,
+                    StatusCode = x.StatusCode,
+                    NCBStatus = "ยังหาค่าไม่ได้"
 
                 }).ToList < MainRequestModel>();
 
@@ -71,6 +79,59 @@ namespace Com.Ktbl.FontHP.Map.Repository
                 return count;
             }
             
+        }
+
+        public List<MainRequestModel> SearchMainRequest(string Branch, string CitizenID, string Cusname, string Enddate, string RequestNo, string StartDate, string StatusRequest)
+        {
+            try
+            {
+                using(var session = SessionFactory.OpenStatelessSession())
+                using(var tx = session.BeginTransaction())
+                {
+                    var crt = session.CreateCriteria<MainRequest>();
+                    crt.Add(Expression.Between("RequestDate", StartDate, Enddate));
+
+                    if(string.IsNullOrEmpty(RequestNo))
+                        crt.Add(Expression.Eq("RequestNo", RequestNo));
+
+                    if(string.IsNullOrEmpty(CitizenID))
+                        crt.Add(Expression.Eq("CId", CitizenID));
+
+                    if(string.IsNullOrEmpty(Cusname))
+                        crt.Add(Expression.Like("FNameThai", Cusname, MatchMode.Anywhere) || Expression.Like("LNameThai", Cusname, MatchMode.Anywhere));
+                    
+                    if(string.IsNullOrEmpty(Branch))
+                        crt.Add(Expression.Eq("BranchNo", Branch));
+                    
+                    if(string.IsNullOrEmpty(StatusRequest))
+                        crt.Add(Expression.Eq("StatusCode", StatusRequest));
+
+                    var result = crt.List<MainRequest>().Skip(0).Take(25).Select(x=>new MainRequestModel{
+                    Active = x.Active,
+                    BranchNo = x.BranchNo,
+                    CitizenId = x.CId,
+                    DealerName = string.Format("{0} {1} {2}",x.DealerTitle,x.DealerFName,x.DealerLName),
+                    DealerPriority = x.DealerPriority,
+                    IsGarantor = x.DealerPriority,
+                    Loan = x.IsLoan,
+                    CusName = string.Format("{0}{1} {2}",x.TitleName,x.FNameThai,x.LNameThai),
+                    Ncb = x.Ncb,
+                    RequestDate = x.RequestDate,
+                    RequestNo = x.RequestNo,
+                    RequestStatus = x.RequestStatusName,
+                    StatusCode = x.StatusCode,
+                    NCBStatus = "ยังหาค่าไม่ได้"
+
+                }).ToList <MainRequestModel>();
+                    return result as List<MainRequestModel>;
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+
         }
     }
 }

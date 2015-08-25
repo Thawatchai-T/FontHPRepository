@@ -25,7 +25,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         //public static CommonUtility CommonUtility { get; set; }
         public IOccupationRepository OccupationRepository { get; set; }
         public IPositionRepository PositionRepository { get; set; }
-
+        public IMainRequestRepository MainRequestRepository { get; set; }
         public ICareerRepository CareerRepository { get; set; }
         //p2p add variable Web Service  20150819
         WebReferenceRedbook.IWS_KTBLBookservice ws = new WebReferenceRedbook.IWS_KTBLBookservice();
@@ -40,7 +40,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
                 var result = StandardCodeRepository.GetStandardCodeWithCode(stdcode).Select(
                     x => new ComboBox { id = x.StandardCode, Name = x.StandardName }).ToList<ComboBox>();
                     
-                    
+                 
                 return result;
             }
             catch (Exception ex)
@@ -123,6 +123,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             try
             {
                 var result = this.OccupationRepository.GetOccupationCatelogy().Select (x =>new ComboBox{id =x.Id,Name =x.Name }).ToList<ComboBox>();
+                
                 return result;
             }
             catch (Exception)

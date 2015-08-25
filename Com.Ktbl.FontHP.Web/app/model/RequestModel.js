@@ -59,27 +59,45 @@ Ext.define('FrontHPApp.model.RequestModel', {
             name: 'Loan'
         },
         {
-            type: 'boolean',
+           // type: 'boolean',
             name: 'GurantorName'
         },
         {
-            type: 'string',
+            //type: 'string',
             name: 'NCBStatus'
         },
         {
             name: 'RequestStatus'
         },
         {
-            type: 'boolean',
+            //type: 'boolean',
             name: 'doc1'
         },
         {
-            type: 'boolean',
+           // type: 'boolean',
             name: 'doc2'
         },
         {
-            type: 'boolean',
+            //type: 'boolean',
             name: 'doc3'
         }
+
+        ,
+        {
+            name: 'BranchNo'
+        },
+        {
+            name: 'StatusCode'
+        },
+        {
+            name: 'RequestStatusName'
+        },
+        {
+            name: 'GurantorName'
+        },
+        {
+            name: 'DealerPriority'
+        }
+
     ]
 });
