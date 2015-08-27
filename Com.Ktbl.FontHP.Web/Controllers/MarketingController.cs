@@ -91,6 +91,19 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         //        throw;
         //    }
         //}
-        
+
+        #region Bind Data grid 20150827
+        public List<LeadSearch> GetGridLeaderLoad()
+        {
+            List<LeadSearch> list = new List<LeadSearch>();
+            list.Add(new LeadSearch { Id = 1, ImportId = "0000001", CusName = "วรนุช", CusSurName = "วงสวรรค์", LeadNo = "07-0284", LeadNameGrid = "อชญา", LeadSurNameGrid = "มีทรัพย์", BranchId = "000001", BranchName = "สำนักงานใหญ่" });
+            list.Add(new LeadSearch { Id = 2, ImportId = "0000002", CusName = "วรนุช", CusSurName = "วงสวรรค์", LeadNo = "07-0284", LeadNameGrid = "อชญา", LeadSurNameGrid = "มีทรัพย์", BranchId = "000001", BranchName = "สำนักงานใหญ่" });
+
+            
+            return list;
+        }
+
+        #endregion
+
     }
 }

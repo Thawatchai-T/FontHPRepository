@@ -72,7 +72,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เลขที่ใบนำเข้า',
-                            name: '',
+                            name: 'LeadNumberIn',
                             emptyText: '[เลขที่ใบนำเข้า]'
                         },
                         {
@@ -80,13 +80,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
                             fieldLabel: 'รหัสผู้แนะนำ',
                             labelAlign: 'right',
                             labelWidth: 190,
-                            name: '',
+                            name: 'LeadId',
                             emptyText: '[รหัสผู้แนะนำ]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ผู้แนะนำ',
-                            name: 'CardExpireDate',
+                            name: 'LeadName',
                             emptyText: '[ผู้แนะนำ]'
                         }
                     ]
@@ -139,46 +139,54 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'leadId',
-                    text: 'เลขที่ใบนำเข้า'
+                    dataIndex: 'leadIdIn',
+                    text: 'เลขที่ใบนำเข้า',
+                    name: 'ImportId'
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'cusName',
-                    text: 'ชื่อลูกค้า'
+                    text: 'ชื่อลูกค้า',
+                    name: 'CusName'
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'cusSurname',
                     text: 'นามสกุลลูกค้า',
+                    name: 'CusSurName',
                     flex: -1
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'leadNo',
-                    text: 'รหัสผู้แนะนำ'
+                    text: 'รหัสผู้แนะนำ',
+                    name: 'LeadNo',
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'leadName',
-                    text: 'ชื่อผู้แนะนำ'
+                    text: 'ชื่อผู้แนะนำ',
+                    name: 'LeadNameGrid',
                 },
                 {
                     xtype: 'gridcolumn',
                     width: '',
                     dataIndex: 'leadSurName',
-                    text: 'นามสกุลผู้แนะนำ'
+                    text: 'นามสกุลผู้แนะนำ',
+                    name: 'LeadSurNameGrid',
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'branchId',
-                    text: 'รหัสสาขา'
+                    text: 'รหัสสาขา',
+                    name: 'BranchId',
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 75,
                     dataIndex: 'branchName',
-                    text: 'ชื่อสาขา'
+                    text: 'ชื่อสาขา',
+                    name: 'BranchName'
                 }
             ],
             dockedItems: [

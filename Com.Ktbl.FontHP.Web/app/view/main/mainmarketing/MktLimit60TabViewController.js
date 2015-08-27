@@ -18,7 +18,32 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MktLimit60TabViewController', {
     alias: 'controller.mainmainmarketingmktlimit60tab',
 
     onComboboxBranchSelect: function(combo, record, eOpts) {
-        console.log(record);
+        //console.log(record);
+        //var me = this,
+        //    refs = me.getReferences(),
+        //    cbobranchid = refs.branchid;
+        //console.log(record);
+        var store = this.getView().down('grid').getStore();
+        store.getProxy().setExtraParam('branchid', record.id);
+        store.load();
+        console.log(store);
+        //var me = this,
+        //    refs = me.getReferences(),
+        //    cbobrandcar = refs.brandcar,
+        //    cbomodelcar = refs.modelcar,
+        //    cbomodeldetailcar = refs.modeldetailcar;
+
+
+        //// Clear selected series value
+        //if (oldValue != null) {
+
+        //    cbomodelcar.setValue("");
+        //    cbomodeldetailcar.setValue("");
+        //}
+
+        //var store = cbomodelcar.getStore(); //get model car
+        //store.getProxy().setExtraParam('brandcode', newValue);
+        //store.load();
     },
 
     onSaveClick: function(button, e, eOpts) {

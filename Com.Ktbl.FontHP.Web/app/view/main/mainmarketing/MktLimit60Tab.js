@@ -113,23 +113,36 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MktLimit60Tab', {
                     },
                     width: '',
                     dataIndex: 'RequestDate',
-                    text: 'วันที่คำขอ'
+                    text: 'วันที่คำขอ',
+                    name:'RequestDate'
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'RequestNo',
                     text: 'เลขที่คำขอ',
-                    flex: -1
+                    name:'RequestNo',
+                    
                 },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'RequestStatus',
-                    text: 'สถานะคำขอ'
+                    text: 'สถานะคำขอ',
+                    name: 'RequestStatus',
+                    flex: -1
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'Day',
+                    dataIndex: 'DayNum',
+                    name: 'DayNum',
                     text: 'จำนวนวัน'
+                },
+
+                {
+                xtype: 'gridcolumn',
+                dataIndex: 'BranchId',
+                name: 'BranchId',
+                text: 'รหัสสาขา(ไม่มี)',
+                reference: 'branchid',
                 }
             ],
             dockedItems: [

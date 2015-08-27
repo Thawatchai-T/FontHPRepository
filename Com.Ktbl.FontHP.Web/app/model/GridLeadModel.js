@@ -25,34 +25,34 @@ Ext.define('FrontHPApp.model.GridLeadModel', {
     fields: [
         {
             type: 'int',
-            name: 'id'
+            name: 'Id'
         },
         {
-            name: 'leadId'
+            name: 'ImportId'
         },
         {
-            name: 'cusName'
-        },
-        {
-            type: 'string',
-            name: 'cusSurname'
-        },
-        {
-            name: 'leadNo'
-        },
-        {
-            name: 'leadName'
+            name: 'CusName'
         },
         {
             type: 'string',
-            name: 'leadSurName'
+            name: 'CusSurName'
         },
         {
-            type: 'int',
-            name: 'branchId'
+            name: 'LeadNo'
         },
         {
-            name: 'branchName'
+            name: 'LeadNameGrid'
+        },
+        {
+            type: 'string',
+            name: 'LeadSurNameGrid'
+        },
+        {
+            type: 'string',
+            name: 'BranchId'
+        },
+        {
+            name: 'BranchName'
         }
     ]
 });

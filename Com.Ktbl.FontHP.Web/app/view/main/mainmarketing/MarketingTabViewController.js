@@ -61,10 +61,19 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTabViewController', {
                         store = grid.getStore();
 
                     //store.getProxy().extraParams.obj = action.result;
-                    var records = Ext.create('model.requestmodel', action.result);
+                    //start close pom because Error
+                    
                     console.log(records);
-                    store.loadRecords(action.result,true);
+                    Ext.Array.each(action.result, function (record,index) {
+                        console.log(record);
+                        var records = Ext.create('model.requestmodel', record);
+                        store.loadRecords(records, {
+                        addRecords: true
+                    });
+                    })
+                    
                     grid.view.refresh();
+                    //*close pom because Error
                    // Ext.Msg.alert('Failed', action.result.msg);
                 }
             });

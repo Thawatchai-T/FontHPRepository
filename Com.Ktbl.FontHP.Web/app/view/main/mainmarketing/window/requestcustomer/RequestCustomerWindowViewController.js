@@ -83,6 +83,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
         }
         
         var store = cbdistrict.getStore();
+        console.log(newValue);
         store.getProxy().setExtraParam('provinceid', newValue);
         store.load();
 

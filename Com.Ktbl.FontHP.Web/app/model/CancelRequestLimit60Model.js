@@ -24,7 +24,7 @@ Ext.define('FrontHPApp.model.CancelRequestLimit60Model', {
 
     fields: [
         {
-            type: 'date',
+            type:'date',
             name: 'RequestDate'
         },
         {
@@ -35,13 +35,13 @@ Ext.define('FrontHPApp.model.CancelRequestLimit60Model', {
         },
         {
             type: 'int',
-            name: 'Day'
+            name: 'DayNum'
         },
-        {
-            name: 'Confirm'
-        },
-        {
-            name: 'Id'
-        }
+        //{
+        //    name: 'Confirm'
+        //},
+        //{
+        //    name: 'Id'
+        //}
     ]
 });
