@@ -30,8 +30,9 @@ Ext.define('FrontHPApp.model.RequestModel', {
             name: 'Id'
         },
         {
-            type: 'int',
-            name: 'RequestNo'
+            //type: 'int',
+            name: 'RequestNo',
+            mapping: 'RequestNo.RequestNo'
         },
         {
             type: 'date',

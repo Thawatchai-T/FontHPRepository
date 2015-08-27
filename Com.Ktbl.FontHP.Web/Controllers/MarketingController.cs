@@ -13,6 +13,7 @@ using System.Data;
 using System.Xml;
 using System.Xml.Linq;
 using Com.Ktbl.FontHP.Map.Repository;
+using System.Globalization;
 
 
 namespace Com.Ktbl.FontHP.Web.Controllers
@@ -27,14 +28,15 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         {
           
         }
-
+        //fit startdate enedate 20150825 DateTime.Now
         public List<MainRequestModel> GetMainRequest(int start,int limit,int page)
         {
             try
             {
-                var startdate = Convert.ToDateTime("2015-05-01");
-                
-                return MainRequestRepository.GetMainRequest(startdate, DateTime.Now,start, limit);
+               
+               // DateTime startdate = DateTime.ParseExact("20150701", "yyyyMMdd", CultureInfo.InvariantCulture);
+                var startdate = Convert.ToDateTime("2015-07-01");
+                return MainRequestRepository.GetMainRequest(startdate, DateTime.Now, start, limit);
             }
             catch (Exception)
             {
@@ -43,14 +45,30 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             }
         }
 
+        //public List<MainRequestModel> GetMainRequest(int start, int limit, int page, List<MainRequestModel> obj)
+        //{
+        //    try
+        //    {
+        //         return obj;
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //}
+        //p2p 20150825 set format date
         public List<MainRequestModel> SearchMainRequest(SearchRequest obj)
         {
             try
             {
+                //DateTime startdate = DateTime.ParseExact("20150701", "yyyyMMdd", CultureInfo.InvariantCulture);
+                //DateTime Enddate = DateTime.ParseExact("20150706", "yyyyMMdd", CultureInfo.InvariantCulture);
+                
                 var result = this.MainRequestRepository.SearchMainRequest(obj.Branch,
                     obj.CitizenID, obj.Cusname, obj.Enddate, obj.RequestNo, obj.StartDate,
                     obj.StatusRequest);
-                return null;
+                return result;
             }
             catch (Exception)
             {

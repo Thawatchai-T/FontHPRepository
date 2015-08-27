@@ -16,7 +16,7 @@ namespace Com.Ktbl.FontHP.Map.Repository
         List<MainRequestModel> GetMainRequest(DateTime startdate, DateTime enddate, int start, int limit);
         long GetCountMainRequest();
 
-        List<MainRequestModel> SearchMainRequest(string Branch, string CitizenID, string Cusname, string Enddate, string RequestNo, string StartDate, string StatusRequest);
+        List<MainRequestModel> SearchMainRequest(string Branch, string CitizenID, string Cusname, string Enddate, string RequestNo,string StartDate, string StatusRequest);
     }
 
     /// <summary>
@@ -48,6 +48,7 @@ namespace Com.Ktbl.FontHP.Map.Repository
 
                 var reslut = session.QueryOver<MainRequest>()
                     .And(Expression.Between("RequestDate",startdate,enddate)).Skip(start).Take(limit)
+                    //.And(Expression.Between("RequestDate","20150701","20150706")).Skip(start).Take(limit)
                     .List<MainRequest>().Select(x=>new MainRequestModel{
                     Active = x.Active,
                     BranchNo = x.BranchNo,
@@ -88,22 +89,28 @@ namespace Com.Ktbl.FontHP.Map.Repository
                 using(var session = SessionFactory.OpenStatelessSession())
                 using(var tx = session.BeginTransaction())
                 {
-                    var crt = session.CreateCriteria<MainRequest>();
-                    crt.Add(Expression.Between("RequestDate", StartDate, Enddate));
 
-                    if(string.IsNullOrEmpty(RequestNo))
+
+                    DateTime DStartDate = Convert.ToDateTime(StartDate);
+                    DateTime DEnddate = Convert.ToDateTime(Enddate);
+
+                   //Enddate = Convert.ToDateTime("2015-07-01");
+                    var crt = session.CreateCriteria<MainRequest>();
+                    crt.Add(Expression.Between("RequestDate", DStartDate, DEnddate));
+
+                    if(!string.IsNullOrEmpty(RequestNo))
                         crt.Add(Expression.Eq("RequestNo", RequestNo));
 
-                    if(string.IsNullOrEmpty(CitizenID))
+                    if(!string.IsNullOrEmpty(CitizenID))
                         crt.Add(Expression.Eq("CId", CitizenID));
 
-                    if(string.IsNullOrEmpty(Cusname))
+                    if(!string.IsNullOrEmpty(Cusname))
                         crt.Add(Expression.Like("FNameThai", Cusname, MatchMode.Anywhere) || Expression.Like("LNameThai", Cusname, MatchMode.Anywhere));
                     
-                    if(string.IsNullOrEmpty(Branch))
+                    if(!string.IsNullOrEmpty(Branch))
                         crt.Add(Expression.Eq("BranchNo", Branch));
                     
-                    if(string.IsNullOrEmpty(StatusRequest))
+                    if(!string.IsNullOrEmpty(StatusRequest))
                         crt.Add(Expression.Eq("StatusCode", StatusRequest));
 
                     var result = crt.List<MainRequest>().Skip(0).Take(25).Select(x=>new MainRequestModel{

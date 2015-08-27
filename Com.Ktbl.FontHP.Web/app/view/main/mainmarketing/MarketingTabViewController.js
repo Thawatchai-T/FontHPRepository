@@ -29,6 +29,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTabViewController', {
         if (form.isValid()) {
             form.submit({
                 url: 'api/marketing/SearchMainRequest',
+                submitEmptyText:false,
                 //params: {
                 //    StartDate: Ext.Date.format(txtdateFrom, 'd/m/Y'),
                 //    Enddate:   Ext.Date.format(txtdateTo, 'd/m/Y'),
@@ -45,9 +46,25 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTabViewController', {
 
                 //},
                 success: function (form, action) {
-                    //Ext.Msg.alert('Success', action.result.msg);
+                    console.log(action);
+                    var grid = me.down('grid'),
+                        store = grid.getStore();
+
+                    //store.getProxy().extraParams.obj = action.result;
+                    var records = Ext.create('model.requestmodel', action.result);
+                    store.loadRecords(records);
+                    grid.view.refresh();
                 },
                 failure: function (form, action) {
+                    console.log(action);
+                    var grid = me.down('grid'),
+                        store = grid.getStore();
+
+                    //store.getProxy().extraParams.obj = action.result;
+                    var records = Ext.create('model.requestmodel', action.result);
+                    console.log(records);
+                    store.loadRecords(action.result,true);
+                    grid.view.refresh();
                    // Ext.Msg.alert('Failed', action.result.msg);
                 }
             });
