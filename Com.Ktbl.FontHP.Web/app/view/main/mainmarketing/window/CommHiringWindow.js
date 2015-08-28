@@ -336,7 +336,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                 {
                     xtype: 'gridcolumn',
                     width: 150,
-                    dataIndex: 'Pay Commission To',
+                    dataIndex: 'PayCommissionTo',
                     locked: true,
                     text: 'Pay Commission To '
                 },
@@ -354,7 +354,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                         }
                     },
                     width: 100,
-                    dataIndex: 'Absorb Tax ',
+                    dataIndex: 'AbsorbTax',
                     locked: true,
                     text: 'Absorb Tax '
                 },
@@ -365,34 +365,34 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                         {
                             xtype: 'gridcolumn',
                             width: 130,
-                            dataIndex: 'Commission Rate ',
+                            dataIndex: 'CommissionRate',
                             text: 'Commission Rate '
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'Max Rate ',
+                            dataIndex: 'MaxRate',
                             text: 'Max Rate '
                         },
                         {
                             xtype: 'gridcolumn',
                             width: 130,
-                            dataIndex: 'Commission Term ',
+                            dataIndex: 'CommissionTerm',
                             text: 'Commission Term '
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'Max Term ',
+                            dataIndex: 'MaxTerm',
                             text: 'Max Term '
                         },
                         {
                             xtype: 'gridcolumn',
                             width: 150,
-                            dataIndex: 'Commission VAT No',
+                            dataIndex: 'CommissionVATNo',
                             text: 'Commission VAT No'
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'อัตราดอกเบี้ย ',
+                            dataIndex: 'InterestRate',
                             text: 'อัตราดอกเบี้ย '
                         },
                         {
@@ -401,7 +401,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                                 return Ext.Date.format(value, 'd/m/Y');
                             },
                             width: 155,
-                            dataIndex: 'Commission VAT Date ',
+                            dataIndex: 'CommissionVATDate',
                             text: 'Commission VAT Date '
                         }
                     ]
@@ -413,29 +413,29 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                         {
                             xtype: 'gridcolumn',
                             width: 180,
-                            dataIndex: 'Hiring Charge Include VAT ',
+                            dataIndex: 'HiringChargeIncludeVAT',
                             text: 'Hiring Charge Include VAT'
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'Amount VAT ',
+                            dataIndex: 'AmountVAT',
                             text: 'Amount VAT'
                         },
                         {
                             xtype: 'gridcolumn',
                             width: 150,
-                            dataIndex: 'Amount Include VAT ',
+                            dataIndex: 'AmountIncludeVAT',
                             text: 'Amount Include VAT'
                         },
                         {
                             xtype: 'gridcolumn',
                             width: 170,
-                            dataIndex: 'With Hold Tax Amount ',
+                            dataIndex: 'WithHoldTaxAmount',
                             text: 'With Hold Tax Amount'
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'Standard Interest Rate ',
+                            dataIndex: 'NetPaid',
                             text: 'Net Paid'
                         }
                     ]
@@ -447,13 +447,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                         {
                             xtype: 'gridcolumn',
                             width: 170,
-                            dataIndex: 'Standard Interest Rate ',
+                            dataIndex: 'StandardInterestRate',
                             text: 'Standard Interest Rate '
                         },
                         {
                             xtype: 'gridcolumn',
                             width: 150,
-                            dataIndex: 'Canpaign',
+                            dataIndex: 'Campaign',
                             text: 'Campaign'
                         }
                     ]

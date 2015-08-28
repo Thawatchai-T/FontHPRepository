@@ -21,53 +21,21 @@ Ext.define('FrontHPApp.store.gurantorGridModels', {
         'FrontHPApp.model.GurantorGridModel',
         'Ext.data.proxy.Memory'
     ],
-
-    constructor: function(cfg) {
+    constructor: function (cfg) {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
-            storeId: 'gurantorGridModels',
+            storeId: 'gurantorgridmodels',
             model: 'FrontHPApp.model.GurantorGridModel',
-            data: [
-                {
-                    CiticenId: 620,
-                    Name: 'consequatur',
-                    CusRelationShip: 'voluptas',
-                    BirthDate: '1/25/2004',
-                    Tel: 'aperiam'
-                },
-                {
-                    CiticenId: 288,
-                    Name: 'quo',
-                    CusRelationShip: 'id',
-                    BirthDate: '3/11/2012',
-                    Tel: 'inventore'
-                },
-                {
-                    CiticenId: 432,
-                    Name: 'ratione',
-                    CusRelationShip: 'qui',
-                    BirthDate: '12/13/2006',
-                    Tel: 'quo'
-                },
-                {
-                    CiticenId: 261,
-                    Name: 'vel',
-                    CusRelationShip: 'qui',
-                    BirthDate: '4/18/2011',
-                    Tel: 'accusamus'
-                },
-                {
-                    CiticenId: 135,
-                    Name: 'quos',
-                    CusRelationShip: 'maxime',
-                    BirthDate: '6/22/2004',
-                    Tel: 'voluptate'
-                }
-            ],
+            autoLoad: true,
             proxy: {
-                type: 'memory'
+                type: 'rest',
+                url: 'api/Garantor/getgridgarantorload',
+                reader: {
+                    type: 'json'
+                }
             }
         }, cfg)]);
     }
+    
 });

@@ -29,25 +29,25 @@ Ext.define('FrontHPApp.model.ComHirModel', {
             type: 'int',
             name: 'id'
         },
-        {
-            type: 'string',
-            name: 'ENTCODE'
-        },
+        //{
+        //    type: 'string',
+        //    name: 'ENTCODE'
+        //},
         {
             type: 'string',
             name: 'DealerName'
         },
         {
             type: 'string',
-            name: 'Pay Commission To'
+            name: 'PayCommissionTo'
         },
         {
             type: 'boolean',
-            name: 'Absorb Tax '
+            name: 'AbsorbTax'
         },
         {
             type: 'float',
-            name: 'Commission Rate '
+            name: 'CommissionRate'
         },
         {
             type: 'float',

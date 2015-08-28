@@ -15,7 +15,9 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.mainmainmarketingwindowgarantorwindow',
+    //change name alias 20150828
+    //alias: 'widget.mainmainmarketingwindowgarantorwindow',
+    alias: 'widget.windowgarantor',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewModel',
@@ -642,7 +644,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'Name',
+                    dataIndex: 'NameGarantor',
                     text: 'ชื่อ-นามสกุลผู้ค้ำประกัน',
                     flex: -1
                 },
