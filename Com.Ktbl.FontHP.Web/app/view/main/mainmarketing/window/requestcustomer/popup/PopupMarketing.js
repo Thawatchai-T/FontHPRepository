@@ -15,7 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupMarketing', {
     extend: 'Ext.window.Window',
-    alias: 'widget.mainmainmarketingwindowrequestcustomerpopuppopupmarketing',
+    alias: 'widget.popupmarketing',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupMarketingViewModel',
@@ -37,7 +37,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
     autoShow: true,
     width: 800,
     title: 'ค้นหาข้อมูลเจ้าหน้าที่การตลาด',
-
+    modal: true,
     layout: {
         type: 'vbox',
         align: 'stretch'
@@ -72,7 +72,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เจ้าหน้าที่การตลาด',
-                            name: '',
+                            name: 'QMarketingName',
                             emptyText: '[เจ้าหน้าที่การตลาด]'
                         }
                     ]
@@ -125,22 +125,25 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'codeMarket',
+                    dataIndex: 'MarketingCode',
                     text: 'รหัส'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'nameMarket',
+                    dataIndex: 'MarketingName',
                     text: 'เจ้าหน้าที่การตลาด',
                     flex: -1
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'tel',
+                    dataIndex: 'PhoneNo',
                     text: 'เบอร์โทรศัพท์มือถือ',
                     flex: -1
                 }
-            ]
+            ],
+            listeners: {
+                itemdblclick: 'onItemDblClick'
+            }
         }
     ],
     dockedItems: [
@@ -148,6 +151,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
             xtype: 'pagingtoolbar',
             dock: 'bottom',
             width: 360,
+            store: 'marketModels',
             displayInfo: true
         }
     ]

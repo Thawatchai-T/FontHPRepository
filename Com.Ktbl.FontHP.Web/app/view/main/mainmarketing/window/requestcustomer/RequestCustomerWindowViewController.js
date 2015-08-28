@@ -27,8 +27,38 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
         Ext.widget("mainmainmarketingwindowrequestcustomerpopuppopupbranch").show();
     },
 
+
     onBtnMarketingClick: function(button, e, eOpts) {
-        Ext.widget("mainmainmarketingwindowrequestcustomerpopuppopupmarketing").show();
+        //[20150828] Add by Woody 
+        var me = this,
+            refs = me.getReferences(),
+            marketingname = refs.homefieldset.down('#marketing-name'),
+            phoneNo = refs.homefieldset.down('#phone-no');
+        
+        Ext.widget("popupmarketing", {
+
+            listeners: {
+                afterRender: function (panal, eOpts) {
+
+                    var store = panal.down('grid').getStore();
+                    store.extraParams = {};
+                    store.load();
+                    
+                },
+                close: function (panal, eOpts) {
+
+                    var grid = panal.down('grid'),
+                        selection = grid.getSelection();
+                    if (selection.length > 0) {
+
+                        record = selection[0];
+                        marketingname.setValue(record.get('MarketingName'));
+                        phoneNo.setValue(record.get('PhoneNo'));
+
+                    }
+                }
+            }
+        }).show();
     },
 
     onButtonClickDealer: function(button, e, eOpts) {

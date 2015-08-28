@@ -183,7 +183,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTab', {
                             iconCls: 'icon-add',
                             text: 'เพิ่ม',
                             listeners: {
-                                click: 'onSaveClick'
+                                click: 'onAddClick'
                             }
                         },
                         {
@@ -191,7 +191,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTab', {
                             iconCls: 'icon-details',
                             text: 'ViewDetail',
                             listeners: {
-                                click: 'onEditClick'
+                                click: 'onViewDetailClick'
                             }
                         },
                         {
@@ -199,7 +199,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTab', {
                             iconCls: 'icon-edit',
                             text: 'Cancel Flag',
                             listeners: {
-                                click: 'onDeleteClick'
+                                click: 'onEditClick'
                             }
                         }
                     ]

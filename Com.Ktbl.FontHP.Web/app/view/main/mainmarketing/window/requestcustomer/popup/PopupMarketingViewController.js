@@ -18,14 +18,33 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
     alias: 'controller.mainmainmarketingwindowrequestcustomerpopuppopupmarketing',
 
     onFindClick: function(button, e, eOpts) {
+        //[20150828] Add by woody 
+        var me = this,
+            views = this.getView(),
+            form = views.down('form').getForm(),
+            store = views.down('grid').getStore();
+        store.getProxy().setExtraParam('text', form.findField('QMarketingName').getValue());
 
+        store.load();
+    
     },
 
     onClearClick: function(button, e, eOpts) {
         var me = this.getView(),
             form = me.down('form');
-        paging = me.down('pagingtoolbar');
+        paging = me.down('pagingtoolbar'),
+        store = paging.getStore();
+        store.getProxy().extraParams = {};
         form.reset();
+        store.load();
+        
+    },
+
+    //[20150828] add by Woody
+    onItemDblClick: function (dataview, record, item, index, e, eOpts) {
+
+        this.getView().close();
     }
+    
 
 });

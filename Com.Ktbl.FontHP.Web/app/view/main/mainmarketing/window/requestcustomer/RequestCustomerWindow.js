@@ -40,7 +40,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
     scrollable: true,
     bodyPadding: 10,
     title: 'ข้อมูลผู้เช่าซื้อ',
-
+    id: 'requestcustomer-tab',
     layout: {
         type: 'vbox',
         align: 'stretch'
@@ -48,6 +48,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
     items: [
         {
             xtype: 'form',
+            itemId:'form1',
             layout: {
                 type: 'vbox',
                 align: 'stretch'
@@ -56,6 +57,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                 {
                     xtype: 'fieldset',
                     scrollable: false,
+                    reference: 'homefieldset',
                     defaults: {
                         labelAlign: 'right',
                         labelWidth: 175,
@@ -134,7 +136,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 {
                                     xtype: 'textfield',
                                     allowBlank: false,
-                                    emptyText: '[เจ้าหน้าที่การตลาด]'
+                                    itemId: 'marketing-name',
+                                    emptyText: '[เจ้าหน้าที่การตลาด]',
+                                    name:'MarketingName'
                                 },
                                 {
                                     xtype: 'button',
@@ -189,11 +193,10 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         },
                         {
                             xtype: 'textfield',
-                            afterLabelTextTpl: [
-                                ' '
-                            ],
+                            itemId:'phone-no',
                             fieldLabel: 'เบอร์โทรศัพท์',
-                            emptyText: '[เบอร์โทรศัพท์]'
+                            emptyText: '[เบอร์โทรศัพท์]',
+                            name:'PhoneNo'
                         },
                         {
                             xtype: 'combobox',
@@ -224,6 +227,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                 {
                     xtype: 'fieldset',
                     width: 150,
+                    itemId: 'hire-purchase-information',
                     defaults: {
                         labelAlign: 'right',
                         labelCls: 'text-require',
@@ -284,6 +288,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             xtype: 'textfield',
                             fieldLabel: 'เลขที่บัตรประชาชน',
                             allowBlank: false,
+                            name: 'CitizenId',
                             emptyText: '[เลขที่บัตรประชาชน]'
                         },
                         {

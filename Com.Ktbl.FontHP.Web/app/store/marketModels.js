@@ -27,71 +27,16 @@ Ext.define('FrontHPApp.store.marketModels', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'marketModels',
+            //autoLoad:true,
             model: 'FrontHPApp.model.MarketModel',
-            data: [
-                {
-                    id: 946,
-                    codeMarket: 738,
-                    nameMarket: 'debitis',
-                    tel: 'harum'
-                },
-                {
-                    id: 334,
-                    codeMarket: 641,
-                    nameMarket: 'nisi',
-                    tel: 'minima'
-                },
-                {
-                    id: 299,
-                    codeMarket: 22,
-                    nameMarket: 'omnis',
-                    tel: 'sed'
-                },
-                {
-                    id: 82,
-                    codeMarket: 772,
-                    nameMarket: 'repellat',
-                    tel: 'voluptatem'
-                },
-                {
-                    id: 687,
-                    codeMarket: 910,
-                    nameMarket: 'debitis',
-                    tel: 'ratione'
-                },
-                {
-                    id: 107,
-                    codeMarket: 891,
-                    nameMarket: 'culpa',
-                    tel: 'culpa'
-                },
-                {
-                    id: 269,
-                    codeMarket: 335,
-                    nameMarket: 'qui',
-                    tel: 'veniam'
-                },
-                {
-                    id: 290,
-                    codeMarket: 983,
-                    nameMarket: 'sed',
-                    tel: 'doloremque'
-                },
-                {
-                    id: 665,
-                    codeMarket: 454,
-                    nameMarket: 'qui',
-                    tel: 'qui'
-                },
-                {
-                    id: 92,
-                    codeMarket: 800,
-                    nameMarket: 'id',
-                    tel: 'dolores'
-                }
-            ],
+            
             proxy: {
-                type: 'memory'
+                type: 'rest',
+                url: 'api/Marketing/GetMarketing',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'items'
+                }
             }
         }, cfg)]);
     }

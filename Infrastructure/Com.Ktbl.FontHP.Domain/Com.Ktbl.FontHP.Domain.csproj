@@ -56,6 +56,7 @@
     <Compile Include="ViewDomain\Province.cs" />
     <Compile Include="ViewDomain\SubDistrict.cs" />
     <Compile Include="ViewsModel\MainRequestModel.cs" />
+    <Compile Include="ViewsModel\MarketingModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
