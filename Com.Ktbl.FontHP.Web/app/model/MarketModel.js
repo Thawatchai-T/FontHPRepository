@@ -23,17 +23,17 @@ Ext.define('FrontHPApp.model.MarketModel', {
 
     fields: [
         {
-            type: 'int',
+            //type: 'int',
             name: 'id'
         },
         {
-            name: 'codeMarket'
+            name: 'MarketingCode'
         },
         {
-            name: 'nameMarket'
+            name: 'MarketingName'
         },
         {
-            name: 'tel'
+            name: 'PhoneNo'
         }
     ]
 });

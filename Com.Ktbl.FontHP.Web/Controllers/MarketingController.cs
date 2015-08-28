@@ -45,18 +45,45 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             }
         }
 
-        //public List<MainRequestModel> GetMainRequest(int start, int limit, int page, List<MainRequestModel> obj)
-        //{
-        //    try
-        //    {
-        //         return obj;
-        //    }
-        //    catch (Exception)
-        //    {
+        /// <summary>
+        /// [20150827] Add by Woody 
+        /// user for main marketing page
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="limit"></param>
+        /// <param name="page"></param>
+        /// <param name="StartDate"></param>
+        /// <param name="Enddate"></param>
+        /// <param name="RequestNo"></param>
+        /// <param name="StatusRequest"></param>
+        /// <param name="CitizenID"></param>
+        /// <param name="Branch"></param>
+        /// <returns></returns>
+        public List<MainRequestModel> GetMainRequest(int start, int limit, int page, string StartDate, string Enddate,
+                string RequestNo, string StatusRequest, string CitizenID, string Branch)
+        {
+            try
+            {
+                var param = new SearchRequest{
+                    StartDate = StartDate,
+                    Branch = Branch,
+                    CitizenID = CitizenID,
+                    Cusname = CitizenID,
+                    Enddate = Enddate,
+                    RequestNo =  RequestNo,
+                    StatusRequest = StatusRequest
+                };
+                var result = this.SearchMainRequest(param).Skip(start).Take(limit).ToList <MainRequestModel>();
+                
+                return result as List<MainRequestModel>;
+            }
+            catch (Exception)
+            {
 
-        //        throw;
-        //    }
-        //}
+                throw;
+            }
+        }
+
         //p2p 20150825 set format date
         public List<MainRequestModel> SearchMainRequest(SearchRequest obj)
         {
@@ -77,20 +104,61 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             }
         }
 
-        //public List<SearchRequest> GetGridRequestNO()
-        //{
-        //    try
-        //    {
-               
-        //        var result = this.
-        //        return result;
-        //    }
-        //    catch (Exception)
-        //    {
+        #region [20150828] Add by Woody for serch markiting popup
+        public PageModel<MarketingModel> GetMarketing(int start, int limit, int page)
+        {
+            try
+            {
+                PageModel<MarketingModel> pagemd = new PageModel<MarketingModel>();
+                List<MarketingModel> lmkt =  new List<MarketingModel>();
+                lmkt = ManageMarketing(lmkt, null);
+                pagemd.items = lmkt.Skip(start).Take(limit).ToList<MarketingModel>();
+                return pagemd;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
+        }
 
-        //        throw;
-        //    }
-        //}
+        public PageModel<MarketingModel> GetMarketing(int start, int limit, int page, string text)
+        {
+            try
+            {
+                PageModel<MarketingModel> pagemd = new PageModel<MarketingModel>();
+                List<MarketingModel> lmkt = new List<MarketingModel>();
+                lmkt = ManageMarketing(lmkt, text);
+                pagemd.items = lmkt.Skip(start).Take(limit).ToList<MarketingModel>();
+                pagemd.total = lmkt.Count;
+                return pagemd;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
+        }
+
+        private List<MarketingModel> ManageMarketing(List<MarketingModel> lmkt, string text)
+        {
+            //TODO:  Donot implement search by name
+
+                        lmkt.Add(new MarketingModel{id= 1, MarketingName = "สมชาย รักชาย", MarketingCode ="00001", PhoneNo="0844445344" });
+                        lmkt.Add(new MarketingModel{id= 2, MarketingName = "สมชาย รักหญิง", MarketingCode ="00002", PhoneNo="0844412344" });
+                        lmkt.Add(new MarketingModel{id= 3, MarketingName = "สมหญิง รักแฟน", MarketingCode ="00003", PhoneNo="0844444444" });
+                        lmkt.Add(new MarketingModel{id= 4, MarketingName = "สมรัก รักเมืองไทย", MarketingCode ="00004", PhoneNo="0844447894" });
+                        lmkt.Add(new MarketingModel{id= 5, MarketingName = "สมส่วน รักความสวย", MarketingCode ="00004", PhoneNo="0844446544" });
+                        lmkt.Add(new MarketingModel{id= 6, MarketingName = "สมสัก รักสี", MarketingCode ="00004", PhoneNo="0844455444" });
+
+                        lmkt = (string.IsNullOrEmpty(text))?lmkt:lmkt.Where(x=>x.MarketingName.Contains(text)).ToList<MarketingModel>();
+
+                    
+            return lmkt;
+        }
+        #endregion
 
         #region Bind Data grid 20150827
         public List<LeadSearch> GetGridLeaderLoad()

@@ -18,65 +18,69 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTabViewController', {
     alias: 'controller.mainmainmarketingmarketingtab',
 
     onFindRequestNOClick: function(button, e, eOpts) {
-        var me = this.getView();
-        txtdateFrom = me.down('[name=StartDate]').getValue();
-        txtdateTo = me.down('[name=Enddate]').getValue();
-        //txtrequestNo = me.down('[name=txtrequestno]').getValue();
-        //console.log(Ext.Date.format(txtdateFrom, 'd/m/Y'));
-        //console.log(txtrequestNo);
-      
-        var form = me.down('form').getForm();
+        var me = this.getView(),
+            store = me.down('gridpanel').getStore(),
+            form = me.down('form').getForm();
+
         if (form.isValid()) {
-            form.submit({
-                url: 'api/marketing/SearchMainRequest',
-                submitEmptyText:false,
-                //params: {
-                //    StartDate: Ext.Date.format(txtdateFrom, 'd/m/Y'),
-                //    Enddate:   Ext.Date.format(txtdateTo, 'd/m/Y'),
-                //    RequestNo: me.down('[name=RequestNo]').getValue(),
-                //    StatusRequest: me.down('[name=StatusRequest]').getValue(),
-                //    CitizenID: me.down('[name=CitizenID]').getValue(),
-                //    Cusname: me.down('[name=Cusname]').getValue(),
-                //    Branch: me.down('[name=Branch]').getValue(),
 
+            //[20150827] Add by Woody
+            store.getProxy().setExtraParam("StartDate", form.findField('StartDate').getValue());
+            store.getProxy().setExtraParam("Enddate", form.findField('Enddate').getValue());
+            store.getProxy().setExtraParam("RequestNo", form.findField('RequestNo').getValue());
+            store.getProxy().setExtraParam("StatusRequest", form.findField('StatusRequest').getValue());
+            store.getProxy().setExtraParam("CitizenID", form.findField('CitizenID').getValue());
+            store.getProxy().setExtraParam("Branch", form.findField('Branch').getValue());
+            store.load();
+            console.log(store);
+            //-----------------------------------------------------------------------------------
 
+            //old code
+            //form.submit({
+            //    url: 'api/marketing/SearchMainRequest',
+            //    submitEmptyText:false,
+            //    //params: {
+            //    //    StartDate: Ext.Date.format(txtdateFrom, 'd/m/Y'),
+            //    //    Enddate:   Ext.Date.format(txtdateTo, 'd/m/Y'),
+            //    //    RequestNo: me.down('[name=RequestNo]').getValue(),
+            //    //    StatusRequest: me.down('[name=StatusRequest]').getValue(),
+            //    //    CitizenID: me.down('[name=CitizenID]').getValue(),
+            //    //    Cusname: me.down('[name=Cusname]').getValue(),
+            //    //    Branch: me.down('[name=Branch]').getValue(),
 
+            //    //},
+            //    success: function (form, action) {
+            //        console.log(action);
+            //        var grid = me.down('grid'),
+            //            store = grid.getStore();
 
+            //        //store.getProxy().extraParams.obj = action.result;
+            //        var records = Ext.create('model.requestmodel', action.result);
+            //        store.loadRecords(records);
+            //        grid.view.refresh();
+            //    },
+            //    failure: function (form, action) {
+            //        console.log(action);
+            //        var grid = me.down('grid'),
+            //            store = grid.getStore();
 
-
-                //},
-                success: function (form, action) {
-                    console.log(action);
-                    var grid = me.down('grid'),
-                        store = grid.getStore();
-
-                    //store.getProxy().extraParams.obj = action.result;
-                    var records = Ext.create('model.requestmodel', action.result);
-                    store.loadRecords(records);
-                    grid.view.refresh();
-                },
-                failure: function (form, action) {
-                    console.log(action);
-                    var grid = me.down('grid'),
-                        store = grid.getStore();
-
-                    //store.getProxy().extraParams.obj = action.result;
-                    //start close pom because Error
-                    
-                    console.log(records);
-                    Ext.Array.each(action.result, function (record,index) {
-                        console.log(record);
-                        var records = Ext.create('model.requestmodel', record);
-                        store.loadRecords(records, {
-                        addRecords: true
-                    });
-                    })
-                    
-                    grid.view.refresh();
-                    //*close pom because Error
-                   // Ext.Msg.alert('Failed', action.result.msg);
-                }
-            });
+            //        //store.getProxy().extraParams.obj = action.result;
+            //        //start close pom because Error
+            //        
+            //        console.log(records);
+            //        Ext.Array.each(action.result, function (record,index) {
+            //            console.log(record);
+            //            var records = Ext.create('model.requestmodel', record);
+            //            store.loadRecords(records, {
+            //            addRecords: true
+            //        });
+            //        })
+            //        
+            //        grid.view.refresh();
+            //        //*close pom because Error
+            //       // Ext.Msg.alert('Failed', action.result.msg);
+            //    }
+            //});
         }
     },
 
@@ -85,24 +89,43 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTabViewController', {
             form = me.down('form');
         paging = me.down('pagingtoolbar');
         form.reset();
+        //[20150827] Add by Woody
+        paging.getStore().getProxy().extraParams = {};
         paging.moveFirst();
 
-        //console.log(form);
-
-
-
-
     },
 
-    onSaveClick: function(button, e, eOpts) {
+    onAddClick: function (button, e, eOpts) {
         Ext.widget('windowmainapp').show();
     },
 
-    onEditClick: function(button, e, eOpts) {
-        Ext.widget('windowmainapp').show();
+    //[20150828] Edit by Woody sample load data to from 
+    onViewDetailClick: function (button, e, eOpts) {
+
+        var grid = button.up('gridpanel'),
+            selection = grid.getSelection();
+        if (selection.length>0) {
+            Ext.widget('windowmainapp', {
+
+                listeners: {
+                    beforerender: function (panal, eOpts) {
+                        var maintab = panal.down('#main-tab'),
+                            tab1 = maintab.down('#tabperson'),
+                            formtab1 = Ext.getCmp('requestcustomer-tab').down('#form1');
+
+                        if (selection.length > 0) {
+
+                            var record = selection[0];
+                            formtab1.getForm().loadRecord(record);
+
+                        }
+                    }
+                }
+            }).show();
+        }
     },
 
-    onDeleteClick: function(button, e, eOpts) {
+    onEditClick: function (button, e, eOpts) {
         Ext.MessageBox.show({
             title: 'Flag Cancel',
             msg: 'เหตุผล Flag Cancel',
@@ -116,6 +139,10 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTabViewController', {
     },
 
     onDetaillItemDblClick: function(dataview, record, item, index, e, eOpts) {
+        var grid = dataview.up('gridpanel'),
+            selection = grid.getSelection();
+        console.log(dataview);
+
         Ext.widget('windowmainapp').show();
     }
 

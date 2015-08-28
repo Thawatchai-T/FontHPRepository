@@ -122,18 +122,18 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'codeMarket',
+                    dataIndex: 'BranchCode',
                     text: 'รหัส'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'nameMarket',
+                    dataIndex: 'MarketingName',
                     text: 'เจ้าหน้าที่การตลาด',
                     flex: -1
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'tel',
+                    dataIndex: 'PhoneNo',
                     text: 'เบอร์โทรศัพท์มือถือ',
                     flex: -1
                 }

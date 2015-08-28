@@ -49,12 +49,14 @@ Ext.define('FrontHPApp.view.WindowMainApp', {
             xtype: 'tabpanel',
             region: 'center',
             activeTab: 0,
+            itemId:'main-tab',
             plain: true,
             items: [
                 {
                     xtype: 'mainmainmarketingwindowrequestcustomerrequestcustomerwindow',
                     tabConfig: {
                         xtype: 'tab',
+                        itemId: 'tabperson',
                         scrollable: true,
                         iconCls: 'icon-person'
                     }
