@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Common\DistrictDomain.cs" />
     <Compile Include="Common\OccupationGroupDomain.cs" />
+    <Compile Include="Common\Reqeust\RequestStatusDomain.cs" />
     <Compile Include="Common\SubCareerDomain.cs" />
     <Compile Include="Common\OccupationCatelogyDomain.cs" />
     <Compile Include="Common\OccupationTypeDomain.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="Common\ProvinceDomain.cs" />
     <Compile Include="Common\StandardCode.cs" />
     <Compile Include="Common\SubDistrictDomain.cs" />
+    <Compile Include="LeadMktDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewDomain\District.cs" />
     <Compile Include="ViewDomain\OccupationCatelogy.cs" />
