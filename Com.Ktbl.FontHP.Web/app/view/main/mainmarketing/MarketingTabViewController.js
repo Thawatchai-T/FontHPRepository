@@ -23,16 +23,20 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTabViewController', {
             form = me.down('form').getForm();
 
         if (form.isValid()) {
-
-            //[20150827] Add by Woody
-            store.getProxy().setExtraParam("StartDate", form.findField('StartDate').getValue());
-            store.getProxy().setExtraParam("Enddate", form.findField('Enddate').getValue());
-            store.getProxy().setExtraParam("RequestNo", form.findField('RequestNo').getValue());
-            store.getProxy().setExtraParam("StatusRequest", form.findField('StatusRequest').getValue());
-            store.getProxy().setExtraParam("CitizenID", form.findField('CitizenID').getValue());
-            store.getProxy().setExtraParam("Branch", form.findField('Branch').getValue());
-            store.load();
-            console.log(store);
+            //add form submit by nidcha 20150902
+            
+           
+                    //[20150827] Add by Woody
+                    store.getProxy().setExtraParam("StartDate", form.findField('StartDate').getValue());
+                    store.getProxy().setExtraParam("Enddate", form.findField('Enddate').getValue());
+                    store.getProxy().setExtraParam("RequestNo", form.findField('RequestNo').getValue());
+                    store.getProxy().setExtraParam("StatusRequest", form.findField('StatusRequest').getValue());
+                    store.getProxy().setExtraParam("CitizenID", form.findField('CitizenID').getValue());
+                    store.getProxy().setExtraParam("Branch", form.findField('Branch').getValue());
+                    store.load();
+                    console.log(store);
+               
+            
             //-----------------------------------------------------------------------------------
 
             //old code

@@ -24,21 +24,21 @@ Ext.define('FrontHPApp.model.GurantorGridModel', {
 
     fields: [
         {
-            type: 'int',
-            name: 'CiticenId'
+            type: 'string',
+            name: 'GuarCitizenID'
         },
         {
-            name: 'Name'
+            name: 'NameGarantor'
         },
         {
-            name: 'CusRelationShip'
+            name: 'RelativeDebtor'
         },
         {
             type: 'date',
-            name: 'BirthDate'
+            name: 'GuarBirthDate'
         },
         {
-            name: 'Tel'
+            name: 'GuarHomePhone'
         }
     ]
 });

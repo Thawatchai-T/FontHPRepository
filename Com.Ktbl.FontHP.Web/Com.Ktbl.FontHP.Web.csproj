@@ -139,15 +139,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CardTypeController.cs" />
+    <Compile Include="Controllers\CommisionController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\GarantorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MktLimit60Controller.cs" />
     <Compile Include="Controllers\MarketingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CardTypeViewModel.cs" />
     <Compile Include="Models\ComboBox.cs" />
-    <Compile Include="Models\LeadSearch.cs" />
+    <Compile Include="Models\GarantorViewModel.cs" />
+    <Compile Include="Models\GridComHir.cs" />
+    <Compile Include="Models\GridComIns.cs" />
+    <Compile Include="Models\GridDealer.cs" />
+    <Compile Include="Models\GridGarantor.cs" />
+    <Compile Include="Models\GridLead.cs" />
+    <Compile Include="Models\GridPopCusAddress.cs" />
+    <Compile Include="Models\GuiPopupCusAddress.cs" />
     <Compile Include="Models\Limit60Grid.cs" />
     <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\SearchRequest.cs" />
@@ -170,6 +181,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="app.js" />
+    <Content Include="app\model\GarantorFormModel.js" />
+    <Content Include="app\model\AddressCusFormModel.js" />
     <Content Include="app\model\AddressCusModel.js" />
     <Content Include="app\model\BranchModel.js" />
     <Content Include="app\model\BrowsePaperMyModel.js" />
@@ -361,9 +374,9 @@
     <Content Include="app\view\main\MainViewport.js" />
     <Content Include="app\view\main\MainViewportViewController.js" />
     <Content Include="app\view\main\MainViewportViewModel.js" />
-    <Content Include="app\view\WindowMainApp.js" />
-    <Content Include="app\view\WindowMainAppViewController.js" />
-    <Content Include="app\view\WindowMainAppViewModel.js" />
+    <Content Include="app\view\main\mainmarketing\WindowMainApp.js" />
+    <Content Include="app\view\main\mainmarketing\WindowMainAppViewController.js" />
+    <Content Include="app\view\main\mainmarketing\WindowMainAppViewModel.js" />
     <Content Include="bootstrap.css" />
     <Content Include="bootstrap.js" />
     <Content Include="Config\Aspects.xml" />
@@ -9421,6 +9434,8 @@
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:42913/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:42913/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

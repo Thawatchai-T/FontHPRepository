@@ -15,7 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.mainmainmarketingwindowgarantorwindow',
+    alias: 'viewmodel.garantorwindow',
 
     requires: [
         'Ext.data.Store',

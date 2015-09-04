@@ -12,8 +12,9 @@
  *
  * Do NOT hand edit this file.
  */
-
-Ext.define('FrontHPApp.view.WindowMainAppViewModel', {
+//edit part 20150831
+//Ext.define('FrontHPApp.view.WindowMainAppViewModel', {
+Ext.define('FrontHPApp.view.main.mainmarketing.WindowMainAppViewModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.windowmainapp'
 

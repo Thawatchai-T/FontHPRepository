@@ -16,16 +16,37 @@
 Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupLeadViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.mainmainmarketingwindowrequestcustomerpopuppopuplead',
+    //alias: 'controller.popuplead',
 
     onFindLeadClick: function(button, e, eOpts) {
-
+        // [20150828] Add by p2p
+        
+        var me = this,
+            views = this.getView(),
+            form = views.down('form').getForm(),
+            store = views.down('grid').getStore();
+       
+        store.getProxy().setExtraParam('importid', form.findField('QImportId').getValue());
+        store.getProxy().setExtraParam('leadid', form.findField('QLeadId').getValue());
+        store.getProxy().setExtraParam('leadname', form.findField('QLeadName').getValue());
+        store.load();
     },
 
     onClearClick: function(button, e, eOpts) {
         var me = this.getView(),
-            form = me.down('form');
-        paging = me.down('pagingtoolbar');
+          form = me.down('form');
+
+        paging = me.down('pagingtoolbar'),
+        store = paging.getStore();
+        store.getProxy().extraParams = {};
         form.reset();
+        store.load();
+    },
+    //[20150831] add by p2p
+    onItemDblClick: function (dataview, record, item, index, e, eOpts) {
+
+    this.getView().close();
     }
+    
 
 });

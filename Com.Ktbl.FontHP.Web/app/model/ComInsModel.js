@@ -34,15 +34,15 @@ Ext.define('FrontHPApp.model.ComInsModel', {
         },
         {
             type: 'string',
-            name: 'Pay Commission To '
+            name: 'PayCommissionTo'
         },
         {
-            type: 'boolean',
-            name: 'Absorb Tax '
+            type: 'bool',
+            name: 'AbsorbTax'
         },
         {
             type: 'float',
-            name: 'Commission Amount '
+            name: 'CommissionAmount'
         },
         {
             type: 'float',
@@ -50,15 +50,15 @@ Ext.define('FrontHPApp.model.ComInsModel', {
         },
         {
             type: 'float',
-            name: 'Amount Include VAT '
+            name: 'AmountIncludeVAT'
         },
         {
             type: 'float',
-            name: 'With Hold Tax Amount '
+            name: 'WithHoldTaxAmount'
         },
         {
             type: 'float',
-            name: 'Net Paid '
+            name: 'NetPaid'
         }
     ]
 });

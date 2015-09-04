@@ -15,7 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupDealer', {
     extend: 'Ext.window.Window',
-    alias: 'widget.mainmainmarketingwindowcommonpopuppopupdealer',
+    alias: 'widget.popupdealer',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupDealerViewModel',
@@ -69,13 +69,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupDealer', 
                         {
                             xtype: 'textfield',
                             fieldLabel: 'รหัสผู้แทนจำหน่ายรถยนตร์',
-                            name: '',
+                            name: 'QDealerCode',
                             emptyText: '[รหัสผู้แทนจำหน่ายรถยนตร์]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ผู้แทนจำหน่ายรถยนตร์',
-                            name: '',
+                            name: 'QDealerName',
                             emptyText: '[ผู้แทนจำหน่ายรถยนตร์]'
                         }
                     ]
@@ -96,7 +96,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupDealer', 
                             iconCls: 'icon-reset',
                             text: 'ค้นหาข้อมูล',
                             listeners: {
-                                click: 'onSaveClick'
+                                click: 'onFindClick'
                             }
                         },
                         {
@@ -127,22 +127,26 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupDealer', 
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'dealerCode',
+                    dataIndex: 'DealerCode',
                     text: 'รหัส'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'dealerName',
+                    dataIndex: 'DealerName',
                     text: 'ผู้แทนจำหน่ายรถยนตร์',
                     flex: -1
                 }
             ],
+            listeners: {
+                itemdblclick: 'onItemDblClick'
+            },
             dockedItems: [
                 {
                     xtype: 'pagingtoolbar',
                     dock: 'bottom',
                     width: 360,
-                    displayInfo: true
+                    displayInfo: true,
+                    store: 'dealerSelectModels'
                 }
             ]
         }

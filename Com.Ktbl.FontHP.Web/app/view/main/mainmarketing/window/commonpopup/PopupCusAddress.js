@@ -70,13 +70,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                         columns: 2
                     },
                     items: [
+                      
                         {
                             xtype: 'combobox',
                             fieldLabel: 'ประเภทที่อยู่',
                             colspan: 2,
                             width: 490,
                             labelCls: 'text-require',
-                            name: '',
+                            name: 'AddressType',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.TypeAddressStore',
@@ -87,7 +88,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                             colspan: 2,
                             fieldLabel: 'หมายเลขบ้าน',
                             labelCls: 'text-require',
-                            name: '',
+                            name: 'RegistNo',
                             emptyText: '[หมายเลขบ้าน]'
                         },
                         {
@@ -96,7 +97,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                             colspan: 2,
                             fieldLabel: 'บริษัทที่ทำงาน และ เลขที่',
                             labelCls: 'text-require',
-                            name: '',
+                            name: 'AddressNo',
                             emptyText: '[บริษัทที่ทำงาน และ เลขที่]'
                         },
                         {
@@ -105,7 +106,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                                 ' '
                             ],
                             fieldLabel: 'หมู่',
-                            name: '',
+                            name: 'Moo',
                             emptyText: '[หมู่]'
                         },
                         {
@@ -113,9 +114,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                             afterLabelTextTpl: [
                                 ' '
                             ],
-                            fieldLabel: 'หมู้บ้าน/อาคาร',
-                            name: '',
-                            emptyText: '[หมู้บ้าน/อาคาร]'
+                            fieldLabel: 'หมู่บ้าน/อาคาร',
+                            name: 'MooBaan',
+                            emptyText: '[หมู่บ้าน/อาคาร]'
                         },
                         {
                             xtype: 'textfield',
@@ -123,7 +124,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                                 ' '
                             ],
                             fieldLabel: 'ซอย',
-                            name: '',
+                            name: 'Soi',
                             emptyText: '[ซอย]'
                         },
                         {
@@ -132,14 +133,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                                 '  '
                             ],
                             fieldLabel: 'ถนน',
-                            name: '',
+                            name: 'Street',
                             emptyText: '[ถนน]'
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'จังหวัด',
                             labelCls: 'text-require',
-                            name: '',
+                            name: 'Province',
                             reference: 'province',
                             autoLoadOnValue: true,
                             emptyText: '[จังหวัด]',
@@ -154,7 +155,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                             xtype: 'combobox',
                             fieldLabel: 'อำเภอ',
                             labelCls: 'text-require',
-                            name: '',
+                            name: 'Amphur',
                             emptyText: '[อำเภอ]',
                             reference: 'district',
                             autoLoadOnValue: true,
@@ -169,7 +170,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                             xtype: 'combobox',
                             fieldLabel: 'ตำบล',
                             labelCls: 'text-require',
-                            name: '',
+                            name: 'Tambon',
                             emptyText: '[ตำบล]',
                             autoLoadOnValue: true,
                             displayField: 'Name',
@@ -184,7 +185,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                             xtype: 'textfield',
                             fieldLabel: 'รหัสไปรษณีย์',
                             labelCls: 'text-require',
-                            name: '',
+                            name: 'ZipCode',
                             emptyText: '[รหัสไปรษณีย์]'
                         },
                         {
@@ -193,7 +194,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                                 '  '
                             ],
                             fieldLabel: 'โทรศัพท์',
-                            name: '',
+                            name: 'PhoneNo',
                             emptyText: '[โทรศัพท์]'
                         },
                         {
@@ -202,7 +203,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                                 ' '
                             ],
                             fieldLabel: 'แฟกซ์',
-                            name: '',
+                            name: 'FaxNo',
                             emptyText: '[แฟกซ์]'
                         },
                         {
@@ -211,7 +212,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                                 ' '
                             ],
                             fieldLabel: 'อาศัยตั้งแต่',
-                            name: '',
+                            name: 'StayFromDate',
                             emptyText: '[อาศัยตั้งแต่]'
                         },
                         {
@@ -222,7 +223,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                             fieldLabel: 'โทรศัพท์มือถือ',
                             labelAlign: 'right',
                             labelWidth: 190,
-                            name: '',
+                            name: 'Mobile',
                             emptyText: '[โทรศัพท์มือถือ]'
                         },
                         {
@@ -231,9 +232,16 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                                 ' '
                             ],
                             fieldLabel: 'โทรศัพท์อื่นๆ',
-                            name: 'CardExpireDate',
+                            name: 'PhoneOther',
                             emptyText: '[โทรศัพท์อื่นๆ]'
+                        },
+                        {
+                              // xtype: 'hiddenfield',
+                              xtype: 'textfield',
+                              name: 'id',
+                              value: 'hidden field'
                         }
+                       
                     ]
                 },
                 {
@@ -290,12 +298,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'addressType',
+                    dataIndex: 'AddressType',
                     text: 'ประเภทที่อยู่'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'address',
+                    dataIndex: 'Address',
                     text: 'ที่อยู่',
                     flex: -1
                 },
@@ -306,12 +314,15 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'fax',
+                    dataIndex: 'Fax',
                     text: 'แฟกซ์'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'livebetween',
+                    renderer: function (value, metaData, record, rowIndex, colIndex, store, view) {
+                        return Ext.Date.format(value, 'd/m/Y');
+                    },
+                    dataIndex: 'LiveFrom',
                     text: 'อาศัยตั้งแต่'
                 }
             ],
@@ -332,7 +343,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                             iconCls: 'icon-edit',
                             text: 'แก้ไข',
                             listeners: {
-                                click: 'onEditGridClick'
+                                click: 'onEditClick'
                             }
                         },
                         {
@@ -341,7 +352,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                             iconCls: 'icon-delete',
                             text: 'ลบ',
                             listeners: {
-                                click: 'onDeleteGridClick'
+                                click: 'onDeleteClick'
                             }
                         }
                     ]
@@ -350,13 +361,18 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                     xtype: 'pagingtoolbar',
                     dock: 'bottom',
                     width: 360,
-                    displayInfo: true
+                    displayInfo: true,
+                    store: 'addressCusModels'
                 }
             ],
             selModel: {
                 selType: 'checkboxmodel'
-            }
+            },
+            listeners: {
+                itemdblclick: 'onItemDblClick'
+            },
         }
+
     ]
 
 });

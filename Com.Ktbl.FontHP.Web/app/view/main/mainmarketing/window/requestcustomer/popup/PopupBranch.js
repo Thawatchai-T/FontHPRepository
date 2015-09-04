@@ -15,7 +15,8 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupBranch', {
     extend: 'Ext.window.Window',
-    alias: 'widget.mainmainmarketingwindowrequestcustomerpopuppopupbranch',
+    // alias: 'widget.mainmainmarketingwindowrequestcustomerpopuppopupbranch',
+    alias: 'widget.popupbranch',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupBranchViewModel',

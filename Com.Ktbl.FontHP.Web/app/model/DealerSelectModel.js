@@ -27,11 +27,11 @@ Ext.define('FrontHPApp.model.DealerSelectModel', {
             name: 'id'
         },
         {
-            type: 'int',
-            name: 'dealerCode'
+            type: 'string',
+            name: 'DealerCode'
         },
         {
-            name: 'dealerName'
+            name: 'DealerName'
         }
     ]
 });

@@ -28,80 +28,17 @@ Ext.define('FrontHPApp.store.typePopupCardModels', {
         me.callParent([Ext.apply({
             storeId: 'typePopupCardModels',
             model: 'FrontHPApp.model.TypePopupCardModel',
-            data: [
-                {
-                    id: 422,
-                    typeCard: 'corporis',
-                    cardId: 23,
-                    issueDate: '7/22/2007',
-                    expireDate: '2/27/2007'
-                },
-                {
-                    id: 334,
-                    typeCard: 'veniam',
-                    cardId: 586,
-                    issueDate: '5/10/2004',
-                    expireDate: '3/12/2010'
-                },
-                {
-                    id: 632,
-                    typeCard: 'reiciendis',
-                    cardId: 870,
-                    issueDate: '1/22/2003',
-                    expireDate: '2/18/2013'
-                },
-                {
-                    id: 706,
-                    typeCard: 'necessitatibus',
-                    cardId: 152,
-                    issueDate: '5/11/2014',
-                    expireDate: '9/26/2002'
-                },
-                {
-                    id: 361,
-                    typeCard: 'eos',
-                    cardId: 311,
-                    issueDate: '2/28/2010',
-                    expireDate: '7/23/2008'
-                },
-                {
-                    id: 810,
-                    typeCard: 'cupiditate',
-                    cardId: 306,
-                    issueDate: '1/26/2013',
-                    expireDate: '12/23/2010'
-                },
-                {
-                    id: 825,
-                    typeCard: 'culpa',
-                    cardId: 474,
-                    issueDate: '3/9/2002',
-                    expireDate: '12/8/2012'
-                },
-                {
-                    id: 992,
-                    typeCard: 'aliquam',
-                    cardId: 742,
-                    issueDate: '7/20/2003',
-                    expireDate: '7/15/2004'
-                },
-                {
-                    id: 588,
-                    typeCard: 'beatae',
-                    cardId: 539,
-                    issueDate: '8/2/2008',
-                    expireDate: '4/25/2001'
-                },
-                {
-                    id: 351,
-                    typeCard: 'blanditiis',
-                    cardId: 732,
-                    issueDate: '12/27/2014',
-                    expireDate: '1/20/2012'
-                }
-            ],
             proxy: {
-                type: 'memory'
+                type: 'rest',
+                url: 'api/cardtype',
+                reader: {
+                    type: 'json',
+                    rootProperty:'items'
+                },
+                api: {
+                    read: 'api/cardtype/GetAllCardType'
+
+                }
             }
         }, cfg)]);
     }

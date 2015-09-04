@@ -13,9 +13,9 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('FrontHPApp.model.AddressCusModel', {
+Ext.define('FrontHPApp.model.AddressCusFormModel', {
     extend: 'Ext.data.Model',
-    alias: 'model.addresscusmodel',
+    alias: 'model.addresscusformmodel',
 
     requires: [
         'Ext.data.field.Integer',
@@ -28,23 +28,46 @@ Ext.define('FrontHPApp.model.AddressCusModel', {
             name: 'id'
         },
         {
-            type: 'string',
+            name: 'AddressNo'
+        },
+        {
             name: 'AddressType'
         },
         {
-            type: 'string',
-            name: 'Address'
+            name: 'FaxNo'
         },
         {
-            name: 'Tel'
+            name: 'Moo'
         },
         {
-            type: 'string',
-            name: 'Fax'
+            name: 'MooBaan'
         },
         {
-            type:'date',
-            name: 'LiveFrom'
+            name: 'PhoneNo'
+        },
+        {
+            name: 'PhoneOther'
+        },
+        {
+            name: 'Province'
+        },
+        {
+            name: 'RegistNo'
+        },
+        {
+            name: 'Soi'
+        },
+        {
+            name: 'StayFromDate'
+        },
+        {
+            name: 'Street'
+        },
+        {
+            name: 'Tambon'
+        },
+        {
+            name: 'ZipCode'
         }
     ]
 });

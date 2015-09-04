@@ -12,14 +12,20 @@
  *
  * Do NOT hand edit this file.
  */
-
-Ext.define('FrontHPApp.view.WindowMainApp', {
+//FrontHPApp.view.main.mainmarketing.window.requestcustomer.
+//Edit part WindowMainApp 20150831
+//Ext.define('FrontHPApp.view.WindowMainApp', {
+Ext.define('FrontHPApp.view.main.mainmarketing.WindowMainApp', {
     extend: 'Ext.window.Window',
     alias: 'widget.windowmainapp',
 
     requires: [
-        'FrontHPApp.view.WindowMainAppViewModel',
+        //20150831 Edit part
+        //'FrontHPApp.view.WindowMainAppViewModel',
+        
+        'FrontHPApp.view.main.mainmarketing.WindowMainAppViewModel',
         'FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerWindow',
+        //'FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerTab',
         'FrontHPApp.view.main.mainmarketing.window.GarantorWindow',
         'FrontHPApp.view.main.mainmarketing.window.CommHiringWindow',
         'FrontHPApp.view.main.mainmarketing.window.CommInsWindow',

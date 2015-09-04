@@ -15,6 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindowViewController', {
     extend: 'Ext.app.ViewController',
+    //alias: 'controller.mainmainmarketingwindowcomminswindow',
     alias: 'controller.mainmainmarketingwindowcomminswindow',
 
     onSelectEntCodeClick: function(button, e, eOpts) {

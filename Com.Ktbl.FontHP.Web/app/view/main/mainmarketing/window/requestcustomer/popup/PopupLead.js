@@ -15,7 +15,8 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupLead', {
     extend: 'Ext.window.Window',
-    alias: 'widget.mainmainmarketingwindowrequestcustomerpopuppopuplead',
+   // alias: 'widget.mainmainmarketingwindowrequestcustomerpopuppopuplead',
+    alias: 'widget.popuplead',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupLeadViewModel',
@@ -72,7 +73,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เลขที่ใบนำเข้า',
-                            name: 'LeadNumberIn',
+                            name: 'QImportId',
                             emptyText: '[เลขที่ใบนำเข้า]'
                         },
                         {
@@ -80,13 +81,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
                             fieldLabel: 'รหัสผู้แนะนำ',
                             labelAlign: 'right',
                             labelWidth: 190,
-                            name: 'LeadId',
+                            name: 'QLeadId',
                             emptyText: '[รหัสผู้แนะนำ]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ผู้แนะนำ',
-                            name: 'LeadName',
+                            name: 'QLeadName',
                             emptyText: '[ผู้แนะนำ]'
                         }
                     ]
@@ -139,62 +140,66 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'leadIdIn',
+                    dataIndex: 'ImportId',
                     text: 'เลขที่ใบนำเข้า',
                     name: 'ImportId'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'cusName',
+                    dataIndex: 'CusName',
                     text: 'ชื่อลูกค้า',
                     name: 'CusName'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'cusSurname',
+                    dataIndex: 'CusSurName',
                     text: 'นามสกุลลูกค้า',
                     name: 'CusSurName',
                     flex: -1
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'leadNo',
+                    dataIndex: 'LeadNo',
                     text: 'รหัสผู้แนะนำ',
                     name: 'LeadNo',
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'leadName',
+                    dataIndex: 'LeadNameGrid',
                     text: 'ชื่อผู้แนะนำ',
                     name: 'LeadNameGrid',
                 },
                 {
                     xtype: 'gridcolumn',
                     width: '',
-                    dataIndex: 'leadSurName',
+                    dataIndex: 'LeadSurNameGrid',
                     text: 'นามสกุลผู้แนะนำ',
                     name: 'LeadSurNameGrid',
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'branchId',
+                    dataIndex: 'BranchId',
                     text: 'รหัสสาขา',
                     name: 'BranchId',
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 75,
-                    dataIndex: 'branchName',
+                    dataIndex: 'BranchName',
                     text: 'ชื่อสาขา',
                     name: 'BranchName'
                 }
             ],
+            listeners: {
+                itemdblclick: 'onItemDblClick'
+            },
             dockedItems: [
                 {
                     xtype: 'pagingtoolbar',
                     dock: 'bottom',
                     width: 360,
-                    displayInfo: true
+                    displayInfo: true,
+                    store: 'gridLeadModels',
                 }
             ]
         }
