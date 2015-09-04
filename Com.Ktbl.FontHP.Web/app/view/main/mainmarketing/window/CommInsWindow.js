@@ -15,6 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
     extend: 'Ext.panel.Panel',
+    //alias: 'widget.mainmainmarketingwindowcomminswindow',
     alias: 'widget.mainmainmarketingwindowcomminswindow',
 
     requires: [
@@ -196,7 +197,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                 {
                     xtype: 'gridcolumn',
                     width: 120,
-                    dataIndex: 'Pay Commission To ',
+                    dataIndex: 'PayCommissionTo',
                     text: 'Pay Commission To '
                 },
                 {
@@ -212,7 +213,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             return '<img src="'+not_accept+'" />';
                         }
                     },
-                    dataIndex: 'Absorb Tax ',
+                    dataIndex: 'AbsorbTax',
                     text: 'Absorb Tax '
                 },
                 {
@@ -222,7 +223,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                         {
                             xtype: 'gridcolumn',
                             width: 150,
-                            dataIndex: 'Commission Amount ',
+                            dataIndex: 'CommissionAmount',
                             text: 'Commission Amount '
                         },
                         {
@@ -234,18 +235,18 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                         {
                             xtype: 'gridcolumn',
                             width: 150,
-                            dataIndex: 'Amount Include VAT ',
+                            dataIndex: 'AmountIncludeVAT',
                             text: 'Amount Include VAT '
                         },
                         {
                             xtype: 'gridcolumn',
                             width: 170,
-                            dataIndex: 'With Hold Tax Amount ',
+                            dataIndex: 'WithHoldTaxAmount',
                             text: 'With Hold Tax Amount '
                         },
                         {
                             xtype: 'gridcolumn',
-                            dataIndex: 'Net Paid ',
+                            dataIndex: 'NetPaid',
                             text: 'Net Paid '
                         }
                     ]
@@ -280,7 +281,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                     xtype: 'pagingtoolbar',
                     dock: 'bottom',
                     displayInfo: true,
-                    store: 'commitinSpecialModels'
+                    store: 'comInsModels'
                 }
             ],
             selModel: {

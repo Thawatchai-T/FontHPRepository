@@ -21,98 +21,24 @@ Ext.define('FrontHPApp.store.addressCusModels', {
         'FrontHPApp.model.AddressCusModel',
         'Ext.data.proxy.Memory'
     ],
-
-    constructor: function(cfg) {
+    constructor: function (cfg) {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
-            storeId: 'addressCusModels',
+            storeId: 'addresscusmodels',
             model: 'FrontHPApp.model.AddressCusModel',
-            data: [
-                {
-                    id: 109,
-                    addressType: '304 Monica Crossing',
-                    address: '304 Monica Crossing',
-                    Tel: 'consequatur',
-                    fax: '(193) 219-0500',
-                    livebetween: 'totam'
-                },
-                {
-                    id: 539,
-                    addressType: '8074 Nova Hill',
-                    address: '2 Delaware Terrace',
-                    Tel: 'earum',
-                    fax: '(458) 530-9537',
-                    livebetween: 'aut'
-                },
-                {
-                    id: 181,
-                    addressType: '1 Jenifer Way',
-                    address: '28552 Spenser Parkway',
-                    Tel: 'consequatur',
-                    fax: '(907) 941-6106',
-                    livebetween: 'ut'
-                },
-                {
-                    id: 864,
-                    addressType: '66544 Park Meadow Pass',
-                    address: '06534 Corscot Crossing',
-                    Tel: 'esse',
-                    fax: '(478) 296-4899',
-                    livebetween: 'minima'
-                },
-                {
-                    id: 73,
-                    addressType: '5477 Hoepker Hill',
-                    address: '421 Arrowood Junction',
-                    Tel: 'vero',
-                    fax: '(617) 889-5824',
-                    livebetween: 'dignissimos'
-                },
-                {
-                    id: 350,
-                    addressType: '67 Sachtjen Way',
-                    address: '304 Monica Crossing',
-                    Tel: 'ad',
-                    fax: '(292) 259-0049',
-                    livebetween: 'officia'
-                },
-                {
-                    id: 723,
-                    addressType: '8080 Maryland Trail',
-                    address: '05411 Loomis Park',
-                    Tel: 'nesciunt',
-                    fax: '(164) 668-3039',
-                    livebetween: 'distinctio'
-                },
-                {
-                    id: 502,
-                    addressType: '304 Monica Crossing',
-                    address: '11 Dorton Crossing',
-                    Tel: 'perspiciatis',
-                    fax: '(006) 800-6405',
-                    livebetween: 'sed'
-                },
-                {
-                    id: 224,
-                    addressType: '4520 Northport Drive',
-                    address: '66544 Park Meadow Pass',
-                    Tel: 'dicta',
-                    fax: '(043) 244-6277',
-                    livebetween: 'dolorem'
-                },
-                {
-                    id: 403,
-                    addressType: '2 Delaware Terrace',
-                    address: '421 Arrowood Junction',
-                    Tel: 'iure',
-                    fax: '(517) 926-7912',
-                    livebetween: 'ullam'
-                }
-            ],
+            autoLoad: true,
             proxy: {
-                type: 'memory'
+                type: 'rest',
+                url: 'api/Marketing/GetGridPopCusAddress',
+                reader: {
+                    type: 'json'
+                },
+                api: {
+                    destroy: 'api/marketing'
+                }
             }
         }, cfg)]);
     }
+    
 });

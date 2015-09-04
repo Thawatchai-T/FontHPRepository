@@ -28,19 +28,18 @@ Ext.define('FrontHPApp.model.TypePopupCardModel', {
             name: 'id'
         },
         {
-            name: 'typeCard'
+            name: 'TypeCardId'
         },
         {
-            type: 'int',
-            name: 'cardId'
-        },
-        {
-            type: 'date',
-            name: 'issueDate'
+            name: 'CardNo'
         },
         {
             type: 'date',
-            name: 'expireDate'
+            name: 'IssueDate'
+        },
+        {
+            type: 'date',
+            name: 'ExpireDate'
         }
     ]
 });

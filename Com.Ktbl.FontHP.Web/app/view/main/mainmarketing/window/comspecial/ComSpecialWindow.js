@@ -15,6 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindow', {
     extend: 'Ext.panel.Panel',
+    //alias: 'widget.mainmainmarketingwindowcomspecialcomspecialwindow',
     alias: 'widget.mainmainmarketingwindowcomspecialcomspecialwindow',
 
     requires: [

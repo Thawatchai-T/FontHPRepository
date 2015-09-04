@@ -15,6 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupLeadViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.mainmainmarketingwindowrequestcustomerpopuppopuplead'
+     alias: 'viewmodel.mainmainmarketingwindowrequestcustomerpopuppopuplead'
+   // alias: 'viewmodel.popuplead'
 
 });

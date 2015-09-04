@@ -72,7 +72,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard'
                         {
                             xtype: 'combobox',
                             fieldLabel: 'ประเภทบัตร',
-                            name: '',
+                            name: 'TypeCard',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.TypeCardStore',
@@ -82,13 +82,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard'
                             xtype: 'textfield',
                             colspan: 2,
                             fieldLabel: 'หมายเลขบัตร',
-                            name: '',
+                            name: 'CardNo',
                             emptyText: '[หมายเลขบัตร]'
                         },
                         {
                             xtype: 'datefield',
                             fieldLabel: 'Issue Date',
-                            name: '',
+                            name: 'IssueDate',
                             emptyText: '[Issue Date]'
                         },
                         {
@@ -96,9 +96,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard'
                             afterLabelTextTpl: [
                                 ' '
                             ],
-                            fieldLabel: 'Empire Date',
-                            name: '',
-                            emptyText: '[Empire Date]'
+                            fieldLabel: 'Expire Date',
+                            name: 'ExpireDate',
+                            emptyText: '[Expire Date]'
+                        },
+                        {
+                            xtype: 'hiddenfield',
+                            name: 'id',
+                            value: '0'
                         }
                     ]
                 },
@@ -127,14 +132,6 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard'
                             listeners: {
                                 click: 'onClearClick'
                             }
-                        },
-                        {
-                            xtype: 'button',
-                            hidden: true,
-                            text: 'ลบข้อมูล',
-                            listeners: {
-                                click: 'onDeleteClick'
-                            }
                         }
                     ]
                 }
@@ -158,12 +155,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'typeCard',
+                    dataIndex: 'TypeCard',
                     text: 'ประเภทบัตร'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'cardId',
+                    dataIndex: 'CardNo',
                     text: 'หมายเลขบัตร',
                     flex: -1
                 },
@@ -172,7 +169,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard'
                     renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
                         return Ext.Date.format(value, 'd/m/Y');
                     },
-                    dataIndex: 'issueDate',
+                    dataIndex: 'IssueDate',
                     text: 'Issue Date'
                 },
                 {
@@ -180,7 +177,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard'
                     renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
                         return Ext.Date.format(value, 'd/m/Y');
                     },
-                    dataIndex: 'expireDate',
+                    dataIndex: 'ExpireDate',
                     text: 'Expire Date'
                 }
             ],
@@ -201,7 +198,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard'
                             iconCls: 'icon-edit',
                             text: 'แก้ไข',
                             listeners: {
-                                click: 'onEditGridClick'
+                                click: 'onEditClick'
                             }
                         },
                         {
@@ -210,7 +207,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard'
                             iconCls: 'icon-delete',
                             text: 'ลบ',
                             listeners: {
-                                click: 'onDeleteGridClick'
+                                click: 'onDeleteClick'
                             }
                         }
                     ]
@@ -219,6 +216,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard'
                     xtype: 'pagingtoolbar',
                     dock: 'bottom',
                     width: 360,
+                    store:'typePopupCardModels',
                     displayInfo: true
                 }
             ],

@@ -15,7 +15,8 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
     extend: 'Ext.form.Panel',
-    alias: 'widget.mainmainmarketingwindowcommhiringwindow',
+    //alias: 'widget.mainmainmarketingwindowcommhiringwindow',
+    alias: 'widget.commhiringwindow',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.CommHiringWindowViewModel',

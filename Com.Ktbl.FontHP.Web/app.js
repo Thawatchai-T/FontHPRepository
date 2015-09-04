@@ -59,7 +59,10 @@ Ext.application({
         'TypePopupCardModel',
         'ComHirModel',
         'ComInsModel',
-        'TypeCustomerModel'
+        'TypeCustomerModel',
+        'AddressCusFormModel',
+        //insert model 20150904
+        'GarantorFormModel'
     ],
     stores: [
         'combo.LoginStore',
@@ -178,7 +181,7 @@ Ext.application({
        // 'MyGridPanel1',
         'main.mainmarketing.window.CommInsWindow',
         'main.mainmarketing.window.comspecial.ComSpecialWindow',
-        'WindowMainApp',
+        'main.mainmarketing.WindowMainApp',
         'main.home.Indox',
         'main.mainmarketing.window.comspecial.PopupEmpSell',
         'main.mainmarketing.MktLimit60Tab',
@@ -186,6 +189,7 @@ Ext.application({
         'main.mainmarketing.window.commonpopup.PopupDealer',
         'main.mainmarketing.window.commonpopup.PopupTypeCard',
         'main.mainmarketing.window.requestcustomer.popup.PopupBranch',
+        //edit name
         'main.mainmarketing.window.requestcustomer.RequestCustomerWindow',
         'main.mainmarketing.window.requestcustomer.popup.PopupLead',
         'main.mainmarketing.window.requestcustomer.popup.PopupMarketing',

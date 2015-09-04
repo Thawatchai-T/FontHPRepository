@@ -12,19 +12,45 @@
  *
  * Do NOT hand edit this file.
  */
-
+//20150831 edit part p2p
 Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerWindowViewController', {
+//Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerWindowTabController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.mainmainmarketingwindowrequestcustomerrequestcustomerwindow',
+   // alias: 'controller.requestcustomertab',
     provinceid: '',
     districtid: '',
     subdistrictid:'',
     onFindLeadClick: function(button, e, eOpts) {
-        Ext.widget("mainmainmarketingwindowrequestcustomerpopuppopuplead").show();
+        //20150831 Add by p2p
+        
+        var me = this,
+            refs = me.getReferences(),
+            LeadNo = refs.homefieldset.down('#lead-no');
+       
+        Ext.widget("popuplead", {
+            listeners: {
+                afterRender: function (panal, eOpts) {
+                    var store = panal.down('grid').getStore();
+                    console.log(store);
+                    store.extraParams = {};
+                    store.load();
+                },
+                close: function (panal, eOpts) {
+                    var grid = panal.down('grid'),
+                        selection = grid.getSelection();
+                    console.log(selection);
+                    if (selection.length > 0) {
+                        record = selection[0];
+                        LeadNo.setValue(record.get('LeadNo'));
+                    }
+                }
+            }
+        }).show();
     },
 
     onButtonClickBranch: function(button, e, eOpts) {
-        Ext.widget("mainmainmarketingwindowrequestcustomerpopuppopupbranch").show();
+       
     },
 
 
@@ -62,7 +88,36 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
     },
 
     onButtonClickDealer: function(button, e, eOpts) {
-        Ext.widget("mainmainmarketingwindowcommonpopuppopupdealer").show();
+        //Ext.widget("popupdealer").show();
+        //Manage popup Dealer 01092015
+        var me = this,
+         refs = me.getReferences(),
+         dealercode = refs.homefieldset.down('#dealer-code'),
+         dealername = refs.homefieldset.down('#dealer-name');
+        Ext.widget("popupdealer", {
+
+            listeners: {
+                afterRender: function (panal, eOpts) {
+
+                    var store = panal.down('grid').getStore();
+                    store.extraParams = {};
+                    store.load();
+
+                },
+                close: function (panal, eOpts) {
+
+                    var grid = panal.down('grid'),
+                        selection = grid.getSelection();
+                    if (selection.length > 0) {
+
+                        record = selection[0];
+                        dealercode.setValue(record.get('DealerCode'));
+                        dealername.setValue(record.get('DealerName'));
+
+                    }
+                }
+            }
+        }).show();
     },
 
     onSaveAddressCusClick1: function(button, e, eOpts) {
@@ -70,7 +125,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
     },
 
     onSaveCardClick: function(button, e, eOpts) {
-        Ext.widget("mainmainmarketingwindowcommonpopuppopuptypecard").show();
+        Ext.widget("mainmainmarketingwindowcommonpopuppopuptypecard", {
+            listeners: {
+                beforeRender: function (panal, eOpts) {
+                    var store = panal.down('grid').getStore();
+                    store.load();
+                }
+            }
+        }).show();
     },
 
     onButtonClickSaveRequest: function(button, e, eOpts) {

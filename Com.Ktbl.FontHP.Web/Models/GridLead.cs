@@ -6,7 +6,7 @@ using System.Web;
 namespace Com.Ktbl.FontHP.Web.Models
 {
     //20150827 insert class p2p
-    public class LeadSearch
+    public class GridLead
     {
         public int Id { get; set; }
         public string ImportId { get; set; }

@@ -69,6 +69,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
                 throw;
             }
         }
+
         /// <summary>
         /// [20150814] Woody 
         /// Use for get district

@@ -17,15 +17,32 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupDealerVie
     extend: 'Ext.app.ViewController',
     alias: 'controller.mainmainmarketingwindowcommonpopuppopupdealer',
 
-    onSaveClick: function(button, e, eOpts) {
+    onFindClick: function(button, e, eOpts) {
+        var me = this,
+           views = this.getView(),
+           form = views.down('form').getForm(),
+           store = views.down('grid').getStore();
 
+        store.getProxy().setExtraParam('dealercode', form.findField('QDealerCode').getValue());
+        store.getProxy().setExtraParam('dealername', form.findField('QDealerName').getValue());
+        store.load();
+       
     },
 
     onClearClick: function(button, e, eOpts) {
         var me = this.getView(),
-            form = me.down('form');
-        paging = me.down('pagingtoolbar');
+           form = me.down('form');
+
+        paging = me.down('pagingtoolbar'),
+        store = paging.getStore();
+        store.getProxy().extraParams = {};
         form.reset();
+        store.load();
+    },
+     //[20150801] add by p2p
+    onItemDblClick: function (dataview, record, item, index, e, eOpts) {
+
+    this.getView().close();
     }
 
 });

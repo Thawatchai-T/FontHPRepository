@@ -16,8 +16,59 @@
 Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddressViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.mainmainmarketingwindowcommonpopuppopupcusaddress',
-
+    //add Insert 20150902
     onSaveClick: function(button, e, eOpts) {
+        var me = this.getView(),
+           form = me.down('form').getForm();
+       //::set Value p2p
+            //refs = me.getReferences(),
+            //cbflg = refs.flg;
+            //cbflg.setValue("1")
+        //console.log(cbFlg);
+        //::
+
+        if (form.isValid()) {
+            form.submit({
+                clientValidation: true,
+                //url: 'api/marketing/AddPopCusAddress',
+                url: 'api/marketing',
+                success: function (form, action) {
+                    Ext.Msg.alert('Success', 'บันทึกข้อมูลเรียบร้อย');
+                    me.down('grid').getStore().load();
+                },
+                failure: function (form, action) {
+                    Ext.Msg.alert('Fail', 'ไม่สามารถบันทึกข้อมูลได้');
+                }
+               
+            });
+        } else { 
+            Ext.Msg.alert('Invalid Data', 'Please correct form errors.')
+        }
+    },
+
+    //select value for grid 20150902
+    onItemDblClick: function (dataview, record, item, index, e, eOpts) { //เป็นส่วนที่คลิกจาก Grid ค่าที่ได้จะได้มาแถวเดียว
+        
+        //var grid = this.getView().down('grid'),
+        //selection = grid.getSelection(),
+
+        var form = this.getView().down('form').getForm();
+        
+        Ext.Ajax.request({
+            url: 'api/Marketing/GetAddressById',
+            method: 'get',
+            params: {
+                id: record.get('id')
+            },
+            success: function (response) {
+                var text = Ext.decode(response.responseText),
+                    model = Ext.create('FrontHPApp.model.AddressCusFormModel', text);
+
+                form.loadRecord(model);
+
+                // process server response here
+            }
+        });
 
     },
 
@@ -29,39 +80,53 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
     },
 
     onDeleteClick: function(button, e, eOpts) {
+        var me = this.getView(),
+            grid = me.down('gridpanel'),
+            store = grid.getStore(),
+            record = grid.getSelection(), 
+            count = record.length;
+        
+        if (count > 0) {
 
-    },
+            Ext.MessageBox.confirm("Confirm", "คุณต้องการที่ลบใช่หรือไม่?", function (btn) {
 
-    onEditGridClick: function(button, e, eOpts) {
+                if (btn == 'yes') {
 
-    },
-
-    onDeleteGridClick: function(button, e, eOpts) {
-        var view = this.getView(),
-            GridGarantor = view.down("#GridComSpacial"), //itemid
-            store = GridGarantor.getStore(),
-            selectRecord = GridGarantor.getSelection(),
-            CheckCountSelect = selectRecord.length;
-
-        if (CheckCountSelect > 0)
-        {
-            Ext.MessageBox.confirm("Confirm","คุณต้องการที่จะลบรายการใช่หรือไม่?",function(btn){
-
-                if(btn == 'yes'){
-
-                    for(i=0;i<CheckCountSelect;i++){
-
-                        store.remove(selectRecord[i]);
-
+                    for (i = 0; i < count; i++) {
+                        store.remove(record[i]);
                     }
+                    store.sync();
+                    Ext.MessageBox.alert("Status", 'ลบข้อมูลเรียบร้อย');
                 }
 
-            },this);
+            }, this);
+        }//end if
 
-        }
-        else
-        {
+    },
 
+    onEditClick: function(button, e, eOpts) {
+        var me = this.getView(),
+            grid = me.down('gridpanel'),
+            store = grid.getStore(),
+            record = grid.getSelection();
+        if (record.length > 0) {
+            var form = this.getView().down('form').getForm();
+
+            Ext.Ajax.request({
+                url: 'api/Marketing/GetAddressById',
+                method: 'get',
+                params: {
+                    id: record[0].get('id')
+                },
+                success: function (response) {
+                    var text = Ext.decode(response.responseText),
+                        model = Ext.create('FrontHPApp.model.AddressCusFormModel', text);
+
+                    form.loadRecord(model);
+
+                    // process server response here
+                }
+            });
         }
     },
 

@@ -12,8 +12,9 @@
  *
  * Do NOT hand edit this file.
  */
-
-Ext.define('FrontHPApp.view.WindowMainAppViewController', {
+//Edit part 20150831
+//Ext.define('FrontHPApp.view.WindowMainAppViewController', {
+Ext.define('FrontHPApp.view.main.mainmarketing.WindowMainAppViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.windowmainapp'
 });

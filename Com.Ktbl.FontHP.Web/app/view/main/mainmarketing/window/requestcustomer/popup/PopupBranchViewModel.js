@@ -15,6 +15,6 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupBranchViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.mainmainmarketingwindowrequestcustomerpopuppopupbranch'
+    alias: 'viewmodel.popupbranch'
 
 });

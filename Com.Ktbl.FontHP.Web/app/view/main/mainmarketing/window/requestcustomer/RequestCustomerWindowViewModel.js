@@ -12,9 +12,11 @@
  *
  * Do NOT hand edit this file.
  */
-
+//20150831 edit part p2p
 Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerWindowViewModel', {
+//Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerTabViewModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.mainmainmarketingwindowrequestcustomerrequestcustomerwindow'
+    //alias: 'viewmodel.requestcustomertab'
 
 });

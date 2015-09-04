@@ -51,55 +51,55 @@ Ext.define('FrontHPApp.model.ComHirModel', {
         },
         {
             type: 'float',
-            name: 'Max Rate '
+            name: 'MaxRate'
         },
         {
             type: 'float',
-            name: 'Commission Term '
+            name: 'CommissionTerm'
         },
         {
             type: 'int',
-            name: 'Max Term '
+            name: 'MaxTerm'
         },
         {
             type: 'float',
-            name: 'Commission VAT No'
+            name: 'CommissionVATNo'
         },
         {
             type: 'float',
-            name: 'อัตราดอกเบี้ย '
+            name: 'InterestRate'
         },
         {
             type: 'date',
-            name: 'Commission VAT Date '
+            name: 'CommissionVATDate'
         },
         {
             type: 'float',
-            name: 'Hiring Charge Include VAT '
+            name: 'HiringChargeIncludeVAT'
         },
         {
             type: 'float',
-            name: 'Amount VAT '
+            name: 'AmountVAT'
         },
         {
             type: 'float',
-            name: 'Amount Include VAT '
+            name: 'AmountIncludeVAT'
         },
         {
             type: 'float',
-            name: 'With Hold Tax Amount '
+            name: 'WithHoldTaxAmount'
         },
         {
             type: 'float',
-            name: 'Net Paid '
+            name: 'NetPaid'
         },
         {
             type: 'float',
-            name: 'Standard Interest Rate '
+            name: 'StandardInterestRate'
         },
         {
             type: 'string',
-            name: 'Canpaign'
+            name: 'Campaign'
         }
     ]
 });

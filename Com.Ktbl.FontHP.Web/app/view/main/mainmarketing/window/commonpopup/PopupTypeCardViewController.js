@@ -18,51 +18,99 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCardV
     alias: 'controller.mainmainmarketingwindowcommonpopuppopuptypecard',
 
     onSaveClick: function(button, e, eOpts) {
+        var me = this.getView(),
+             form = me.down('form').getForm(),
+             store = me.down('grid').getStore();
+        if (form.isValid()) {
+            Ext.MessageBox.confirm("Confirm", "คุณต้องการที่จะปรับปรุ่งข้อมูลใช่หรือไม่?", function (btn) {
 
+                if (btn == 'yes') {
+
+                    record = form.getValues();
+                    console.log(record);
+
+                    store.add(record);
+                    store.sync();
+
+                    //store.commitChanges();
+
+                    Ext.MessageBox.alert("Status", 'ปรับปรุ่งมูลเรียบร้อย');
+                }
+
+            }, this);
+        }//end if
+        
+        
+        
     },
 
     onClearClick: function(button, e, eOpts) {
         var me = this.getView(),
             form = me.down('form');
-        paging = me.down('pagingtoolbar');
+        //paging = me.down('pagingtoolbar');
         form.reset();
     },
 
     onDeleteClick: function(button, e, eOpts) {
+        var me = this.getView(),
+            grid = me.down('gridpanel'),
+            store = grid.getStore(),
+            record = grid.getSelection(),
+            count = record.length;
 
-    },
+        if (count > 0) {
 
-    onEditGridClick: function(button, e, eOpts) {
+            Ext.MessageBox.confirm("Confirm", "คุณต้องการที่ลบใช่หรือไม่?", function (btn) {
 
-    },
+                if (btn == 'yes') {
 
-    onDeleteGridClick: function(button, e, eOpts) {
-        var view = this.getView(),
-            GridGarantor = view.down("#GridComSpacial"), //itemid
-            store = GridGarantor.getStore(),
-            selectRecord = GridGarantor.getSelection(),
-            CheckCountSelect = selectRecord.length;
-
-        if (CheckCountSelect > 0)
-        {
-            Ext.MessageBox.confirm("Confirm","คุณต้องการที่จะลบรายการใช่หรือไม่?",function(btn){
-
-                if(btn == 'yes'){
-
-                    for(i=0;i<CheckCountSelect;i++){
-
-                        store.remove(selectRecord[i]);
-
+                    for (i = 0; i < count; i++) {
+                        store.remove(record[i]);
                     }
+                    store.sync();
+                    Ext.MessageBox.alert("Status", 'ลบข้อมูลเรียบร้อย');
                 }
 
-            },this);
+            }, this);
+        }//end if
+    },
 
-        }
-        else
-        {
+    onEditClick: function(button, e, eOpts) {
+        var me = this.getView(),
+            form = me.down('form').getForm(),
+            grid = me.down('grid'),
+            selection = grid.getSelection();
 
+        if (selection.length) {
+            form.loadRecord(selection[0]);
         }
+
+        
+
+    },
+
+    onDeleteClick: function(button, e, eOpts) {
+        var me = this.getView(),
+            grid = me.down('gridpanel'),
+            store = grid.getStore(),
+            record = grid.getSelection(),
+            count = record.length;
+
+        if (count > 0) {
+
+            Ext.MessageBox.confirm("Confirm", "คุณต้องการที่ลบใช่หรือไม่?", function (btn) {
+
+                if (btn == 'yes') {
+
+                    for (i = 0; i < count; i++) {
+                        store.remove(record[i]);
+                    }
+                    store.sync();
+                    Ext.MessageBox.alert("Status", 'ลบข้อมูลเรียบร้อย');
+                }
+
+            }, this);
+        }//end if
     }
 
 });

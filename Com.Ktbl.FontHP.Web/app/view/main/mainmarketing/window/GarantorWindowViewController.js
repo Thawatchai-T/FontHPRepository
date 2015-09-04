@@ -12,24 +12,56 @@
  *
  * Do NOT hand edit this file.
  */
-
+//add function 20150903
 Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.mainmainmarketingwindowgarantorwindow',
-
+    //alias: 'controller.mainmainmarketingwindowgarantorwindow',
+    alias: 'controller.garantorwindow',
     onSaveAddressClick: function(button, e, eOpts) {
-        Ext.widget("frmcusaddress").show();
+       // Ext.widget("frmcusaddress").show();
     },
 
     onSaveAddressClick1: function(button, e, eOpts) {
         Ext.widget("mainmainmarketingwindowcommonpopuppopupcusaddress").show();
     },
 
-    onSaveCardClick: function(button, e, eOpts) {
-        Ext.widget("mainmainmarketingwindowcommonpopuppopuptypecard").show();
+    onSaveClick: function(button, e, eOpts) {
+        var me = this.getView(),
+         form = me.down('form').getForm();
+        console.log("1");
+        if (form.isValid()) {
+            form.submit({
+                clientValidation: true,
+                //url: 'api/marketing/AddPopCusAddress',
+                url: 'api/Garantor/Insert',
+                success: function (form, action) {
+                    Ext.Msg.alert('Success', 'บันทึกข้อมูลเรียบร้อย');
+                    me.down('grid').getStore().load();
+                },
+                failure: function (form, action) {
+                    Ext.Msg.alert('Fail', 'ไม่สามารถบันทึกข้อมูลได้');
+                }
+
+            });
+        } else {
+            Ext.Msg.alert('Invalid Data', 'Please correct form errors.')
+        }
     },
 
-    onEditGridClick: function(button, e, eOpts) {
+    onEditClick: function(button, e, eOpts) {
+        var me = this.getView(),
+            grid = me.down('gridpanel'),
+            store = grid.getStote(),
+            record = grid.getSelection();
+        if(record.lenght>0)
+        {
+            var form = this.getView().down('form').getForm();
+            Ext.Ajax.request({
+                url: 'api',
+            })
+
+
+        }//ถึงนี่นะไปทำ Grid Click ก่อน
 
     },
 
@@ -62,22 +94,23 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewControll
         }
     },
 
-    onGridGarantorItemDblClick: function(dataview, record, item, index, e, eOpts) {
-        var store = dataview.up().getStore();
-        console.log(dataview);
+    onItemDblClick: function (dataview, record, item, index, e, eOpts) {
+        //add event grid dbclick 20150904
+        var form = this.getView().down('form').getForm();
+        Ext.Ajax.request({
+            url: 'api/Garantor/GetGarantorById',
+            method: 'get',
+            params: {
+                id:record.get('id')
+            },
+            success: function (response) {
+                var text = Ext.decode(response.responseText),
+                    model = Ext.create('FrontHPApp.model.GarantorFormModel', text);
+                form.loadRecord(model);
 
-        Ext.MessageBox.confirm("Confirm","คุณต้องการที่จะยกเลิก"+record.get("RequestNo")+" ใช่หรือไม่?",function(btn){
-
-            if(btn == 'yes'){
-
-                store.remove(record);
-
-                Ext.MessageBox.alert("Status",record.get("RequestNo") );
-            }else{
-                Ext.MessageBox.alert("WTF","WTF!!!" );
             }
 
-        },this);
+        });
     },
 
     // [20150817] p2p  Add by even OccupationCatelogy 

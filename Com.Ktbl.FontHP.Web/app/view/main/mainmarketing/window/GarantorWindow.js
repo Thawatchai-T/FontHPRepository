@@ -17,7 +17,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
     extend: 'Ext.panel.Panel',
     //change name alias 20150828
     //alias: 'widget.mainmainmarketingwindowgarantorwindow',
-    alias: 'widget.windowgarantor',
+    alias: 'widget.garantorwindow',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewModel',
@@ -78,7 +78,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             ],
                             fieldLabel: 'เลขที่บัตรประชาชน',
                             labelCls: 'text-require',
-                            name: 'CID',
+                            name: 'GuarCitizenID',
                             allowBlank: false,
                             emptyText: '[เลขที่บัตรประชาชน]'
                         },
@@ -99,7 +99,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                     labelAlign: 'right',
                                     labelCls: 'text-require',
                                     labelWidth: 190,
-                                    name: 'GurantorTitleName',
+                                    name: 'GuarTitleName',
                                     allowBlank: false,
                                     emptyText: '[เลือก]',
                                     displayField: 'Name',
@@ -110,7 +110,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                     xtype: 'textfield',
                                     margin: '0 5 5 5',
                                     fieldLabel: '',
-                                    name: 'GarantorName',
+                                    name: 'GuarFNameTh',
                                     allowBlank: false,
                                     emptyText: '[ชื่อ]'
                                 },
@@ -118,7 +118,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                     xtype: 'textfield',
                                     width: 185,
                                     fieldLabel: '',
-                                    name: 'GarantorSurName',
+                                    name: 'GuarLNameTh',
                                     allowBlank: false,
                                     emptyText: '[นามสกุล]'
                                 }
@@ -131,7 +131,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             ],
                             fieldLabel: 'วัน/เดือน/ปีเกิด',
                             labelCls: 'text-require',
-                            name: 'BirthDate',
+                            name: 'GuarBirthDate',
                             allowBlank: false,
                             emptyText: '[วัน/เดือน/ปีเกิด]'
                         },
@@ -146,7 +146,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                     fieldLabel: 'อายุ',
                                     labelAlign: 'right',
                                     labelWidth: 190,
-                                    name: 'GurantorTitleName',
+                                    name: 'GuarAgeYear',
                                     emptyText: '[ปี]'
                                 },
                                 {
@@ -159,7 +159,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                     xtype: 'textfield',
                                     width: 50,
                                     fieldLabel: '',
-                                    name: 'GarantorName',
+                                    name: 'GuarAgeMonth',
                                     emptyText: '[เดือน]'
                                 },
                                 {
@@ -176,7 +176,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                 '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>'
                             ],
                             fieldLabel: 'วันที่บัตรหมดอายุ',
-                            name: 'CardExpireDate',
+                            name: 'GuarExpiryDate',
                             emptyText: '[วันที่บัตรหมดอายุ]'
                         },
                         {
@@ -186,20 +186,20 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             ],
                             fieldLabel: 'วันที่ออกบัตร',
                             labelCls: 'text-require',
-                            name: 'CardExpireDate',
+                            name: 'CitizenStartDate',
                             allowBlank: false,
                             emptyText: '[วันที่ออกบัตร]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'สถานที่ออกบัตร',
-                            name: 'CID',
+                            name: 'CitizenPlace',
                             emptyText: '[สถานที่ออกบัตร]'
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'สัญชาติ',
-                            name: 'CID',
+                            name: 'GuarNationality',
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             displayField: 'Name',
@@ -213,7 +213,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             emptyText: '[เชื้อชาติ]',
                             displayField: 'Name',
                             store: 'combo.RegionStore',
-                            valueField: 'id'
+                            valueField: 'id',
+                            name: 'GuarRace'
+
                         },
                         {
                             xtype: 'radiogroup',
@@ -222,12 +224,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             items: [
                                 {
                                     xtype: 'radiofield',
-                                    name: 'rdSex',
+                                    name: 'GuarGender',
                                     boxLabel: 'ชาย'
                                 },
                                 {
                                     xtype: 'radiofield',
-                                    name: 'rdSex',
+                                    name: 'GuarGender',
                                     boxLabel: 'หญิง'
                                 }
                             ]
@@ -254,7 +256,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             fieldLabel: 'ความสัมพันธ์กับผู้เช่าซื้อ',
                             width: 400,
                             labelCls: 'text-require',
-                            name: 'CID',
+                            name: 'RelativeDebtor',
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             displayField: 'Name',
@@ -264,13 +266,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เบอร์โทรศัพท์พื้นฐาน',
-                            name: 'BirthDate',
+                            name: 'GuarHomePhone',
                             emptyText: '[เบอร์โทรศัพท์พื้นฐาน]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เบอร์โทรศัพท์มือถือ',
-                            name: 'CardExpireDate',
+                            name: 'GuarMobilePhone',
                             emptyText: '[เบอร์โทรศัพท์มือถือ]'
                         },
                         {
@@ -278,7 +280,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             fieldLabel: 'ลักษณะที่พักอาศัย',
                             width: 490,
                             colspan: 3,
-                            name: 'CardExpireDate',
+                            name: 'GuarResidentOwn',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.TypeResidenceStore',
@@ -289,14 +291,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             fieldLabel: 'ระบุ',
                             colspan: 3,
                             width: 490,
-                            name: 'CardExpireDate',
+                            name: 'GuarResidentOwnDetail',
                             emptyText: '[ระบุ]'
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'ที่อยู่ปัจจุบันตรงตามทะเบียนบ้าน',
                             width: 400,
-                            name: 'CardExpireDate',
+                            name: 'GuarResidentStatus',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.AdressByHomeStore',
@@ -313,20 +315,21 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                     fieldLabel: 'ระยะเวลาที่พักอาศัย',
                                     labelAlign: 'right',
                                     labelWidth: 190,
-                                    name: 'GurantorTitleName',
+                                    name: 'GuarResidentYear',
                                     emptyText: '[ปี]'
                                 },
                                 {
                                     xtype: 'displayfield',
                                     margin: '0 5 5 5',
                                     fieldLabel: '',
-                                    value: 'ปี'
+                                    value: 'ปี',
+                                   
                                 },
                                 {
                                     xtype: 'textfield',
                                     width: 50,
                                     fieldLabel: '',
-                                    name: 'GarantorName',
+                                    name: 'GuarResidentMonth',
                                     emptyText: '[เดือน]'
                                 },
                                 {
@@ -336,12 +339,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                     value: 'เดือน'
                                 }
                             ]
-                        },
+                         },
+                        
                         {
                             xtype: 'combobox',
                             colspan: 2,
                             fieldLabel: 'สถานะตามทะเบียนบ้าน',
-                            name: 'CID',
+                            name: 'GuarResidentRegStatus',
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             displayField: 'Name',
@@ -373,7 +377,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                     fieldLabel: 'อายุงานรวม',
                                     labelAlign: 'right',
                                     labelWidth: 190,
-                                    name: 'GurantorTitleName',
+                                    name: 'GuarWorkPeriodAllYear',
                                     emptyText: '[ปี]'
                                 },
                                 {
@@ -386,7 +390,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                     xtype: 'textfield',
                                     width: 50,
                                     fieldLabel: '',
-                                    name: 'GarantorName',
+                                    name: 'GuarWorkPeriodAllMonth',
                                     emptyText: '[เดือน]'
                                 },
                                 {
@@ -409,7 +413,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                     fieldLabel: 'อายุงานปัจจุบัน',
                                     labelAlign: 'right',
                                     labelWidth: 190,
-                                    name: 'GurantorTitleName',
+                                    name: 'GuarWorkPeriodCurrentYear',
                                     emptyText: '[ปี]'
                                 },
                                 {
@@ -422,7 +426,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                     xtype: 'textfield',
                                     width: 50,
                                     fieldLabel: '',
-                                    name: 'GarantorName',
+                                    name: 'GuarWorkPeriodCurrentMonth',
                                     emptyText: '[เดือน]'
                                 },
                                 {
@@ -433,11 +437,20 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                                 }
                             ]
                         },
+                        //add by Tel office p2p 20150958
+                         {
+                             xtype: 'textfield',
+                             fieldLabel: 'เบอร์โทรศัพท์ที่ทำงาน',
+                             colspan: 3,
+                             name: 'GuarOfficePhone',
+                             emptyText: '[เบอร์โทรศัพท์ที่ทำงาน]',
+                             name:'name'
+                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'หมวดอาชีพ',
                             colspan: 3,
-                            name: 'CID',
+                            name: 'GuarOccupationType',
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             displayField: 'Name',
@@ -453,7 +466,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             xtype: 'combobox',
                             fieldLabel: 'กลุ่มอาชีพ',
                             colspan: 3,
-                            name: 'BirthDate',
+                            name: 'GuarOccupationGroup',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.OccupationGroupStore',
@@ -470,7 +483,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             fieldLabel: 'ประเภทอาชีพ',
                             colspan: 3,
                             width: 800,
-                            name: 'CardExpireDate',
+                            name: 'GuarOccupationCode',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.OccupationCareerStore',
@@ -486,7 +499,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             width: '',
                             fieldLabel: 'ตำแหน่ง',
                             colspan: 3,
-                            name: 'CardExpireDate',
+                            name: 'GuarPosition',
                             width: 800,
                             emptyText: '[เลือก]',
                             displayField: 'Name',
@@ -501,14 +514,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             fieldLabel: 'สถานที่ทำงาน',
                             colspan: 3,
                             width: 800,
-                            name: 'CardExpireDate',
+                            name: 'OccPlace',
                             emptyText: '[สถานที่ทำงาน]'
                         },
                         {
                             xtype: 'textfield',
                             width: 800,
                             fieldLabel: 'รายละเอียดอาชีพ',
-                            name: 'CardExpireDate',
+                            name: 'OccDetail',
                             emptyText: '[รายละเอียดอาชีพ]'
                         }
                     ]
@@ -528,13 +541,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ชื่อ/สกุล',
-                            name: 'CID',
+                            name: 'GuarMateName',
                             emptyText: '[ชื่อ/สกุล]'
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'กลุ่มอาชีพ',
-                            name: 'CID',
+                            name: 'GuarMateOccupationGroup',
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             displayField: 'Name',
@@ -545,38 +558,38 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             xtype: 'textfield',
                             fieldLabel: 'สถานที่ทำงาน',
                             width: 400,
-                            name: 'CID',
+                            name: 'GuarMateOccPlace',
                             emptyText: '[สถานที่ทำงาน]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'รายได้',
-                            name: 'CID',
+                            name: 'GuarMateIncome',
                             emptyText: '[รายได้]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ตำแหน่ง',
-                            name: 'CID',
+                            name: 'GuarMateOccPosition',
                             emptyText: '[ตำแหน่ง]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'อายุงาน',
                             width: 400,
-                            name: 'CID',
+                            name: 'GuarMateWorkPeriod',
                             emptyText: '[อายุงาน]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'โทรศัพท์',
-                            name: 'CID',
+                            name: 'GuarMateTelephone',
                             emptyText: '[โทรศัพท์]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'ค่าใช้จ่ายต่อเดือน',
-                            name: 'BirthDate',
+                            name: 'MateExpense',
                             emptyText: '[ค่าใช้จ่ายต่อเดือน]'
                         }
                     ]
@@ -597,7 +610,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             iconCls: 'icon-save',
                             text: 'บันทึกข้อมูล',
                             listeners: {
-                                click: 'onSaveAddressClick'
+                                click: 'onSaveClick'
                             }
                         },
                         {
@@ -639,7 +652,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                 {
                     xtype: 'gridcolumn',
                     width: '',
-                    dataIndex: 'CiticenId',
+                    dataIndex: 'GuarCitizenID',
                     text: 'เลขที่บัตรประชาชน'
                 },
                 {
@@ -650,22 +663,29 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'CusRelationShip',
+                    dataIndex: 'RelativeDebtor',
                     text: 'ความสัมพันธ์ผู้เช่าซื้อ'
                 },
                 {
                     xtype: 'gridcolumn',
                     renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                        console.log(record);
                         return Ext.Date.format(value, 'd/m/Y');
                     },
-                    dataIndex: 'BirthDate',
+                    dataIndex: 'GuarBirthDate',
                     text: 'วัน/เดือน/ปีเกิด'
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 140,
-                    dataIndex: 'Tel',
+                    dataIndex: 'GuarHomePhone',
                     text: 'เบอร์โทรศัพท์พื้นฐาน'
+                },
+                {
+                            
+                    xtype: 'hiddenfield',
+                    name: 'id',
+                    value: 'hidden field'
                 }
             ],
             dockedItems: [
@@ -679,7 +699,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             iconCls: 'icon-edit',
                             text: 'แก้ไข',
                             listeners: {
-                                click: 'onEditGridClick'
+                                click: 'onEditClick'
                             }
                         },
                         {
@@ -697,14 +717,15 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                     xtype: 'pagingtoolbar',
                     dock: 'bottom',
                     width: 380,
-                    displayInfo: true
+                    displayInfo: true,
+                    store: 'gurantorGridModels',
                 }
             ],
             selModel: {
                 selType: 'checkboxmodel'
             },
             listeners: {
-                itemdblclick: 'onGridGarantorItemDblClick'
+                itemdblclick: 'onItemDblClick'
             }
         }
     ]

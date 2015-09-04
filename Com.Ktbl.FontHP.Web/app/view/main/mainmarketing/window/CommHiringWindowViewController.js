@@ -15,7 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindowViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.mainmainmarketingwindowcommhiringwindow',
+    alias: 'controller.commhiringwindow',
 
     onSelectEntcodeClick: function(button, e, eOpts) {
         Ext.widget("mainmainmarketingwindowcommonpopuppopupdealer").show();

@@ -12,13 +12,19 @@
  *
  * Do NOT hand edit this file.
  */
-
+//20150831 edir part
 Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerWindow', {
+//Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerTab', {
     extend: 'Ext.form.Panel',
-    alias: 'widget.mainmainmarketingwindowrequestcustomerrequestcustomerwindow',
-
+    //edit name 20150831
+    //alias: 'widget.mainmainmarketingwindowrequestcustomerrequestcustomerwindow',
+    alias: 'widget.requestcustomertab',
     requires: [
+         //edit name 20150831
         'FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerWindowViewModel',
+        //'viewmodel.requestcustomertab',
+        //edit name 20150831
+        //'controller.requestcustomertab',
         'FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerWindowViewController',
         'Ext.form.Panel',
         'Ext.form.FieldSet',
@@ -83,7 +89,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                         ' '
                                     ],
                                     allowBlank: false,
-                                    emptyText: '[เลขที่ใบ Lead]'
+                                    emptyText: '[เลขที่ใบ Lead]',
+                                    itemId: 'lead-no'
+                                    
                                 },
                                 {
                                     xtype: 'button',
@@ -106,7 +114,10 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 {
                                     xtype: 'textfield',
                                     allowBlank: false,
-                                    emptyText: '[รหัสสาขา]'
+                                    emptyText: '[รหัสสาขา]',
+                                    name: 'BranchNo',
+                                    itemId: 'branch-no'
+
                                 },
                                 {
                                     xtype: 'button',
@@ -121,7 +132,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'textfield',
                                     width: '',
                                     fieldLabel: '',
-                                    emptyText: '[ชื่อสาขา]'
+                                    emptyText: '[ชื่อสาขา]',
+                                    name: 'BranchName',
+                                    itemId: 'branch-name'
                                 }
                             ]
                         },
@@ -161,7 +174,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 {
                                     xtype: 'textfield',
                                     allowBlank: false,
-                                    emptyText: '[รหัสผู้แทนจำหน่ายรถยนตร์]'
+                                    emptyText: '[รหัสผู้แทนจำหน่ายรถยนตร์]',
+                                    itemId: 'dealer-code'
+
                                 },
                                 {
                                     xtype: 'button',
@@ -176,7 +191,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'textfield',
                                     width: '',
                                     fieldLabel: '',
-                                    emptyText: '[ชื่อผู้แทนจำหน่ายรถยนตร์]'
+                                    emptyText: '[ชื่อผู้แทนจำหน่ายรถยนตร์]',
+                                    itemId: 'dealer-name'
                                 }
                             ]
                         },

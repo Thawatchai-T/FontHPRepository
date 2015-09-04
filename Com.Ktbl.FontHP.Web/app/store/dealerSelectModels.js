@@ -21,68 +21,83 @@ Ext.define('FrontHPApp.store.dealerSelectModels', {
         'FrontHPApp.model.DealerSelectModel',
         'Ext.data.proxy.Memory'
     ],
-
-    constructor: function(cfg) {
+    constructor: function (cfg) {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
-            storeId: 'dealerSelectModels',
+            storeId: 'dealerselectmodels',
             model: 'FrontHPApp.model.DealerSelectModel',
-            data: [
-                {
-                    id: 923,
-                    dealerCode: 899,
-                    dealerName: 'molestiae'
-                },
-                {
-                    id: 522,
-                    dealerCode: 937,
-                    dealerName: 'expedita'
-                },
-                {
-                    id: 523,
-                    dealerCode: 899,
-                    dealerName: 'labore'
-                },
-                {
-                    id: 246,
-                    dealerCode: 453,
-                    dealerName: 'sit'
-                },
-                {
-                    id: 509,
-                    dealerCode: 780,
-                    dealerName: 'tenetur'
-                },
-                {
-                    id: 511,
-                    dealerCode: 453,
-                    dealerName: 'ipsam'
-                },
-                {
-                    id: 670,
-                    dealerCode: 154,
-                    dealerName: 'neque'
-                },
-                {
-                    id: 472,
-                    dealerCode: 273,
-                    dealerName: 'quam'
-                },
-                {
-                    id: 67,
-                    dealerCode: 797,
-                    dealerName: 'ipsam'
-                },
-                {
-                    id: 626,
-                    dealerCode: 200,
-                    dealerName: 'non'
-                }
-            ],
+            autoLoad: true,
             proxy: {
-                type: 'memory'
+                type: 'rest',
+                url: 'api/Marketing/GetGridDealerLoad',
+                reader: {
+                    type: 'json'
+                }
             }
         }, cfg)]);
     }
+    //constructor: function(cfg) {
+    //    var me = this;
+    //    cfg = cfg || {};
+    //    me.callParent([Ext.apply({
+    //        storeId: 'dealerSelectModels',
+    //        model: 'FrontHPApp.model.DealerSelectModel',
+    //        data: [
+    //            {
+    //                id: 923,
+    //                dealerCode: 899,
+    //                dealerName: 'molestiae'
+    //            },
+    //            {
+    //                id: 522,
+    //                dealerCode: 937,
+    //                dealerName: 'expedita'
+    //            },
+    //            {
+    //                id: 523,
+    //                dealerCode: 899,
+    //                dealerName: 'labore'
+    //            },
+    //            {
+    //                id: 246,
+    //                dealerCode: 453,
+    //                dealerName: 'sit'
+    //            },
+    //            {
+    //                id: 509,
+    //                dealerCode: 780,
+    //                dealerName: 'tenetur'
+    //            },
+    //            {
+    //                id: 511,
+    //                dealerCode: 453,
+    //                dealerName: 'ipsam'
+    //            },
+    //            {
+    //                id: 670,
+    //                dealerCode: 154,
+    //                dealerName: 'neque'
+    //            },
+    //            {
+    //                id: 472,
+    //                dealerCode: 273,
+    //                dealerName: 'quam'
+    //            },
+    //            {
+    //                id: 67,
+    //                dealerCode: 797,
+    //                dealerName: 'ipsam'
+    //            },
+    //            {
+    //                id: 626,
+    //                dealerCode: 200,
+    //                dealerName: 'non'
+    //            }
+    //        ],
+    //        proxy: {
+    //            type: 'memory'
+    //        }
+    //    }, cfg)]);
+    //}
 });

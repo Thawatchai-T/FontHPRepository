@@ -15,7 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.PopupBranchViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.mainmainmarketingwindowrequestcustomerpopuppopupbranch',
+    alias: 'controller.popupbranch',
 
     onFindClick: function(button, e, eOpts) {
 

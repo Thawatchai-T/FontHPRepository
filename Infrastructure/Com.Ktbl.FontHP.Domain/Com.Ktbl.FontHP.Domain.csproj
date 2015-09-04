@@ -50,6 +50,7 @@
     <Compile Include="Common\StandardCode.cs" />
     <Compile Include="Common\SubDistrictDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewDomain\AddressDomain.cs" />
     <Compile Include="ViewDomain\District.cs" />
     <Compile Include="ViewDomain\OccupationCatelogy.cs" />
     <Compile Include="ViewDomain\MainRequest.cs" />

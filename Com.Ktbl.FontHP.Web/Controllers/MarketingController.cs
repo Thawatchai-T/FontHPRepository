@@ -161,17 +161,155 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         #endregion
 
         #region Bind Data grid 20150827
-        public List<LeadSearch> GetGridLeaderLoad()
+        public List<GridLead> GetGridLeaderLoad(int start, int limit, int page)
         {
-            List<LeadSearch> list = new List<LeadSearch>();
-            list.Add(new LeadSearch { Id = 1, ImportId = "0000001", CusName = "วรนุช", CusSurName = "วงสวรรค์", LeadNo = "07-0284", LeadNameGrid = "อชญา", LeadSurNameGrid = "มีทรัพย์", BranchId = "000001", BranchName = "สำนักงานใหญ่" });
-            list.Add(new LeadSearch { Id = 2, ImportId = "0000002", CusName = "วรนุช", CusSurName = "วงสวรรค์", LeadNo = "07-0284", LeadNameGrid = "อชญา", LeadSurNameGrid = "มีทรัพย์", BranchId = "000001", BranchName = "สำนักงานใหญ่" });
+            List<GridLead> list = new List<GridLead>();
+            list.Add(new GridLead { Id = 1, ImportId = "0000001", CusName = "วรนุช", CusSurName = "วงสวรรค์", LeadNo = "07-0284", LeadNameGrid = "อชญา", LeadSurNameGrid = "มีทรัพย์", BranchId = "000001", BranchName = "สำนักงานใหญ่" });
+            list.Add(new GridLead { Id = 2, ImportId = "0000002", CusName = "พัชราภา", CusSurName = "ไชยเชื้อ", LeadNo = "07-0283", LeadNameGrid = "วาสนา", LeadSurNameGrid = "ริบแจ่ม", BranchId = "000001", BranchName = "สำนักงานใหญ่" });
 
             
             return list;
         }
+        //add searchLead 20150831
+        public List<GridLead> GetGridLeaderLoad(int start, int limit, int page, string importid, string leadid, string leadname)
+        {
+            List<GridLead> lstserch = new List<GridLead>();
+            
 
+            lstserch = GetGridLeaderLoad(start, limit, page);
+            if (!string.IsNullOrEmpty(importid))
+            {
+                lstserch = lstserch.Where(l => l.ImportId.Equals(importid)).ToList<GridLead>();;
+            }
+            if (!string.IsNullOrEmpty(leadid))
+            {
+                lstserch = lstserch.Where(l => l.LeadNo.Equals(leadid)).ToList<GridLead>();
+            }
+            if (!string.IsNullOrEmpty(leadname))
+            {
+                lstserch = lstserch.Where(l => l.LeadNameGrid.Equals(leadname)).ToList<GridLead>();
+            }
+
+            return lstserch;
+        }
         #endregion
 
+        #region add manange PopupDealer 20150901
+        public List<GridDealer> GetGridDealerLoad(int start, int limit, int page)
+        {
+            List<GridDealer> list = new List<GridDealer>();
+            list.Add(new GridDealer { DealerCode = "001",DealerName = "ใบตอง" });
+            list.Add(new GridDealer { DealerCode = "002", DealerName = "ใบเตย" });
+            list.Add(new GridDealer { DealerCode = "003", DealerName = "ใบแก้ว" });
+            list.Add(new GridDealer { DealerCode = "004", DealerName = "ใบกล้วย" });
+            return list;
+          
+        }
+
+        //add searchDealer 20150901
+        public List<GridDealer> GetGridDealerLoad(int start, int limit, int page, string dealercode, string dealername)
+        {
+            List<GridDealer> lstserch = new List<GridDealer>();
+
+
+            lstserch = GetGridDealerLoad(start, limit, page);
+            if (!string.IsNullOrEmpty(dealercode))
+            {
+                lstserch = lstserch.Where(l => l.DealerCode.Equals(dealercode)).ToList<GridDealer>(); ;
+            }
+            if (!string.IsNullOrEmpty(dealername))
+            {
+                lstserch = lstserch.Where(l => l.DealerName.Equals(dealername)).ToList<GridDealer>();
+            }
+            return lstserch;
+        }
+
+       #endregion
+
+        #region add ManagePopupCusAddress
+        public List<GridPopCusAddress> GetGridPopCusAddress(int start, int limit, int page)
+        {
+            List<GridPopCusAddress> list = new List<GridPopCusAddress>();
+            list.Add(new GridPopCusAddress { id= 1, AddressType = "ประเภทที่อยู่1", Address = "ปิ่นเกล้า", Tel = "037200001", Fax = "Fax001", LiveFrom = Convert.ToDateTime("10-05-2009") });
+            list.Add(new GridPopCusAddress { id = 2, AddressType = "ประเภทที่อยู่2", Address = "บางนา", Tel = "038300001", Fax = "Fax002", LiveFrom = Convert.ToDateTime("07-10-2008") });
+            list.Add(new GridPopCusAddress { id = 3, AddressType = "ประเภทที่อยู่3", Address = "ปบางกะปิ", Tel = "039400001", Fax = "Fax003", LiveFrom = Convert.ToDateTime("12-09-2007") });
+            list.Add(new GridPopCusAddress { id = 4, AddressType = "ประเภทที่อยู่4", Address = "เจ้าพระยา", Tel = "028500001", Fax = "Fax004", LiveFrom = Convert.ToDateTime("13-07-2006") });
+            list.Add(new GridPopCusAddress { id = 5, AddressType = "ประเภทที่อยู่5", Address = "วงเวียนใหญ่", Tel = "037600001", Fax = "Fax005", LiveFrom = Convert.ToDateTime("01-04-2005") });
+            
+            return list ;
+        }
+        #endregion
+        #region add PopupCusAddress 20150902 p2p
+        public Boolean AddPopCusAddress(GuiPopupCusAddress obj)
+        {
+            List<GridPopCusAddress>  listGrid = new List<GridPopCusAddress>();
+            List<GuiPopupCusAddress> list = new List<GuiPopupCusAddress>();
+         
+          
+            if (obj.id != null)
+            {
+                //Pk Update 
+            }
+            else
+            {
+            //PK Insert  ครั้งแรก id ยังไม่มีต้องเพิ่มเอง
+           
+            //list.Add(new GuiPopupCusAddress { AddressType = obj.AddressType, RegistNo=obj.RegistNo, AddressNo=obj.AddressNo,
+            //                                  Moo=obj.Moo, MooBaan=obj.MooBaan,Soi=obj.Soi,Street=obj.Street,Province=obj.Province,
+            //                                  Amphur=obj.Amphur,Tambon=obj.Tambon,ZipCode=obj.ZipCode,PhoneNo=obj.PhoneNo,
+            //                                  FaxNo=obj.FaxNo,StayFromDate=obj.StayFromDate,Mobile=obj.Mobile,PhoneOther=obj.PhoneOther
+            //                                });
+            }
+            return true;
+        }
+        /// <summary>
+        /// insert or upate
+        /// </summary>
+        /// <param name="value"></param>
+        public bool Post(GuiPopupCusAddress obj)
+        {
+            if (obj.id == 0)
+            {
+                //TODO:  Insert
+            }
+            else
+            {
+                //TODO:  Update
+            }
+            return true;
+        }
+
+        // DELETE api/common/5
+        public void Delete(int id)
+        {
+            //TODO:  not implement
+        }
+        #endregion
+//
+        public GuiPopupCusAddress GetAddressById(int id)
+        {
+            var result = new GuiPopupCusAddress
+            {
+               id = 15,
+               AddressNo = "11123",
+               AddressType = "ประเภทที่อยู่1",
+               Amphur ="02",
+               FaxNo ="020000000",
+               Mobile = "0841111111",
+               Moo = "5",
+               MooBaan = "big",
+               PhoneNo ="0841111111",
+               PhoneOther ="-",
+               Province = "10",
+               RegistNo ="0123456",
+               Soi ="14",
+               StayFromDate = Convert.ToDateTime("01-04-2005"),
+               Street ="เมื่อง",
+               Tambon ="04",
+               ZipCode ="57140"
+            };
+            return result;
+        }
     }
+        
 }
