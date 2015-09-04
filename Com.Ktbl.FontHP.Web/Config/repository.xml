@@ -41,6 +41,16 @@
             type="Com.Ktbl.FontHP.Map.Repository.CareerRepository, Com.Ktbl.FontHP.Map">
     <property name="SessionFactory"  ref="ssfactory"/>
   </object>
+  <!-- LeadMarketingRepository -->
+  <object id="leadMarketingRepository"
+            type="Com.Ktbl.FontHP.Map.Repository.LeadMarketingRepository, Com.Ktbl.FontHP.Map">
+    <property name="SessionFactory"  ref="ssfactory"/>
+  </object>
+  <!-- RequestStatusRepository -->
+  <object id="requestStatusRepository"
+            type="Com.Ktbl.FontHP.Map.Repository.Request.RequestStatusRepository, Com.Ktbl.FontHP.Map">
+    <property name="SessionFactory"  ref="ssfactory"/>
+  </object>
 
   
 </objects>

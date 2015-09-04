@@ -12,6 +12,7 @@ using Com.Ktbl.FontHP.Web.Utility;
 using System.Data;
 using System.Xml;
 using System.Xml.Linq;
+using Com.Ktbl.FontHP.Domain;
 
 
 namespace Com.Ktbl.FontHP.Web.Controllers
@@ -29,6 +30,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         public ICareerRepository CareerRepository { get; set; }
         //p2p add variable Web Service  20150819
         WebReferenceRedbook.IWS_KTBLBookservice ws = new WebReferenceRedbook.IWS_KTBLBookservice();
+        public ILeadMarketingRepository LeadMarketingRepository { get; set; }
         string strXML = "";
         #endregion
     
@@ -300,6 +302,8 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             return list;
         }
         #endregion
+
+        #region Dummy
         // POST api/common
         public void Post([FromBody]string value)
         {
@@ -314,6 +318,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         public void Delete(int id)
         {
         }
+        #endregion
 
         #region reference redbook webservice
         //p2p 20150819
@@ -387,5 +392,24 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         }
         
         #endregion
+
+        #region [20150831] Add by Woody method popup
+        public List<LeadMktDomain> GetMkt()
+        {
+            try
+            {
+                var result  = LeadMarketingRepository.GetAllMarketing();
+                return result;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        
+        #endregion
+
     }
 }
