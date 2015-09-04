@@ -10,7 +10,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
     public class GarantorController : ApiController
     {
         //add controlller for garantor 20150828
-        public PageModel<GarantorViewModel> GetGridGarantorLoad(int start, int limit, int page) 
+        public PageModel<GarantorViewModel> GetGarantorLoad(int start, int limit, int page) 
         {
             List<GarantorViewModel> list = new List<GarantorViewModel>();
             var pagemodel = new PageModel<GarantorViewModel>();
@@ -89,6 +89,11 @@ namespace Com.Ktbl.FontHP.Web.Controllers
                 MateExpense = 20000
         };
             return result;
+        }
+
+        public void Delete(int id)
+        {
+            //TODO:  not implement
         }
     }
 }

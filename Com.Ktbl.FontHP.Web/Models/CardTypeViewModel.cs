@@ -8,6 +8,8 @@ namespace Com.Ktbl.FontHP.Web.Models
     public class CardTypeViewModel
     {
         public int id { get; set; }
+
+        public string TypeCustomer { get; set; }
         public string TypeCard { get; set; }
         public string CardNo { get; set; }
         public DateTime ExpireDate { get; set; }

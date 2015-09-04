@@ -62,7 +62,9 @@ Ext.application({
         'TypeCustomerModel',
         'AddressCusFormModel',
         //insert model 20150904
-        'GarantorFormModel'
+        'GarantorFormModel',
+        'CardTypeTabFormModel'
+
     ],
     stores: [
         'combo.LoginStore',

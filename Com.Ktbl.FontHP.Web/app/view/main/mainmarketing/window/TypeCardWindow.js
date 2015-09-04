@@ -76,14 +76,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.TypeCardWindow', {
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.TypeCustomerStore',
-                            valueField: 'id'
+                            valueField: 'id',
+                            name: 'TypeCustomer'
                         },
                         {
                             xtype: 'combobox',
-                            width: 367,
                             fieldLabel: 'ประเภทบัตร',
-                            labelAlign: 'right',
-                            labelWidth: 190,
+                            name: 'TypeCard',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.TypeCardStore',
@@ -91,24 +90,30 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.TypeCardWindow', {
                         },
                         {
                             xtype: 'textfield',
+                            colspan: 2,
                             fieldLabel: 'หมายเลขบัตร',
-                            name: '',
+                            name: 'CardNo',
                             emptyText: '[หมายเลขบัตร]'
                         },
                         {
                             xtype: 'datefield',
                             fieldLabel: 'Issue Date',
-                            labelAlign: 'right',
-                            labelWidth: 190,
-                            name: '',
-                            emptyText: '[วว/ดด/ปปปป]',
-                            format: 'd/m/Y'
+                            name: 'IssueDate',
+                            emptyText: '[Issue Date]'
                         },
                         {
                             xtype: 'datefield',
+                            afterLabelTextTpl: [
+                                ' '
+                            ],
                             fieldLabel: 'Expire Date',
-                            emptyText: '[วว/ดด/ปปปป]',
-                            format: 'd/m/Y'
+                            name: 'ExpireDate',
+                            emptyText: '[Expire Date]'
+                        },
+                        {
+                            xtype: 'hiddenfield',
+                            name: 'id',
+                            value: '0'
                         }
                     ]
                 },
@@ -167,7 +172,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.TypeCardWindow', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'CardId',
+                    dataIndex: 'CardNo',
                     text: 'หมายเลขบัตร'
                 },
                 {
@@ -204,7 +209,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.TypeCardWindow', {
                             iconCls: 'icon-edit',
                             text: 'แก้ไข',
                             listeners: {
-                                click: 'onEditGridClick'
+                                click: 'onEditClick'
                             }
                         },
                         {
@@ -222,12 +227,16 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.TypeCardWindow', {
                     xtype: 'pagingtoolbar',
                     dock: 'bottom',
                     width: 360,
-                    displayInfo: true
+                    displayInfo: true,
+                    store: 'typeCardModels',
                 }
             ],
             selModel: {
                 selType: 'checkboxmodel'
-            }
+            },
+            listeners: {
+                itemdblclick: 'onItemDblClick'
+}
         }
     ]
 

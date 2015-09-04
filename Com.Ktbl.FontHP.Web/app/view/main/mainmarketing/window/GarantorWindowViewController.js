@@ -57,12 +57,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewControll
             form.loadRecord(record[0]);
         }
     },
-    onDeleteGridClick: function(button, e, eOpts) {
+    onDeleteClick: function (button, e, eOpts) {
         var me = this.getView(),
-             grid = me.down('gridpanel'),
-             store = grid.getStore(),
-             record = grid.getSelection(),
-             count = record.length;
+            grid = me.down('gridpanel'),
+            store = grid.getStore(),
+            record = grid.getSelection(),
+            count = record.length;
 
         if (count > 0) {
 
@@ -78,14 +78,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewControll
                 }
 
             }, this);
+        }//end if
 
-        }
-        else
-        {
-
-        }
     },
-
     onItemDblClick: function (dataview, record, item, index, e, eOpts) {
         //add event grid dbclick 20150904
         var form = this.getView().down('form').getForm();

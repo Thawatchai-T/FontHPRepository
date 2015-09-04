@@ -17,7 +17,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
     extend: 'Ext.panel.Panel',
     //change name alias 20150828
     //alias: 'widget.mainmainmarketingwindowgarantorwindow',
-    alias: 'widget.garantorwindow',
+    alias: 'widget.garantortab',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewModel',
@@ -594,7 +594,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                         },
                         {
                                    
-                            xtype: 'textfield',
+                            xtype: 'hiddenfield',
                             name: 'id',
                             value: '0'
                         },
@@ -711,7 +711,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             iconCls: 'icon-delete',
                             text: 'ลบ',
                             listeners: {
-                                click: 'onDeleteGridClick'
+                                click: 'onDeleteClick'
                             }
                         }
                     ]
