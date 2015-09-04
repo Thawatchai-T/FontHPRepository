@@ -32,7 +32,6 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewControll
         if (form.isValid()) {
             form.submit({
                 clientValidation: true,
-                //url: 'api/marketing/AddPopCusAddress',
                 url: 'api/Garantor/Insert',
                 success: function (form, action) {
                     Ext.Msg.alert('Success', 'บันทึกข้อมูลเรียบร้อย');
@@ -47,45 +46,38 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewControll
             Ext.Msg.alert('Invalid Data', 'Please correct form errors.')
         }
     },
-
-    onEditClick: function(button, e, eOpts) {
+    onEditClick: function (button, e, eOpts) {
+        console.log('E');
         var me = this.getView(),
             grid = me.down('gridpanel'),
-            store = grid.getStote(),
+            store = grid.getStore(),
             record = grid.getSelection();
-        if(record.lenght>0)
-        {
+        if (record.length > 0) {
             var form = this.getView().down('form').getForm();
-            Ext.Ajax.request({
-                url: 'api',
-            })
-
-
-        }//ถึงนี่นะไปทำ Grid Click ก่อน
-
+            form.loadRecord(record[0]);
+        }
     },
-
     onDeleteGridClick: function(button, e, eOpts) {
-        var view = this.getView(),
-            GridGarantor = view.down("#GridGarantor"),
-            store = GridGarantor.getStore(),
-            selectRecord = GridGarantor.getSelection(),
-            CheckCountSelect = selectRecord.length;
+        var me = this.getView(),
+             grid = me.down('gridpanel'),
+             store = grid.getStore(),
+             record = grid.getSelection(),
+             count = record.length;
 
-        if (CheckCountSelect > 0)
-        {
-            Ext.MessageBox.confirm("Confirm","คุณต้องการที่จะลบรายการใช่หรือไม่?",function(btn){
+        if (count > 0) {
 
-                if(btn == 'yes'){
+            Ext.MessageBox.confirm("Confirm", "คุณต้องการที่ลบใช่หรือไม่?", function (btn) {
 
-                    for(i=0;i<CheckCountSelect;i++){
+                if (btn == 'yes') {
 
-                        store.remove(selectRecord[i]);
-
+                    for (i = 0; i < count; i++) {
+                        store.remove(record[i]);
                     }
+                    store.sync();
+                    Ext.MessageBox.alert("Status", 'ลบข้อมูลเรียบร้อย');
                 }
 
-            },this);
+            }, this);
 
         }
         else
@@ -97,12 +89,15 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewControll
     onItemDblClick: function (dataview, record, item, index, e, eOpts) {
         //add event grid dbclick 20150904
         var form = this.getView().down('form').getForm();
+       
         Ext.Ajax.request({
             url: 'api/Garantor/GetGarantorById',
             method: 'get',
             params: {
                 id:record.get('id')
             },
+          
+           
             success: function (response) {
                 var text = Ext.decode(response.responseText),
                     model = Ext.create('FrontHPApp.model.GarantorFormModel', text);

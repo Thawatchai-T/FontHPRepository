@@ -24,6 +24,10 @@ Ext.define('FrontHPApp.model.GurantorGridModel', {
 
     fields: [
         {
+             type: 'int',
+             name: 'id'
+        },
+        {
             type: 'string',
             name: 'GuarCitizenID'
         },

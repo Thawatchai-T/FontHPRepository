@@ -443,8 +443,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                              fieldLabel: 'เบอร์โทรศัพท์ที่ทำงาน',
                              colspan: 3,
                              name: 'GuarOfficePhone',
-                             emptyText: '[เบอร์โทรศัพท์ที่ทำงาน]',
-                             name:'name'
+                             emptyText: '[เบอร์โทรศัพท์ที่ทำงาน]'
                          },
                         {
                             xtype: 'combobox',
@@ -552,7 +551,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.OccupationMarryGroupStore',
-                            valueField: 'id'
+                            valueField: 'id',
+                            autoLoadOnValue: true
                         },
                         {
                             xtype: 'textfield',
@@ -591,7 +591,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             fieldLabel: 'ค่าใช้จ่ายต่อเดือน',
                             name: 'MateExpense',
                             emptyText: '[ค่าใช้จ่ายต่อเดือน]'
-                        }
+                        },
+                        {
+                                   
+                            xtype: 'textfield',
+                            name: 'id',
+                            value: '0'
+                        },
                     ]
                 },
                 {
@@ -681,12 +687,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                     dataIndex: 'GuarHomePhone',
                     text: 'เบอร์โทรศัพท์พื้นฐาน'
                 },
-                {
-                            
-                    xtype: 'hiddenfield',
-                    name: 'id',
-                    value: 'hidden field'
-                }
+
+               
+               
             ],
             dockedItems: [
                 {

@@ -32,8 +32,12 @@ Ext.define('FrontHPApp.store.gurantorGridModels', {
                 type: 'rest',
                 url: 'api/Garantor/getgridgarantorload',
                 reader: {
-                    type: 'json'
-                }
+                    type: 'json',
+                    //add for showgrid 20150409
+                    rootProperty: 'items'
+                },
+                
+              
             }
         }, cfg)]);
     }

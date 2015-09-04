@@ -45,7 +45,7 @@ namespace Com.Ktbl.FontHP.Map.Repository.Request
                 using (var tx = session.BeginTransaction())
                 {
                     var result = session.QueryOver<RequestStatusDomain>()
-                        .WhereRestrictionOn()
+                        //.WhereRestrictionOn()
                         .Where(x => x.RequestNo.Equals(requestno));
                     this.TotalRowCount = result.RowCount();
                     return result.List<RequestStatusDomain>() as List<RequestStatusDomain>;

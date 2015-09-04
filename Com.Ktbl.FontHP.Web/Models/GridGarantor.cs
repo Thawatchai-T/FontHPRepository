@@ -9,13 +9,13 @@ namespace Com.Ktbl.FontHP.Web.Models
     //add class 20150828
     public class GridGarantor
     {
-        public string CiticenId { get; set; }
+        public string GuarCitizenID { get; set; }
         public string NameGarantor { get; set; }
 
-        public string CusRelationShip { get; set; }
+        public string RelativeDebtor { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime GuarBirthDate { get; set; }
 
-        public string Tel { get; set; }
+        public string GuarHomePhone { get; set; }
     }
 }

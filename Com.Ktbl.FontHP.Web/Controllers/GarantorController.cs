@@ -10,15 +10,18 @@ namespace Com.Ktbl.FontHP.Web.Controllers
     public class GarantorController : ApiController
     {
         //add controlller for garantor 20150828
-        public List<GarantorViewModel> GetGridGarantorLoad(int start, int limit, int page) 
+        public PageModel<GarantorViewModel> GetGridGarantorLoad(int start, int limit, int page) 
         {
             List<GarantorViewModel> list = new List<GarantorViewModel>();
-
-            list.Add(new GarantorViewModel { GuarCitizenID = "1111111111119", NameGarantor = "จารุวรรณ มากมี", RelativeDebtor = "คู่สมรส", GuarBirthDate = Convert.ToDateTime("17-04-2000"), GuarHomePhone = "035-023887" });
-            list.Add(new GarantorViewModel { GuarCitizenID = "1111111111118", NameGarantor = "มารุต ปานทุ่ม", RelativeDebtor = "ญาติ", GuarBirthDate = Convert.ToDateTime("01-08-1985"), GuarHomePhone = "0860458314" });
-            list.Add(new GarantorViewModel { GuarCitizenID = "1111111111117", NameGarantor = "ปทุมวัน อิ่มทรัพย์", RelativeDebtor = "คู่สมรส", GuarBirthDate = Convert.ToDateTime("23-03-1956"), GuarHomePhone = "0857694528" });
-            list.Add(new GarantorViewModel { GuarCitizenID = "1111111111116", NameGarantor = "มาโนช พวงพุ่ม", RelativeDebtor = "คู่สมรส", GuarBirthDate = Convert.ToDateTime("14-02-1900"), GuarHomePhone = "038-821007" });
-            return list;
+            var pagemodel = new PageModel<GarantorViewModel>();
+            list.Add(new GarantorViewModel {id = 1, GuarCitizenID = "1111111111119", NameGarantor = "จารุวรรณ มากมี", RelativeDebtor = "คู่สมรส", GuarBirthDate = Convert.ToDateTime("17-04-2000"), GuarHomePhone = "035-023887" });
+            list.Add(new GarantorViewModel {id = 2, GuarCitizenID = "1111111111118", NameGarantor = "มารุต ปานทุ่ม", RelativeDebtor = "ญาติ", GuarBirthDate = Convert.ToDateTime("01-08-1985"), GuarHomePhone = "0860458314" });
+            list.Add(new GarantorViewModel {id = 3, GuarCitizenID = "1111111111117", NameGarantor = "ปทุมวัน อิ่มทรัพย์", RelativeDebtor = "คู่สมรส", GuarBirthDate = Convert.ToDateTime("23-03-1956"), GuarHomePhone = "0857694528" });
+            list.Add(new GarantorViewModel {id = 4,GuarCitizenID = "1111111111116", NameGarantor = "มาโนช พวงพุ่ม", RelativeDebtor = "คู่สมรส", GuarBirthDate = Convert.ToDateTime("14-02-1900"), GuarHomePhone = "038-821007" });
+            pagemodel.items = list;
+            pagemodel.total = 10;
+            return pagemodel;
+           
         }
 
         public Boolean Insert(GarantorViewModel obj)
@@ -36,7 +39,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             return true;
         }
 
-        public GarantorViewModel GarantorById(int id)
+        public GarantorViewModel GetGarantorById(int id)
         {
             var result = new GarantorViewModel
             {
@@ -68,7 +71,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
                 GuarWorkPeriodAllMonth = 5,
                 GuarWorkPeriodCurrentYear = 22,
                 GuarWorkPeriodCurrentMonth = 6,
-                GuarOfficePhone = "022222222",
+                GuarOfficePhone = "555",
                 GuarOccupationType = "01",
                 GuarOccupationGroup = "01",
                 GuarOccupationCode = "01",
@@ -84,18 +87,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
                 GuarMateWorkPeriod = "2",
                 GuarMateTelephone = "039204567",
                 MateExpense = 20000
-
-
-
-                
-               
-
-
-              
-               
-
-
-            };
+        };
             return result;
         }
     }
