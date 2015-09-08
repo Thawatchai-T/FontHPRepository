@@ -12,11 +12,11 @@
  *
  * Do NOT hand edit this file.
  */
-
+//Mange Event 20150908 p2p
 Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindowViewController', {
     extend: 'Ext.app.ViewController',
     //alias: 'controller.mainmainmarketingwindowcomminswindow',
-    alias: 'controller.mainmainmarketingwindowcomminswindow',
+    alias: 'controller.CommInsTab',
 
     onSelectEntCodeClick: function(button, e, eOpts) {
         Ext.widget("mainmainmarketingwindowcommonpopuppopupdealer").show();
@@ -24,47 +24,88 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindowViewControlle
     },
 
     onSaveClick: function(button, e, eOpts) {
+        var me = this.getView(),
+         form = me.down('form').getForm();
+        
+        if (form.isValid()) {
+            form.submit({
+                clientValidation: true,
+                url: 'api/ComIns/Insert',
+                success: function (form, action) {
+                    Ext.Msg.alert('Success', 'บันทึกข้อมูลเรียบร้อย');
+                    me.down('grid').getStore().load();
+                },
+                failure: function (form, action) {
+                    Ext.Msg.alert('Fail', 'ไม่สามารถบันทึกข้อมูลได้');
+                }
 
+            });
+        } else {
+            Ext.Msg.alert('Invalid Data', 'Please correct form errors.')
+        }
     },
 
-    onDeleteClick: function(button, e, eOpts) {
+    onClearClick: function(button, e, eOpts) {
         var me = this.getView(),
             form = me.down('form');
         paging = me.down('pagingtoolbar');
         form.reset();
     },
 
-    onEditClick1: function(button, e, eOpts) {
-
+    onEditClick: function(button, e, eOpts) {
+        var me = this.getView(),
+            grid = me.down('gridpanel'),
+            store = grid.getStore(),
+            record = grid.getSelection();
+        if (record.length > 0) {
+            var form = this.getView().down('form').getForm();
+            form.loadRecord(record[0]);
+        }
     },
 
-    onDeleteClick1: function(button, e, eOpts) {
-        var view = this.getView(),
-            GridGarantor = view.down("#GridComHir"), //itemid
-            store = GridGarantor.getStore(),
-            selectRecord = GridGarantor.getSelection(),
-            CheckCountSelect = selectRecord.length;
+    onDeleteClick: function(button, e, eOpts) {
+        var me = this.getView(),
+           grid = me.down('gridpanel'),
+           store = grid.getStore(),
+           record = grid.getSelection(),
+           count = record.length;
 
-        if (CheckCountSelect > 0)
-        {
-            Ext.MessageBox.confirm("Confirm","คุณต้องการที่จะลบรายการใช่หรือไม่?",function(btn){
+        if (count > 0) {
 
-                if(btn == 'yes'){
+            Ext.MessageBox.confirm("Confirm", "คุณต้องการที่ลบใช่หรือไม่?", function (btn) {
 
-                    for(i=0;i<CheckCountSelect;i++){
+                if (btn == 'yes') {
 
-                        store.remove(selectRecord[i]);
-
+                    for (i = 0; i < count; i++) {
+                        store.remove(record[i]);
                     }
+                    store.sync();
+                    Ext.MessageBox.alert("Status", 'ลบข้อมูลเรียบร้อย');
                 }
 
-            },this);
+            }, this);
+        }//end if
+    },
+    onItemDblClick: function (dataview, record, item, index, e, eOpts) {
+        //add event grid dbclick 20150908
+        var form = this.getView().down('form').getForm();
 
-        }
-        else
-        {
+        Ext.Ajax.request({
+            url: 'api/ComIns/GetComInsById',
+            method: 'get',
+            params: {
+                id: record.get('id')
+            },
 
-        }
-    }
+
+            success: function (response) {
+                var text = Ext.decode(response.responseText),
+                    model = Ext.create('FrontHPApp.model.ComInsFormModel', text);
+                form.loadRecord(model);
+
+            }
+
+        });
+    },
 
 });

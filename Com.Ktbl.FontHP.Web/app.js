@@ -63,7 +63,10 @@ Ext.application({
         'AddressCusFormModel',
         //insert model 20150904
         'GarantorFormModel',
-        'CardTypeTabFormModel'
+        'CardTypeTabFormModel',
+        //insert model 20150908
+        'ComHiringFormModel',
+        'ComInsFormModel'
 
     ],
     stores: [

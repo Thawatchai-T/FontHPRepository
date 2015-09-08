@@ -16,7 +16,7 @@
 Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
     extend: 'Ext.panel.Panel',
     //alias: 'widget.mainmainmarketingwindowcomminswindow',
-    alias: 'widget.mainmainmarketingwindowcomminswindow',
+    alias: 'widget.comminstab',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.CommInsWindowViewModel',
@@ -70,10 +70,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             width: 562,
                             layout: 'table',
                             fieldLabel: 'ENTCODE',
+                           
                             items: [
                                 {
                                     xtype: 'textfield',
-                                    emptyText: '[ENTCODE]'
+                                    emptyText: '[ENTCODE]',
+                                    name: 'EntCodeShow'
                                 },
                                 {
                                     xtype: 'button',
@@ -88,6 +90,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                                     xtype: 'textfield',
                                     width: '',
                                     fieldLabel: '',
+                                    name: 'EntNameShow',
                                     emptyText: '[ENTNAME]'
                                 }
                             ]
@@ -97,6 +100,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             colspan: 2,
                             width: 351,
                             fieldLabel: 'Commission Amount',
+                            name: 'CommissionAmount',
                             emptyText: '[Commission Amount]'
                         },
                         {
@@ -104,6 +108,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             colspan: 2,
                             width: 351,
                             fieldLabel: 'Pay Commissiom To',
+                            name: 'PayCommissionTo',
                             emptyText: '[Pay Commissiom To]'
                         },
                         {
@@ -111,6 +116,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             colspan: 2,
                             width: 351,
                             fieldLabel: 'VAT',
+                            name: 'VAT',
                             emptyText: '[VAT]'
                         },
                         {
@@ -118,6 +124,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             colspan: 2,
                             width: 351,
                             fieldLabel: 'Absorb Tax',
+                            name: 'AbsorbTax',
                             emptyText: '[Absorb Tax]'
                         },
                         {
@@ -125,6 +132,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             colspan: 2,
                             width: 351,
                             fieldLabel: 'Amount Include VAT',
+                            name: 'AmountIncludeVAT',
                             emptyText: '[Amount Include VAT]'
                         },
                         {
@@ -132,6 +140,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             colspan: 2,
                             width: 351,
                             fieldLabel: 'With Hold Tax Amount',
+                            name: 'WithHoldTaxAmount',
                             emptyText: '[With Hold Tax Amount]'
                         },
                         {
@@ -139,6 +148,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             colspan: 2,
                             width: 351,
                             fieldLabel: 'Net Paid',
+                            name: 'NetPaid',
                             emptyText: '[Net Paid]'
                         }
                     ]
@@ -165,7 +175,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             iconCls: 'icon-reset',
                             text: 'เคลียร์',
                             listeners: {
-                                click: 'onDeleteClick'
+                                click: 'onClearClick'
                             }
                         }
                     ]
@@ -176,7 +186,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
             xtype: 'gridpanel',
             flex: 1,
             region: 'center',
-            itemId: 'GridComHir',
+            itemId: 'GridComIns',
             title: 'ข้อมูล Comm. Insuramce',
             store: 'comInsModels',
             columns: [
@@ -202,15 +212,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                    renderer: function (value, metaData, record, rowIndex, colIndex, store, view) {
                         var accept = 'resources/icons/accept.gif',
                             not_accept = 'resources/icons/cross.gif';
 
-                        if(!value)
-                        { //change the resource below :
-                            return '<img src="'+accept+'" />';
-                        }else{
-                            return '<img src="'+not_accept+'" />';
+                        if (!value) { //change the resource below :
+                            return '<img src="' + accept + '" />';
+                        } else {
+                            return '<img src="' + not_accept + '" />';
                         }
                     },
                     dataIndex: 'AbsorbTax',
@@ -248,7 +257,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             xtype: 'gridcolumn',
                             dataIndex: 'NetPaid',
                             text: 'Net Paid '
-                        }
+                        },
+                    {
+
+                            xtype: 'hiddenfield',
+                            name: 'id',
+                            value: '0'
+                            },
                     ]
                 }
             ],
@@ -263,7 +278,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             iconCls: 'icon-edit',
                             text: 'แก้ไข',
                             listeners: {
-                                click: 'onEditClick1'
+                                click: 'onEditClick'
                             }
                         },
                         {
@@ -272,7 +287,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             iconCls: 'icon-delete',
                             text: 'ลบ',
                             listeners: {
-                                click: 'onDeleteClick1'
+                                click: 'onDeleteClick'
                             }
                         }
                     ]
@@ -281,11 +296,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                     xtype: 'pagingtoolbar',
                     dock: 'bottom',
                     displayInfo: true,
-                    store: 'comInsModels'
+                    store: 'comInsModels',
                 }
             ],
             selModel: {
                 selType: 'checkboxmodel'
+            },
+            listeners: {
+                itemdblclick: 'onItemDblClick'
             }
         }
     ]

@@ -73,11 +73,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     ],
                     fieldLabel: 'แจ้งประกันโดย',
                     colspan: 3,
-                   
+
                     labelCls: 'text-require',
                     allowBlank: false,
                     emptyText: '[เลือก]',
                     displayField: 'Name',
+                    name: 'InsuranceBy',
                     store: 'combo.TellInsuranceStore',
                     valueField: 'id'
                 },
@@ -95,6 +96,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     emptyText: '[เลือก]',
                     displayField: 'Name',
                     store: 'combo.ConditionInsuranceStore',
+                    name: 'ConditionInsurance',
                     valueField: 'id'
                 },
                 {
@@ -109,6 +111,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     allowBlank: false,
                     emptyText: '[เลือก]',
                     displayField: 'Name',
+                    name: 'InsuranceCompany',
                     store: 'combo.CompanyInsuranceStore',
                     valueField: 'id'
                 },
@@ -117,18 +120,21 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     colspan: 3,
                     margin: '5 0 0 0',
                     fieldLabel: 'เลขที่รับแจ้ง',
+                    name: 'NoticeNo',
                     emptyText: '[เลขที่รับแจ้ง]'
                 },
                 {
                     xtype: 'textfield',
                     margin: '5 0 0 0',
                     fieldLabel: 'ผู้รับแจ้ง',
+                    name: 'NoticeBy',
                     emptyText: '[ผู้รับแจ้ง]'
                 },
                 {
                     xtype: 'datefield',
                     margin: '5 0 0 0',
                     fieldLabel: 'วันที่รับแจ้ง',
+                    name: 'NotiDate',
                     emptyText: '[วว/ดด/ปปปป]',
                     format: 'd/m/Y'
                 },
@@ -136,12 +142,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     xtype: 'textfield',
                     margin: '5 0 0 0',
                     fieldLabel: 'เลขที่กรมธรรม์',
+                    name: 'PoicyNo',
                     emptyText: '[เลขที่กรมธรรม์]'
                 },
                 {
                     xtype: 'datefield',
                     margin: '5 0 0 0',
                     fieldLabel: 'วันที่เริ่มคุ้มครอง',
+                    name: 'SSStart',
                     emptyText: '[วว/ดด/ปปปป]',
                     format: 'd/m/Y'
                 },
@@ -149,6 +157,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     xtype: 'datefield',
                     margin: '5 0 0 0',
                     fieldLabel: 'วันที่สิ้นสุดความคุ้มครอง',
+                    name: 'SSEnd',
                     emptyText: '[วว/ดด/ปปปป]',
                     format: 'd/m/Y'
                 },
@@ -161,6 +170,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     fieldLabel: 'ทุนประกันภัย',
                     labelAlign: 'right',
                     labelCls: 'text-require',
+                    name: 'SSCost',
                     allowBlank: false,
                     emptyText: '  >=80% ไม่ต่ำกว่ายอดจัด'
                 },
@@ -172,28 +182,33 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     ],
                     fieldLabel: 'เบี้ยประกันภัย',
                     labelCls: 'text-require',
+                    name: 'SSFee',
                     emptyText: '[เบี้ยประกันภัย]'
                 },
                 {
                     xtype: 'textfield',
                     margin: '5 0 0 0',
                     fieldLabel: 'W / H',
+                    name: 'WHInsFee',
                     emptyText: '[W/H]'
                 },
                 {
                     xtype: 'numberfield',
                     fieldLabel: 'แสตมป์',
+                    name: 'Stamp',
                     emptyText: '[แสตมป์]'
                 },
                 {
                     xtype: 'numberfield',
                     colspan: 3,
                     fieldLabel: 'ค่าเบี้ยประกันที่เรียกเก็บ',
+                    name: 'SSFeeCoect',
                     emptyText: '[ค่าเบี้ยประกันที่เรียกเก็บ]'
                 },
                 {
                     xtype: 'combobox',
                     fieldLabel: 'ความเสียหายส่วนแรก',
+                    name: 'Deduct',
                     emptyText: '[เลือก]',
                     displayField: 'Name',
                     store: 'combo.LostInsuranceStore',
@@ -202,6 +217,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                 {
                     xtype: 'combobox',
                     fieldLabel: 'ประเภทประกันที่ต้องการ',
+                    name: 'Driver',
                     emptyText: '[เลือก]',
                     displayField: 'Name',
                     store: 'combo.TypeInsurancewantStore',
@@ -210,6 +226,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                 {
                     xtype: 'combobox',
                     fieldLabel: 'ซ่อม',
+                    name: 'WhereRepair',
                     emptyText: '[เลือก]',
                     displayField: 'Name',
                     store: 'combo.RepairStore',
@@ -218,60 +235,71 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                 {
                     xtype: 'textfield',
                     fieldLabel: 'ชื่อผู้ขับขี่ที่ 1',
+                    name: 'DriverName1',
                     emptyText: '[ชื่อผู้ขับขี่ที่ 1]'
                 },
                 {
                     xtype: 'datefield',
                     fieldLabel: 'วัน/เดือน/ปีเกิด',
+                    name: 'DriverBirth1',
                     emptyText: '[วว/ดด/ปปปป]'
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'เลขที่ใบขับขี่',
+                    name: 'DrivingC1',
                     emptyText: '[เลขที่ใบขับขี่]'
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'ชื่อผู้ขับขี่ที่ 2',
+                    name: 'DriverName2',
                     emptyText: '[ชื่อผู้ขับขี่ที่ 2]'
                 },
                 {
                     xtype: 'datefield',
                     fieldLabel: 'วัน/เดือน/ปีเกิด',
+                    name: 'DriverBirth2',
                     emptyText: '[วว/ดด/ปปปป]'
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'เลขที่ใบขับขี่',
+                    name: 'DrivingC2',
                     emptyText: '[เลขที่ใบขับขี่]'
                 },
                 {
                     xtype: 'textfield',
                     colspan: 3,
                     fieldLabel: 'รหัส Campaign',
+                    name: 'SSCampaign',
                     emptyText: '[รหัส Campaign]'
                 },
                 {
                     xtype: 'numberfield',
                     fieldLabel: 'ค่านายหน้า',
+                    name: 'SSComm',
                     emptyText: '[ค่านายหน้า]'
                 },
                 {
                     xtype: 'numberfield',
                     colspan: 2,
                     fieldLabel: 'ส่วนลดรับ',
+                    name: 'SSDiscount',
                     emptyText: '[ส่วนลดรับ]'
                 },
                 {
                     xtype: 'numberfield',
                     margin: '5 0 5 0',
                     fieldLabel: 'ค่าส่งเสริมการขายรับ',
+                    name: 'SSPromotion',
                     emptyText: '[ค่าส่งเสริมการขายรับ]'
                 },
                 {
                     xtype: 'numberfield',
                     margin: '5 0 5 0',
                     fieldLabel: 'ส่วนลดรับ',
+                    name: 'SSPromotionDiscount',
                     emptyText: '[ส่วนลดรับ]'
                 }
             ]
@@ -302,6 +330,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     emptyText: '[เลือก]',
                     displayField: 'Name',
                     store: 'combo.CompanyInsuranceStore',
+                    name: 'CompusaryInsCompany',
                     valueField: 'id'
                 },
                 {
@@ -310,6 +339,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     fieldLabel: 'ประเภ่ทความคุ้มครอง',
                     emptyText: '[เลือก]',
                     displayField: 'Name',
+                    name: 'SSType',
                     store: 'combo.TypeInsuranceProtectStore',
                     valueField: 'id'
                 },
@@ -323,71 +353,84 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     //valueField: 'id'
                     xtype: 'textfield',
                     fieldLabel: 'เลขที่พรบ',
+                    name: 'PRBPoicy',
                     emptyText: '[เลขที่พรบ]'
                 },
                 {
                     xtype: 'datefield',
                     fieldLabel: 'วันที่เริ่มคุ้มครอง',
+                    name: 'CompusaryStart',
                     emptyText: '[วว/ดด/ปปปป]'
                 },
                 {
                     xtype: 'datefield',
                     fieldLabel: 'วันที่สิ้นสุดความคุ้มครอง',
+                    name: 'CompusaryEnd',
                     emptyText: '[วว/ดด/ปปปป]'
                 },
                 {
                     xtype: 'numberfield',
                     fieldLabel: 'เบี้ยพรบ',
+                    name: 'SSPrb',
                     emptyText: '[เบี้ยพรบ]'
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'W/H',
+                    name: 'WHStatutes',
                     emptyText: '[W/H]'
                 },
                 {
                     xtype: 'numberfield',
                     fieldLabel: 'แสตมป์',
+                    name: 'CompusaryStamp',
                     emptyText: '[แสตมป์]'
                 },
                 {
                     xtype: 'numberfield',
                     margin: '',
                     fieldLabel: 'ค่าพรบ. ที่เรียกเก็บ',
+                    name: 'CompusaryFee',
                     emptyText: '[ค่าพรบ. ที่เรียกเก็บ]'
                 },
                 {
                     xtype: 'numberfield',
                     colspan: 2,
                     fieldLabel: 'เบี้ยประกันรวมพรบ',
+                    name: 'SSWih',
                     emptyText: '[เบี้ยประกันรวมพรบ]'
                 },
                 {
                     xtype: 'textfield',
                     colspan: 3,
                     fieldLabel: 'รหัส Campaign',
+                    name: 'Campaign',
                     labelAlign: 'right',
                     emptyText: '[รหัส Campaign]'
                 },
                 {
                     xtype: 'numberfield',
                     fieldLabel: 'ค่านายหน้า',
+                    name: 'Comm',
                     emptyText: '[ค่านายหน้า]'
                 },
                 {
                     xtype: 'numberfield',
                     colspan: 2,
                     fieldLabel: 'ส่วนลดรับ',
+                    name: 'Discount',
                     emptyText: '[ส่วนลดรับ]'
                 },
                 {
                     xtype: 'numberfield',
                     fieldLabel: 'ค่าส่งเสริมการขายรับ',
+                    name: 'Promotion',
                     emptyText: '[ค่าส่งเสริมการขายรับ]'
                 },
                 {
                     xtype: 'numberfield',
                     fieldLabel: 'ส่วนลดรับ',
+                    name: 'PromotionDiscount',
                     emptyText: '[ส่วนลดรับ]'
                 }
             ]
@@ -408,27 +451,32 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                 {
                     xtype: 'textfield',
                     fieldLabel: 'เลขที่กรมธรรม์',
+                    name: 'LoanProtectPoicyNo',
                     emptyText: '[เลขที่กรมธรรม์]'
                 },
                 {
                     xtype: 'datefield',
                     fieldLabel: 'วันที่เริ่มความคุ้มครอง',
+                    name: 'LoanProtectStart',
                     emptyText: '[วว/ดด/ปปปป]'
                 },
                 {
                     xtype: 'datefield',
                     fieldLabel: 'วันที่สิ้นสุดความคุ้มครอง',
+                    name: 'LoanProtectEnd',
                     emptyText: '[วว/ดด/ปปปป]'
                 },
                 {
                     xtype: 'textfield',
                     fieldLabel: 'เลขที่รับแจ้้ง',
+                    name: 'LoanProtectNo',
                     emptyText: '[เลขที่รับแจ้้ง]'
                 },
                 {
                     xtype: 'datefield',
                     colspan: 2,
                     fieldLabel: 'วันที่แจ้งประกัน',
+                    name: 'LoanProtectRequestDate',
                     emptyText: '[วว/ดด/ปปปป]'
                 },
                 {
@@ -436,6 +484,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.InsuranceWindow', {
                     colspan: 3,
                     width: 531,
                     fieldLabel: 'เหตุผลการไม่อนุมัติ',
+                    name: 'RejectReason',
                     emptyText: '[เหตุผลการไม่อนุมัติ]'
                 }
             ]

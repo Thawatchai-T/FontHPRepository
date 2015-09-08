@@ -16,7 +16,7 @@
 Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
     extend: 'Ext.form.Panel',
     //alias: 'widget.mainmainmarketingwindowcommhiringwindow',
-    alias: 'widget.commhiringwindow',
+    alias: 'widget.commhiringtab',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.CommHiringWindowViewModel',
@@ -71,23 +71,27 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'W/H Tax Corporation',
+                            name: 'WHTaxCorporation',
                             emptyText: '[W/H Tax Corporation]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'W/H Tax Individual',
+                            name: 'WHTaxIndividual',
                             emptyText: '[W/H Tax Individual]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'Maximum Commission',
                             labelWidth: 150,
+                            name: 'MaximumCommission',
                             emptyText: '[Maximum Commission]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'Deduction Rate',
                             labelWidth: 95,
+                            name: 'DeductionRate',
                             emptyText: '[Deduction Rate]'
                         }
                     ]
@@ -116,6 +120,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                             items: [
                                 {
                                     xtype: 'textfield',
+                                    name: 'EntCodeShow',
                                     emptyText: '[ENTCODE]'
                                 },
                                 {
@@ -131,6 +136,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                                     xtype: 'textfield',
                                     width: '',
                                     fieldLabel: '',
+                                    name: 'EntNameShow',
                                     emptyText: '[ENTNAME]'
                                 }
                             ]
@@ -141,6 +147,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                             margin: '5 0 0 0',
                             width: 351,
                             fieldLabel: 'Hiring Charge Include VAT',
+                            name: 'HiringChargeIncludeVAT',
                             emptyText: '[Hiring Charge Include VAT]'
                         },
                         {
@@ -148,6 +155,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                             colspan: 2,
                             width: 351,
                             fieldLabel: 'Pay Commission To',
+                            name: 'PayCommissionTo',
                             emptyText: '[Pay Commission To]'
                         },
                         {
@@ -155,6 +163,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                             colspan: 2,
                             width: 351,
                             fieldLabel: 'Amount VAT',
+                            name: 'AmountVAT',
                             emptyText: '[Amount VAT]'
                         },
                         {
@@ -164,6 +173,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                             fieldLabel: 'Absorb Tax',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
+                            name: 'AbsorbTax',
+                            autoLoadOnValue: true,
                             store: 'combo.AbsorbTaxStore',
                             valueField: 'id'
                         },
@@ -172,12 +183,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                             colspan: 2,
                             width: 351,
                             fieldLabel: 'Amount Include VAT',
+                            name: 'AmountIncludeVAT',
                             emptyText: '[Amount Include VAT]'
                         },
                         {
                             xtype: 'numberfield',
                             width: 351,
                             fieldLabel: 'Commission Rate',
+                            name: 'CommissionRate',
                             emptyText: '[Commission Rate]',
                             maxValue: 100,
                             minValue: 0
@@ -186,6 +199,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                             xtype: 'numberfield',
                             width: 351,
                             fieldLabel: 'Max Rate',
+                            name: 'MaxRate',
                             emptyText: '[Max Rate]',
                             maxValue: 100,
                             minValue: 0
@@ -194,30 +208,35 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                             xtype: 'numberfield',
                             width: 351,
                             fieldLabel: 'With Hold Tax Amount',
+                            name: 'WithHoldTaxAmount',
                             emptyText: '[With Hold Tax Amount]'
                         },
                         {
                             xtype: 'textfield',
                             width: 351,
                             fieldLabel: 'Commission Term',
+                            name: 'CommissionTerm',
                             emptyText: '[Commission Term]'
                         },
                         {
                             xtype: 'numberfield',
                             width: 351,
                             fieldLabel: 'Max Term',
+                            name: 'MaxTerm',
                             emptyText: '[Max Term]'
                         },
                         {
                             xtype: 'numberfield',
                             width: 351,
                             fieldLabel: 'Net Paid',
+                            name: 'NetPaid',
                             emptyText: '[Net Paid]'
                         },
                         {
                             xtype: 'textfield',
                             width: 351,
                             fieldLabel: 'Commission VAT No',
+                            name: 'CommissionVATNo',
                             emptyText: '[Commission VAT No]'
                         },
                         {
@@ -225,6 +244,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                             colspan: 2,
                             width: 351,
                             fieldLabel: 'อัตราดอกเบี้ย',
+                            name: 'InterestRate',
                             emptyText: '[อัตราดอกเบี้ย]',
                             maxValue: 100,
                             minValue: 0
@@ -233,6 +253,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                             xtype: 'datefield',
                             width: 351,
                             fieldLabel: 'Commission VAT Date',
+                            name: 'CommissionVATDate',
                             emptyText: '[Commission VAT Date]'
                         }
                     ]
@@ -255,14 +276,22 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                             xtype: 'numberfield',
                             width: 351,
                             fieldLabel: 'Standard Interrest Rate',
+                            name: 'LowInterestRate',
                             emptyText: '[Standard Interrest Rate]'
                         },
                         {
                             xtype: 'textfield',
                             width: 351,
                             fieldLabel: 'Campaign',
+                            name: 'CampaignName',
                             emptyText: '[Campaign]'
-                        }
+                        },
+                        {
+
+                            xtype: 'hiddenfield',
+                            name: 'id',
+                            value: '0'
+                        },
                     ]
                 },
                 {
@@ -297,7 +326,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                             iconCls: 'icon-reset',
                             text: 'เคลียร์',
                             listeners: {
-                                click: 'onDeleteClick'
+                                click: 'onClearClick'
                             }
                         }
                     ]
@@ -343,15 +372,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                    renderer: function (value, metaData, record, rowIndex, colIndex, store, view) {
                         var accept = 'resources/icons/accept.gif',
                             not_accept = 'resources/icons/cross.gif';
 
-                        if(!value)
-                        { //change the resource below :
-                            return '<img src="'+accept+'" />';
-                        }else{
-                            return '<img src="'+not_accept+'" />';
+                        if (!value) { //change the resource below :
+                            return '<img src="' + accept + '" />';
+                        } else {
+                            return '<img src="' + not_accept + '" />';
                         }
                     },
                     width: 100,
@@ -398,7 +426,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                         },
                         {
                             xtype: 'gridcolumn',
-                            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                            renderer: function (value, metaData, record, rowIndex, colIndex, store, view) {
                                 return Ext.Date.format(value, 'd/m/Y');
                             },
                             width: 155,
@@ -490,11 +518,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                     dock: 'bottom',
                     width: 360,
                     displayInfo: true,
-                    store: 'commitinSpecialModels'
+                    store: 'comHirModels',
                 }
             ],
             selModel: {
                 selType: 'checkboxmodel'
+            },
+            listeners: {
+                itemdblclick: 'onItemDblClick'
             }
         }
     ]

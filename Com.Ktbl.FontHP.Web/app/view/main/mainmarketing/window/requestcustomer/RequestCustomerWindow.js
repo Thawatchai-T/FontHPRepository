@@ -14,7 +14,7 @@
  */
 //20150831 edir part
 Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerWindow', {
-//Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerTab', {
+    //Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCustomerTab', {
     extend: 'Ext.form.Panel',
     //edit name 20150831
     //alias: 'widget.mainmainmarketingwindowrequestcustomerrequestcustomerwindow',
@@ -54,7 +54,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
     items: [
         {
             xtype: 'form',
-            itemId:'form1',
+            itemId: 'form1',
             layout: {
                 type: 'vbox',
                 align: 'stretch'
@@ -90,8 +90,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     ],
                                     allowBlank: false,
                                     emptyText: '[เลขที่ใบ Lead]',
-                                    itemId: 'lead-no'
-                                    
+                                    itemId: 'lead-no',
+                                    name: 'LeadNoShow'
+
                                 },
                                 {
                                     xtype: 'button',
@@ -115,8 +116,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'textfield',
                                     allowBlank: false,
                                     emptyText: '[รหัสสาขา]',
-                                    name: 'BranchNo',
+                                    name: 'BranchCodeShow',
                                     itemId: 'branch-no'
+
 
                                 },
                                 {
@@ -133,7 +135,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     width: '',
                                     fieldLabel: '',
                                     emptyText: '[ชื่อสาขา]',
-                                    name: 'BranchName',
+                                    name: 'BranchNameShow',
                                     itemId: 'branch-name'
                                 }
                             ]
@@ -151,7 +153,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     allowBlank: false,
                                     itemId: 'marketing-name',
                                     emptyText: '[เจ้าหน้าที่การตลาด]',
-                                    name:'MarketingName'
+                                    name: 'MarketingUserShow'
                                 },
                                 {
                                     xtype: 'button',
@@ -175,7 +177,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'textfield',
                                     allowBlank: false,
                                     emptyText: '[รหัสผู้แทนจำหน่ายรถยนตร์]',
-                                    itemId: 'dealer-code'
+                                    itemId: 'dealer-code',
+                                    name: 'DealerCodeShow'
+
 
                                 },
                                 {
@@ -192,7 +196,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     width: '',
                                     fieldLabel: '',
                                     emptyText: '[ชื่อผู้แทนจำหน่ายรถยนตร์]',
-                                    itemId: 'dealer-name'
+                                    itemId: 'dealer-name',
+                                    name: 'DealerNameShow'
                                 }
                             ]
                         },
@@ -205,14 +210,16 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             autoLoadOnValue: true,
                             displayField: 'Name',
                             store: 'combo.TypeRequestNoStore',
-                            valueField: 'id'
+                            valueField: 'id',
+                            name: 'AppType'
+
                         },
                         {
                             xtype: 'textfield',
-                            itemId:'phone-no',
+                            itemId: 'phone-no',
                             fieldLabel: 'เบอร์โทรศัพท์',
                             emptyText: '[เบอร์โทรศัพท์]',
-                            name:'PhoneNo'
+                            name: 'TelVendor'
                         },
                         {
                             xtype: 'combobox',
@@ -224,7 +231,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             autoLoadOnValue: true,
                             displayField: 'name',
                             store: 'commonModels',
-                            valueField: 'id'
+                            valueField: 'id',
+                            name: 'Checker'
+
                         },
                         {
                             xtype: 'combobox',
@@ -236,7 +245,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             autoLoadOnValue: true,
                             displayField: 'name',
                             store: 'commonModels',
-                            valueField: 'id'
+                            valueField: 'id',
+                            name: 'Creditor'
                         }
                     ]
                 },
@@ -266,12 +276,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 {
                                     xtype: 'radiofield',
                                     width: 100,
-                                    name: 'rdTypePeople',
+                                    name: 'CustomerType',
                                     boxLabel: 'บุคคลธรรมดา'
                                 },
                                 {
                                     xtype: 'radiofield',
-                                    name: 'rdTypePeople',
+                                    name: 'CustomerType',
                                     boxLabel: 'นิติบุคคล'
                                 }
                             ]
@@ -286,7 +296,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             //queryMode: 'local',
                             displayField: 'Name',
                             store: 'combo.RegionStore',
-                            valueField: 'id'
+                            valueField: 'id',
+                            name: 'Nationality'
                         },
                         {
                             xtype: 'combobox',
@@ -298,19 +309,21 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             queryMode: 'local',
                             displayField: 'Name',
                             store: 'combo.RegionStore',
-                            valueField: 'id'
+                            valueField: 'id',
+                            name: 'Race'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เลขที่บัตรประชาชน',
                             allowBlank: false,
                             name: 'CitizenId',
-                            emptyText: '[เลขที่บัตรประชาชน]'
+                            emptyText: '[เลขที่บัตรประชาชน]',
+                            name: 'CitizenID'
                         },
                         {
                             xtype: 'fieldcontainer',
                             height: '',
-                           
+
                             layout: 'table',
                             fieldLabel: 'ชื่อ-นามสกุลลูกค้า',
                             items: [
@@ -320,20 +333,24 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     emptyText: '[เลือก]',
                                     displayField: 'Name',
                                     store: 'combo.TitleStore',
-                                    valueField: 'id'
+                                    valueField: 'id',
+                                    name: 'TitleName'
                                 },
                                 {
                                     xtype: 'textfield',
                                     margin: '0 5 5 5',
                                     allowBlank: false,
-                                    emptyText: '[ชื่อลูกค้า]'
+                                    emptyText: '[ชื่อลูกค้า]',
+                                    name: 'FNameTh'
                                 },
                                 {
                                     xtype: 'textfield',
                                     width: '',
                                     fieldLabel: '',
                                     allowBlank: false,
-                                    emptyText: '[นามสกุลลูกค้า]'
+                                    emptyText: '[นามสกุลลูกค้า]',
+                                    name: 'LNameTh'
+
                                 }
                             ]
                         },
@@ -342,20 +359,23 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'วัน/เดือน/ปี',
                             allowBlank: false,
                             emptyText: '[วัน/เดือน/ปี]',
-                            format: 'd/m/Y'
+                            format: 'd/m/Y',
+                            name: 'BirthDate'
                         },
                         {
                             xtype: 'datefield',
                             fieldLabel: 'วันที่ออกบัตร',
                             emptyText: '[วันที่ออกบัตร]',
-                            format: 'd/m/Y'
+                            format: 'd/m/Y',
+                            name: 'CitizenStartDate'
                         },
                         {
                             xtype: 'datefield',
                             fieldLabel: 'วันที่บัตรหมดอายุ',
                             allowBlank: false,
                             emptyText: '[วันที่บัตรหมดอายุ]',
-                            format: 'd/m/Y'
+                            format: 'd/m/Y',
+                            name: 'ExpiryDate'
                         },
                         {
                             xtype: 'textfield',
@@ -364,7 +384,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             ],
                             fieldLabel: 'สถานที่ออกบัตร',
                             labelCls: 'text-require_black',
-                            emptyText: '[สถานที่ออกบัตร]'
+                            emptyText: '[สถานที่ออกบัตร]',
+                            name: 'CitizenPlace'
                         },
                         {
                             xtype: 'radiogroup',
@@ -375,14 +396,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 {
                                     xtype: 'radiofield',
                                     labelWidth: 150,
-                                    name: 'rdSex',
+                                    name: 'Gender',
                                     boxLabel: 'ชาย',
                                     checked: true
                                 },
                                 {
                                     xtype: 'radiofield',
                                     margin: '0 5 5 5',
-                                    name: 'rdSex',
+                                    name: 'Gender',
                                     boxLabel: 'หญิง'
                                 }
                             ]
@@ -395,7 +416,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             autoLoadOnValue: true,
                             displayField: 'Name',
                             store: 'combo.MarryStore',
-                            valueField: 'id'
+                            valueField: 'id',
+                            name: 'MaritalStatus'
+
                         },
                         {
                             xtype: 'textfield',
@@ -404,7 +427,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             ],
                             fieldLabel: 'จำนวนบุตร',
                             labelCls: 'text-require_black',
-                            emptyText: '[จำนวนบุตร]'
+                            emptyText: '[จำนวนบุตร]',
+                            name: 'NoOfChild'
                         }
                     ]
                 },
@@ -422,20 +446,21 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         columns: 2
                     },
                     items: [
-                       { 
-                            xtype: 'combobox',
-                            fieldLabel: 'จังหวัด',
-                            emptyText: '[เลือก]',
-                            itemid: 'province',
-                            reference:'province',
-                            autoLoadOnValue: true,
-                            displayField: 'Name',
-                            store: 'provinceModels',
-                            valueField: 'id',
-                            listeners: {
-                                change: 'onProvinceChange'
-                            }
-                        },
+                       {
+                           xtype: 'combobox',
+                           fieldLabel: 'จังหวัด',
+                           emptyText: '[เลือก]',
+                           itemid: 'province',
+                           name: 'Province',
+                           reference: 'province',
+                           autoLoadOnValue: true,
+                           displayField: 'Name',
+                           store: 'provinceModels',
+                           valueField: 'id',
+                           listeners: {
+                               change: 'onProvinceChange'
+                           }
+                       },
                         //[20150814] Add by Woody edit  layout 
                         //{
                         //    xtype: 'fieldcontainer',
@@ -459,6 +484,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'อำเภอ',
                             emptyText: '[เลือก]',
                             reference: 'district',
+                            name: 'Amphur',
                             autoLoadOnValue: true,
                             displayField: 'Name',
                             store: 'districtModels',
@@ -471,13 +497,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             xtype: 'combobox',
                             fieldLabel: 'ตำบล',
                             emptyText: '[เลือก]',
+                            name: 'Tambon',
                             autoLoadOnValue: true,
                             displayField: 'Name',
-                            reference:'subdistrict',
+                            reference: 'subdistrict',
                             store: 'subDistrictModels',
                             valueField: 'id',
-                           
-                           
+
+
                             listeners: {
                                 change: 'onSubDistrictChange'
                             }
@@ -491,13 +518,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             labelCls: 'text-require',
                             allowBlank: false,
                             emptyText: '[เลือก]',
+                            name: 'ResidentOwn',
                             autoLoadOnValue: true,
                             displayField: 'Name',
                             store: 'combo.TypeResidenceStore',
                             valueField: 'id',
                             width: 490,
-                            
-                            
+
+
                         },
                         {
                             xtype: 'textfield',
@@ -513,8 +541,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             store: 'combo.AdressByHomeStore',
                             valueField: 'id',
                             width: 490,
-                            
-                           
+                            name: 'ResidentDetail'
+
+
                         },
                         {
                             xtype: 'fieldcontainer',
@@ -526,6 +555,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             ],
                             fieldLabel: 'ระยะเวลาที่พักอาศัย',
                             labelCls: 'text-require',
+                            name: 'ResidentStatus',
                             labelWidth: 171,
                             items: [
                                 {
@@ -540,7 +570,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'displayfield',
                                     margin: '0 4 4 4',
                                     fieldLabel: '',
-                                    name: 'DisFielYear',
+                                    name: 'ResidentYear',
                                     value: 'ปี'
                                 },
                                 {
@@ -555,7 +585,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'displayfield',
                                     margin: '0 4 4 4',
                                     fieldLabel: '',
-                                    value: 'เดือน'
+                                    value: 'เดือน',
+                                    name: 'ResidentMonth'
                                 }
                             ]
                         },
@@ -572,13 +603,15 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             displayField: 'Name',
                             store: 'combo.StatusByHomeStore',
                             valueField: 'id',
-                            
-                            
+                            name: 'ResidentRegisStatus'
+
+
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เบอร์โทรศัพท์พื้นฐาน',
-                            emptyText: '[เบอร์โทรศัพท์พื้นฐาน]'
+                            emptyText: '[เบอร์โทรศัพท์พื้นฐาน]',
+                            name: 'HomePhone'
                         },
                         {
                             xtype: 'textfield',
@@ -589,13 +622,15 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             labelCls: 'text-require',
                             allowBlank: false,
                             emptyText: '[เบอร์โทรศัพท์มือถือ]',
-                            
-                            
+                            name: 'MobilePhone'
+
+
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ช่วงเวลาที่สะดวกในการติดต่อ',
-                            emptyText: '[เวลาที่สะดวกในการติดต่อ]'
+                            emptyText: '[เวลาที่สะดวกในการติดต่อ]',
+                            name: 'ContactTime'
                         }
                     ]
                 },
@@ -615,7 +650,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         {
                             xtype: 'fieldcontainer',
                             height: '',
-                            
+
                             layout: 'table',
                             afterLabelTextTpl: [
                                 '<span style="color:red;font-weight:bold" data-qtip="Required">*</span'
@@ -629,13 +664,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     width: 44,
                                     fieldLabel: '',
                                     allowBlank: false,
-                                    emptyText: '[ปี]'
+                                    emptyText: '[ปี]',
+
                                 },
                                 {
                                     xtype: 'displayfield',
                                     margin: '0 4 4 4',
                                     fieldLabel: '',
-                                    name: 'DisFielYear',
+                                    name: 'WorkPeriodAllYear',
                                     value: 'ปี'
                                 },
                                 {
@@ -650,6 +686,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'displayfield',
                                     margin: '0 4 4 4',
                                     fieldLabel: '',
+                                    name: 'WorkPeriodAllMonth',
                                     value: 'เดือน'
                                 }
                             ]
@@ -674,7 +711,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'displayfield',
                                     margin: '0 4 4 4',
                                     fieldLabel: '',
-                                    name: 'DisFielYear',
+                                    name: 'WorkPeriodCurrentYear',
                                     value: 'ปี'
                                 },
                                 {
@@ -688,6 +725,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'displayfield',
                                     margin: '0 4 4 4',
                                     fieldLabel: '',
+                                    name: 'WorkPeriodCurrentMonth',
                                     value: 'เดือน'
                                 }
                             ]
@@ -696,6 +734,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             xtype: 'textfield',
                             colspan: 2,
                             fieldLabel: 'เบอร์โทรศัพท์ที่ทำงาน',
+                            name: 'OfficePhone',
                             emptyText: '[เบอร์โทรศัพท์ที่ทำงาน]'
                         },
                         {
@@ -705,6 +744,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             ],
                             fieldLabel: 'หมวดอาชีพ',
                             colspan: 2,
+                            name: 'OccupationType',
                             labelCls: 'text-require',
                             allowBlank: false,
                             emptyText: '[เลือก]',
@@ -724,7 +764,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                 '<span style="color:red;font-weight:bold" data-qtip="Required">*</span'
                             ],
                             fieldLabel: 'กลุ่มอาชีพ',
-                           
+                            name: 'OccupationGroup',
                             labelCls: 'text-require',
                             allowBlank: false,
                             emptyText: '[เลือก]',
@@ -744,13 +784,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             ],
                             fieldLabel: 'ประเภทอาชีพ',
                             colspan: 2,
+                            name: 'OccupationCode',
                             width: 800,
                             labelCls: 'text-require',
                             allowBlank: false,
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
                             displayField: 'Name',
-                           
+
                             store: 'combo.OccupationCareerStore',
                             valueField: 'id',
                             reference: 'occupationcareer',
@@ -765,6 +806,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             ],
                             fieldLabel: 'ตำแหน่ง',
                             colspan: 2,
+                            name: 'Position',
                             labelCls: 'text-require',
                             allowBlank: false,
                             emptyText: '[เลือก]',
@@ -780,7 +822,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'สถานที่ทำงาน',
                             width: 800,
                             colspan: 2,
-                            emptyText: '[สถานที่ทำงาน]'
+                            emptyText: '[สถานที่ทำงาน]',
+                            name: 'OccPlace'
                         },
                         {
                             //20150818 
@@ -795,6 +838,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'รายละเอียดอาชีพ',
                             width: 800,
                             colspan: 2,
+                            name: 'OccDetail',
                             emptyText: '[รายละเอียดอาชีพ]'
                         },
                         {
@@ -814,7 +858,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'displayfield',
                                     margin: '0 4 4 4',
                                     fieldLabel: '',
-                                    name: 'DisFielYear',
+                                    name: 'Area01',
                                     value: 'ไร่'
                                 },
                                 {
@@ -827,7 +871,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'displayfield',
                                     margin: '0 4 4 4',
                                     fieldLabel: '',
-                                    value: 'งาน'
+                                    value: 'งาน',
+                                    name: 'Area02'
                                 },
                                 {
                                     xtype: 'textfield',
@@ -839,7 +884,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'displayfield',
                                     margin: '0 4 4 4',
                                     fieldLabel: '',
-                                    value: 'ตารางวา'
+                                    value: 'ตารางวา',
+                                    name: 'Area03'
                                 }
                             ]
                         },
@@ -847,13 +893,15 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             xtype: 'textfield',
                             width: '',
                             fieldLabel: 'เบอร์โทรอ้างอิง',
-                            emptyText: '[เบอร์โทรอ้างอิง]'
+                            emptyText: '[เบอร์โทรอ้างอิง]',
+                            name: 'RefTelephone'
                         },
                         {
                             xtype: 'textfield',
                             width: '',
                             fieldLabel: 'ฝ่ายงาน',
-                            emptyText: '[ฝ่ายงาน]'
+                            emptyText: '[ฝ่ายงาน]',
+                            name: 'Department'
                         },
                         {
                             xtype: 'checkboxfield',
@@ -862,7 +910,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             ],
                             fieldLabel: 'ใช้การหักจากบัญชี',
                             labelCls: 'text-require',
-                            boxLabel: ''
+                            boxLabel: '',
+                            name: 'UseHoldCategory'
                         },
                         {
                             xtype: 'checkboxfield',
@@ -871,7 +920,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             ],
                             fieldLabel: 'ตวามสม่ำเสมอของรายได้',
                             labelCls: 'text-require',
-                            boxLabel: 'ประจำ'
+                            boxLabel: 'ประจำ',
+                            name: 'TypeIncome'
                         },
                         {
                             xtype: 'combobox',
@@ -880,12 +930,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             autoLoadOnValue: true,
                             displayField: 'name',
                             store: 'commonModels',
-                            valueField: 'id'
+                            valueField: 'id',
+                            name: 'IncomeCategory'
                         },
                         {
                             xtype: 'checkboxfield',
                             fieldLabel: 'ไม่ใช่บัญชีผู้เช่าซื้อ',
-                            boxLabel: ''
+                            boxLabel: '',
+                            name: 'OtherAccount'
                         },
                         {
                             xtype: 'combobox',
@@ -894,32 +946,37 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             autoLoadOnValue: true,
                             displayField: 'Name',
                             store: 'combo.DepositSalaryStore',
-                            valueField: 'id'
+                            valueField: 'id',
+                            name: 'BankCode'
                         },
                         {
                             xtype: 'textfield',
                             width: '',
                             fieldLabel: 'เลขที่บัญชีธนาคาร',
-                            emptyText: '[เลขที่บัญชีธนาคาร]'
+                            emptyText: '[เลขที่บัญชีธนาคาร]',
+                            name: 'AccountNo'
                         },
                         {
                             xtype: 'numberfield',
                             width: '',
                             fieldLabel: 'รายได้สุทธิเข้าบัญชีเงินเดือน (Net)',
                             labelCls: 'text-require',
-                            emptyText: '[รายได้สุทธิเข้าบัญชีเงินเดือน (Net)]'
+                            emptyText: '[รายได้สุทธิเข้าบัญชีเงินเดือน (Net)]',
+                            name: 'StatementIncome'
                         },
                         {
                             xtype: 'numberfield',
                             width: '',
                             fieldLabel: 'รายได้ประจำก่อนหักภาระหนี้ (Gross)',
-                            emptyText: '[รายได้ประจำก่อนหักภาระหนี้ (Gross)]'
+                            emptyText: '[รายได้ประจำก่อนหักภาระหนี้ (Gross)]',
+                            name: 'GrossIncome'
                         },
                         {
                             xtype: 'numberfield',
                             width: '',
                             fieldLabel: 'รายได้อื่นๆ (Self)',
-                            emptyText: '[รายได้อื่นๆ (Self)]'
+                            emptyText: '[รายได้อื่นๆ (Self)]',
+                            name: 'SelfIncome'
                         },
                         {
                             xtype: 'combobox',
@@ -930,6 +987,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             store: 'combo.MainCareerStore',
                             valueField: 'id',
                             reference: 'maincareer',
+                            name: 'SourceOfOtherIncMain',
                             listeners: {
                                 change: 'onMainCareerChange'
                             }
@@ -944,8 +1002,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             store: 'combo.SubCareerStore',
                             valueField: 'id',
                             reference: 'subcareer',
+                            name: 'SourceOfOtherIncSub',
                             autoLoadOnValue: true,
-                          
+
 
                         },
                         {
@@ -953,6 +1012,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'แหล่งที่มาของรายได้อื่นๆ (ระบุ)',
                             colspan: 2,
                             width: 800,
+                            name: 'SourceOfOtherIncDetail',
                             emptyText: '[เลือก]'
                         },
                         {
@@ -963,17 +1023,21 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
                             displayField: 'Name',
+                            name: 'SourceofOtherIncOccGroup',
                             store: 'combo.OccupationCareerOtherStore',
                             valueField: 'id'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'อัตรากำไรของธุรกิจ (Margin)',
+                            name: 'ProfitMarginPercent',
                             emptyText: '[%]'
+
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'อัตรากำไร(บาท)',
+                            name: 'ProfitMarginAmt',
                             emptyText: '[จำนวน]'
                         }
                     ]
@@ -995,7 +1059,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             xtype: 'textfield',
                             width: '',
                             fieldLabel: 'ชื่อ/สกุล',
-                            emptyText: '[ชื่อ/สกุล]'
+                            emptyText: '[ชื่อ/สกุล]',
+                            name: 'MateName'
                         },
                         {
                             xtype: 'combobox',
@@ -1004,42 +1069,49 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.OccupationMarryGroupStore',
-                            valueField: 'id'
+                            valueField: 'id',
+                            name: 'MateOccupationGroup'
                         },
                         {
                             xtype: 'textfield',
                             width: '',
                             fieldLabel: 'สถานที่ทำงาน',
-                            emptyText: '[สถานที่ทำงาน]'
+                            emptyText: '[สถานที่ทำงาน]',
+                            name: 'MateOccPlace'
                         },
                         {
                             xtype: 'numberfield',
                             width: '',
                             fieldLabel: 'รายได้',
-                            emptyText: '[รายได้]'
+                            emptyText: '[รายได้]',
+                            name: 'MateIncome'
                         },
                         {
                             xtype: 'textfield',
                             width: '',
                             fieldLabel: 'ตำแหน่ง',
-                            emptyText: '[ตำแหน่ง]'
+                            emptyText: '[ตำแหน่ง]',
+                            name: 'MateOccPosition'
                         },
                         {
                             xtype: 'textfield',
                             width: '',
                             fieldLabel: 'อายุงาน',
-                            emptyText: '[อายุงาน]'
+                            emptyText: '[อายุงาน]',
+                            name: 'MateWorkPeriod'
                         },
                         {
                             xtype: 'textfield',
                             width: '',
                             fieldLabel: 'โทรศัพท์',
-                            emptyText: '[โทรศัพท์]'
+                            emptyText: '[โทรศัพท์]',
+                            name: 'MateTelephone'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'ค่าใช้จ่ายต่อเดือน',
-                            emptyText: '[ค่าใช้จ่ายต่อเดือน]'
+                            emptyText: '[ค่าใช้จ่ายต่อเดือน]',
+                            name: 'MateExpense'
                         }
                     ]
                 },
@@ -1062,46 +1134,52 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.TypeCoCustomerStore',
-                            valueField: 'id'
+                            valueField: 'id',
+                            name: 'CoPaymentType'
                         },
                         {
                             xtype: 'fieldcontainer',
                             height: '',
-                            
+
                             layout: 'table',
-                           
+
                             fieldLabel: 'ชื่อ-นามสกุล',
                             items: [
                                 {
                                     xtype: 'combobox',
                                     emptyText: '[เลือก]',
                                     width: 200,
-                                   
+
                                     displayField: 'Name',
                                     store: 'combo.TitleStore',
-                                    valueField: 'id'
+                                    valueField: 'id',
+                                    name: 'CoTitleName'
                                 },
                                 {
                                     xtype: 'textfield',
                                     margin: '0 5 5 5',
-                                    emptyText: '[ชื่อผู้กู้ร่วม]'
+                                    emptyText: '[ชื่อผู้กู้ร่วม]',
+                                    name: 'CoFNameTh'
                                 },
                                 {
                                     xtype: 'textfield',
                                     width: '',
                                     fieldLabel: '',
-                                    emptyText: '[นามสกุลผู้กู้ร่วม]'
+                                    emptyText: '[นามสกุลผู้กู้ร่วม]',
+                                    name: 'CoLNameTh'
                                 }
                             ]
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เลขที่บัตรประชาชน',
-                            emptyText: '[เลขที่บัตรประชาชน]'
+                            emptyText: '[เลขที่บัตรประชาชน]',
+                            name: 'CoCitizenID'
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'ความสัมพันธ์กับผู้เช่าซื้อ',
+                            name: 'CoRelative',
                             width: 380,
                             emptyText: '[เลือก]',
                             displayField: 'Name',
@@ -1111,12 +1189,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'รายได้',
-                            emptyText: '[รายได้]'
+                            emptyText: '[รายได้]',
+                            name: 'CoGrossIncome',
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'ค่าใช้จ่าย',
-                            emptyText: '[ค่าใช้จ่าย]'
+                            emptyText: '[ค่าใช้จ่าย]',
+                            name: 'CoExpense',
                         },
                         {
                             xtype: 'checkboxfield',
@@ -1125,6 +1205,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             labelWidth: 174,
                             name: 'chkSumIncome',
                             boxLabel: '',
+                            name: 'CoIsSum',
                             checked: true
                         },
                         {
@@ -1175,21 +1256,25 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             xtype: 'checkboxfield',
                             colspan: 2,
                             fieldLabel: 'มีผู้ค้ำประกัน',
+                            name: 'ChkGuarantor',
                             boxLabel: ''
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ประเภท',
-                            emptyText: '[ประเภท]'
+                            emptyText: '[ประเภท]',
+                            name: 'G1Type'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ชื่อ-นามสกุล',
+                            name: 'G1Name',
                             emptyText: '[ชื่อ-นามสกุล]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'วัน/เดือน/ปีเกิด',
+                            name: 'G1BirthDate',
                             emptyText: '[วว/ดด/ปปปป]'
                         },
                         {
@@ -1210,7 +1295,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'displayfield',
                                     margin: '0 4 4 4',
                                     fieldLabel: '',
-                                    name: 'DisFielYear',
+                                    name: 'G1AgeYear',
                                     value: 'ปี'
                                 },
                                 {
@@ -1224,28 +1309,33 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'displayfield',
                                     margin: '0 4 4 4',
                                     fieldLabel: '',
-                                    value: 'เดือน'
+                                    value: 'เดือน',
+                                    name: 'G1AgeMonth',
                                 }
                             ]
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เลขที่บัตรประชาชน',
+                            name: 'G1CitizenID',
                             emptyText: '[เลขที่บัตรประชาชน]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ความสัมพันธ์กับผู้เช่าซื้อ',
+                            name: 'G1Relative',
                             emptyText: '[ความสัมพันธ์กับผู้เช่าซื้อ]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'รายได้',
+                            name: 'G1GrossIncome',
                             emptyText: '[รายได้]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'ค่าใช้จ่าย',
+                            name: 'G1Expense',
                             emptyText: '[ค่าใช้จ่าย]'
                         }
                     ]
@@ -1270,18 +1360,21 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             displayField: 'Name',
                             store: 'provinceModels',
                             valueField: 'id',
+                            name: 'CarInfProvince',
                             autoLoadOnValue: true
-                            
+
                         },
                         {
                             xtype: 'datefield',
                             fieldLabel: 'วันที่จดทะเบียน',
+                            name: 'CarInfRegisDate',
                             emptyText: '[วว/ดด/ปปปป]'
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'สี',
                             emptyText: '[เลือก]',
+                            name: 'CarInfColor',
                             displayField: 'Name',
                             store: 'combo.ColorStore',
                             valueField: 'id'
@@ -1289,16 +1382,19 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'ปีที่ผลิต',
+                            name: 'CarInfGenerateYear',
                             emptyText: '[ประเภท]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'ขนาดเครื่อง',
+                            name: 'CarInfCc',
                             emptyText: '[ขนาดเครื่อง]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'น้ำหนัก',
+                            name: 'CarInfWeight',
                             emptyText: '[วว/ดด/ปปปป]'
                         },
                         {
@@ -1307,6 +1403,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.MachineStore',
+                            name: 'CarInfEngineType',
                             valueField: 'id'
                         },
                         {
@@ -1315,16 +1412,19 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.GearStore',
+                            name: 'CarInfGear',
                             valueField: 'id'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'ระยะทางที่ใช้ไป',
+                            name: 'CarInfDistanceUse',
                             emptyText: '[รายได้]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'เลขที่ทะเบียนรถ',
+                            name: 'CarInfCarNumber',
                             emptyText: '[ค่าใช้จ่าย]'
                         }
                     ]
@@ -1354,6 +1454,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             autoLoadOnValue: true,
                             displayField: 'Name',
                             store: 'combo.CreditStore',
+                            name: 'LoanType',
                             valueField: 'id'
                         },
                         {
@@ -1367,12 +1468,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             ],
                             fieldLabel: 'ประเภทรถ',
                             labelCls: 'text-require',
+
                             items: [
                                 {
                                     xtype: 'combobox',
                                     allowBlank: false,
                                     width: 200,
                                     emptyText: '[เลือก]',
+                                    name: 'CarType',
                                     autoLoadOnValue: true,
                                     displayField: 'Name',
                                     store: 'combo.TypeCarStore',
@@ -1388,6 +1491,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             autoLoadOnValue: true,
                             displayField: 'Name',
                             store: 'combo.CompanyInsuranceStore',
+                            name: 'InsuranceCompany',
                             valueField: 'id'
                         },
                         {
@@ -1395,6 +1499,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'VAT (ค่าตัวรถ)',
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
+                            name: 'VatTypeCar',
                             displayField: 'Name',
                             store: 'combo.CarVatStore',
                             valueField: 'id'
@@ -1418,6 +1523,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     displayField: 'Name',
                                     store: 'combo.BrandCarStore',
                                     valueField: 'id',
+                                    name: 'CarBrandShow',
                                     reference: 'brandcar',
                                     autoLoadOnValue: true,
                                     listeners: {
@@ -1448,12 +1554,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     displayField: 'Name',
                                     store: 'combo.ModelCarStore',
                                     valueField: 'id',
+                                    name: 'CarModelNameShow',
                                     reference: 'modelcar',
                                     autoLoadOnValue: true,
                                     listeners: {
                                         change: 'onModelCarChange'
                                     }
-                                   
+
                                 }
                             ]
                         },
@@ -1476,6 +1583,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     displayField: 'Name',
                                     store: 'combo.ModelDetailCarStore',
                                     valueField: 'id',
+                                    name: 'CarModelDescShow',
                                     reference: 'modeldetailcar',
                                     autoLoadOnValue: true,
                                 }
@@ -1493,9 +1601,10 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     emptyText: '[เลือก]',
                                     autoLoadOnValue: true,
                                     displayField: 'Name',
+                                    name: 'CarStatus',
                                     store: 'combo.PerfomanceCarStore',
                                     valueField: 'id'
-                                    
+
                                 }
                             ]
                         },
@@ -1507,17 +1616,20 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'แคมเปญ',
                             labelClsExtra: 'text-require',
                             allowBlank: false,
+                            name: 'Campaign',
                             emptyText: '[แคมเปญ]'
                         },
                         {
                             xtype: 'textfield',
                             colspan: 2,
                             fieldLabel: 'แบบ',
+                            name: 'CarSubModel',
                             emptyText: '[แบบ]'
                         },
                         {
                             xtype: 'radiogroup',
                             fieldLabel: 'Brand',
+
                             layout: {
                                 type: 'table',
                                 columns: 3
@@ -1525,19 +1637,19 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             items: [
                                 {
                                     xtype: 'radiofield',
-                                    name: 'rdBrand',
+                                    name: 'MarketableBrand',
                                     boxLabel: 'Marketable Brand'
                                 },
                                 {
                                     xtype: 'radiofield',
                                     margin: '0 4 4 4',
-                                    name: 'rdBrand',
+                                    name: 'MarketableBrand',
                                     boxLabel: 'Non-Marketable Brand'
                                 },
                                 {
                                     xtype: 'radiofield',
                                     margin: '0 4 4 4',
-                                    name: 'rdBrand',
+                                    name: 'MarketableBrand',
                                     boxLabel: 'Other Brand'
                                 }
                             ]
@@ -1545,6 +1657,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ราคามาตรฐาน',
+                            name: 'StandardPrice',
                             emptyText: '[ราคามาตรฐาน]'
                         },
                         {
@@ -1555,40 +1668,47 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             ],
                             fieldLabel: 'ราคาอนุมัติ',
                             labelCls: 'text-require',
+                            name: 'CarPrice',
                             allowBlank: false,
                             emptyText: '[ราคาอนุมัติ]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เงินดาวน์',
+                            name: 'DownPercent',
                             emptyText: '[เงินดาวน์]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'จำนวน',
+                            name: 'DownAmt',
                             emptyText: '[จำนวน]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ยอดจัด',
+                            name: 'FinanceAmt',
                             emptyText: '[ยอดจัด]'
                         },
                         {
                             xtype: 'textfield',
                             width: '',
                             fieldLabel: 'Balloon Amount',
+                            name: 'BalloonAmt',
                             emptyText: '[Balloon Amount]'
                         },
                         {
                             xtype: 'textfield',
                             width: '',
                             fieldLabel: 'ค่างวดต่อเดือน',
+                            name: 'InstallmentAmt',
                             emptyText: '[ค่างวดต่อเดือน]'
                         },
                         {
                             xtype: 'textfield',
                             width: '',
                             fieldLabel: 'อัตราดอกเบี้ย',
+                            name: 'FlatRate',
                             emptyText: '[อัตราดอกเบี้ย]'
                         },
                         {
@@ -1600,6 +1720,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'ระยะเวลาผ่อนชำระ',
                             labelCls: 'text-require',
                             allowBlank: false,
+                            name: 'Term',
                             emptyText: '[ระยะเวลาผ่อนชำระ]'
                         },
                         {
@@ -1614,6 +1735,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
                             displayField: 'Name',
+                            name: 'PaymentMethod',
                             store: 'combo.MethodPaymentStore',
                             valueField: 'id'
                         },
@@ -1629,6 +1751,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
                             displayField: 'Name',
+                            name: 'PaymentType',
                             store: 'combo.MethodTermtStore',
                             valueField: 'id'
                         },
@@ -1636,6 +1759,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             xtype: 'textfield',
                             width: '',
                             fieldLabel: 'ล่วงหน้า',
+                            name: 'BeginTerm',
                             emptyText: '[ล่วงหน้า]'
                         },
                         {
@@ -1647,6 +1771,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'กำหนดชำระค่างวดวันที่',
                             labelCls: 'text-require',
                             allowBlank: false,
+                            name: 'PaymentDue',
                             emptyText: '[กำหนดชำระค่างวดวันที่]'
                         }
                     ]
@@ -1667,40 +1792,47 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         {
                             xtype: 'checkboxfield',
                             fieldLabel: 'Loan Protection',
+                            name: 'LoanProtection',
                             boxLabel: ''
                         },
                         {
                             xtype: 'checkboxfield',
                             fieldLabel: 'ลูกค้าจ่าย',
+                            name: 'CustomerPayLoan',
                             boxLabel: 'ประจำ'
                         },
                         {
                             xtype: 'numberfield',
                             width: '',
                             fieldLabel: 'ทุนประกัน',
+                            name: 'InsuranceAmt',
                             emptyText: '[ทุนประกัน]'
                         },
                         {
                             xtype: 'numberfield',
                             width: '',
                             fieldLabel: 'เบี้ยประกันสุทธิ',
+                            name: 'NetPremium',
                             emptyText: '[เบี้ยประกันสุทธิ]'
                         },
                         {
                             xtype: 'numberfield',
                             width: '',
                             fieldLabel: 'ดาวน์',
+                            name: 'DownAmt',
                             emptyText: '[ดาวน์]'
                         },
                         {
                             xtype: 'numberfield',
                             width: '',
                             fieldLabel: 'ยอดจัด',
+                            name: 'FinanceAmt',
                             emptyText: '[ยอดจัด]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'ค่างวด',
+                            name: 'RoundInstallAmt',
                             emptyText: '[ค่างวด]'
                         }
                     ]
@@ -1724,6 +1856,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             fieldLabel: 'หนังสือให้ความยินยอมในการตรวจสอบข้อมูลเครดิต',
                             labelAlign: 'right',
                             labelCls: 'text-require',
+                            name: 'FileDocConsent',
                             emptyText: '[หนังสือให้ความยินยอมในการตรวจสอบข้อมูลเครดิต]'
                         },
                         {
@@ -1731,12 +1864,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             colspan: 2,
                             fieldLabel: 'บัตรประจำตัวประชาชน/ข้าราชการ/พนักงานรัฐวิสาหกิจ',
                             labelCls: 'text-require',
+                            name: 'FileDocIdNo',
                             emptyText: '[บัตรประจำตัวประชาชน/ข้าราชการ/พนักงานรัฐวิสาหกิจ]'
                         },
                         {
                             xtype: 'filefield',
                             fieldLabel: 'หนังสือให้ความยินยอมในการเปิดเผยข้อมูลส่วนบุคคล',
                             labelCls: 'text-require',
+                            name: 'FileDocAllow',
                             emptyText: '[หนังสือให้ความยินยอมในการเปิดเผยข้อมูลส่วนบุคคล]'
                         },
                         {
@@ -1745,6 +1880,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             emptyText: '[เลือก]',
                             autoLoadOnValue: true,
                             displayField: 'Name',
+                            name: 'DocumentType',
                             store: 'combo.OtherPaperStore',
                             valueField: 'id'
                         },
@@ -1772,11 +1908,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                         {
                             xtype: 'checkboxfield',
                             fieldLabel: 'KYC',
+                            name: 'Kyc',
                             boxLabel: ''
                         },
                         {
                             xtype: 'checkboxfield',
                             fieldLabel: 'ความยินยอมในการเปิดเผยข้อมูลส่วนบุคคล',
+                            name: 'PersonalPrivacy',
                             labelWidth: 250,
                             boxLabel: ''
                         }

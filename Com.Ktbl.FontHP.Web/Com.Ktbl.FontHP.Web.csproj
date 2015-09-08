@@ -141,8 +141,11 @@
   <ItemGroup>
     <Compile Include="Controllers\CardTypeController.cs" />
     <Compile Include="Controllers\CardTypeTabController.cs" />
+    <Compile Include="Controllers\ComHiringController.cs" />
+    <Compile Include="Controllers\ComInsController.cs" />
     <Compile Include="Controllers\CommisionController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\Default1Controller.cs" />
     <Compile Include="Controllers\GarantorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MktLimit60Controller.cs" />
@@ -153,8 +156,8 @@
     <Compile Include="Models\CardTypeViewModel.cs" />
     <Compile Include="Models\ComboBox.cs" />
     <Compile Include="Models\GarantorViewModel.cs" />
-    <Compile Include="Models\GridComHir.cs" />
-    <Compile Include="Models\GridComIns.cs" />
+    <Compile Include="Models\ComHirViewModel.cs" />
+    <Compile Include="Models\ComInsViewModel.cs" />
     <Compile Include="Models\GridDealer.cs" />
     <Compile Include="Models\GridGarantor.cs" />
     <Compile Include="Models\GridLead.cs" />
@@ -183,6 +186,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="app.js" />
     <Content Include="app\model\CardTypeTabFormModel.js" />
+    <Content Include="app\model\ComInsFormModel.js" />
+    <Content Include="app\model\ComHiringFormModel.js" />
     <Content Include="app\model\GarantorFormModel.js" />
     <Content Include="app\model\AddressCusFormModel.js" />
     <Content Include="app\model\AddressCusModel.js" />
