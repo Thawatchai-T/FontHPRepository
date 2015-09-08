@@ -121,7 +121,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                                 {
                                     xtype: 'textfield',
                                     name: 'EntCodeShow',
-                                    emptyText: '[ENTCODE]'
+                                    emptyText: '[ENTCODE]',
+                                    itemId: 'dealer-code'
                                 },
                                 {
                                     xtype: 'button',
@@ -137,7 +138,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindow', {
                                     width: '',
                                     fieldLabel: '',
                                     name: 'EntNameShow',
-                                    emptyText: '[ENTNAME]'
+                                    emptyText: '[ENTNAME]',
+                                    itemId: 'dealer-name'
                                 }
                             ]
                         },

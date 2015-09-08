@@ -18,7 +18,37 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommHiringWindowViewContro
     alias: 'controller.commhiringtab',
 
     onSelectEntcodeClick: function(button, e, eOpts) {
-        Ext.widget("mainmainmarketingwindowcommonpopuppopupdealer").show();
+        //Add Popup 20150908
+        var me = this,
+         refs = me.getReferences(),
+         dealercode = this.getView().down('#dealer-code');
+        dealername = this.getView().down('#dealer-name');
+
+
+        Ext.widget("popupdealer", {
+
+            listeners: {
+                afterRender: function (panal, eOpts) {
+
+                    var store = panal.down('grid').getStore();
+                    store.extraParams = {};
+                    store.load();
+
+                },
+                close: function (panal, eOpts) {
+
+                    var grid = panal.down('grid'),
+                        selection = grid.getSelection();
+                    if (selection.length > 0) {
+
+                        record = selection[0];
+                        dealercode.setValue(record.get('DealerCode'));
+                        dealername.setValue(record.get('DealerName'));
+
+                    }
+                }
+            }
+        }).show();
 
     },
 

@@ -49,11 +49,11 @@ Ext.define('FrontHPApp.model.CommitinSpecialModel', {
         },
         {
             type: 'float',
-            name: 'Amount Include VAT'
+            name: 'AmountIncludeVAT'
         },
         {
             type: 'float',
-            name: 'Loan Include VAT'
+            name: 'LoanIncludeVAT'
         },
         {
             type: 'float',
@@ -61,11 +61,11 @@ Ext.define('FrontHPApp.model.CommitinSpecialModel', {
         },
         {
             type: 'float',
-            name: 'W/H TAX'
+            name: 'WHTAX'
         },
         {
             type: 'float',
-            name: 'Net Paid'
+            name: 'NetPaid'
         }
     ]
 });

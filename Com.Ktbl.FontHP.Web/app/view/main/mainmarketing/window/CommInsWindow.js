@@ -51,6 +51,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                 {
                     xtype: 'fieldset',
                     itemId: 'frmComIns',
+                    reference: 'homefieldset',
                     defaults: {
                         labelAlign: 'right',
                         labelWidth: 175,
@@ -70,12 +71,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                             width: 562,
                             layout: 'table',
                             fieldLabel: 'ENTCODE',
-                           
+                            //reference: 'dealer',
+                            
                             items: [
                                 {
                                     xtype: 'textfield',
                                     emptyText: '[ENTCODE]',
-                                    name: 'EntCodeShow'
+                                    name: 'EntCodeShow',
+                                    itemId: 'dealer-code'
                                 },
                                 {
                                     xtype: 'button',
@@ -91,7 +94,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CommInsWindow', {
                                     width: '',
                                     fieldLabel: '',
                                     name: 'EntNameShow',
-                                    emptyText: '[ENTNAME]'
+                                    emptyText: '[ENTNAME]',
+                                    itemId: 'dealer-name'
                                 }
                             ]
                         },

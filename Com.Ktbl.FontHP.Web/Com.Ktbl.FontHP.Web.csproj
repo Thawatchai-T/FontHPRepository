@@ -143,7 +143,7 @@
     <Compile Include="Controllers\CardTypeTabController.cs" />
     <Compile Include="Controllers\ComHiringController.cs" />
     <Compile Include="Controllers\ComInsController.cs" />
-    <Compile Include="Controllers\CommisionController.cs" />
+    <Compile Include="Controllers\ComSpacialController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\Default1Controller.cs" />
     <Compile Include="Controllers\GarantorController.cs" />
@@ -155,6 +155,7 @@
     </Compile>
     <Compile Include="Models\CardTypeViewModel.cs" />
     <Compile Include="Models\ComboBox.cs" />
+    <Compile Include="Models\ComSpacialViewModel.cs" />
     <Compile Include="Models\GarantorViewModel.cs" />
     <Compile Include="Models\ComHirViewModel.cs" />
     <Compile Include="Models\ComInsViewModel.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="app.js" />
     <Content Include="app\model\CardTypeTabFormModel.js" />
+    <Content Include="app\model\ComSpacialFormModel.js" />
     <Content Include="app\model\ComInsFormModel.js" />
     <Content Include="app\model\ComHiringFormModel.js" />
     <Content Include="app\model\GarantorFormModel.js" />

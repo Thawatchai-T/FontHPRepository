@@ -15,14 +15,32 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindowViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.mainmainmarketingwindowcomspecialcomspecialwindow',
+    alias: 'controller.comspecialwindow',
 
     onSelectEmpClick: function(button, e, eOpts) {
         Ext.widget("mainmainmarketingwindowcomspecialpopupempsell").show();
     },
 
     onSaveClick: function(button, e, eOpts) {
+        var me = this.getView(),
+        form = me.down('form').getForm();
+       
+        if (form.isValid()) {
+            form.submit({
+                clientValidation: true,
+                url: 'api/ComSpacial/Insert',
+                success: function (form, action) {
+                    Ext.Msg.alert('Success', 'บันทึกข้อมูลเรียบร้อย');
+                    me.down('grid').getStore().load();
+                },
+                failure: function (form, action) {
+                    Ext.Msg.alert('Fail', 'ไม่สามารถบันทึกข้อมูลได้');
+                }
 
+            });
+        } else {
+            Ext.Msg.alert('Invalid Data', 'Please correct form errors.')
+        }
     },
 
     onClearClick: function(button, e, eOpts) {
@@ -32,41 +50,62 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
         form.reset();
     },
 
-    onDeleteClick: function(button, e, eOpts) {
-
+   onEditClick: function (button, e, eOpts) {
+        
+        var me = this.getView(),
+            grid = me.down('gridpanel'),
+            store = grid.getStore(),
+            record = grid.getSelection();
+        if (record.length > 0) {
+            var form = this.getView().down('form').getForm();
+            form.loadRecord(record[0]);
+        }
     },
 
-    onEditGridClick: function(button, e, eOpts) {
+    onDeleteClick: function (button, e, eOpts) {
+        var me = this.getView(),
+            grid = me.down('gridpanel'),
+            store = grid.getStore(),
+            record = grid.getSelection(),
+            count = record.length;
 
-    },
+        if (count > 0) {
 
-    onDeleteGridClick: function(button, e, eOpts) {
-        var view = this.getView(),
-            GridGarantor = view.down("#GridComSpacial"), //itemid
-            store = GridGarantor.getStore(),
-            selectRecord = GridGarantor.getSelection(),
-            CheckCountSelect = selectRecord.length;
+            Ext.MessageBox.confirm("Confirm", "คุณต้องการที่ลบใช่หรือไม่?", function (btn) {
 
-        if (CheckCountSelect > 0)
-        {
-            Ext.MessageBox.confirm("Confirm","คุณต้องการที่จะลบรายการใช่หรือไม่?",function(btn){
+                if (btn == 'yes') {
 
-                if(btn == 'yes'){
-
-                    for(i=0;i<CheckCountSelect;i++){
-
-                        store.remove(selectRecord[i]);
-
+                    for (i = 0; i < count; i++) {
+                        store.remove(record[i]);
                     }
+                    store.sync();
+                    Ext.MessageBox.alert("Status", 'ลบข้อมูลเรียบร้อย');
                 }
 
-            },this);
+            }, this);
+        }//end if
 
-        }
-        else
-        {
+    },
+    onItemDblClick: function (dataview, record, item, index, e, eOpts) {
+        //add event grid dbclick 20150908
+        var form = this.getView().down('form').getForm();
 
-        }
-    }
+        Ext.Ajax.request({
+            url: 'api/ComSpacial/GetComSpacialById',
+            method: 'get',
+            params: {
+                id: record.get('id')
+            },
+
+
+            success: function (response) {
+                var text = Ext.decode(response.responseText),
+                    model = Ext.create('FrontHPApp.model.ComSpacialFormModel', text);
+                form.loadRecord(model);
+
+            }
+
+        });
+    },
 
 });

@@ -66,7 +66,8 @@ Ext.application({
         'CardTypeTabFormModel',
         //insert model 20150908
         'ComHiringFormModel',
-        'ComInsFormModel'
+        'ComInsFormModel',
+        'ComSpacialFormModel'
 
     ],
     stores: [

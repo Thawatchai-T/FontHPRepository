@@ -15,8 +15,8 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindow', {
     extend: 'Ext.panel.Panel',
+    alias: 'widget.comspecialwindow',
     //alias: 'widget.mainmainmarketingwindowcomspecialcomspecialwindow',
-    alias: 'widget.mainmainmarketingwindowcomspecialcomspecialwindow',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindowViewModel',
@@ -34,9 +34,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
         'Ext.selection.CheckboxModel'
     ],
 
-    controller: 'mainmainmarketingwindowcomspecialcomspecialwindow',
+    controller: 'comspecialwindow',
     viewModel: {
-        type: 'mainmainmarketingwindowcomspecialcomspecialwindow'
+        type: 'comspecialwindow'
     },
     autoShow: true,
     scrollable: true,
@@ -83,7 +83,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                                     fieldLabel: 'พนักงานขาย/ผจก.ฝ่ายขาย',
                                     labelAlign: 'right',
                                     labelWidth: 190,
-                                    name: 'GurantorTitleName',
+                                    name: 'MarketingUserShow',
                                     emptyText: '[รหัส]'
                                 },
                                 {
@@ -91,6 +91,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                                     margin: '0 5 5 5',
                                     iconCls: 'icon-find',
                                     tooltip: 'ค้นหาพนักงานฝ่ายขาย',
+                                    name: 'FindMarketing',
                                     listeners: {
                                         click: 'onSelectEmpClick'
                                     }
@@ -98,7 +99,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                                 {
                                     xtype: 'textfield',
                                     fieldLabel: '',
-                                    name: 'GarantorSurName',
+                                    name: 'MarketingNameShow',
                                     emptyText: '[พนักงานขาย/ผจก.ฝ่ายขาย]'
                                 }
                             ]
@@ -106,7 +107,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เลขที่บัตรประชาชน',
-                            name: '',
+                            name: 'CitizenID',
                             emptyText: '[เลขที่บัตรประชาชน]'
                         },
                         {
@@ -114,19 +115,19 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                             fieldLabel: 'ธนาคารที่ให้โอนเงิน',
                             labelAlign: 'right',
                             labelWidth: 190,
-                            name: '',
+                            name: 'BankName',
                             emptyText: '[ธนาคารที่ให้โอนเงิน]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'สาขา',
-                            name: 'CardExpireDate',
+                            name: 'BranchName',
                             emptyText: '[สาขา]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เลขที่บัญชี',
-                            name: 'CardExpireDate',
+                            name: 'AccountNo',
                             emptyText: '[เลขที่บัญชี]'
                         }
                     ]
@@ -149,13 +150,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                             fieldLabel: 'รถเก๋ง',
                             labelAlign: 'right',
                             labelWidth: 190,
-                            name: '',
+                            name: 'PayLimitAmt01',
                             emptyText: '[รถเก๋ง]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'รถกระบะ',
-                            name: '',
+                            name: 'PayLimitAmt03',
                             emptyText: '[รถกระบะ]'
                         },
                         {
@@ -163,13 +164,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                             fieldLabel: 'รถตู้',
                             labelAlign: 'right',
                             labelWidth: 190,
-                            name: '',
+                            name: 'PayLimitAmtVan',
                             emptyText: '[รถตู้]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'Pay Commission To',
-                            name: 'CardExpireDate',
+                            name: 'PayCommissionTo',
                             emptyText: '[Pay Commission To]'
                         }
                     ]
@@ -192,13 +193,13 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                             fieldLabel: 'Commission Amount',
                             labelAlign: 'right',
                             labelWidth: 190,
-                            name: '',
+                            name: 'CommissionAmount',
                             emptyText: '[Commission Amount]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'Commission Loan',
-                            name: '',
+                            name: 'CommissionLoan',
                             emptyText: '[Commission Loan]'
                         },
                         {
@@ -206,51 +207,61 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                             fieldLabel: 'ค่าโอน',
                             labelAlign: 'right',
                             labelWidth: 190,
-                            name: '',
+                            name: 'ComTrsAmt',
                             emptyText: '[ค่าโอน]'
                         },
                         {
                             xtype: 'numberfield',
                             colspan: 2,
                             fieldLabel: 'Commission Total',
-                            name: '',
+                            name: 'CommissionTotal',
                             emptyText: '[Commission Total]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'หัก ณ ที่จ่าย',
-                            name: '',
+                            name: 'CommissionRate',
                             emptyText: '[หัก ณ ที่จ่าย]'
                         },
                         {
                             xtype: 'numberfield',
                             colspan: 3,
                             fieldLabel: 'VAT',
-                            name: '',
+                            name: 'CommissionVAT',
                             emptyText: '[VAT]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'Amount Include VAT',
+                            name: 'AmountIncludeVAT',
                             emptyText: '[Amount Include VAT]'
                         },
                         {
                             xtype: 'numberfield',
                             colspan: 2,
                             fieldLabel: 'Loan Include VAT',
+                            name: 'LoanIncludeVAT',
                             emptyText: '[Loan Include VAT]'
                         },
                         {
                             xtype: 'numberfield',
                             colspan: 3,
                             fieldLabel: 'With Hold Tax Amount',
+                            name: 'WithHoldTaxAmount',
                             emptyText: '[With Hold Tax Amount]'
                         },
                         {
                             xtype: 'numberfield',
                             fieldLabel: 'Net Paid',
+                            name: 'NetPaid',
                             emptyText: '[Net Paid]'
-                        }
+                        },
+                        {
+
+                               xtype: 'hiddenfield',
+                               name: 'id',
+                               value: '0'
+                        },
                     ]
                 },
                 {
@@ -337,12 +348,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                 {
                     xtype: 'gridcolumn',
                     width: '',
-                    dataIndex: 'Amount Include VAT',
+                    dataIndex: 'AmountIncludeVAT',
                     text: 'Amount Include VAT'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'Loan Include VAT',
+                    dataIndex: 'LoanIncludeVAT',
                     text: 'Loan Include VAT'
                 },
                 {
@@ -353,12 +364,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'W/H TAX',
+                    dataIndex: 'WHTAX',
                     text: 'W/H Tax'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'Net Paid',
+                    dataIndex: 'NetPaid',
                     text: 'Net Paid'
                 }
             ],
@@ -379,7 +390,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                             iconCls: 'icon-edit',
                             text: 'แก้ไข',
                             listeners: {
-                                click: 'onEditGridClick'
+                                click: 'onEditClick'
                             }
                         },
                         {
@@ -388,7 +399,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                             iconCls: 'icon-delete',
                             text: 'ลบ',
                             listeners: {
-                                click: 'onDeleteGridClick'
+                                click: 'onDeleteClick'
                             }
                         }
                     ]
@@ -397,11 +408,15 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                     xtype: 'pagingtoolbar',
                     dock: 'bottom',
                     width: 360,
+                    store: 'commitinSpecialModels',
                     displayInfo: true
                 }
             ],
             selModel: {
                 selType: 'checkboxmodel'
+            },
+            listeners: {
+                itemdblclick: 'onItemDblClick'
             }
         }
     ]

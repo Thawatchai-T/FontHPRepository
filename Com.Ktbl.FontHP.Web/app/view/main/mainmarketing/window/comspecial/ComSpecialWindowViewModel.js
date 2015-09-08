@@ -15,6 +15,6 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindowViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.mainmainmarketingwindowcomspecialcomspecialwindow'
+    alias: 'viewmodel.comspecialwindow'
 
 });

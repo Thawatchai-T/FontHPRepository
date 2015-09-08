@@ -75,7 +75,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.WindowMainApp', {
                     }
                 },
                 {
-                    xtype: 'mainmainmarketingwindowcommhiringwindow',
+                    //xtype: 'mainmainmarketingwindowcommhiringwindow',commhiringtab
+                    xtype: 'commhiringtab',
                     tabConfig: {
                         xtype: 'tab',
                         iconCls: 'icon-comHir'
@@ -91,13 +92,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.WindowMainApp', {
                     }
                 },
                 {
-                    xtype: 'mainmainmarketingwindowcomspecialcomspecialwindow',
+                    xtype: 'comspecialwindow',
                     title: 'ค่าส่งเสริมการขายพิเศษ',
                     tabConfig: {
                         xtype: 'tab',
                         iconCls: 'icon-comSpe'
                     }
                 },
+                
                 {
                     xtype: 'mainmainmarketingwindowleadwindow',
                     tabConfig: {
