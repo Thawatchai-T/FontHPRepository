@@ -15,7 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.PopupEmpSell', {
     extend: 'Ext.window.Window',
-    alias: 'widget.mainmainmarketingwindowcomspecialpopupempsell',
+    alias: 'widget.popupempsell',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.comspecial.PopupEmpSellViewModel',
@@ -63,6 +63,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.PopupEmpSell', 
                         labelAlign: 'right',
                         labelWidth: 190
                     },
+                    
                     bodyPadding: 5,
                     iconCls: 'icon-details',
                     title: 'ค้นหาข้อมูลพนักงานขาย/ผจก.ฝ่ายขาย',
@@ -74,8 +75,10 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.PopupEmpSell', 
                         {
                             xtype: 'textfield',
                             fieldLabel: 'พนักงานขาย/ผจก.ฝ่ายขาย',
-                            name: '',
-                            emptyText: '[พนักงานขาย/ผจก.ฝ่ายขาย]'
+                            emptyText: '[พนักงานขาย/ผจก.ฝ่ายขาย]',
+                            name: 'QMarketingName',
+                          
+
                         }
                     ]
                 },
@@ -127,27 +130,37 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.PopupEmpSell', 
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'codeMarket',
+                    dataIndex: 'MarketingCode',
                     text: 'รหัส'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'nameMarket',
+                    dataIndex: 'MarketingName',
                     text: 'พนักงานขาย/ผจก.ฝ่ายขาย',
                     flex: -1
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'tel',
-                    text: 'เบอร์โทรศัพท์มือถือ',
-                    flex: -1
-                }
+                    dataIndex: 'TypeDealer',
+                    text: 'ประเภทตัวแทนจำหน่าย',
+                    
+                },
+                 {
+                     xtype: 'gridcolumn',
+                     dataIndex: 'TypeSell',
+                     text: 'ประเภทส่งเสริมการขาย',
+                     
+                 }
             ],
+            listeners: {
+                itemdblclick: 'onItemDblClick'
+            },
             dockedItems: [
                 {
                     xtype: 'pagingtoolbar',
                     dock: 'bottom',
                     width: 360,
+                    store: 'marketModels',
                     displayInfo: true
                 }
             ]

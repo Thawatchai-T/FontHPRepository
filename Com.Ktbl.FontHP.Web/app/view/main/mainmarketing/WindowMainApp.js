@@ -139,7 +139,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.WindowMainApp', {
                     }
                 },
                 {
-                    xtype: 'mainmainmarketingwindowcustomeraddresswindow',
+                    //xtype: 'mainmainmarketingwindowcustomeraddresswindow',
+                    xtype: 'customeraddresstab',
                     tabConfig: {
                         xtype: 'tab',
                         iconCls: 'icon-address'

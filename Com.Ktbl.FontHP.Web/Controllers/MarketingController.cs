@@ -146,12 +146,12 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         {
             //TODO:  Donot implement search by name
 
-                        lmkt.Add(new MarketingModel{id= 1, MarketingName = "สมชาย รักชาย", MarketingCode ="00001", PhoneNo="0844445344" });
-                        lmkt.Add(new MarketingModel{id= 2, MarketingName = "สมชาย รักหญิง", MarketingCode ="00002", PhoneNo="0844412344" });
-                        lmkt.Add(new MarketingModel{id= 3, MarketingName = "สมหญิง รักแฟน", MarketingCode ="00003", PhoneNo="0844444444" });
-                        lmkt.Add(new MarketingModel{id= 4, MarketingName = "สมรัก รักเมืองไทย", MarketingCode ="00004", PhoneNo="0844447894" });
-                        lmkt.Add(new MarketingModel{id= 5, MarketingName = "สมส่วน รักความสวย", MarketingCode ="00004", PhoneNo="0844446544" });
-                        lmkt.Add(new MarketingModel{id= 6, MarketingName = "สมสัก รักสี", MarketingCode ="00004", PhoneNo="0844455444" });
+                        lmkt.Add(new MarketingModel { id = 1, MarketingName = "สมชาย รักชาย", MarketingCode = "00001", PhoneNo = "0844445344", TypeDealer = "นิติบุคคล", TypeSell="พิเศษ1" });
+                        lmkt.Add(new MarketingModel { id = 2, MarketingName = "สมชาย รักหญิง", MarketingCode = "00002", PhoneNo = "0844412344", TypeDealer = "บุคคลธรรมดา", TypeSell = "พิเศษ1" });
+                        lmkt.Add(new MarketingModel { id = 3, MarketingName = "สมหญิง รักแฟน", MarketingCode = "00003", PhoneNo = "0844444444", TypeDealer = "นิติบุคคล", TypeSell = "พิเศษ2" });
+                        lmkt.Add(new MarketingModel { id = 4, MarketingName = "สมรัก รักเมืองไทย", MarketingCode = "00004", PhoneNo = "0844447894", TypeDealer = "นิติบุคคล", TypeSell = "พิเศษ2" });
+                        lmkt.Add(new MarketingModel { id = 5, MarketingName = "สมส่วน รักความสวย", MarketingCode = "00005", PhoneNo = "0844446544", TypeDealer = "บุคคลธรรมดา", TypeSell = "พิเศษ1" });
+                        lmkt.Add(new MarketingModel { id = 6, MarketingName = "สมสัก รักสี", MarketingCode = "00006", PhoneNo = "0844455445", TypeDealer = "บุคคลธรรมดา", TypeSell = "พิเศษ1" });
 
                         lmkt = (string.IsNullOrEmpty(text))?lmkt:lmkt.Where(x=>x.MarketingName.Contains(text)).ToList<MarketingModel>();
 
@@ -230,11 +230,11 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         public List<GridPopCusAddress> GetGridPopCusAddress(int start, int limit, int page)
         {
             List<GridPopCusAddress> list = new List<GridPopCusAddress>();
-            list.Add(new GridPopCusAddress { id= 1, AddressType = "ประเภทที่อยู่1", Address = "ปิ่นเกล้า", Tel = "037200001", Fax = "Fax001", LiveFrom = Convert.ToDateTime("10-05-2009") });
-            list.Add(new GridPopCusAddress { id = 2, AddressType = "ประเภทที่อยู่2", Address = "บางนา", Tel = "038300001", Fax = "Fax002", LiveFrom = Convert.ToDateTime("07-10-2008") });
-            list.Add(new GridPopCusAddress { id = 3, AddressType = "ประเภทที่อยู่3", Address = "ปบางกะปิ", Tel = "039400001", Fax = "Fax003", LiveFrom = Convert.ToDateTime("12-09-2007") });
-            list.Add(new GridPopCusAddress { id = 4, AddressType = "ประเภทที่อยู่4", Address = "เจ้าพระยา", Tel = "028500001", Fax = "Fax004", LiveFrom = Convert.ToDateTime("13-07-2006") });
-            list.Add(new GridPopCusAddress { id = 5, AddressType = "ประเภทที่อยู่5", Address = "วงเวียนใหญ่", Tel = "037600001", Fax = "Fax005", LiveFrom = Convert.ToDateTime("01-04-2005") });
+            list.Add(new GridPopCusAddress { id = 1, AddressType = "ประเภทที่อยู่1", Address = "ปิ่นเกล้า", PhoneNo = "037200001", FaxNo = "Fax001", StayFromDate = Convert.ToDateTime("10-05-2009") });
+            list.Add(new GridPopCusAddress { id = 2, AddressType = "ประเภทที่อยู่2", Address = "บางนา", PhoneNo = "038300001", FaxNo = "Fax002", StayFromDate = Convert.ToDateTime("07-10-2008") });
+            list.Add(new GridPopCusAddress { id = 3, AddressType = "ประเภทที่อยู่3", Address = "ปบางกะปิ", PhoneNo = "039400001", FaxNo = "Fax003", StayFromDate = Convert.ToDateTime("12-09-2007") });
+            list.Add(new GridPopCusAddress { id = 4, AddressType = "ประเภทที่อยู่4", Address = "เจ้าพระยา", PhoneNo = "028500001", FaxNo = "Fax004", StayFromDate = Convert.ToDateTime("13-07-2006") });
+            list.Add(new GridPopCusAddress { id = 5, AddressType = "ประเภทที่อยู่5", Address = "วงเวียนใหญ่", PhoneNo = "037600001", FaxNo = "Fax005", StayFromDate = Convert.ToDateTime("01-04-2005") });
             
             return list ;
         }
@@ -291,6 +291,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             var result = new GuiPopupCusAddress
             {
                id = 15,
+               CutomerType = "ผู้คำประกัน",
                AddressNo = "11123",
                AddressType = "ประเภทที่อยู่1",
                Amphur ="02",

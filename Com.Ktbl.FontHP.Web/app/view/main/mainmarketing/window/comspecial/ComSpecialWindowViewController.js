@@ -18,7 +18,37 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
     alias: 'controller.comspecialwindow',
 
     onSelectEmpClick: function(button, e, eOpts) {
-        Ext.widget("mainmainmarketingwindowcomspecialpopupempsell").show();
+        //[20150909] Add by p2p
+        var me = this,
+            refs = me.getReferences(),
+            marketingcode = refs.homefieldset.down('#marketing-code'),
+            marketingname = refs.homefieldset.down('#marketing-name')
+
+        Ext.widget("popupempsell", {
+
+            listeners: {
+                afterRender: function (panal, eOpts) {
+
+                    var store = panal.down('grid').getStore();
+                    store.extraParams = {};
+                    store.load();
+
+                },
+                close: function (panal, eOpts) {
+
+                    var grid = panal.down('grid'),
+                        selection = grid.getSelection();
+                    if (selection.length > 0) {
+
+                        record = selection[0];
+                        marketingcode.setValue(record.get('MarketingCode'));
+                        marketingname.setValue(record.get('MarketingName'));
+
+
+                    }
+                }
+            }
+        }).show();
     },
 
     onSaveClick: function(button, e, eOpts) {

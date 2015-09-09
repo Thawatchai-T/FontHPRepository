@@ -34,6 +34,13 @@ Ext.define('FrontHPApp.model.MarketModel', {
         },
         {
             name: 'PhoneNo'
+        },
+        {
+            name: 'TypeDealer'
+        },
+        {
+            name: 'TypeSell'
         }
+
     ]
 });

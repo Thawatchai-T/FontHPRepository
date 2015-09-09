@@ -11,8 +11,8 @@ namespace Com.Ktbl.FontHP.Web.Models
         public int id { get; set; }
         public string AddressType { get; set; }
         public string Address { get; set; }
-        public string Tel { get; set; }
-        public string Fax { get; set; }
-        public DateTime LiveFrom { get; set; }
+        public string PhoneNo { get; set; }
+        public string FaxNo { get; set; }
+        public DateTime StayFromDate { get; set; }
     }
 }

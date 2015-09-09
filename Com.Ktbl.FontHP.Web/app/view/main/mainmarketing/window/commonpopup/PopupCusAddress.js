@@ -237,7 +237,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                         },
                         {
                               // xtype: 'hiddenfield',
-                              xtype: 'textfield',
+                              xtype: 'hiddenfield',
                               name: 'id',
                               value: 'hidden field'
                         }
@@ -309,12 +309,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'Tel',
+                    dataIndex: 'PhoneNo',
                     text: 'โทรศัพท์'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'Fax',
+                    dataIndex: 'FaxNo',
                     text: 'แฟกซ์'
                 },
                 {
@@ -322,7 +322,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
                     renderer: function (value, metaData, record, rowIndex, colIndex, store, view) {
                         return Ext.Date.format(value, 'd/m/Y');
                     },
-                    dataIndex: 'LiveFrom',
+                    dataIndex: 'StayFromDate',
                     text: 'อาศัยตั้งแต่'
                 }
             ],

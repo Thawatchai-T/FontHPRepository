@@ -18,7 +18,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.PopupEmpSellVie
     alias: 'controller.mainmainmarketingwindowcomspecialpopupempsell',
 
     onFindClick: function(button, e, eOpts) {
+        //[20150909] Add by p2p 
+        var me = this,
+            views = this.getView(),
+            form = views.down('form').getForm(),
+            store = views.down('grid').getStore();
+        store.getProxy().setExtraParam('text', form.findField('QMarketingName').getValue());
 
+        store.load();
     },
 
     onClearClick: function(button, e, eOpts) {
@@ -26,6 +33,10 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.PopupEmpSellVie
             form = me.down('form');
         paging = me.down('pagingtoolbar');
         form.reset();
+    },
+    onItemDblClick: function (dataview, record, item, index, e, eOpts) {
+        this.getView().close();
     }
+
 
 });

@@ -36,15 +36,15 @@ Ext.define('FrontHPApp.model.AddressCusModel', {
             name: 'Address'
         },
         {
-            name: 'Tel'
+            name: 'PhoneNo'
         },
         {
             type: 'string',
-            name: 'Fax'
+            name: 'FaxNo'
         },
         {
             type:'date',
-            name: 'LiveFrom'
+            name: 'StayFromDate'
         }
     ]
 });

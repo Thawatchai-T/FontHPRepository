@@ -15,7 +15,8 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.mainmainmarketingwindowcustomeraddresswindow',
+    // alias: 'widget.mainmainmarketingwindowcustomeraddresswindow',
+    alias: 'widget.customeraddresstab',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindowViewModel',
@@ -76,7 +77,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                             colspan: 2,
                             fieldLabel: 'ประเภทลูกค้า',
                             labelCls: 'text-require',
-                            name: '',
+                            name: 'CutomerType',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.TypeCustomerStore',
@@ -88,7 +89,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                             colspan: 2,
                             width: 490,
                             labelCls: 'text-require',
-                            name: '',
+                            name: 'AddressType',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
                             store: 'combo.TypeAddressStore',
@@ -99,14 +100,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                             colspan: 2,
                             fieldLabel: 'หมายเลขบ้าน',
                             labelCls: 'text-require',
-                            name: '',
+                            name: 'RegistNo',
                             emptyText: '[หมายเลขบ้าน]'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'บริษัทที่ทำงาน และ เลขที่',
                             labelCls: 'text-require',
-                            name: '',
+                            name: 'AddressNo',
                             emptyText: '[บริษัทที่ทำงาน และ เลขที่]'
                         },
                         {
@@ -115,7 +116,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                                 ' '
                             ],
                             fieldLabel: 'หมู่',
-                            name: '',
+                            name: 'Moo',
                             emptyText: '[หมู่]'
                         },
                         {
@@ -124,7 +125,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                                 ' '
                             ],
                             fieldLabel: 'หมู้บ้าน/อาคาร',
-                            name: '',
+                            name: 'MooBaan',
                             emptyText: '[หมู้บ้าน/อาคาร]'
                         },
                         {
@@ -133,7 +134,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                                 ' '
                             ],
                             fieldLabel: 'ซอย',
-                            name: '',
+                            name: 'Soi',
                             emptyText: '[ซอย]'
                         },
                         {
@@ -142,7 +143,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                                 '  '
                             ],
                             fieldLabel: 'ถนน',
-                            name: '',
+                            name: 'Street',
                             emptyText: '[ถนน]'
                         },
                         {
@@ -151,7 +152,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                             reference: 'province',
                             labelCls: 'text-require',
                             autoLoadOnValue: true,
-                            name: '',
+                            name: 'Province',
                             emptyText: '[จังหวัด]',
                             displayField: 'Name',
                             store: 'provinceModels',
@@ -167,7 +168,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                             reference: 'district',
                             labelCls: 'text-require',
                             autoLoadOnValue: true,
-                            name: '',
+                            name: 'Amphur',
                             emptyText: '[อำเภอ]',
                             displayField: 'Name',
                             store: 'districtModels',
@@ -182,7 +183,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                             labelCls: 'text-require',
                             reference: 'subdistrict',
                             autoLoadOnValue: true,
-                            name: '',
+                            name: 'Tambon',
                             emptyText: '[ตำบล]',
                             displayField: 'Name',
                             store: 'subDistrictModels',
@@ -195,7 +196,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                             xtype: 'textfield',
                             fieldLabel: 'รหัสไปรษณีย์',
                             labelCls: 'text-require',
-                            name: '',
+                            name: 'ZipCode',
                             emptyText: '[รหัสไปรษณีย์]'
                         },
                         {
@@ -204,7 +205,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                                 '  '
                             ],
                             fieldLabel: 'โทรศัพท์',
-                            name: '',
+                            name: 'PhoneNo',
                             emptyText: '[โทรศัพท์]'
                         },
                         {
@@ -213,7 +214,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                                 ' '
                             ],
                             fieldLabel: 'แฟกซ์',
-                            name: '',
+                            name: 'FaxNo',
                             emptyText: '[แฟกซ์]'
                         },
                         {
@@ -222,7 +223,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                                 ' '
                             ],
                             fieldLabel: 'อาศัยตั้งแต่',
-                            name: '',
+                            name: 'StayFromDate',
                             emptyText: '[อาศัยตั้งแต่]'
                         },
                         {
@@ -233,7 +234,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                             fieldLabel: 'โทรศัพท์มือถือ',
                             labelAlign: 'right',
                             labelWidth: 190,
-                            name: '',
+                            name: 'Mobile',
                             emptyText: '[โทรศัพท์มือถือ]'
                         },
                         {
@@ -242,8 +243,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                                 ' '
                             ],
                             fieldLabel: 'โทรศัพท์อื่นๆ',
-                            name: 'CardExpireDate',
+                            name: 'PhoneOther',
                             emptyText: '[โทรศัพท์อื่นๆ]'
+                        },
+                        {
+                              // xtype: 'hiddenfield',
+                              xtype: 'hiddenfield',
+                              name: 'id',
+                              value: 'hidden field'
                         }
                     ]
                 },
@@ -295,37 +302,40 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
             title: 'ข้อมูลที่อยู่',
             store: 'addressCusModels',
             columns: [
-                {
-                    xtype: 'rownumberer',
-                    width: 45,
-                    text: 'ลำดับ'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'addressType',
-                    text: 'ประเภทที่อยู่'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'address',
-                    text: 'ที่อยู่',
-                    flex: -1
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'Tel',
-                    text: 'โทรศัพท์'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'fax',
-                    text: 'แฟกซ์'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'livebetween',
-                    text: 'อาศัยตั้งแต่'
-                }
+               {
+                   xtype: 'rownumberer',
+                   width: 45,
+                   text: 'ลำดับ'
+               },
+               {
+                   xtype: 'gridcolumn',
+                   dataIndex: 'AddressType',
+                   text: 'ประเภทที่อยู่'
+               },
+               {
+                   xtype: 'gridcolumn',
+                   dataIndex: 'Address',
+                   text: 'ที่อยู่',
+                   flex: -1
+               },
+               {
+                   xtype: 'gridcolumn',
+                   dataIndex: 'PhoneNo',
+                   text: 'โทรศัพท์'
+               },
+               {
+                   xtype: 'gridcolumn',
+                   dataIndex: 'FaxNo',
+                   text: 'แฟกซ์'
+               },
+               {
+                   xtype: 'gridcolumn',
+                   renderer: function (value, metaData, record, rowIndex, colIndex, store, view) {
+                       return Ext.Date.format(value, 'd/m/Y');
+                   },
+                   dataIndex: 'StayFromDate',
+                   text: 'อาศัยตั้งแต่'
+               }
             ],
             dockedItems: [
                 {
@@ -344,7 +354,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                             iconCls: 'icon-edit',
                             text: 'แก้ไข',
                             listeners: {
-                                click: 'onEditGridClick'
+                                click: 'onEditClick'
                             }
                         },
                         {
@@ -353,7 +363,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                             iconCls: 'icon-delete',
                             text: 'ลบ',
                             listeners: {
-                                click: 'onDeleteGridClick'
+                                click: 'onDeleteClick'
                             }
                         }
                     ]
@@ -362,12 +372,16 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.CustomeraddressWindow', {
                     xtype: 'pagingtoolbar',
                     dock: 'bottom',
                     width: 360,
+                    store: 'addressCusModels',
                     displayInfo: true
                 }
             ],
             selModel: {
                 selType: 'checkboxmodel'
-            }
+            },
+            listeners: {
+                itemdblclick: 'onItemDblClick'
+            },
         }
     ]
 

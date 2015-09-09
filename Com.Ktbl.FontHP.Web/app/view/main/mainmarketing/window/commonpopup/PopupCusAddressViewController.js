@@ -106,27 +106,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddres
 
     onEditClick: function(button, e, eOpts) {
         var me = this.getView(),
-            grid = me.down('gridpanel'),
-            store = grid.getStore(),
-            record = grid.getSelection();
+        grid = me.down('gridpanel'),
+        store = grid.getStore(),
+        record = grid.getSelection();
         if (record.length > 0) {
             var form = this.getView().down('form').getForm();
-
-            Ext.Ajax.request({
-                url: 'api/Marketing/GetAddressById',
-                method: 'get',
-                params: {
-                    id: record[0].get('id')
-                },
-                success: function (response) {
-                    var text = Ext.decode(response.responseText),
-                        model = Ext.create('FrontHPApp.model.AddressCusFormModel', text);
-
-                    form.loadRecord(model);
-
-                    // process server response here
-                }
-            });
+            form.loadRecord(record[0]);
         }
     },
 

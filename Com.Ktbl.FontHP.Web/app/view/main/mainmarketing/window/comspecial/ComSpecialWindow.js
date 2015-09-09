@@ -63,6 +63,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                         labelAlign: 'right',
                         labelWidth: 190
                     },
+                    reference: 'homefieldset',
                     title: 'ค่าส่งเสรมการขายพิเศษ',
                     layout: {
                         type: 'table',
@@ -84,6 +85,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                                     labelAlign: 'right',
                                     labelWidth: 190,
                                     name: 'MarketingUserShow',
+                                    itemId: 'marketing-code',
                                     emptyText: '[รหัส]'
                                 },
                                 {
@@ -100,6 +102,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.comspecial.ComSpecialWindo
                                     xtype: 'textfield',
                                     fieldLabel: '',
                                     name: 'MarketingNameShow',
+                                    itemId: 'marketing-name',
                                     emptyText: '[พนักงานขาย/ผจก.ฝ่ายขาย]'
                                 }
                             ]

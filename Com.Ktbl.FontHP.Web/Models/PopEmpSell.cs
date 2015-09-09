@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace Com.Ktbl.FontHP.Domain.ViewsModel
+namespace Com.Ktbl.FontHP.Web.Models
 {
-    public class MarketingModel
+    public class EmployeeSellModel
     {
         public int id { get; set; }
         public string MarketingCode { get; set; }
         public string MarketingName { get; set; }
-        public string PhoneNo { get; set; }
         public string TypeDealer { get; set; }
         public string TypeSell { get; set; }
 

@@ -26,6 +26,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             pagemodel.total = 10;
             return pagemodel;
         }
+ 
         public Boolean Insert(ComSpacialViewModel obj)
         {
 
@@ -76,8 +77,8 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             //TODO:  not implement
         }
         #endregion
-      
-        
+       
+
 
     }
 }

@@ -8,6 +8,7 @@ namespace Com.Ktbl.FontHP.Web.Models
     //add class p2p
     public class GuiPopupCusAddress
     {
+        public string CutomerType { get; set; }
         public string AddressType { get; set; }
         public string RegistNo { get; set; }
         public string AddressNo { get; set; }

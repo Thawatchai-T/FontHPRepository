@@ -28,6 +28,9 @@ Ext.define('FrontHPApp.model.AddressCusFormModel', {
             name: 'id'
         },
         {
+            name: 'CutomerType'
+        },
+        {
             name: 'AddressNo'
         },
         {
@@ -58,6 +61,7 @@ Ext.define('FrontHPApp.model.AddressCusFormModel', {
             name: 'Soi'
         },
         {
+            type: "date",
             name: 'StayFromDate'
         },
         {
