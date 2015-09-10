@@ -18,11 +18,32 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTabViewController',
     alias: 'controller.mainmaincheckdocdocumenthistorytab',
 
     onClearClick: function(button, e, eOpts) {
-        var v = this.getView(),
-            form = v.down("#formHistoryPaper");
+        var me = this.getView(),
+          form = me.down('form');
+
+        paging = me.down('pagingtoolbar'),
+        store = paging.getStore();
+        store.getProxy().extraParams = {};
         form.reset();
+        store.load();
 
 
-    }
+    },
+    onFindClick: function(button, e, eOpts) {
+       
+    var me = this,
+       views = this.getView(),
+       form = views.down('form').getForm(),
+       store = views.down('grid').getStore();
+
+    store.getProxy().setExtraParam('startdate', form.findField('QStartDate').getValue());
+    store.getProxy().setExtraParam('enddate', form.findField('QEnddate').getValue());
+    store.getProxy().setExtraParam('cusname', form.findField('QCusname').getValue());
+    store.getProxy().setExtraParam('statusrequest', form.findField('QStatusRequest').getValue());
+    store.getProxy().setExtraParam('requestno', form.findField('QRequestNo').getValue());
+    store.getProxy().setExtraParam('citizenid', form.findField('QCitizenID').getValue());
+    store.getProxy().setExtraParam('branch', form.findField('QBranch').getValue());
+    store.load();
+},
 
 });

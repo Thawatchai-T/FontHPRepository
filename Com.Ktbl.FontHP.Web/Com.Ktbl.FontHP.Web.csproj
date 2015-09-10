@@ -141,6 +141,7 @@
   <ItemGroup>
     <Compile Include="Controllers\CardTypeController.cs" />
     <Compile Include="Controllers\CardTypeTabController.cs" />
+    <Compile Include="Controllers\CheckDocumentController.cs" />
     <Compile Include="Controllers\ComHiringController.cs" />
     <Compile Include="Controllers\ComInsController.cs" />
     <Compile Include="Controllers\ComSpacialController.cs" />
@@ -156,6 +157,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CardTypeViewModel.cs" />
+    <Compile Include="Models\HistoryDocumentViewModel.cs" />
+    <Compile Include="Models\CheckDocumentViewModel.cs" />
     <Compile Include="Models\ComboBox.cs" />
     <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\InsCompulsoryModel.cs" />
