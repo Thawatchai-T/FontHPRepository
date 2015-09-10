@@ -34,57 +34,6 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTabViewController', {
                     store.getProxy().setExtraParam("CitizenID", form.findField('CitizenID').getValue());
                     store.getProxy().setExtraParam("Branch", form.findField('Branch').getValue());
                     store.load();
-                    console.log(store);
-               
-            
-            //-----------------------------------------------------------------------------------
-
-            //old code
-            //form.submit({
-            //    url: 'api/marketing/SearchMainRequest',
-            //    submitEmptyText:false,
-            //    //params: {
-            //    //    StartDate: Ext.Date.format(txtdateFrom, 'd/m/Y'),
-            //    //    Enddate:   Ext.Date.format(txtdateTo, 'd/m/Y'),
-            //    //    RequestNo: me.down('[name=RequestNo]').getValue(),
-            //    //    StatusRequest: me.down('[name=StatusRequest]').getValue(),
-            //    //    CitizenID: me.down('[name=CitizenID]').getValue(),
-            //    //    Cusname: me.down('[name=Cusname]').getValue(),
-            //    //    Branch: me.down('[name=Branch]').getValue(),
-
-            //    //},
-            //    success: function (form, action) {
-            //        console.log(action);
-            //        var grid = me.down('grid'),
-            //            store = grid.getStore();
-
-            //        //store.getProxy().extraParams.obj = action.result;
-            //        var records = Ext.create('model.requestmodel', action.result);
-            //        store.loadRecords(records);
-            //        grid.view.refresh();
-            //    },
-            //    failure: function (form, action) {
-            //        console.log(action);
-            //        var grid = me.down('grid'),
-            //            store = grid.getStore();
-
-            //        //store.getProxy().extraParams.obj = action.result;
-            //        //start close pom because Error
-            //        
-            //        console.log(records);
-            //        Ext.Array.each(action.result, function (record,index) {
-            //            console.log(record);
-            //            var records = Ext.create('model.requestmodel', record);
-            //            store.loadRecords(records, {
-            //            addRecords: true
-            //        });
-            //        })
-            //        
-            //        grid.view.refresh();
-            //        //*close pom because Error
-            //       // Ext.Msg.alert('Failed', action.result.msg);
-            //    }
-            //});
         }
     },
 
@@ -115,14 +64,62 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTabViewController', {
                     beforerender: function (panal, eOpts) {
                         var maintab = panal.down('#main-tab'),
                             tab1 = maintab.down('#tabperson'),
-                            formtab1 = Ext.getCmp('requestcustomer-tab').down('#form1');
+                            insurancetab = Ext.getCmp('insurance-window-tab'),
+                            formtab1 = Ext.getCmp('request-customer-tab').down('#form1');
 
                         if (selection.length > 0) {
 
                             var record = selection[0];
                             formtab1.getForm().loadRecord(record);
+                            //insurancetab.getForm().load({
+                            //    url: 'api/Insurance/GetInsurenByRequstId',
+                            //    method: 'get',
+                            //    params: {
+                            //        requestid: record.get('RequestNo')
+                            //    }
+                            //});
 
+                            //Send requestId to Insurance woody 20150910
+                            Ext.Ajax.request({
+                                url: 'api/Insurance/GetInsurenByRequstId',
+                                method: 'get',
+                                params: {
+                                    requestid: record.get('RequestNo')
+                                },
+                                success: function (response) {
+                                    
+                                    var obj = Ext.decode(response.responseText);
+                                    var objIns = obj.data.objIns;
+                                    console.log(objIns);
+                                    var datamodel = Ext.create('FrontHPApp.model.InsuranceFormModelTest', obj.data);
+                                   // var datamodel1 = Ext.create('FrontHPApp.model.InsuranceFormModelTest', obj.data.objCom);
+                                    insurancetab.getForm().loadRecord(datamodel);
+                                    //insurancetab.getForm().loadRecord(datamodel1);
+                                    console.log(datamodel);
+
+                                },
+                                failure: function (response) {
+                                    console.log("Curses, something terrible happened");
+                                },
+                                callback: function (options, success, response) {
+                                    console.log("It is what it is");
+                                }
+                            });
+                            
                         }
+
+                        //var forminsurancetab = Ext.getCmp('insurancewindowtab').down('form').getForm();
+                        //Ext.Ajax.request({
+                        //    url: '',
+                        //    params: {
+                        //        id: 1
+                        //    },
+                        //    success: function (response) {
+                        //        var text = response.responseText;
+                        //        // process server response here
+                        //    }
+                        //});
+
                     }
                 }
             }).show();

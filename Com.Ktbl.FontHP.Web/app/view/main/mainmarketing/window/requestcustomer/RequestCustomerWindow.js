@@ -46,7 +46,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
     scrollable: true,
     bodyPadding: 10,
     title: 'ข้อมูลผู้เช่าซื้อ',
-    id: 'requestcustomer-tab',
+    id: 'request-customer-tab',
     layout: {
         type: 'vbox',
         align: 'stretch'
@@ -116,7 +116,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     xtype: 'textfield',
                                     allowBlank: false,
                                     emptyText: '[รหัสสาขา]',
-                                    name: 'BranchCodeShow',
+                                    name: 'BranchNo',
                                     itemId: 'branch-no'
 
 
@@ -316,7 +316,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             xtype: 'textfield',
                             fieldLabel: 'เลขที่บัตรประชาชน',
                             allowBlank: false,
-                            name: 'CitizenId',
+                            
                             emptyText: '[เลขที่บัตรประชาชน]',
                             name: 'CitizenID'
                         },

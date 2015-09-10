@@ -67,7 +67,9 @@ Ext.application({
         //insert model 20150908
         'ComHiringFormModel',
         'ComInsFormModel',
-        'ComSpacialFormModel'
+        'ComSpacialFormModel',
+        'InsuranceFormModel',
+        'InsuranceFormModelTest'
 
     ],
     stores: [

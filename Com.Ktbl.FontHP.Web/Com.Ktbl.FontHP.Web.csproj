@@ -148,13 +148,17 @@
     <Compile Include="Controllers\Default1Controller.cs" />
     <Compile Include="Controllers\GarantorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InsuranceController.cs" />
     <Compile Include="Controllers\MktLimit60Controller.cs" />
     <Compile Include="Controllers\MarketingController.cs" />
+    <Compile Include="Controllers\StatusInfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CardTypeViewModel.cs" />
     <Compile Include="Models\ComboBox.cs" />
+    <Compile Include="Models\DataModel.cs" />
+    <Compile Include="Models\InsCompulsoryModel.cs" />
     <Compile Include="Models\ComSpacialViewModel.cs" />
     <Compile Include="Models\GarantorViewModel.cs" />
     <Compile Include="Models\ComHirViewModel.cs" />
@@ -164,10 +168,14 @@
     <Compile Include="Models\GridLead.cs" />
     <Compile Include="Models\GridPopCusAddress.cs" />
     <Compile Include="Models\GuiPopupCusAddress.cs" />
+    <Compile Include="Models\InsLoanProtectionModel.cs" />
+    <Compile Include="Models\InsuranceModel.cs" />
+    <Compile Include="Models\InsuranceViewModel.cs" />
     <Compile Include="Models\Limit60Grid.cs" />
     <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\PopEmpSell.cs" />
     <Compile Include="Models\SearchRequest.cs" />
+    <Compile Include="Models\StatusViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -187,6 +195,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="app.js" />
+    <Content Include="app\model\InsuranceFormModelTest.js" />
+    <Content Include="app\model\InsuranceFormModel.js" />
     <Content Include="app\model\CardTypeTabFormModel.js" />
     <Content Include="app\model\ComSpacialFormModel.js" />
     <Content Include="app\model\ComInsFormModel.js" />

@@ -22,86 +22,25 @@ Ext.define('FrontHPApp.store.statusModels', {
         'Ext.data.proxy.Memory'
     ],
 
-    constructor: function(cfg) {
+    constructor: function (cfg) {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
-            storeId: 'statusModels',
+            storeId: 'statusmodels',
             model: 'FrontHPApp.model.StatusModel',
-            data: [
-                {
-                    id: 862,
-                    Status: 'neque',
-                    Decription: 'autem',
-                    InsertDate: '11/26/2002',
-                    CreateUser: 'aperiam'
-                },
-                {
-                    id: 651,
-                    Status: 'quos',
-                    Decription: 'est',
-                    InsertDate: '11/15/2003',
-                    CreateUser: 'quia'
-                },
-                {
-                    id: 506,
-                    Status: 'nisi',
-                    Decription: 'et',
-                    InsertDate: '8/18/2012',
-                    CreateUser: 'non'
-                },
-                {
-                    id: 306,
-                    Status: 'eligendi',
-                    Decription: 'sed',
-                    InsertDate: '6/21/2007',
-                    CreateUser: 'cumque'
-                },
-                {
-                    id: 863,
-                    Status: 'dolores',
-                    Decription: 'totam',
-                    InsertDate: '8/14/2008',
-                    CreateUser: 'quis'
-                },
-                {
-                    id: 109,
-                    Status: 'nobis',
-                    Decription: 'nemo',
-                    InsertDate: '9/4/2013',
-                    CreateUser: 'et'
-                },
-                {
-                    id: 585,
-                    Status: 'iste',
-                    Decription: 'id',
-                    InsertDate: '8/19/2014',
-                    CreateUser: 'assumenda'
-                },
-                {
-                    id: 160,
-                    Status: 'veritatis',
-                    Decription: 'expedita',
-                    InsertDate: '1/16/2007',
-                    CreateUser: 'aspernatur'
-                },
-                {
-                    id: 396,
-                    Status: 'enim',
-                    Decription: 'voluptatem',
-                    InsertDate: '2/21/2003',
-                    CreateUser: 'ut'
-                },
-                {
-                    id: 646,
-                    Status: 'quas',
-                    Decription: 'ipsa',
-                    InsertDate: '4/28/2005',
-                    CreateUser: 'numquam'
-                }
-            ],
+            autoLoad: true,
             proxy: {
-                type: 'memory'
+                type: 'rest',
+                url: 'api/StatusInfo/getstatusinfoload',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'items'
+                },
+                api: {
+                    destroy: 'api/StatusInfo'
+                }
+
+
             }
         }, cfg)]);
     }

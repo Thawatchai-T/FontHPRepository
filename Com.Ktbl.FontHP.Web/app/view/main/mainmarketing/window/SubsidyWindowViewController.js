@@ -47,7 +47,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.SubsidyWindowViewControlle
 
     },
 
-    onAddClick: function(button, e, eOpts) {
+    onAddClick: function (button, e, eOpts) {
+        //woody  20150909
+        //var store = button.up('grid').getStore(),
+        //    model = Ext.create('FrontHPApp.model.SunsidyModel');
+
+        //store.insert(1, model);
 
     },
 

@@ -88,6 +88,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.StatusInfoWindow', {
                         {
                             xtype: 'pagingtoolbar',
                             dock: 'bottom',
+                            store: 'statusModels',
                             displayInfo: true
                         }
                     ]

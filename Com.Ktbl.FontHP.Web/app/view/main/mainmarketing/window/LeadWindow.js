@@ -15,7 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
     extend: 'Ext.form.Panel',
-    alias: 'widget.mainmainmarketingwindowleadwindow',
+    alias: 'widget.leadtab',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.LeadWindowViewModel',
@@ -69,12 +69,15 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             colspan: 2,
                             fieldLabel: 'เลขที่ใบ Lead',
                             labelCls: 'text-title',
-                            value: 'เลขที่ใบ Lead'
+                            name: 'LeadId',
+                            value: 'เลขที่ใบ Lead',
+                           
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'รหัสผู้แนะนำ',
                             labelCls: 'text-title',
+                            name: 'LeadNo',
                             value: 'รหัสผู้แนะนำ'
                         },
                         {
@@ -82,12 +85,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             margin: '0 0 0 50',
                             fieldLabel: 'สถานะใบ Lead',
                             labelCls: 'text-title',
+                            name: 'LeadStatus',
                             value: 'สถานะใบ Lead'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'ชื่อ',
                             labelCls: 'text-title',
+                            name: 'AdviserName',
                             value: 'ชื่อ'
                         },
                         {
@@ -95,6 +100,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             margin: '0 0 0 50',
                             fieldLabel: 'นามสกุล',
                             labelCls: 'text-title',
+                            name: 'AdviserSurName',
                             value: 'นามสกุล'
                         },
                         {
@@ -102,12 +108,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             colspan: 2,
                             fieldLabel: 'ตำแหน่งงาน',
                             labelCls: 'text-title',
+                            name: 'AdviserPosition',
                             value: 'ตำแหน่งงาน'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เบอร์โทรศัพท์ที่ทำงาน',
                             labelCls: 'text-title',
+                            name: 'AdviserTelOffice',
                             value: 'เบอร์โทรศัพท์ที่ทำงาน'
                         },
                         {
@@ -115,12 +123,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             margin: '0 0 0 50',
                             fieldLabel: 'เบอร์โทรศัพท์มือถือ',
                             labelCls: 'text-title',
+                            name: 'AdviserTelMobile',
                             value: 'เบอร์โทรศัพท์มือถือ'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'แฟกซ์',
                             labelCls: 'text-title',
+                            name: 'AdviserFax',
                             value: 'แฟกซ์'
                         },
                         {
@@ -128,6 +138,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             margin: '0 0 0 50',
                             fieldLabel: 'อีเมล์',
                             labelCls: 'text-title',
+                            name: 'AdviserEmail',
                             value: 'อีเมล์'
                         },
                         {
@@ -135,12 +146,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             colspan: 2,
                             fieldLabel: 'ที่อยู่',
                             labelCls: 'text-title',
+                            name: 'AdviserAddress',
                             value: 'ที่อยู่'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'จังหวัด',
                             labelCls: 'text-title',
+                            name: 'AdviserProvinceName',
                             value: 'จังหวัด'
                         },
                         {
@@ -148,6 +161,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             margin: '0 0 0 50',
                             fieldLabel: 'เลขที่บัตรประชาชน',
                             labelCls: 'text-title',
+                            name: 'AdviserCardID',
                             value: 'เลขที่บัตรประชาชน'
                         }
                     ]
@@ -181,12 +195,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             colspan: 2,
                             fieldLabel: 'ที่อยู่',
                             labelCls: 'text-title',
+                            name: 'CustomerAddress',
                             value: 'ที่อยู่'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'จังหวัด',
                             labelCls: 'text-title',
+                            name: 'CustomerProvinceName',
                             value: 'จังหวัด'
                         },
                         {
@@ -194,6 +210,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             margin: '0 0 0 50',
                             fieldLabel: 'รหัสไปรษณีย์',
                             labelCls: 'text-title',
+                            name: 'CustomerZipCode',
                             value: 'รหัสไปรษณีย์'
                         },
                         {
@@ -201,12 +218,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             colspan: 2,
                             fieldLabel: 'บุคคลที่ติดต่อด้วย',
                             labelCls: 'text-title',
+                            name: 'CustomerJuristicName',
                             value: 'บุคคลที่ติดต่อด้วย'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เบอร์โทรศัพท์บ้าน / ที่ทำงาน',
                             labelCls: 'text-title',
+                            name: 'CustomerTelephone',
                             value: 'เบอร์โทรศัพท์บ้าน / ที่ทำงาน'
                         },
                         {
@@ -215,12 +234,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             margin: '0 0 0 50',
                             fieldLabel: 'เบอร์โทรศัพท์มือถือ',
                             labelCls: 'text-title',
+                            name: 'CustomerMobile',
                             value: 'เบอร์โทรศัพท์มือถือ'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'อีเมล์',
                             labelCls: 'text-title',
+                            name: 'CustomerEmail',
                             value: 'อีเมล์'
                         },
                         {
@@ -229,12 +250,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             margin: '0 0 0 50',
                             fieldLabel: 'ประวัติการติดต่อกับธนาคารตั้งแต่ปี',
                             labelCls: 'text-title',
+                            name: 'CustomerYearContact',
                             value: 'ประวัติการติดต่อ'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'สถานะการจัดชั้นหนี้ปัจจุบัน',
                             labelCls: 'text-title',
+                            name: 'CustomerDebtLevel',
                             value: 'สถานะการจัดชั้นหนี้ปัจจุบัน'
                         },
                         {
@@ -243,6 +266,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             margin: '0 0 0 50',
                             fieldLabel: 'วงเงิน',
                             labelCls: 'text-title',
+                            name: 'CustomerDebtLimit',
                             value: 'วงเงิน'
                         }
                     ]
@@ -274,6 +298,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             colspan: 2,
                             fieldLabel: 'รหัสสาขา',
                             labelCls: 'text-title',
+                            name: 'BranchCode',
                             value: 'รหัสสาขา'
                         },
                         {
@@ -281,12 +306,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             colspan: 2,
                             fieldLabel: 'ที่อยู่',
                             labelCls: 'text-title',
+                            name: 'BranchAddress',
                             value: 'ที่อยู่'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'จังหวัด',
                             labelCls: 'text-title',
+                            name: 'BranchProvinceName',
                             value: 'จังหวัด'
                         },
                         {
@@ -295,12 +322,14 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             margin: '0 0 0 50',
                             fieldLabel: 'รหัสไปรษณีย์',
                             labelCls: 'text-title',
+                            name: 'BranchZipCode',
                             value: 'รหัสไปรษณีย์'
                         },
                         {
                             xtype: 'textfield',
                             fieldLabel: 'เลขที่บัญชี',
                             labelCls: 'text-title',
+                            name: 'BranchAccountCode',
                             value: 'เลขที่บัญชี'
                         },
                         {
@@ -308,6 +337,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             margin: '0 0 0 50',
                             fieldLabel: 'Tax ID',
                             labelCls: 'text-title',
+                            name: 'BranchTaxID',
                             value: 'Tax ID'
                         }
                     ]

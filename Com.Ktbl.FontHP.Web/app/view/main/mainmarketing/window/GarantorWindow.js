@@ -133,6 +133,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             labelCls: 'text-require',
                             name: 'GuarBirthDate',
                             allowBlank: false,
+                            format: 'd/m/Y',
                             emptyText: '[วัน/เดือน/ปีเกิด]'
                         },
                         {
@@ -177,6 +178,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             ],
                             fieldLabel: 'วันที่บัตรหมดอายุ',
                             name: 'GuarExpiryDate',
+                            format: 'd/m/Y',
                             emptyText: '[วันที่บัตรหมดอายุ]'
                         },
                         {
@@ -188,6 +190,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindow', {
                             labelCls: 'text-require',
                             name: 'CitizenStartDate',
                             allowBlank: false,
+                            format: 'd/m/Y',
                             emptyText: '[วันที่ออกบัตร]'
                         },
                         {
