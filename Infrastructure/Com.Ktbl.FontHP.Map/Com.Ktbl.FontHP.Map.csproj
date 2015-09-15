@@ -54,8 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Map\BrandMap.cs" />
     <Compile Include="Map\DistrictMap.cs" />
+    <Compile Include="Map\EntrelMap.cs" />
+    <Compile Include="Map\FamilyMap.cs" />
     <Compile Include="Map\LeadMktMap.cs" />
+    <Compile Include="Map\RBVehicleMap.cs" />
     <Compile Include="Map\RequestStatusMap.cs" />
     <Compile Include="Map\SubCareerMap.cs" />
     <Compile Include="Map\MainRequestMap.cs" />
@@ -70,6 +74,8 @@
     <Compile Include="Map\LeadHeaderMap.cs" />
     <Compile Include="Map\ThirdPartyMarketingMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\EntrelRepository.cs" />
+    <Compile Include="Repository\Redbook\BrandRepository.cs" />
     <Compile Include="Repository\CareerRepository.cs" />
     <Compile Include="Repository\LeadMarketingRepository.cs" />
     <Compile Include="Repository\MainRequestRepository.cs" />
@@ -77,6 +83,8 @@
     <Compile Include="Repository\OccupationRepository.cs" />
     <Compile Include="Repository\PopsitionRepository.cs" />
     <Compile Include="Repository\ProvinceRepository.cs" />
+    <Compile Include="Repository\Redbook\RBVehicleRepository.cs" />
+    <Compile Include="Repository\Redbook\FamilyRepository.cs" />
     <Compile Include="Repository\Request\RequestStatusRepository.cs" />
     <Compile Include="Repository\LeadHeaderRepository.cs" />
     <Compile Include="Repository\ThirdPartyMarketingRepository.cs" />

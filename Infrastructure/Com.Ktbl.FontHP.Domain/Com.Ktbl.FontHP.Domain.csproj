@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrandDomain.cs" />
     <Compile Include="Common\DistrictDomain.cs" />
     <Compile Include="Common\OccupationGroupDomain.cs" />
     <Compile Include="Common\Reqeust\RequestStatusDomain.cs" />
@@ -50,8 +51,11 @@
     <Compile Include="Common\ProvinceDomain.cs" />
     <Compile Include="Common\StandardCode.cs" />
     <Compile Include="Common\SubDistrictDomain.cs" />
+    <Compile Include="EntrelDomain.cs" />
+    <Compile Include="FamilyDomain.cs" />
     <Compile Include="LeadMktDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RBVehicleDomain.cs" />
     <Compile Include="ThirdPartyMarketingDomain.cs" />
     <Compile Include="ViewDomain\AddressDomain.cs" />
     <Compile Include="ViewDomain\District.cs" />
