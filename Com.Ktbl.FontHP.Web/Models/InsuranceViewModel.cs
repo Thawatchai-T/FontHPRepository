@@ -9,15 +9,16 @@ namespace Com.Ktbl.FontHP.Web.Models
     public class InsuranceViewModel
     {
 
-        public InsuranceModel objIns { get; set; }
-        public InsCompulsoryModel objCom { get; set; }
-      //  public InsLoanProtectionModel objLoan { get; set; }
+        public InsuranceModel InsuranceModel { get; set; }
+        public InsCompulsoryModel CompulsoryModel { get; set; }
+        public InsLoanProtectionModel LoanProtectionModel { get; set; }
 
        public  InsuranceViewModel()
         {
-            objIns = new InsuranceModel();
-            objIns.Customer = "สมควร";
-            objIns.ConditionInsurance = "มีนา คนดี";
+            InsuranceModel = new InsuranceModel();
+            InsuranceModel.Customer = "สมควร";
+            InsuranceModel.ConditionInsurance = "มีนา คนดี";
+            InsuranceModel.RequestNo = 1;
             //objIns.InsuranceCompany = "มีนา คนดี";
             //objIns.NoticeNo = "มีนา คนดี";
             //objIns.NoticeBy = "มีนา คนดี";
@@ -69,10 +70,12 @@ namespace Com.Ktbl.FontHP.Web.Models
 
 
 
-            objCom = new InsCompulsoryModel();
-            objCom.CompusaryInsCompany = "bar";
-            objCom.PrbPoicy = "foo";
-           // objLoan = new InsLoanProtectionModel();
+            CompulsoryModel = new InsCompulsoryModel();
+            CompulsoryModel.CompusaryInsCompany = "bar";
+            CompulsoryModel.PrbPoicy = "foo";
+            this.CompulsoryModel.RequestNo = 1;
+            LoanProtectionModel = new InsLoanProtectionModel();
+            this.LoanProtectionModel.RequestNo = 1;
         }
       
     }

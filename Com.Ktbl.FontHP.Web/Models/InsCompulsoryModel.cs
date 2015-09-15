@@ -23,5 +23,7 @@ namespace Com.Ktbl.FontHP.Web.Models
         public double Promotion { get; set; }
         public double PromotionDiscount { get; set; }
 
+
+        public int RequestNo { get; set; }
     }
 }

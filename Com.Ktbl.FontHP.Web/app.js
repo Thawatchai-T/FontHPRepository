@@ -68,8 +68,13 @@ Ext.application({
         'ComHiringFormModel',
         'ComInsFormModel',
         'ComSpacialFormModel',
-        'InsuranceFormModel',
-        'InsuranceFormModelTest'
+        //'InsuranceFormModel',
+        //'InsuranceFormModelTest',
+
+        'Insurance.LoanProtectionModel',
+        'Insurance.InsuranceModel',
+        'Insurance.CompulsoryModel',
+
 
     ],
     stores: [

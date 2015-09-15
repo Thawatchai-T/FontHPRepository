@@ -30,7 +30,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCardV
                     console.log(record);
 
                     store.add(record);
+                    //store.commitChanges();
                     store.sync();
+                    //store.sync();
 
                     //store.commitChanges();
 
@@ -77,7 +79,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCardV
 
     onEditClick: function(button, e, eOpts) {
         var me = this.getView(),
-            form = me.down('form').getForm(),
+            form = me.down('form'),
             grid = me.down('grid'),
             selection = grid.getSelection();
 

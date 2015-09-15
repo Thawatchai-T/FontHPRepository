@@ -89,12 +89,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTabViewController', {
                                 success: function (response) {
                                     
                                     var obj = Ext.decode(response.responseText);
-                                    var objIns = obj.data.objIns;
-                                    console.log(objIns);
-                                    var datamodel = Ext.create('FrontHPApp.model.InsuranceFormModelTest', obj.data);
-                                   // var datamodel1 = Ext.create('FrontHPApp.model.InsuranceFormModelTest', obj.data.objCom);
+                                    var datamodel = Ext.create('FrontHPApp.model.Insurance.InsuranceModel', obj);
                                     insurancetab.getForm().loadRecord(datamodel);
-                                    //insurancetab.getForm().loadRecord(datamodel1);
                                     console.log(datamodel);
 
                                 },

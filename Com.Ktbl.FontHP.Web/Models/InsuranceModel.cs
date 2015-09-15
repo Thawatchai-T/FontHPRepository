@@ -61,6 +61,8 @@ namespace Com.Ktbl.FontHP.Web.Models
         //public DateTime LoanProtectRequestDate { get; set; }
         //public string RejectReason { get; set; }
 
-        
+
+
+        public int RequestNo { get; set; }
     }
 }

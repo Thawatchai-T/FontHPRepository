@@ -223,6 +223,9 @@
     <Content Include="app\model\IncomeMainModel.js" />
     <Content Include="app\model\IncomeOtherModel.js" />
     <Content Include="app\model\IncomeSubModel.js" />
+    <Content Include="app\model\Insurance\CompulsoryModel.js" />
+    <Content Include="app\model\Insurance\InsuranceModel.js" />
+    <Content Include="app\model\Insurance\LoanProtectionModel.js" />
     <Content Include="app\model\JobIndex.js" />
     <Content Include="app\model\LoginModel.js" />
     <Content Include="app\model\MarketModel.js" />

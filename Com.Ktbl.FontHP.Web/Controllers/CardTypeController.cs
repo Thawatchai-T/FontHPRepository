@@ -23,7 +23,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         }
 
         // POST api/cardtype
-        public void Post(CardTypeViewModel modle)
+        public void Post([FromBody]CardTypeViewModel modle)
         {
 
         }

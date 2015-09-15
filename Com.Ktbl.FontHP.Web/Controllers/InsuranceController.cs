@@ -22,12 +22,12 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             return "value";
         }
 
-        public DataModel<InsuranceViewModel> GetInsurenByRequstId(int requestid)
+        public InsuranceViewModel GetInsurenByRequstId(int requestid)
         {
-            var data = new DataModel<InsuranceViewModel>();
-            data.success = true;
-            data.data = new InsuranceViewModel();
-            return data;
+            //var data = new DataModel<InsuranceViewModel>();
+            //data.success = true;
+            //data.data = new InsuranceViewModel();
+            return new InsuranceViewModel();
         }
 
         // POST api/insurance
