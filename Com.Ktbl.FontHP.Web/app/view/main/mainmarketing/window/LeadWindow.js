@@ -56,6 +56,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                         columns: 2
                     },
                     items: [
+                       
                         {
                             xtype: 'displayfield',
                             colspan: 2,
@@ -339,7 +340,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.LeadWindow', {
                             labelCls: 'text-title',
                             name: 'BranchTaxID',
                             value: 'Tax ID'
-                        }
+                        },
+                        
+                        
                     ]
                 }
             ]

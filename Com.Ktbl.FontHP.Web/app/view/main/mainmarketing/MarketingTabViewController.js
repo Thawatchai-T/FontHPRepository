@@ -126,17 +126,49 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTabViewController', {
         }
     },
 
-    onEditClick: function (button, e, eOpts) {
-        Ext.MessageBox.show({
-            title: 'Flag Cancel',
-            msg: 'เหตุผล Flag Cancel',
-            width:300,
-            buttons: Ext.MessageBox.OKCANCEL,
-            multiline: true,
-            scope: this,
-            fn: this.showResultText,
-            animateTarget: button
-        });
+    onCancelFlgClick: function (button, e, eOpts) {
+        //console.log(button);
+        var me = this.getView(),
+            grid = me.down('gridpanel'),
+            store = grid.getStore(),
+            record = grid.getSelection();
+        if (record.length > 0) {
+            Ext.MessageBox.show({
+                title: 'Flag Cancel',
+                msg: 'เหตุผล Flag Cancel',
+                width: 300,
+                buttons: Ext.MessageBox.OKCANCEL,
+                multiline: true,
+                scope: this,
+                fn: function (btn, text) {
+                    console.log(btn);
+
+                    if (btn == 'ok') {
+                        console.log(record[0].get('RequestNo'));
+                        Ext.Ajax.request({
+                            url: 'api/Marketing/GetCancelMarketingById',
+                            method: 'get',
+                            params: {
+                                id: record[0].get('RequestNo'),
+                                remark:text
+                            },
+                            success: function (response) {
+                                Ext.Msg.alert('Success', 'Cancel Flag เรียบร้อยแล้ว');
+                               
+
+                            }
+
+                        });
+                    }
+                  
+
+
+                },
+                animateTarget: button
+            });
+        }
+        
+       
     },
 
     onDetaillItemDblClick: function(dataview, record, item, index, e, eOpts) {

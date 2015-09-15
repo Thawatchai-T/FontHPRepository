@@ -44,6 +44,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCardV
         
     },
 
+
+
     onClearClick: function(button, e, eOpts) {
         var me = this.getView(),
             form = me.down('form');

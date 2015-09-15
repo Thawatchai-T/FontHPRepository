@@ -89,9 +89,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         {
             try
             {
-                //DateTime startdate = DateTime.ParseExact("20150701", "yyyyMMdd", CultureInfo.InvariantCulture);
-                //DateTime Enddate = DateTime.ParseExact("20150706", "yyyyMMdd", CultureInfo.InvariantCulture);
-                
+               
                 var result = this.MainRequestRepository.SearchMainRequest(obj.Branch,
                     obj.CitizenID, obj.Cusname, obj.Enddate, obj.RequestNo, obj.StartDate,
                     obj.StatusRequest);
@@ -244,21 +242,13 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         {
             List<GridPopCusAddress>  listGrid = new List<GridPopCusAddress>();
             List<GuiPopupCusAddress> list = new List<GuiPopupCusAddress>();
-         
-          
             if (obj.id != null)
             {
                 //Pk Update 
             }
             else
             {
-            //PK Insert  ครั้งแรก id ยังไม่มีต้องเพิ่มเอง
-           
-            //list.Add(new GuiPopupCusAddress { AddressType = obj.AddressType, RegistNo=obj.RegistNo, AddressNo=obj.AddressNo,
-            //                                  Moo=obj.Moo, MooBaan=obj.MooBaan,Soi=obj.Soi,Street=obj.Street,Province=obj.Province,
-            //                                  Amphur=obj.Amphur,Tambon=obj.Tambon,ZipCode=obj.ZipCode,PhoneNo=obj.PhoneNo,
-            //                                  FaxNo=obj.FaxNo,StayFromDate=obj.StayFromDate,Mobile=obj.Mobile,PhoneOther=obj.PhoneOther
-            //                                });
+            
             }
             return true;
         }
@@ -311,6 +301,25 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             };
             return result;
         }
+
+        #region Cancel Flag
+        public bool GetCancelMarketingById(string id,string remark)
+        {
+            try
+            {
+                string str = id;
+            }
+            catch (Exception ex )
+            {
+
+                throw ex; 
+            }
+                    
+
+
+            return true;
+        }
+        #endregion
     }
         
 }

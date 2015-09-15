@@ -121,11 +121,11 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
     },
 
     onSaveAddressCusClick1: function(button, e, eOpts) {
-        Ext.widget("mainmainmarketingwindowcommonpopuppopupcusaddress").show();
+        Ext.widget("popupcusaddress").show();
     },
 
     onSaveCardClick: function(button, e, eOpts) {
-        Ext.widget("mainmainmarketingwindowcommonpopuppopuptypecard", {
+        Ext.widget("popuptypecard", {
             listeners: {
                 beforeRender: function (panal, eOpts) {
                     var store = panal.down('grid').getStore();
@@ -147,11 +147,11 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
     },
 
     onSaveAddressCusClick: function(button, e, eOpts) {
-        Ext.widget("mainmainmarketingwindowcommonpopuppopupcusaddress").show();
+        Ext.widget("popupcusaddress").show();
     },
 
     onCardCusClick: function(button, e, eOpts) {
-        Ext.widget("mainmainmarketingwindowcommonpopuppopuptypecard").show();
+        Ext.widget("popuptypecard").show();
     },
 
     onButtonClickCancelRequest: function(button, e, eOpts) {

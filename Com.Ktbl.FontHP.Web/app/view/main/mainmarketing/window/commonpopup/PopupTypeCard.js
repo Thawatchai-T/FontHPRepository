@@ -15,7 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCard', {
     extend: 'Ext.window.Window',
-    alias: 'widget.mainmainmarketingwindowcommonpopuppopuptypecard',
+    alias: 'widget.popuptypecard',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupTypeCardViewModel',

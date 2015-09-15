@@ -15,7 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.TypeCardWindow', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.mainmainmarketingwindowtypecardwindow',
+    alias: 'widget.typecardtab',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.TypeCardWindowViewModel',
