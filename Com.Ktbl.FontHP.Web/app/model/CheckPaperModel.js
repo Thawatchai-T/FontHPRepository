@@ -33,7 +33,7 @@ Ext.define('FrontHPApp.model.CheckPaperModel', {
             name: 'RequestDate'
         },
         {
-            type: 'int',
+           
             name: 'IdApprove'
         },
         {

@@ -18,36 +18,36 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MktLimit60TabViewController', {
     alias: 'controller.mainmainmarketingmktlimit60tab',
 
     onComboboxBranchSelect: function(combo, record, eOpts) {
-        //console.log(record);
-        //var me = this,
-        //    refs = me.getReferences(),
-        //    cbobranchid = refs.branchid;
-        //console.log(record);
+      
         var store = this.getView().down('grid').getStore();
         store.getProxy().setExtraParam('branchid', record.id);
         store.load();
         console.log(store);
-        //var me = this,
-        //    refs = me.getReferences(),
-        //    cbobrandcar = refs.brandcar,
-        //    cbomodelcar = refs.modelcar,
-        //    cbomodeldetailcar = refs.modeldetailcar;
-
-
-        //// Clear selected series value
-        //if (oldValue != null) {
-
-        //    cbomodelcar.setValue("");
-        //    cbomodeldetailcar.setValue("");
-        //}
-
-        //var store = cbomodelcar.getStore(); //get model car
-        //store.getProxy().setExtraParam('brandcode', newValue);
-        //store.load();
+       
     },
 
     onSaveClick: function(button, e, eOpts) {
+        var me = this.getView(),
+            grid = me.down('gridpanel'),
+            store = grid.getStore(),
+            record = grid.getSelection(),
+            count = record.length;
 
+        if (count > 0) {
+
+            Ext.MessageBox.confirm("Confirm", "คุณต้องการที่ลบใช่หรือไม่?", function (btn) {
+
+                if (btn == 'yes') {
+
+                    for (i = 0; i < count; i++) {
+                        store.remove(record[i]);
+                    }
+                    store.sync();
+                    Ext.MessageBox.alert("Status", 'ลบข้อมูลเรียบร้อย');
+                }
+
+            }, this);
+        }//end if
     },
 
     onGridpanelItemDblClick: function(dataview, record, item, index, e, eOpts) {

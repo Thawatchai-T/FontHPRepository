@@ -15,7 +15,8 @@
 
 Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTab', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.mainmaincheckdocdocumenthistorytab',
+    //alias: 'widget.mainmaincheckdocdocumenthistorytab',
+    alias: 'widget.documenthistorytab',
 
     requires: [
         'FrontHPApp.view.main.maincheckdoc.DocumentHistoryTabViewModel',
@@ -70,6 +71,7 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTab', {
                             ],
                             fieldLabel: 'วันที่ใบคำขอจาก',
                             labelAlign: 'right',
+                            name: 'QStartDate',
                             emptyText: '[วว/ดด/ปปปป]'
                         },
                         {
@@ -79,6 +81,7 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTab', {
                                 '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>'
                             ],
                             fieldLabel: 'ถึงวันที่ใบคำขอ',
+                            name: 'QEnddate',
                             labelAlign: 'right',
                             emptyText: '[วว/ดด/ปปปป]'
                         },
@@ -86,12 +89,14 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTab', {
                             xtype: 'textfield',
                             fieldLabel: 'ชื่อ-นามสกุลผู้เช่าซื้อ',
                             labelAlign: 'right',
+                            name: 'QCusname',
                             emptyText: '[ชื่อ-นามสกุลผู้เช่าซื้อ]'
                         },
                         {
                             xtype: 'combobox',
                             fieldLabel: 'สถานะใบคำขอ',
                             labelAlign: 'right',
+                            name: 'QStatusRequest',
                             emptyText: '[สถานะใบคำขอ]',
                             displayField: 'Name',
                             width: 390,
@@ -102,6 +107,7 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTab', {
                             xtype: 'textfield',
                             fieldLabel: 'เลขที่ใบคำขอ',
                             labelAlign: 'right',
+                            name: 'QRequestNo',
                             emptyText: '[เลขที่ใบคำขอ]'
                         },
                         {
@@ -109,6 +115,7 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTab', {
                             width: '',
                             fieldLabel: 'เลขที่บัตรประชาชน',
                             labelAlign: 'right',
+                            name: 'QCitizenID',
                             emptyText: '[เลขที่บัตรประชาชน]'
                         },
                         {
@@ -116,6 +123,7 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTab', {
                             colspan: 2,
                             width: '',
                             fieldLabel: 'สาขา',
+                            name: 'QBranch',
                             labelAlign: 'right',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
@@ -136,7 +144,10 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTab', {
                                     xtype: 'button',
                                     margin: '0 5 0 5',
                                     iconCls: 'icon-find',
-                                    text: 'ค้นหาข้อมูล'
+                                    text: 'ค้นหาข้อมูล',
+                                    listeners: {
+                                    click: 'onFindClick'
+                                    }
                                 },
                                 {
                                     xtype: 'button',
@@ -220,6 +231,7 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.DocumentHistoryTab', {
                     xtype: 'pagingtoolbar',
                     dock: 'bottom',
                     width: 360,
+                    store: 'historyCheckDocumentModels',
                     displayInfo: true
                 }
             ]

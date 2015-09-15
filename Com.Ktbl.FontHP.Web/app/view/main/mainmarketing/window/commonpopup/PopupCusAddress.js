@@ -15,7 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddress', {
     extend: 'Ext.window.Window',
-    alias: 'widget.mainmainmarketingwindowcommonpopuppopupcusaddress',
+    alias: 'widget.popupcusaddress',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.commonpopup.PopupCusAddressViewModel',

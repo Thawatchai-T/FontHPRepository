@@ -199,7 +199,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.MarketingTab', {
                             iconCls: 'icon-edit',
                             text: 'Cancel Flag',
                             listeners: {
-                                click: 'onEditClick'
+                                click: 'onCancelFlgClick'
                             }
                         }
                     ]

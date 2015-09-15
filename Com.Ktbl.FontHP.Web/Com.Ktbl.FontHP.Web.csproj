@@ -141,6 +141,7 @@
   <ItemGroup>
     <Compile Include="Controllers\CardTypeController.cs" />
     <Compile Include="Controllers\CardTypeTabController.cs" />
+    <Compile Include="Controllers\CheckDocumentController.cs" />
     <Compile Include="Controllers\ComHiringController.cs" />
     <Compile Include="Controllers\ComInsController.cs" />
     <Compile Include="Controllers\ComSpacialController.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="Controllers\GarantorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InsuranceController.cs" />
+    <Compile Include="Controllers\LeadController.cs" />
     <Compile Include="Controllers\MktLimit60Controller.cs" />
     <Compile Include="Controllers\MarketingController.cs" />
     <Compile Include="Controllers\StatusInfoController.cs" />
@@ -156,6 +158,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CardTypeViewModel.cs" />
+    <Compile Include="Models\HistoryDocumentViewModel.cs" />
+    <Compile Include="Models\CheckDocumentViewModel.cs" />
     <Compile Include="Models\ComboBox.cs" />
     <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\InsCompulsoryModel.cs" />
@@ -171,6 +175,7 @@
     <Compile Include="Models\InsLoanProtectionModel.cs" />
     <Compile Include="Models\InsuranceModel.cs" />
     <Compile Include="Models\InsuranceViewModel.cs" />
+    <Compile Include="Models\LeadModel.cs" />
     <Compile Include="Models\Limit60Grid.cs" />
     <Compile Include="Models\PageModel.cs" />
     <Compile Include="Models\PopEmpSell.cs" />
@@ -195,6 +200,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="app.js" />
+    <Content Include="app\model\LeadFormModel.js" />
     <Content Include="app\model\InsuranceFormModelTest.js" />
     <Content Include="app\model\InsuranceFormModel.js" />
     <Content Include="app\model\CardTypeTabFormModel.js" />

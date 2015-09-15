@@ -17,12 +17,12 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.GarantorWindowViewControll
     extend: 'Ext.app.ViewController',
     //alias: 'controller.mainmainmarketingwindowgarantorwindow',
     alias: 'controller.garantorwindow',
-    onSaveAddressClick: function(button, e, eOpts) {
-       // Ext.widget("frmcusaddress").show();
+    onSaveCardClick: function (button, e, eOpts) {
+        Ext.widget("popuptypecard").show();
     },
 
     onSaveAddressClick1: function(button, e, eOpts) {
-        Ext.widget("mainmainmarketingwindowcommonpopuppopupcusaddress").show();
+        Ext.widget("popupcusaddress").show();
     },
 
     onSaveClick: function(button, e, eOpts) {

@@ -22,8 +22,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         #region properties
         public StandardCodeRepository StandardCodeRepository { get; set; }
        
-        //public List<Province> ComboProvince { get; set; }
-        //public static CommonUtility CommonUtility { get; set; }
+       
         public IOccupationRepository OccupationRepository { get; set; }
         public IPositionRepository PositionRepository { get; set; }
         public IMainRequestRepository MainRequestRepository { get; set; }

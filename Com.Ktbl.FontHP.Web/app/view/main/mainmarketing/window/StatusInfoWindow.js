@@ -15,7 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.StatusInfoWindow', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.mainmainmarketingwindowstatusinfowindow',
+    alias: 'widget.statusinfotab',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.StatusInfoWindowViewModel',

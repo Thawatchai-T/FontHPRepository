@@ -15,7 +15,7 @@
 
 Ext.define('FrontHPApp.view.main.mainmarketing.window.SubsidyWindow', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.mainmainmarketingwindowsubsidywindow',
+    alias: 'widget.subsidytab',
 
     requires: [
         'FrontHPApp.view.main.mainmarketing.window.SubsidyWindowViewModel',

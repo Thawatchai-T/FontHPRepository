@@ -15,8 +15,8 @@
 
 Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTab', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.mainmaincheckdoccheckdocumenttab',
-
+    //alias: 'widget.mainmaincheckdoccheckdocumenttab',
+    alias: 'widget.checkdocumenttab',
     requires: [
         'FrontHPApp.view.main.maincheckdoc.CheckDocumentTabViewModel',
         'FrontHPApp.view.main.maincheckdoc.CheckDocumentTabViewController',
@@ -78,7 +78,8 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTab', {
                             fieldLabel: 'วันที่ใบคำขอจาก',
                             labelAlign: 'right',
                             allowBlank: false,
-                            emptyText: '[วว/ดด/ปปปป]'
+                            emptyText: '[วว/ดด/ปปปป]',
+                            name: 'QStartDate',
                         },
                         {
                             xtype: 'datefield',
@@ -86,6 +87,7 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTab', {
                                 '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>'
                             ],
                             fieldLabel: 'ถึงวันที่ใบคำขอ',
+                            name: 'QEnddate',
                             labelAlign: 'right',
                             allowBlank: false,
                             emptyText: '[วว/ดด/ปปปป]'
@@ -94,6 +96,7 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTab', {
                             xtype: 'textfield',
                             fieldLabel: 'ชื่อ-นามสกุลผู้เช่าซื้อ',
                             labelAlign: 'right',
+                            name: 'QCusname',
                             emptyText: '[ชื่อ-นามสกุลผู้เช่าซื้อ]'
                         },
                         {
@@ -102,6 +105,7 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTab', {
                             labelAlign: 'right',
                             emptyText: '[เลือก]',
                             displayField: 'Name',
+                            name: 'QStatusRequest',
                             width: 390,
                             store: 'combo.RequestStatusStore',
                             valueField: 'Id'
@@ -111,12 +115,13 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTab', {
                             colspan: 2,
                             fieldLabel: 'เลขที่ใบคำขอ',
                             labelAlign: 'right',
+                            name: 'QRequestNo',
                             emptyText: '[เลขที่ใบคำขอ]'
                         },
                         {
                             xtype: 'textfield',
                             colspan: 2,
-                           
+                            name: 'QCitizenID',
                             fieldLabel: 'เลขที่บัตรประชาชน',
                             labelAlign: 'right',
                             emptyText: '[เลขที่บัตรประชาชน]'
@@ -125,6 +130,7 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTab', {
                             xtype: 'combobox',
                             colspan: 2,
                             fieldLabel: 'สาขา',
+                            name: 'QBranch',
                             labelAlign: 'right',
                             emptyText: '[เลือก]',
                             displayField: 'Name',

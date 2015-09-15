@@ -67,6 +67,8 @@
     <Compile Include="Map\ProvinceMap.cs" />
     <Compile Include="Map\StandardCodeMap.cs" />
     <Compile Include="Map\SubDistrictMap.cs" />
+    <Compile Include="Map\LeadHeaderMap.cs" />
+    <Compile Include="Map\ThirdPartyMarketingMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CareerRepository.cs" />
     <Compile Include="Repository\LeadMarketingRepository.cs" />
@@ -76,6 +78,8 @@
     <Compile Include="Repository\PopsitionRepository.cs" />
     <Compile Include="Repository\ProvinceRepository.cs" />
     <Compile Include="Repository\Request\RequestStatusRepository.cs" />
+    <Compile Include="Repository\LeadHeaderRepository.cs" />
+    <Compile Include="Repository\ThirdPartyMarketingRepository.cs" />
     <Compile Include="Repository\StandardCodeRepository.cs" />
   </ItemGroup>
   <ItemGroup>

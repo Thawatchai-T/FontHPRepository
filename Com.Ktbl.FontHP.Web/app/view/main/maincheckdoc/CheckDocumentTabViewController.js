@@ -16,17 +16,38 @@
 Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTabViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.mainmaincheckdoccheckdocumenttab',
-
+    //p2p 20150910
     onFindClick: function(button, e, eOpts) {
-        console.log("ค้นหาข้อมูลเอกสารแนบ");
+       
+        var me = this,
+           views = this.getView(),
+           form = views.down('form').getForm(),
+           store = views.down('grid').getStore();
+
+        store.getProxy().setExtraParam('startdate', form.findField('QStartDate').getValue());
+        store.getProxy().setExtraParam('enddate', form.findField('QEnddate').getValue());
+        store.getProxy().setExtraParam('cusname', form.findField('QCusname').getValue());
+        store.getProxy().setExtraParam('statusrequest', form.findField('QStatusRequest').getValue());
+        store.getProxy().setExtraParam('requestno', form.findField('QRequestNo').getValue());
+        store.getProxy().setExtraParam('citizenid', form.findField('QCitizenID').getValue());
+        store.getProxy().setExtraParam('branch', form.findField('QBranch').getValue());
+        store.load();
     },
 
     onClearClick: function(button, e, eOpts) {
+        //var me = this.getView(),
+        //    form = me.down('form');
+        //paging = me.down('pagingtoolbar');
+        //form.reset();
+        //paging.moveFirst();
         var me = this.getView(),
-            form = me.down('form');
-        paging = me.down('pagingtoolbar');
+          form = me.down('form');
+
+        paging = me.down('pagingtoolbar'),
+        store = paging.getStore();
+        store.getProxy().extraParams = {};
         form.reset();
-        paging.moveFirst();
+        store.load();
     },
 
     onGridpanelSelectionChange: function(model, selected, eOpts) {
@@ -46,18 +67,25 @@ Ext.define('FrontHPApp.view.main.maincheckdoc.CheckDocumentTabViewController', {
     },
 
     onSaveClick: function(button, e, eOpts) {
-        console.log(button.up().up().getForm().getValues());
-        var dataform =button.up().up().getForm().getValues();
-        Ext.MessageBox.confirm("Confirm","คุณต้องบันทึกรายการ",function(btn){
+        var me = this.getView(),
+         form = me.down('#form2').getForm();
+        console.log(form);
+        if (form.isValid()) {
+            form.submit({
+                clientValidation: true,
+                url: 'api/CheckDocument/Insert',
+                success: function (form, action) {
+                    Ext.Msg.alert('Success', 'บันทึกข้อมูลเรียบร้อย');
+                    me.down('grid').getStore().load();
+                },
+                failure: function (form, action) {
+                    Ext.Msg.alert('Fail', 'ไม่สามารถบันทึกข้อมูลได้');
+                }
 
-            if(btn == 'yes'){
-
-                Ext.MessageBox.alert("Status","บันทึกข้อมูลแล้ว");
-            }
-
-        },this);
-
-        //buttom.up().getForm();
+            });
+        } else {
+            Ext.Msg.alert('Invalid Data', 'Please correct form errors.')
+        }
     },
 
     onCancelClick: function(button, e, eOpts) {
