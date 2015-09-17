@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Com.Ktbl.FontHP.Domain
 {
-    public class EntrelDomain
+    public class EntRelDomain
     {
         public virtual string ComId { get; set; }
         public virtual string EntCode { get; set; }
@@ -53,7 +53,7 @@ namespace Com.Ktbl.FontHP.Domain
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
-            var t = obj as EntrelDomain;
+            var t = obj as EntRelDomain;
             if (t == null) return false;
             if (ComId == t.ComId
              && EntCode == t.EntCode)

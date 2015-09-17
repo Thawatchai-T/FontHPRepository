@@ -8,7 +8,7 @@ using FluentNHibernate.Mapping;
 
 namespace Com.Ktbl.FontHP.Map.Map
 {
-    public class EntrelMap : ClassMap<EntrelDomain>
+    public class EntrelMap : ClassMap<EntRelDomain>
     {
 
         public EntrelMap()

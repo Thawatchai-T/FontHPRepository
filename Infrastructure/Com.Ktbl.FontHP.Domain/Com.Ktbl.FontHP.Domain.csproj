@@ -66,6 +66,9 @@
     <Compile Include="ViewDomain\SubDistrict.cs" />
     <Compile Include="ViewsModel\MainRequestModel.cs" />
     <Compile Include="ViewsModel\MarketingModel.cs" />
+    <Compile Include="ViewsModel\PageModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

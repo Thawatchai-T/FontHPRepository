@@ -11,17 +11,17 @@ namespace Com.Ktbl.FontHP.Map.Repository
 {
     public interface IEntrelRepository
     {
-        bool Insert(EntrelDomain enitity);
-        bool Update(EntrelDomain entity);
-        bool SaveOrUpdate(EntrelDomain entity);
-        List<EntrelDomain> GetAll();
-        List<EntrelDomain> GetByID(string comid, string entcode);
+        bool Insert(EntRelDomain enitity);
+        bool Update(EntRelDomain entity);
+        bool SaveOrUpdate(EntRelDomain entity);
+        List<EntRelDomain> GetAll();
+        List<EntRelDomain> GetByID(string comid, string entcode);
     }
 
     public class EntrelRepository : NhRepository, IEntrelRepository
     {
 
-        public bool Insert(EntrelDomain enitity){
+        public bool Insert(EntRelDomain enitity){
             try
             {
                 using(var session = SessionFactory.OpenSession())
@@ -38,7 +38,7 @@ namespace Com.Ktbl.FontHP.Map.Repository
             }
         }
 
-        public bool Update(EntrelDomain entity){
+        public bool Update(EntRelDomain entity){
             try
             {
                 using(var session = SessionFactory.OpenStatelessSession())
@@ -55,7 +55,7 @@ namespace Com.Ktbl.FontHP.Map.Repository
             }
         }
 
-        public bool SaveOrUpdate(EntrelDomain entity){
+        public bool SaveOrUpdate(EntRelDomain entity){
             try
             {
                 using(var session = SessionFactory.OpenSession())
@@ -72,15 +72,15 @@ namespace Com.Ktbl.FontHP.Map.Repository
             }
         }
 
-        public List<EntrelDomain> GetAll(){
+        public List<EntRelDomain> GetAll(){
 
             try
             {
                 using(var session = SessionFactory.OpenStatelessSession())
                 using(var tx = session.BeginTransaction()){
 
-                    var result = session.QueryOver<EntrelDomain>().List<EntrelDomain>();
-                    return result as List<EntrelDomain>;
+                    var result = session.QueryOver<EntRelDomain>().List<EntRelDomain>();
+                    return result as List<EntRelDomain>;
                 }
 
             }
@@ -92,16 +92,16 @@ namespace Com.Ktbl.FontHP.Map.Repository
         
         }
 
-        public List<EntrelDomain> GetByID(string comid, string entcode)
+        public List<EntRelDomain> GetByID(string comid, string entcode)
         {
             try
             {
                 using(var session = SessionFactory.OpenStatelessSession())
                 using(var tx = session.BeginTransaction())
                 {
-                    var result = session.QueryOver<EntrelDomain>().Where(Expression.Eq("ComId", comid) && Expression.Eq("EntCode", entcode)).List<EntrelDomain>();
+                    var result = session.QueryOver<EntRelDomain>().Where(Expression.Eq("ComId", comid) && Expression.Eq("EntCode", entcode)).List<EntRelDomain>();
 
-                    return result as List<EntrelDomain>;
+                    return result as List<EntRelDomain>;
                 }
             }
             catch (Exception ex)

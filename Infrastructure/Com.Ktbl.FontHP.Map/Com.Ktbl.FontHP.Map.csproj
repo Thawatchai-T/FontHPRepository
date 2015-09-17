@@ -74,6 +74,7 @@
     <Compile Include="Map\LeadHeaderMap.cs" />
     <Compile Include="Map\ThirdPartyMarketingMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Common\CommonRepository.cs" />
     <Compile Include="Repository\EntrelRepository.cs" />
     <Compile Include="Repository\Redbook\BrandRepository.cs" />
     <Compile Include="Repository\CareerRepository.cs" />
