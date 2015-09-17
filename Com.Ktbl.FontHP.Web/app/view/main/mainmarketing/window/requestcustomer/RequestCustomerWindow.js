@@ -1431,6 +1431,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                 },
                 {
                     xtype: 'fieldset',
+                    reference: 'carfieldset',
                     defaults: {
                         labelAlign: 'right',
                         labelWidth: 175
@@ -1455,7 +1456,10 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             displayField: 'Name',
                             store: 'combo.CreditStore',
                             name: 'LoanType',
-                            valueField: 'id'
+                            valueField: 'id',
+                            listeners: {
+                                change: 'onLoanTypeChange'
+                            }
                         },
                         {
                             xtype: 'fieldcontainer',
@@ -1479,7 +1483,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                                     autoLoadOnValue: true,
                                     displayField: 'Name',
                                     store: 'combo.TypeCarStore',
-                                    valueField: 'id'
+                                    valueField: 'id',
+                                    reference: 'refcartype',
+                                  
                                 }
                             ]
                         },
@@ -1493,6 +1499,20 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                             store: 'combo.CompanyInsuranceStore',
                             name: 'InsuranceCompany',
                             valueField: 'id'
+                        },
+                        {
+                              xtype: 'combobox',
+                              fieldLabel: 'ปีรถ',
+                              name: 'CarYear',
+                              emptyText: '[เลือก]',
+                              autoLoadOnValue: true,
+                              displayField: 'Name',
+                              store: 'combo.CarYearStore',
+                              valueField: 'id',
+                              itemId: 'car-year',
+                              reference: 'refcaryear',
+                              readOnly: true,
+                              
                         },
                         {
                             xtype: 'combobox',
@@ -1968,6 +1988,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+       // beforerender: 'onViewBeforerender'
+    }
 
 });

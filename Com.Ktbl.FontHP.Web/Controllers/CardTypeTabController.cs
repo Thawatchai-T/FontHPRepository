@@ -10,10 +10,10 @@ namespace Com.Ktbl.FontHP.Web.Controllers
 {
     public class CardTypeTabController : ApiController
     {
-        public PageModel<CardTypeViewModel> GetCardTypeLoad(int start, int limit, int page)
+        public PageModelView<CardTypeViewModel> GetCardTypeLoad(int start, int limit, int page)
         {
             List<CardTypeViewModel> list = new List<CardTypeViewModel>();
-            var pagemodel = new PageModel<CardTypeViewModel>();
+            var pagemodel = new PageModelView<CardTypeViewModel>();
             for (int i = 0; i < 10; i++)
             {
                 var obj = new CardTypeViewModel

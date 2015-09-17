@@ -23,8 +23,7 @@
              type="Com.Ktbl.FontHP.Map.Repository.MainRequestRepository, Com.Ktbl.FontHP.Map">
     <property name="SessionFactory"  ref="ssfactory"/>
   </object>
-
-
+ 
   <!-- OccupationRepository -->
   <object id="occupationRepository"
              type="Com.Ktbl.FontHP.Map.Repository.OccupationRepository, Com.Ktbl.FontHP.Map">
@@ -52,5 +51,9 @@
     <property name="SessionFactory"  ref="ssfactory"/>
   </object>
 
+  <object id="leadHeaderRepository"
+            type="Com.Ktbl.FontHP.Map.Repository.LeadHeaderRepository, Com.Ktbl.FontHP.Map">
+    <property name="SessionFactory"  ref="ssfactory"/>
+  </object>
   
 </objects>

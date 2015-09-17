@@ -177,7 +177,9 @@
     <Compile Include="Models\InsuranceViewModel.cs" />
     <Compile Include="Models\LeadModel.cs" />
     <Compile Include="Models\Limit60Grid.cs" />
-    <Compile Include="Models\PageModel.cs" />
+    <Compile Include="Models\PageModelView.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\PopEmpSell.cs" />
     <Compile Include="Models\SearchRequest.cs" />
     <Compile Include="Models\StatusViewModel.cs" />
@@ -256,6 +258,7 @@
     <Content Include="app\store\browsePaperMyModels.js" />
     <Content Include="app\store\cancelRequestLimit60Models.js" />
     <Content Include="app\store\checkPaperModels.js" />
+    <Content Include="app\store\combo\CarYearStore.js" />
     <Content Include="app\store\combo\marketModels.js" />
     <Content Include="app\store\combo\OtherPaperStore.js" />
     <Content Include="app\store\combo\TypeCustomerStore.js" />

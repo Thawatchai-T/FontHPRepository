@@ -14,6 +14,8 @@ using System.Xml;
 using System.Xml.Linq;
 using Com.Ktbl.FontHP.Map.Repository;
 using System.Globalization;
+using Com.Ktbl.FontHP.Domain;
+
 
 
 namespace Com.Ktbl.FontHP.Web.Controllers
@@ -21,8 +23,10 @@ namespace Com.Ktbl.FontHP.Web.Controllers
     public class MarketingController : ApiController
     {
         public IMainRequestRepository  MainRequestRepository {get;set;}
+      
         public IOccupationRepository OccupationRepository { get; set; }
-         
+        public ILeadMarketingRepository LeadMarketingRepository { get; set; }
+        public LeadHeaderRepository LeadHeaderRepository { get; set; }
       // public void Test(DateTime  StartDate,DateTime  Enddate,string RequestNo,string StatusRequest,string CitizenID,string Cusname,string Branch)
         public void Test (SearchRequest obj)
         {
@@ -108,10 +112,21 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             try
             {
                 PageModel<MarketingModel> pagemd = new PageModel<MarketingModel>();
-                List<MarketingModel> lmkt =  new List<MarketingModel>();
-                lmkt = ManageMarketing(lmkt, null);
-                pagemd.items = lmkt.Skip(start).Take(limit).ToList<MarketingModel>();
-                return pagemd;
+                List<MarketingModel> lmkt = new List<MarketingModel>();
+                
+                var result = LeadMarketingRepository.GetAllMarketing();
+                pagemd.total = result.Count();
+               
+                lmkt = result.Select(x => new MarketingModel { 
+                    id = x.EmpId,
+                    MarketingCode = x.MktCode,
+                    MarketingName = string.Format("{0} ({1})",x.MktName,x.MktNickName),
+                    PhoneNo = x.TelNumber
+                }).Skip(start).Take(limit).ToList<MarketingModel>();
+
+                pagemd.items = lmkt;
+               
+                return pagemd  ;
             }
             catch (Exception)
             {
@@ -120,7 +135,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             }
             
         }
-
+        
         public PageModel<MarketingModel> GetMarketing(int start, int limit, int page, string text)
         {
             try
@@ -143,23 +158,43 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         private List<MarketingModel> ManageMarketing(List<MarketingModel> lmkt, string text)
         {
             //TODO:  Donot implement search by name
+            //Model 201509
+                        //lmkt.Add(new MarketingModel { id = "1", MarketingName = "สมชาย รักชาย", MarketingCode = "00001", PhoneNo = "0844445344", TypeDealer = "นิติบุคคล", TypeSell="พิเศษ1" });
+                        //lmkt.Add(new MarketingModel { id = 2, MarketingName = "สมชาย รักหญิง", MarketingCode = "00002", PhoneNo = "0844412344", TypeDealer = "บุคคลธรรมดา", TypeSell = "พิเศษ1" });
+                        //lmkt.Add(new MarketingModel { id = 3, MarketingName = "สมหญิง รักแฟน", MarketingCode = "00003", PhoneNo = "0844444444", TypeDealer = "นิติบุคคล", TypeSell = "พิเศษ2" });
+                        //lmkt.Add(new MarketingModel { id = 4, MarketingName = "สมรัก รักเมืองไทย", MarketingCode = "00004", PhoneNo = "0844447894", TypeDealer = "นิติบุคคล", TypeSell = "พิเศษ2" });
+                        //lmkt.Add(new MarketingModel { id = 5, MarketingName = "สมส่วน รักความสวย", MarketingCode = "00005", PhoneNo = "0844446544", TypeDealer = "บุคคลธรรมดา", TypeSell = "พิเศษ1" });
+                        //lmkt.Add(new MarketingModel { id = 6, MarketingName = "สมสัก รักสี", MarketingCode = "00006", PhoneNo = "0844455445", TypeDealer = "บุคคลธรรมดา", TypeSell = "พิเศษ1" });
 
-                        lmkt.Add(new MarketingModel { id = 1, MarketingName = "สมชาย รักชาย", MarketingCode = "00001", PhoneNo = "0844445344", TypeDealer = "นิติบุคคล", TypeSell="พิเศษ1" });
-                        lmkt.Add(new MarketingModel { id = 2, MarketingName = "สมชาย รักหญิง", MarketingCode = "00002", PhoneNo = "0844412344", TypeDealer = "บุคคลธรรมดา", TypeSell = "พิเศษ1" });
-                        lmkt.Add(new MarketingModel { id = 3, MarketingName = "สมหญิง รักแฟน", MarketingCode = "00003", PhoneNo = "0844444444", TypeDealer = "นิติบุคคล", TypeSell = "พิเศษ2" });
-                        lmkt.Add(new MarketingModel { id = 4, MarketingName = "สมรัก รักเมืองไทย", MarketingCode = "00004", PhoneNo = "0844447894", TypeDealer = "นิติบุคคล", TypeSell = "พิเศษ2" });
-                        lmkt.Add(new MarketingModel { id = 5, MarketingName = "สมส่วน รักความสวย", MarketingCode = "00005", PhoneNo = "0844446544", TypeDealer = "บุคคลธรรมดา", TypeSell = "พิเศษ1" });
-                        lmkt.Add(new MarketingModel { id = 6, MarketingName = "สมสัก รักสี", MarketingCode = "00006", PhoneNo = "0844455445", TypeDealer = "บุคคลธรรมดา", TypeSell = "พิเศษ1" });
-
-                        lmkt = (string.IsNullOrEmpty(text))?lmkt:lmkt.Where(x=>x.MarketingName.Contains(text)).ToList<MarketingModel>();
+                        //lmkt = (string.IsNullOrEmpty(text))?lmkt:lmkt.Where(x=>x.MarketingName.Contains(text)).ToList<MarketingModel>();
 
                     
-            return lmkt;
+            return null;
         }
         #endregion
 
         #region Bind Data grid 20150827
-        public List<GridLead> GetGridLeaderLoad(int start, int limit, int page)
+        #region insert PageModel 20150917
+        public PageModel<GridLead> GetGridLeaderLoad(int start, int limit, int page, string text)
+        {
+            try
+            {
+                PageModel<GridLead> pagemd = new PageModel<GridLead>();
+                List<GridLead> list = new List<GridLead>();
+                list = GetGridLeaderLoad();
+                pagemd.items = list.Skip(start).Take(limit).ToList<GridLead>();
+                pagemd.total = list.Count;
+                return pagemd;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        #endregion
+        public List<GridLead> GetGridLeaderLoad()
         {
             List<GridLead> list = new List<GridLead>();
             list.Add(new GridLead { Id = 1, ImportId = "0000001", CusName = "วรนุช", CusSurName = "วงสวรรค์", LeadNo = "07-0284", LeadNameGrid = "อชญา", LeadSurNameGrid = "มีทรัพย์", BranchId = "000001", BranchName = "สำนักงานใหญ่" });
@@ -169,12 +204,11 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             return list;
         }
         //add searchLead 20150831
-        public List<GridLead> GetGridLeaderLoad(int start, int limit, int page, string importid, string leadid, string leadname)
+        public PageModel <GridLead> GetGridLeaderLoad(int start, int limit, int page, string importid, string leadid, string leadname)
         {
+            PageModel<GridLead> pagemd = new PageModel<GridLead>();
             List<GridLead> lstserch = new List<GridLead>();
-            
-
-            lstserch = GetGridLeaderLoad(start, limit, page);
+            lstserch = GetGridLeaderLoad(); 
             if (!string.IsNullOrEmpty(importid))
             {
                 lstserch = lstserch.Where(l => l.ImportId.Equals(importid)).ToList<GridLead>();;
@@ -188,7 +222,9 @@ namespace Com.Ktbl.FontHP.Web.Controllers
                 lstserch = lstserch.Where(l => l.LeadNameGrid.Equals(leadname)).ToList<GridLead>();
             }
 
-            return lstserch;
+            pagemd.items = lstserch.Skip(start).Take(limit).ToList<GridLead>();
+            pagemd.total = lstserch.Count;
+            return pagemd;
         }
         #endregion
 

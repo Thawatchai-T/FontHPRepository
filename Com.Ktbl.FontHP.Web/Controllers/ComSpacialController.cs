@@ -13,10 +13,10 @@ namespace Com.Ktbl.FontHP.Web.Controllers
 
         #region Manage CommSpac 20150908
 
-        public PageModel<ComSpacialViewModel> GetComSpacialLoad()
+        public PageModelView<ComSpacialViewModel> GetComSpacialLoad()
         {
             List<ComSpacialViewModel> list = new List<ComSpacialViewModel>();
-            var pagemodel = new PageModel<ComSpacialViewModel>();
+            var pagemodel = new PageModelView<ComSpacialViewModel>();
 
             list.Add(new ComSpacialViewModel { id = 1, EmployeeName = "มาริวัน มากทรัพย์", PayCommissionTo = "แก้วตา ดวงใจ", TypeAgent = "จำหน่าย 1", TypePromote = "Promote 1", Transfer = 10.11, Withholding = 11.11, VAT = 5, AmountIncludeVAT = 100.10, LoanIncludeVAT = 200.10, WHTAX = 300.30, NetPaid = 55.30 });
             list.Add(new ComSpacialViewModel { id = 2, EmployeeName = "ปทุม ใจดี", PayCommissionTo = "ฉัตรชัย มีเกิด", TypeAgent = "จำหน่าย 2", TypePromote = "Promote 2", Transfer = 20.11, Withholding = 21.11, VAT = 6, AmountIncludeVAT = 200.10, LoanIncludeVAT = 300.10, WHTAX = 301.30, NetPaid = 66.30 });

@@ -10,10 +10,10 @@ namespace Com.Ktbl.FontHP.Web.Controllers
 {
     public class StatusInfoController : ApiController
     {
-        public PageModel<StatusViewModel> GetStatusInfoLoad()
+        public PageModelView<StatusViewModel> GetStatusInfoLoad()
         {
             List<StatusViewModel> list = new List<StatusViewModel>();
-            var pagemodel = new PageModel<StatusViewModel>();
+            var pagemodel = new PageModelView<StatusViewModel>();
 
             list.Add(new StatusViewModel { id = 1, Status = "100", Decription = "ยกเลิก", InsertDate = Convert.ToDateTime("10-04-2013"), CreateUser = "สายใจ สมดี" });
             list.Add(new StatusViewModel { id = 2, Status = "010", Decription = "นำส่ง", InsertDate = Convert.ToDateTime("17-07-2015"), CreateUser = "สายสมร สมใจ" });

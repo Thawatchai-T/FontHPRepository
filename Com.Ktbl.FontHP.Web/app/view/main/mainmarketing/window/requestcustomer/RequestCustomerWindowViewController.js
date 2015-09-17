@@ -317,5 +317,40 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.RequestCus
         store.getProxy().setExtraParam('familycode', cbomodelcar.getValue());
         store.load();
     },
+    //select LoanType For CarYear
+
+    onLoanTypeChange: function (field, newValue, oldValue, eOpts) {
+        var me = this,
+        views = this.getView(),
+        form = views.down('form').getForm();
+        var LoanType = form.findField('LoanType').getValue();
+        
+        refs = me.getReferences(),
+        cartype = refs.carfieldset.down('#car-year');
+        cartype2 = refs.refcaryear;
+        //cartype2.setDisabled = true;
+        //refs.carfieldset.doLayout();
+       
+        //if (LoanType = 01)
+        //{
+        //    cartype2.show();
+        //    console.log(cartype2);
+        //    refs.carfieldset.doLayout();
+        //    cartype2.focus();
+
+        //    console.log("ส่วน IF001")
+        //} else {
+        //    cartype2.hide();
+        //}
+        
+
+    },
+    //onViewBeforerender: function (component, eOpts) {
+    //    var me = this,
+    //    refs = me.getReferences(),
+    //    cartype = refs.carfieldset.down('#car-year');
+    //    //cartype.hide();
+    //},
+   
     
 });

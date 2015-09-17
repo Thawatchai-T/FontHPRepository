@@ -12,10 +12,10 @@ namespace Com.Ktbl.FontHP.Web.Controllers
     {
         #region Manage CommIns 20150908
       
-        public PageModel<ComInsViewModel> GetComInsLoad()
+        public PageModelView<ComInsViewModel> GetComInsLoad()
         {
             List<ComInsViewModel> list = new List<ComInsViewModel>();
-            var pagemodel = new PageModel<ComInsViewModel>();
+            var pagemodel = new PageModelView<ComInsViewModel>();
 
             list.Add(new ComInsViewModel {id=1,DealerName = "มาริวัน มากทรัพย์", PayCommissionTo = "แก้วตา ดวงใจ", AbsorbTax = "01", CommissionAmount = 100.10, VAT = 5, AmountIncludeVAT = 100.10, WithHoldTaxAmount = 200.10, NetPaid = 300.30 });
             list.Add(new ComInsViewModel {id=2,DealerName = "ปทุม ใจดี", PayCommissionTo = "ฉัตรชัย มีเกิด", AbsorbTax = "02", CommissionAmount = 200.10, VAT = 6, AmountIncludeVAT = 200.10, WithHoldTaxAmount = 300.10, NetPaid = 301.30 });

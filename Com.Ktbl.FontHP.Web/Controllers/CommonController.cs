@@ -410,6 +410,19 @@ namespace Com.Ktbl.FontHP.Web.Controllers
 
         
         #endregion
+        #region insert to form ModelYear 20150916
+        int y = 0;
+        public List<ComboBox> GetCarYear()
+        {
+            List<ComboBox> list = new List<ComboBox>();
+            for (int i = DateTime.Now.Year;i>=1991; i--)
+            {
+                list.Add(new ComboBox { id = i.ToString(), Name = i.ToString() });
+            }
+         
+            return list;
+        }
+        #endregion
 
     }
 }

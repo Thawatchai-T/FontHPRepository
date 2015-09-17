@@ -10,10 +10,10 @@ namespace Com.Ktbl.FontHP.Web.Controllers
     public class GarantorController : ApiController
     {
         //add controlller for garantor 20150828
-        public PageModel<GarantorViewModel> GetGarantorLoad(int start, int limit, int page) 
+        public PageModelView<GarantorViewModel> GetGarantorLoad(int start, int limit, int page) 
         {
             List<GarantorViewModel> list = new List<GarantorViewModel>();
-            var pagemodel = new PageModel<GarantorViewModel>();
+            var pagemodel = new PageModelView<GarantorViewModel>();
             list.Add(new GarantorViewModel {id = 1, GuarCitizenID = "1111111111119", NameGarantor = "จารุวรรณ มากมี", RelativeDebtor = "คู่สมรส", GuarBirthDate = Convert.ToDateTime("17-04-2000"), GuarHomePhone = "035-023887" });
             list.Add(new GarantorViewModel {id = 2, GuarCitizenID = "1111111111118", NameGarantor = "มารุต ปานทุ่ม", RelativeDebtor = "ญาติ", GuarBirthDate = Convert.ToDateTime("01-08-1985"), GuarHomePhone = "0860458314" });
             list.Add(new GarantorViewModel {id = 3, GuarCitizenID = "1111111111117", NameGarantor = "ปทุมวัน อิ่มทรัพย์", RelativeDebtor = "คู่สมรส", GuarBirthDate = Convert.ToDateTime("23-03-1956"), GuarHomePhone = "0857694528" });

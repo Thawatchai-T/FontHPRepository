@@ -14,7 +14,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         public List<CheckDocumentViewModel> GetCheckDocumentLoad(int start, int limit, int page)
         {
             List<CheckDocumentViewModel> list = new List<CheckDocumentViewModel>();
-            var pagemodel = new PageModel<CheckDocumentViewModel>();
+            var pagemodel = new PageModelView<CheckDocumentViewModel>();
 
             list.Add(new CheckDocumentViewModel { id = 1, RequestNo = "58000001", RequestDate = Convert.ToDateTime("07-04-2014"), IdApprove = "01", CitizenId = "1111111111119", CusName = "มาลา มาลัย", TypeLoan = "ประเภทสินเชื่อ 1", BranchName = "สำนักงานใหญ่", National = "ไทย" });
             list.Add(new CheckDocumentViewModel { id = 2, RequestNo = "58000002", RequestDate = Convert.ToDateTime("17-05-2015"), IdApprove = "02", CitizenId = "1111111111117", CusName = "มะลิ บานบิ่ง", TypeLoan = "ประเภทสินเชื่อ 2", BranchName = "ลำปาง", National = "ลาว" });

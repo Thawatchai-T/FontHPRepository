@@ -168,7 +168,9 @@ Ext.application({
         'combo.RepairStore',
         //20150819
         'combo.TypeCustomerStore',
-        'combo.OtherPaperStore'
+        'combo.OtherPaperStore',
+        //
+        'combo.CarYearStore'
 
        
 

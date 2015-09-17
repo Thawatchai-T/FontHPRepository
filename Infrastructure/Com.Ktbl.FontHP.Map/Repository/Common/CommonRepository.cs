@@ -7,6 +7,7 @@ using Com.Ktbl.FontHP.Domain;
 using Com.Ktbl.FontHP.Domain.ViewsModel;
 using NHibernate.Criterion;
 
+
 namespace Com.Ktbl.FontHP.Map.Repository.Common
 {
     public interface ICommonRepository

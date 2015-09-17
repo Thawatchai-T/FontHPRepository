@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 
 namespace Com.Ktbl.FontHP.Web.Models
+
 {
     //20150827 insert class p2p
     public class GridLead

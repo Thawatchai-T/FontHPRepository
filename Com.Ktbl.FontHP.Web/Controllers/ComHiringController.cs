@@ -14,10 +14,10 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         // GET: /ComHiring/
 
         #region Manage Commision 20150908
-        public PageModel<ComHirViewModel> GetComhiringLoad()
+        public PageModelView<ComHirViewModel> GetComhiringLoad()
         {
             List<ComHirViewModel> list = new List<ComHirViewModel>();
-            var pagemodel = new PageModel<ComHirViewModel>();
+            var pagemodel = new PageModelView<ComHirViewModel>();
 
             list.Add(new ComHirViewModel { id=1,DealerName = "แมกไม้ ผลดี", PayCommissionTo = "เกริกกล้า แก้วใจ", AbsorbTax = "01", CommissionRate = 100.12, MaxRate = 11.10, CommissionTerm = 10.12, MaxTerm = 10, CommissionVATNo = 200.10, InterestRate = 300.20, CommissionVATDate = Convert.ToDateTime("17-07-2015"), HiringChargeIncludeVAT = 400.30, AmountVAT = 500.40, AmountIncludeVAT = 600.50, WithHoldTaxAmount = 700.60, NetPaid = 800.70, StandardInterestRate = 900.80, Campaign = "Campaign1" });
             list.Add(new ComHirViewModel { id=2,DealerName = "อิ่มเอิบ เกิดกลาย", PayCommissionTo = "ทิพวรรณ นำคุณ", AbsorbTax = "02", CommissionRate = 200.12, MaxRate = 12.20, CommissionTerm = 20.12, MaxTerm = 20, CommissionVATNo = 300.10, InterestRate = 400.20, CommissionVATDate = Convert.ToDateTime("10-07-2015"), HiringChargeIncludeVAT = 500.30, AmountVAT = 600.40, AmountIncludeVAT = 700.50, WithHoldTaxAmount = 800.60, NetPaid = 900.70, StandardInterestRate = 1000.80, Campaign = "Campaign2" });

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Com.Ktbl.FontHP.Domain.Common;
 using NHibernate.Criterion;
 using Com.Ktbl.FontHP.Domain;
+using Com.Ktbl.FontHP.Domain.ViewsModel;
+
+
 
 namespace Com.Ktbl.FontHP.Map.Repository
 {
@@ -90,5 +93,33 @@ namespace Com.Ktbl.FontHP.Map.Repository
                 throw;
             }
         }
+
+        #region bind grid 20150915
+        //public List<MainLeadModel> GetLeadHeader()
+        //{
+        //    using (var session = SessionFactory.OpenStatelessSession())
+        //    using (var tx = session.BeginTransaction())
+        //    {
+
+        //        var Province = session.QueryOver<ProvinceDomain>().List<ProvinceDomain>();
+        //        var LeadHeader = session.QueryOver<LeadHeaderDomain>().List<LeadHeaderDomain>();
+
+        //        var result = (from a in LeadHeader
+        //                      join b in Province on a.CustomerProvinceId equals b.ProvinceId
+        //                      select new MainLeadModel { BranchId = a.BranchCode, BranchName = a.BranchName, CusSurName = b.ProvinceName }).ToList<MainLeadModel>();
+        //                        /*
+        //                         into joined
+        //                         from j in joined.DefaultIfEmpty()
+        //                        select new 
+        //                        {
+        //                            a.LeadNo,
+        //                            j.ProvinceName
+        //                        };
+        //                         * */
+        //            var sb = result.Count();
+        //            return null;// result.ToList<MainLeadModel>();
+        //    }
+        //}
+        #endregion
     }
 }
