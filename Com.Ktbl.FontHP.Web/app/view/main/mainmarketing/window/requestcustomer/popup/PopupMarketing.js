@@ -36,6 +36,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
     },
     autoShow: true,
     width: 800,
+    height:800,
     title: 'ค้นหาข้อมูลเจ้าหน้าที่การตลาด',
     modal: true,
     layout: {

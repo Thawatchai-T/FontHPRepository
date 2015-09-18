@@ -106,20 +106,57 @@ namespace Com.Ktbl.FontHP.Map.Repository
 
         //        var result = (from a in LeadHeader
         //                      join b in Province on a.CustomerProvinceId equals b.ProvinceId
-        //                      select new MainLeadModel { BranchId = a.BranchCode, BranchName = a.BranchName, CusSurName = b.ProvinceName }).ToList<MainLeadModel>();
-        //                        /*
-        //                         into joined
-        //                         from j in joined.DefaultIfEmpty()
-        //                        select new 
-        //                        {
-        //                            a.LeadNo,
-        //                            j.ProvinceName
-        //                        };
-        //                         * */
-        //            var sb = result.Count();
-        //            return null;// result.ToList<MainLeadModel>();
+        //                     select new MainLeadModel { BranchId = a.BranchCode, BranchName = a.BranchName, CusSurName = b.ProvinceName }).ToList<MainLeadModel>();
+        //        /*
+        //         into joined
+        //         from j in joined.DefaultIfEmpty()
+        //        select new 
+        //        {
+        //            a.LeadNo,
+        //            j.ProvinceName
+        //        };
+        //         * */
+        //        var sb = result.Count();
+        //        return null;// result.ToList<MainLeadModel>();
         //    }
         //}
         #endregion
+
+
+
+        public List<object[]> JoinWithOutMap()
+        {
+            try
+            {
+
+                using (var session = SessionFactory.OpenStatelessSession())
+                using (var tx = session.BeginTransaction())
+                { 
+                    LeadHeaderDomain obj1 =null;
+                    LeadMktDomain obj2 = null;
+                    var query = QueryOver.Of<LeadMktDomain>(()=>obj2)
+                        .Select(Projections.ProjectionList()
+                                           .Add(Projections.Property<LeadMktDomain>(x => x.MktCode))
+                                           //.Add(Projections.Property<LeadMktDomain>(x => x.MktName))
+
+                                 
+                                )
+                                .Where(Restrictions.EqProperty("obj2.MktCode", "obj1.MarketingCode") && Restrictions.IsNotNull("obj2.MktName"));
+
+                    var result = session.QueryOver<LeadHeaderDomain>(() => obj1)
+                                .Select(Projections.ProjectionList()
+                                        .Add(Projections.Property<LeadHeaderDomain>(x => x.MarketingCode))
+                                        .Add(Projections.Property<LeadHeaderDomain>(x => x.AdviserName))
+                                        .Add(Projections.SubQuery(query)))
+                                .List<object[]>();
+
+                    return result as List<object[]>;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -37,6 +37,9 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
     },
     autoShow: true,
     width: 850,
+    height: 850,
+    resizable: false,
+    modal:true,
     title: 'ค้นหาข้อมูลผู้แนะนำ',
 
     layout: {
@@ -60,7 +63,8 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
                     xtype: 'form',
                     defaults: {
                         labelAlign: 'right',
-                        labelWidth: 190
+                        labelWidth: 190,
+                        Width:450
                     },
                     bodyPadding: 5,
                     iconCls: 'icon-details',

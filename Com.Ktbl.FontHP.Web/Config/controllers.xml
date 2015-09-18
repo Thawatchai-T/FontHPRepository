@@ -15,6 +15,7 @@
     <property name="OccupationRepository"  ref="occupationRepository" />
     <property name="LeadHeaderRepository"  ref="leadHeaderRepository" />
     <property name="LeadMarketingRepository"  ref="leadMarketingRepository" />
+     <property name="ThirdPartyMarketingRepository"  ref="thirdPartyMarketingRepository" />
     
   </object>
   

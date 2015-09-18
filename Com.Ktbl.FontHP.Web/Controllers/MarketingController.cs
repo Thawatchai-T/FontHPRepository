@@ -27,6 +27,7 @@ namespace Com.Ktbl.FontHP.Web.Controllers
         public IOccupationRepository OccupationRepository { get; set; }
         public ILeadMarketingRepository LeadMarketingRepository { get; set; }
         public LeadHeaderRepository LeadHeaderRepository { get; set; }
+        public ThirdPartyMarketingRepository ThirdPartyMarketingRepository { get; set; }
       // public void Test(DateTime  StartDate,DateTime  Enddate,string RequestNo,string StatusRequest,string CitizenID,string Cusname,string Branch)
         public void Test (SearchRequest obj)
         {
@@ -142,9 +143,19 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             {
                 PageModel<MarketingModel> pagemd = new PageModel<MarketingModel>();
                 List<MarketingModel> lmkt = new List<MarketingModel>();
-                lmkt = ManageMarketing(lmkt, text);
-                pagemd.items = lmkt.Skip(start).Take(limit).ToList<MarketingModel>();
-                pagemd.total = lmkt.Count;
+                var result = LeadMarketingRepository.GetById(text);
+                pagemd.total = result.Count();
+
+                lmkt = result.Select(x => new MarketingModel
+                {
+                    id = x.EmpId,
+                    MarketingCode = x.MktCode,
+                    MarketingName = string.Format("{0} ({1})", x.MktName, x.MktNickName),
+                    PhoneNo = x.TelNumber
+                }).Skip(start).Take(limit).ToList<MarketingModel>();
+
+                pagemd.items = lmkt;
+
                 return pagemd;
             }
             catch (Exception)
@@ -175,15 +186,11 @@ namespace Com.Ktbl.FontHP.Web.Controllers
 
         #region Bind Data grid 20150827
         #region insert PageModel 20150917
-        public PageModel<GridLead> GetGridLeaderLoad(int start, int limit, int page, string text)
+        public PageModel<GridLead> GetGridLeaderLoad(int start, int limit, int page)
         {
             try
             {
-                PageModel<GridLead> pagemd = new PageModel<GridLead>();
-                List<GridLead> list = new List<GridLead>();
-                list = GetGridLeaderLoad();
-                pagemd.items = list.Skip(start).Take(limit).ToList<GridLead>();
-                pagemd.total = list.Count;
+                PageModel<GridLead> pagemd = LeaderProcess(start, limit);
                 return pagemd;
             }
             catch (Exception)
@@ -193,6 +200,65 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             }
 
         }
+
+        /// <summary>
+        /// [20150918] Add by Woody.
+        /// Method search form popup 
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="limit"></param>
+        /// <param name="QImportId"></param>
+        /// <param name="QLeadId"></param>
+        /// <param name="QLeadName"></param>
+        /// <returns>result search</returns>
+        /// &importid=&leadid=&leadname=วิรัตน์&page=1&start=0&limit=20
+        public PageModel<GridLead> GetGridLeaderLoad(int start, int limit, string leadname, string leadid, string importid)
+        {
+            try
+            {
+                PageModel<GridLead> pagemd = LeaderProcess(start, limit, importid, leadid, leadname);
+                return pagemd;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+
+        /// <summary>
+        ///  [20150918] Add by Woody. 
+        ///  Method core search Leader popup.
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="limit"></param>
+        /// <returns>pagemode</returns>
+        private PageModel<GridLead> LeaderProcess(int start, int limit, string importid = null, string leadid = null, string leadname = null)
+        {
+            PageModel<GridLead> pagemd = new PageModel<GridLead>();
+            List<GridLead> list = new List<GridLead>();
+            var LeadHeader = LeadHeaderRepository.GetAll();
+            var LeadMkt = LeadMarketingRepository.GetAllMarketing();
+            var guery = (from lh in LeadHeader
+                         join lm in LeadMkt on lh.MarketingCode equals lm.MktCode
+                         select new GridLead { ImportId = lh.LeadNo, CusName = lh.CustomerName, CusSurName = lh.CustomerSurName, LeadNo = lm.MktCode, LeadNameGrid = lm.MktName, LeadSurNameGrid = lm.MktName, BranchId = lh.BranchCode, BranchName = lh.BranchName }).ToList<GridLead>();
+            //if (!string.IsNullOrEmpty(importid) || !string.IsNullOrEmpty(leadid) || !string.IsNullOrEmpty(leadname))
+            //{
+            //    if (!string.IsNullOrEmpty(importid))
+            //        guery = guery.Where(x => x.ImportId == importid);
+            //    if(!string.IsNullOrEmpty(leadid))
+            //        guery = guery.Where(x => x.LeadNo == leadid);
+            //    if(!string.IsNullOrEmpty(leadname))
+            //        guery = guery.Where(x => x.LeadNameGrid.Contains(leadname));
+                
+            //}
+          //  IQueryable<GridLead> query = guery;
+            pagemd.items = guery.Skip(start).Take(limit).ToList<GridLead>();
+            pagemd.total = guery.ToList<GridLead>().Count;
+            return pagemd;
+        }
         #endregion
         public List<GridLead> GetGridLeaderLoad()
         {
@@ -201,31 +267,31 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             list.Add(new GridLead { Id = 2, ImportId = "0000002", CusName = "พัชราภา", CusSurName = "ไชยเชื้อ", LeadNo = "07-0283", LeadNameGrid = "วาสนา", LeadSurNameGrid = "ริบแจ่ม", BranchId = "000001", BranchName = "สำนักงานใหญ่" });
 
             
-            return list;
+            return null;
         }
         //add searchLead 20150831
-        public PageModel <GridLead> GetGridLeaderLoad(int start, int limit, int page, string importid, string leadid, string leadname)
-        {
-            PageModel<GridLead> pagemd = new PageModel<GridLead>();
-            List<GridLead> lstserch = new List<GridLead>();
-            lstserch = GetGridLeaderLoad(); 
-            if (!string.IsNullOrEmpty(importid))
-            {
-                lstserch = lstserch.Where(l => l.ImportId.Equals(importid)).ToList<GridLead>();;
-            }
-            if (!string.IsNullOrEmpty(leadid))
-            {
-                lstserch = lstserch.Where(l => l.LeadNo.Equals(leadid)).ToList<GridLead>();
-            }
-            if (!string.IsNullOrEmpty(leadname))
-            {
-                lstserch = lstserch.Where(l => l.LeadNameGrid.Equals(leadname)).ToList<GridLead>();
-            }
+        //public PageModel <GridLead> GetGridLeaderLoad(int start, int limit, int page, string importid, string leadid, string leadname)
+        //{
+        //    PageModel<GridLead> pagemd = new PageModel<GridLead>();
+        //    List<GridLead> lstserch = new List<GridLead>();
+        //    lstserch = GetGridLeaderLoad(); 
+        //    if (!string.IsNullOrEmpty(importid))
+        //    {
+        //        lstserch = lstserch.Where(l => l.ImportId.Equals(importid)).ToList<GridLead>();;
+        //    }
+        //    if (!string.IsNullOrEmpty(leadid))
+        //    {
+        //        lstserch = lstserch.Where(l => l.LeadNo.Equals(leadid)).ToList<GridLead>();
+        //    }
+        //    if (!string.IsNullOrEmpty(leadname))
+        //    {
+        //        lstserch = lstserch.Where(l => l.LeadNameGrid.Equals(leadname)).ToList<GridLead>();
+        //    }
 
-            pagemd.items = lstserch.Skip(start).Take(limit).ToList<GridLead>();
-            pagemd.total = lstserch.Count;
-            return pagemd;
-        }
+        //    pagemd.items = lstserch.Skip(start).Take(limit).ToList<GridLead>();
+        //    pagemd.total = lstserch.Count;
+        //    return pagemd;
+        //}
         #endregion
 
         #region add manange PopupDealer 20150901
@@ -356,6 +422,8 @@ namespace Com.Ktbl.FontHP.Web.Controllers
             return true;
         }
         #endregion
+
+
     }
         
 }

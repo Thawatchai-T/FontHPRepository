@@ -55,5 +55,9 @@
             type="Com.Ktbl.FontHP.Map.Repository.LeadHeaderRepository, Com.Ktbl.FontHP.Map">
     <property name="SessionFactory"  ref="ssfactory"/>
   </object>
-  
+  <!--ThirdPartyMarketingRepository-->
+  <object id="thirdPartyMarketingRepository"
+              type="Com.Ktbl.FontHP.Map.Repository.ThirdPartyMarketingRepository, Com.Ktbl.FontHP.Map">
+    <property name="SessionFactory"  ref="ssfactory"/>
+  </object>
 </objects>

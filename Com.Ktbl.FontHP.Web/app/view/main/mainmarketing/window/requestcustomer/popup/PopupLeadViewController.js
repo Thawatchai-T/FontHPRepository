@@ -30,6 +30,7 @@ Ext.define('FrontHPApp.view.main.mainmarketing.window.requestcustomer.popup.Popu
         store.getProxy().setExtraParam('leadid', form.findField('QLeadId').getValue());
         store.getProxy().setExtraParam('leadname', form.findField('QLeadName').getValue());
         store.load();
+        
     },
 
     onClearClick: function(button, e, eOpts) {

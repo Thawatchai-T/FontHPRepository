@@ -29,7 +29,7 @@ Ext.define('FrontHPApp.store.marketModels', {
             storeId: 'marketModels',
             //autoLoad:true,
             model: 'FrontHPApp.model.MarketModel',
-            
+            pageSize:20,
             proxy: {
                 type: 'rest',
                 url: 'api/Marketing/GetMarketing',
