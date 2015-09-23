@@ -14,6 +14,11 @@ namespace Com.Ktbl.FontHP.Map.Repository.Request
     }
     public class RequestStatusRepository : NhRepository, IRequestStatusRepository
     {
+        public RequestStatusRepository(){
+
+            HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
+
+        }
         public int TotalRowCount { get; set; }
 
         public List<RequestStatusDomain> GetRequestStatusByRequestNo(string requestno)

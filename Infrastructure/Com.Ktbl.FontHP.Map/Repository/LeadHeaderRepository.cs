@@ -138,8 +138,6 @@ namespace Com.Ktbl.FontHP.Map.Repository
                         .Select(Projections.ProjectionList()
                                            .Add(Projections.Property<LeadMktDomain>(x => x.MktCode))
                                            //.Add(Projections.Property<LeadMktDomain>(x => x.MktName))
-
-                                 
                                 )
                                 .Where(Restrictions.EqProperty("obj2.MktCode", "obj1.MarketingCode") && Restrictions.IsNotNull("obj2.MktName"));
 

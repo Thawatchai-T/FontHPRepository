@@ -35,6 +35,9 @@
     <Reference Include="FluentNHibernate">
       <HintPath>..\..\packages\FluentNHibernate.2.0.1.0\lib\net40\FluentNHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="HibernatingRhinos.Profiler.Appender">
+      <HintPath>..\..\..\..\_DevTools\NHibernate.Profiler-v2.0-Build-2066\HibernatingRhinos.Profiler.Appender.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -55,12 +58,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Map\BrandMap.cs" />
+    <Compile Include="Map\Customer\CustomerMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Map\DistrictMap.cs" />
     <Compile Include="Map\EntrelMap.cs" />
     <Compile Include="Map\FamilyMap.cs" />
     <Compile Include="Map\LeadMktMap.cs" />
     <Compile Include="Map\RBVehicleMap.cs" />
     <Compile Include="Map\RequestStatusMap.cs" />
+    <Compile Include="Map\Request\RequestComHiringMap.cs" />
+    <Compile Include="Map\Request\RequestComInMap.cs" />
+    <Compile Include="Map\Request\RequestMap.cs" />
+    <Compile Include="Map\Request\RequestPaydealerMap.cs" />
     <Compile Include="Map\SubCareerMap.cs" />
     <Compile Include="Map\MainRequestMap.cs" />
     <Compile Include="Map\OccupationCatelogyMap.cs" />
@@ -75,6 +85,7 @@
     <Compile Include="Map\ThirdPartyMarketingMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Common\CommonRepository.cs" />
+    <Compile Include="Repository\Customer\CustomerRepository.cs" />
     <Compile Include="Repository\EntrelRepository.cs" />
     <Compile Include="Repository\Redbook\BrandRepository.cs" />
     <Compile Include="Repository\CareerRepository.cs" />
@@ -86,6 +97,9 @@
     <Compile Include="Repository\ProvinceRepository.cs" />
     <Compile Include="Repository\Redbook\RBVehicleRepository.cs" />
     <Compile Include="Repository\Redbook\FamilyRepository.cs" />
+    <Compile Include="Repository\Request\RequestPaydealerRepository.cs" />
+    <Compile Include="Repository\Request\RequestComInRepository.cs" />
+    <Compile Include="Repository\Request\RequestComHiringRepository.cs" />
     <Compile Include="Repository\Request\RequestStatusRepository.cs" />
     <Compile Include="Repository\LeadHeaderRepository.cs" />
     <Compile Include="Repository\ThirdPartyMarketingRepository.cs" />
